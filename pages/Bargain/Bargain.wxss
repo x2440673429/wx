@@ -1,0 +1,191 @@
+/* pages/Bargain/Bargain.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(left,#FE4935,#FC8235);
+}
+.top{
+  display: flex;
+  justify-content: center;
+}
+/* 顶部白色框 */
+.top_box{
+  width: 702rpx;
+  height: 303rpx;
+  margin-top: 17rpx;
+  margin-bottom: 43rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 12rpx 0 41rpx;
+  box-sizing: border-box; 
+}
+/* 用户 */
+.top_box .user{
+  /* height: 70rpx; */
+  display: flex;
+  width: 654rpx;
+  align-items: center;
+  margin-bottom: 8rpx;
+
+}
+.top_box .user image{
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 30rpx;
+}
+.top_box .user .username{
+  font-size: 24rpx;
+}
+.top_box .user .username .name{
+  color: #808080;
+}
+.top_box .user .username .text{
+  color: #333;
+  /* margin-top: 8rpx; */
+}
+/* 产品 */
+.top_box .product_box{
+  display: flex;
+  width: 654rpx;
+  margin: auto;
+}
+.top_box .product_box image{
+  width: 178rpx;
+  height: 172rpx;
+  margin-right: 21rpx;
+}
+.top_box .product_box .product{
+  width: 448rpx;
+}
+.top_box .product_box .product  .name{
+  width: 418rpx;
+  font-size: 28rpx;
+  color: #333;
+  margin-top: 10rpx;
+}
+.top_box .product_box .product .mn {
+  display: flex;
+  justify-content: space-between;
+}
+.top_box .product_box .product .mn .money{
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #ff4735;
+  margin-top: 50rpx;
+}
+.top_box .product_box .product .mn .number{
+  font-size: 24rpx;
+  color: #333;
+  margin-top: 65rpx;
+}
+.center{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+/* 砍掉的钱 */
+.speedofprogress{
+  font-size: 34rpx;
+  color: #fff;
+  text-align: center;
+}
+/* 还差多少钱 */
+.speedofprogress text{
+  color: #e4ff00;
+}
+/* 进度条 */
+.Progress{
+  width: 613rpx;
+  height: 24rpx;
+  background: #d22d1d;
+  position: relative;
+  margin: 34rpx auto 65rpx;
+  border-radius: 12rpx;
+}
+.Progress .bar{
+  border-radius: 12rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 304rpx;
+  height: 24rpx;
+  background: #e4ff00;
+}
+
+/* 分享好友 */
+.share{
+  width: 708rpx;
+  height: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+  background: #e4ff00;
+  color: #b27100;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  box-shadow: 0 10rpx 10rpx  2rpx #B27100;
+}
+/* 剩余时间 */
+.time{
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 54rpx 0 44rpx;
+}
+/* 帮砍框 */
+.BargainingGang{
+ width: 100%;
+}
+.BargainingGang .Gang{
+  text-align: center;
+  color: #e4ff00;
+  margin-bottom: 16rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+}
+.BargainingGang .BargainingGang_box {
+  width: 702rpx;
+  height: 205rpx;
+  margin: auto;
+  background: -webkit-linear-gradient(left,#FE5F35,#FE5F35)
+}
+.BargainingGang .BargainingGang_box .BargainingGang_one{
+  width: 100%;
+  height: 102rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.BargainingGang .BargainingGang_box .BargainingGang_one image{
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 30rpx;
+}
+.BargainingGang .BargainingGang_box .BargainingGang_one .BargainingGang_name{
+  width: 533rpx;
+  position: relative; 
+}
+.BargainingGang .BargainingGang_box .BargainingGang_one .BargainingGang_name .username{
+  font-size: 24rpx;
+  color: #fff;
+}
+.BargainingGang .BargainingGang_box .BargainingGang_one .BargainingGang_name  .usertext{
+  font-size: 24rpx;
+  color: #fff;
+  margin-top: 13rpx;
+}
+.BargainingGang .BargainingGang_box .BargainingGang_one .BargainingGang_name  .usermonet{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  font-size: 24rpx;
+  color: #e4ff00;
+  margin-top: -12rpx;
+}
+.rule{
+text-align: center;
+margin-top: 211rpx;
+margin-bottom: 50rpx;
+color: #e4ff00;
+font-size: 28rpx;
+}

@@ -1,0 +1,65 @@
+/* pages/Selection/Selection.wxss */
+/* 甄选砍价 */
+.top{
+  width: 100%;
+  height: 353rpx;
+  margin-bottom: 32rpx;
+}
+.top image{
+  width: 100%;
+  height: 100%;
+}
+/* 产品 */
+.product_box{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.product{
+  width: 702rpx;
+  position: relative;
+  margin-bottom: 55rpx;
+  display: flex;
+  align-items: center;
+}
+.product image{
+  width: 206rpx;
+  height: 206rpx;
+  margin-right: 44rpx;
+}
+.product .product_txt{
+  width: 456rpx;
+  height: 206rpx;
+}
+.product .product_txt .name{
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+.product .product_txt .text{
+  font-size: 20rpx;
+  color: #4d4d4d;
+  width: 393rpx;
+  margin: 14rpx 0 55rpx;
+}
+.product .product_txt .send{
+  font-size: 28rpx;
+  color: #029a47;
+  font-weight: 700;
+  display: flex;
+  align-items:flex-end;
+}
+.product .product_txt .send .number{
+  font-size: 34rpx;
+}
+.product .product_txt .send .click{
+  display: inline-block;
+  border-radius: 25rpx;
+  width: 164rpx;
+  height: 50rpx;
+  background: #029a47;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  text-align: center;
+  margin-left: 99rpx;
+}

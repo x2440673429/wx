@@ -1,0 +1,39 @@
+<!--pages/shop/shop.wxml-->
+<!-- 头部搜索 -->
+<view class="search_box">
+  <view class="search">
+    <van-icon name="search"  class="icon"/>
+    <input value="{{value}}" placeholder="输入您当前要搜索的商品" ></input>
+  </view>
+</view>
+<!-- 店铺 -->
+<view class="oneofshop" wx:for='{{shop}}' wx:key='{{index}}'>
+  <view class="shop_box" >
+    <view class="shop_top">
+      <image src="{{item.headportrait}}" class="shoplogo"></image>
+      <view class="shop">
+      <view class="shop_left">
+          <view class="shopname">{{item.shopname}}</view>
+          <view class="score">
+            <van-rate
+              readonly
+              value="{{ item.branch }}"
+              bind:change="onChange"
+              count='5'
+              size='15'
+              color="#029a47"
+            />
+          </view>
+          <view class="number">{{item.number}}万人收藏</view>
+        </view>
+        <view class="intoshop">进店</view>
+      </view>
+    </view>
+    <view class="shop_bottom">
+      <view class="product"  wx:for='{{item.product}}' wx:for-index='key'wx:for-item="product" >
+        <image src="{{product.img}}"></image>
+        <view class="money">￥{{product.money}}</view>
+      </view>
+    </view>
+  </view>
+</view>

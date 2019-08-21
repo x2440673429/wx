@@ -1,0 +1,17 @@
+<!--pages/Selection/Selection.wxml-->
+<!-- 顶部图片 -->
+<view class="top">
+  <image src="../../image/1首页/kanjia@2x.png"></image>
+</view>
+<!-- 产品 -->
+<view class="product_box">
+  <view class="product" wx:for='{{productinof}}' wx:key='{{index}}'>
+    <image src="{{item.image}}"></image>
+    <view class="product_txt">
+      <view class="name">{{item.name}}</view>
+      <view class="text">{{item.text}}</view>
+      <view class="send">已送出<text class="number">{{item.number}}万</text>件<text class="click">点击免费拿</text></view>
+    </view>
+  </view>
+</view>
+

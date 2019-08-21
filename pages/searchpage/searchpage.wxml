@@ -1,0 +1,17 @@
+<!-- 搜索框 -->
+<view class="box">
+  <view class="search_box">
+    <input value="{{value}}" placeholder="请输入关键字"></input>
+    <text class="search">搜索</text>
+  </view>
+</view>
+
+<!-- 历史记录 -->
+<view class="history">
+  <view>历史记录</view>
+  <image src="../../image/1首页/shanchu@2x.png"></image>
+</view>
+<!-- 历史记录框 -->
+<view class="history_box">
+  <view class="HistoricalRecords" wx:for='{{arr}}' wx:key='{{index}}'>{{item}}</view>
+</view>

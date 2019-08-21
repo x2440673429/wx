@@ -1,0 +1,16 @@
+<!--pages/details/details.wxml-->
+<view class="img">
+  <image src="../../image/1首页/morenshangpin@2x.png"></image>
+</view>
+<view class="shop_box">
+  <view class="shop_left">
+    <view class="shopname">{{shopname}}</view>
+    <view class="text">{{text}}</view>
+    <view class="money">￥{{money}}<text class="oldmoney">￥{{oldmoney}}</text><text class="Stock">库存:{{number}}</text></view>
+  </view>
+  <view  class="shop_right">
+  <image src="../../image/4我的/fenxiang@2x.png"></image>
+  <text>分享</text>
+  </view>
+</view>
+
