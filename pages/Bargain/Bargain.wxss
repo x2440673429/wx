@@ -18,6 +18,9 @@ page{
   border-radius: 10rpx;
   padding: 12rpx 0 41rpx;
   box-sizing: border-box; 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 /* 用户 */
 .top_box .user{
@@ -47,7 +50,6 @@ page{
 .top_box .product_box{
   display: flex;
   width: 654rpx;
-  margin: auto;
 }
 .top_box .product_box image{
   width: 178rpx;
@@ -147,7 +149,8 @@ page{
   width: 702rpx;
   height: 205rpx;
   margin: auto;
-  background: -webkit-linear-gradient(left,#FE5F35,#FE5F35)
+  background: -webkit-linear-gradient(left,#FE5F35,#FE5F35);
+  border-radius: 5rpx;
 }
 .BargainingGang .BargainingGang_box .BargainingGang_one{
   width: 100%;

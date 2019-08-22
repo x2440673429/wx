@@ -9,17 +9,23 @@
   <!-- 标签页及内容 -->
   <view class="tabnav">
     <van-tabs active="{{ active }}" bind:change="onChange" line-width='105rpx' color='#029a47' border='ture' line-width='52'>
-      <van-tab title="综合">
-        <view class="product">
-        <view class="Oneoftheproducts" wx:for='{{productinof}}' wx:key='{{index}}'>
-          <image src="{{item.image}}" class="log"></image>
-          <view class="name">{{item.name}}</view>
-          <view class="money">￥{{item.money}}<text>已售{{item.number}}件</text><image src="../../image/1首页/gouwuche1@2x.png"></image></view>
-        </view>
-      </view>
-    </van-tab>
+      <van-tab title="综合"></van-tab>
       <van-tab title="销售"></van-tab>
       <van-tab title="新品"></van-tab>
       <van-tab title="价格"></van-tab>
     </van-tabs>
+  </view>
+  <view class="product">
+    <view class="Oneoftheproducts" wx:for='{{productinof}}' wx:key='{{index}}'>
+      <image src="{{item.image}}" class="log"></image>
+      <view class="name">{{item.name}}</view>
+      <view class="money">
+      <view>
+        ￥{{item.money}}
+        
+        <text>已售{{item.number}}件</text>
+      </view>
+      
+      <image src="../../image/1首页/gouwuche1@2x.png"></image></view>
+    </view>
   </view>

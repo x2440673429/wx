@@ -13,7 +13,7 @@ page{
 .searchinput input{
   width: 575rpx;
   height: 60rpx;
-  border-radius: 15rpx;
+  border-radius: 50rpx;
   padding-left: 30rpx;
   font-size: 28rpx;
   color: rgb(25,25,25);
@@ -44,6 +44,7 @@ page{
   padding: 19rpx 0;
   background: #fff;
   margin-top: 20rpx;
+  border-radius: 10rpx;
 }
 .product .Oneoftheproducts:nth-child(even){
   margin-left: 23rpx;
@@ -64,11 +65,15 @@ page{
   padding-left: 16rpx;
   font-weight: 900;
   box-sizing: border-box;
+  padding-right: 21rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .product .Oneoftheproducts .money text{
   font-size: 20rpx;
   color: #b3b3b3;
-  margin: 0 69rpx 0 21rpx;
+  margin-left: 21rpx;
 }
 .product .Oneoftheproducts .money image{
   width: 30rpx;

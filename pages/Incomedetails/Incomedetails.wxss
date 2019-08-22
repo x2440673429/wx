@@ -1,0 +1,33 @@
+/* pages/Incomedetails/Incomedetails.wxss */
+page{
+  background: #F2F3F8;
+}
+/* 收益 */
+.box{
+  width: 100%;
+  padding: 24rpx 32rpx;
+  box-sizing: border-box;
+  height: 111rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(240, 240, 240);
+  background: #fff;
+}
+.box .left{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.box .left .state{
+  font-size: 28rpx;
+  color: #333333;
+}
+.box .left .time{
+  font-size: 24rpx;
+  color: #8b8b8b;
+}
+.box .right{
+  font-size: 34rpx;
+  color: #029a47
+}

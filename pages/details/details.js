@@ -5,13 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
+    img:'../../image/1首页/morenshangpin@2x.png',
     shopname:'山东烟台大樱桃车厘子新鲜水果',
     text:'[扶农]民勤大樱桃',
     money:'99.98',
     oldmoney:'190.99',
     number:'4565',
+    assemblename:'李思思',
+    address:'福建省厦门市湖里区高薪技术园',
+    show: false,
+    pay:''
   },
-
+  onClose() {
+    this.setData({ show: false });
+  },
+  selfpurchase:function(e){
+    console.log(e)
+    let pay=e.currentTarget.dataset.pay
+    var that=this
+    if(pay=='1'){
+        that.setData({
+          pay:'立即购买'
+        })
+    }else{
+      that.setData({
+        pay: '开团购买'
+      })
+    }
+    this.setData({ show: true });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

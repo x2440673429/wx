@@ -1,0 +1,12 @@
+<!--pages/browserecords/browserecords.wxml-->
+<view class="browserecords" wx:for='{{browserecords}}' wx:key='{{index}}'>
+  <view class="data">{{item.data}}</view>
+  <view class="product" wx:for='{{item.product}}' wx:key='{{id}}' wx:for-item='product' wx:index-item='id'>
+    <image src="../../image/4我的/xiaotuop@2x.png"></image>
+    <view class="product_box">
+      <view class="productname">{{product.productname}}</view>
+      <view class="money">￥{{product.money}}</view>
+    </view>
+  </view>
+</view>
+<view class="edit">编辑</view>

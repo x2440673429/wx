@@ -1,0 +1,12 @@
+<!--pages/myactivities/myactivities.wxml-->
+<!-- 我的活动 -->
+<view wx:for='{{activity}}' wx:key='{{index}}'>
+  <view class="leftactivity">
+    <image src="{{item.leftimg}}"></image>
+    <view>{{item.leftname}}</view>
+  </view>
+  <view class="rightactivity">
+    <image src="{{item.rightimg}}"></image>
+    <view>{{item.rightname}}</view>
+  </view>
+</view>

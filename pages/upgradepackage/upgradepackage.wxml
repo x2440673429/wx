@@ -1,0 +1,21 @@
+<!--pages/upgradepackage/upgradepackage.wxml-->
+<!-- 顶部图片 -->
+<view class="top">
+  <image src="../../image/4我的/shengjilibao@2x.png"></image>
+</view>
+
+<!-- 产品 -->
+
+  <view class="product" wx:for='{{product}}' wx:key='{{index}}'>
+    <image src="{{item.image}}"></image>
+    <view class="product_txt">
+      <view>
+        <view class="name">{{item.name}}</view>
+        <view class="text">{{item.text}}</view>
+      </view>
+      <view class="bottom">
+        <view class="money">￥{{item.money}}</view>
+        <view class="shopping">购买升级</view>
+      </view>
+    </view>
+  </view>

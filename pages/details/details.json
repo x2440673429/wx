@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "van-popup": "/vant/dist/popup/index"
+  }
 }

@@ -44,6 +44,7 @@ page{
   box-sizing: border-box;
   background: #fff;
   margin-top: 19rpx;
+  border-radius: 10rpx;
 }
 /* 店铺名称 头像等 */
 .oneofshop .shop_box .shop_top{

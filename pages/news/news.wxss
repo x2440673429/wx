@@ -1,0 +1,31 @@
+/* pages/news/news.wxss */
+.messagetitle{
+  font-size: 36rpx;
+  color: #191919;
+  text-align: center;
+  margin: 33rpx 0 70rpx 0;
+}
+.quarantine{
+  text-align: center;
+  font-size: 28rpx;
+  color: #191919;
+  margin-bottom: 58rpx;
+}
+.news{
+  width: 697rpx;
+  font-size: 28rpx;
+  color: #191919;
+  line-height: 59rpx;
+  margin: auto;
+}
+/* 时间 */
+.time{
+  margin-top: 118rpx;
+  font-size: 28rpx;
+  color: #191919;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}

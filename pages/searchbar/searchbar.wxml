@@ -1,0 +1,24 @@
+<!--pages/searchbar/searchbar.wxml-->
+<!-- 头部搜索框 -->
+<van-nav-bar
+  left-text=""
+  right-text=""
+  left-arrow
+  fixed
+  bind:click-left="onClickLeft"
+  border="{{false}}"
+>
+  <view slot="title"  class="toptit">
+    <image src="../../image/1首页/sousuo.png" class='topimg'></image>
+    <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品"/>
+  </view>
+</van-nav-bar>
+
+<!-- tab标签页 -->
+<van-tree-select
+  items="{{ items.name }}"
+  main-active-index="{{ mainActiveIndex }}"
+  active-id="{{ items.id }}"
+  bind:click-nav="onClickNav"
+  bind:click-item="onClickItem"
+/>

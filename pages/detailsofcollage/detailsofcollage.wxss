@@ -1,0 +1,204 @@
+/* pages/detailsofcollage/detailsofcollage.wxss */
+/* 产品 */
+.big_box{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.product_box{
+  width: 703rpx;
+  height: 263rpx;
+  padding: 24rpx 59rpx 33rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 10rpx rgba(0, 0, 0, 0.1);
+  margin-top: 26rpx;
+}
+.product_box image{
+  width: 206rpx; 
+  height: 206rpx;
+  margin-right: 44rpx;
+}
+.product_box .product{
+  flex: 1;
+  font-size: 20rpx;
+}
+.product_box .product .productname{
+    font-size: 28rpx;
+    color: #1a1a1a;
+} 
+.product_box .product .text{
+  color: #4d4d4d;
+  width: 393rpx;
+  margin-top: 10rpx;
+}
+.product_box .product .towgroup{
+  width: 65rpx;
+  height: 25rpx;
+  text-align: center;
+  line-height: 25rpx;
+  background: #f8d6d5;
+  color: #e2696b;
+  margin: 10rpx 0 20rpx;
+}
+.product_box .product .money{
+  font-size: 34rpx;
+  color: #191919;
+  font-weight: bold;
+}
+.product_box .product .money text{
+  color: #029a47;
+  margin-left: 19rpx;
+  font-weight: normal;
+  font-size: 20rpx;
+}
+.product_box .product .onemoney{
+  color: #b4b4b4;
+  font-size: 24rpx;
+}
+/* 剩余时间 */
+.time{
+  display: flex;
+  justify-content: center;
+  font-size: 28rpx;
+  color: #4d4d4d;
+  align-items: center;
+  margin-top: 28rpx;
+}
+.time  .surplus{
+  margin-right: 44rpx;
+}
+.time .end{
+  margin-left: 47rpx;
+}
+.time .time_box{
+  display: flex;
+  justify-content: space-between;
+}
+.time .time_box .times{
+  width: 45rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  text-align: center;
+  color: #fff;
+  background: #4d4d4d;
+  border-radius: 10rpx;
+}
+.time .time_box text{
+  margin: 0 10rpx;
+}
+/* 邀请一人 */
+.againone{
+  font-size: 28rpx;
+  color: #1a1a1a;
+  margin-top: 46rpx;
+}
+/* 团长头像 */
+.user_box{
+  display: flex;
+  margin-top: 58rpx;
+}
+.user{
+  width: 105rpx;
+  height: 105rpx;
+  position: relative;
+}
+.user image{
+  width: 100%;
+  height: 100%;
+}
+.user view{
+  width: 86rpx;
+  height: 30rpx;
+  line-height: 30rpc;
+  text-align: center;
+  color: #fff;
+  font-size: 24rpx;
+  background: #029a47;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -43rpx;
+  border-radius: 15rpx;
+}
+.come{
+  width: 105rpx;
+  height: 105rpx;
+  border-radius: 50%;
+  background: #f2f3f8;
+  color: #d8dae6;
+  font-size: 59rpx;
+  font-weight: bold;
+  text-align: center;
+  line-height: 105rpx;
+  margin-left: 61rpx;
+}
+.addgroup{
+  font-size: 24rpx;
+  color: #1a1a1a;
+  margin-top: 65rpx;
+}
+.Joinimmediately{
+  width: 572rpx;
+  height: 88rpx;
+  background: #029a47;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 88rpx;
+  margin-top: 53rpx;
+  margin-bottom: 94rpx;
+}
+/* 拼团规则和订单详情 */
+.Doubt{
+  width: 100%;
+  padding:  31rpx 25rpx;
+  display: flex;
+  justify-content: space-between;
+  background: #f2f3f8;
+  box-sizing: border-box;
+   align-items: center;
+}
+.Doubt view{
+  font-size: 28rpx;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+}
+.Doubt view text{
+  font-size: 24rpx;
+  color: #808080;
+  margin-left: 17rpx;
+}
+.Doubt image{
+  width: 9rpx;
+  height: 16rpx;
+}
+/* 拼团规则弹出框 */
+.rule_box{
+  width: 100%;
+  height: 750rpx;
+  border-radius: 15rpx 15rpx 0 0 ;
+  padding: 36rpx 35rpx 66rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+.rule_box .rule{
+  text-align: center;
+}
+.rule_box .step{
+  margin: 45rpx 0 66rpx;
+}
+.rule_box .step text{
+  color: #7f7f7f;
+}
+.rule_box .title{
+  margin-bottom: 30rpx;
+  margin-top: 30rpx;
+}
+.rule_box .text{
+  color: #7f7f7f;
+}

@@ -1,0 +1,35 @@
+<!--pages/selectedbrands/selectedbrands.wxml-->
+<!-- 头部搜索 -->
+<view class="top">
+  <view class='search_box'>
+    <image src="../../image/1首页/sousuo.png"></image>
+    <input placeholder="输入您当前要搜索的商品"></input>
+  </view>
+</view>
+<!-- 品牌 -->
+<view class="brand">
+  <image src="../../image/2分类/yasilandai@2x.png"></image>
+  <view class="brandbox">
+    <view class="brandname">{{brandname}}</view>
+    <view class="number">在售商品{{number}}件</view>
+  </view>
+</view>
+<!-- 品牌在售产品 -->
+<view class="product_box" wx:for='{{product}}' wx:key='{{index}}'>
+  <image src="../../image/1首页/chanpin@2x.png"></image>
+  <view class="product">
+    <view class="productname">{{item.productname}}</view>
+    <view class="text">{{item.text}}</view>
+    <view class="box"><text class="temai">特卖</text><text class="zhijiang">直降</text></view>
+    <view class="big_box">
+      <view class="Price">
+        <view class="money">￥{{item.money}}</view>
+        <view class="addmoney">赚￥{{item.addmoney}}</view>
+      </view>
+      <view class="botton">
+        <text class="quick">马上抢</text>
+        <text class="share">分享赚</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+/* pages/browserecords/browserecords.wxss */
+.browserecords{
+  display: flex;
+  flex-direction: column;
+}
+.browserecords .data{
+  padding: 28rpx 24rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #191919;
+}
+.browserecords .product{
+  padding: 13rpx 0 16rpx 7rpx;
+  box-sizing: border-box;
+  display: flex;
+  height: 224rpx;
+}
+.browserecords .product image{
+  width: 214rpx;
+  height: 195rpx;
+  margin-right: 23rpx;
+}
+.browserecords .product .product_box{
+  flex: 1;
+}
+.browserecords .product .product_box .productname{
+  width: 418rpx;
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 38rpx;
+}
+.browserecords .product .product_box  .money{
+  font-size: 34rpx;
+  color: #029a47;
+  margin-top: 33rpx;
+}
+.edit{
+  color: #191919;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 88rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+}

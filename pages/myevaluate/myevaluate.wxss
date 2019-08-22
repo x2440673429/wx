@@ -1,0 +1,47 @@
+/* pages/myevaluate/myevaluate.wxss */
+page{
+  background: #F2F3F8;
+}
+.bigbox{
+  width: 100%;
+  height: 243rpx;
+  padding: 20rpx 0 33rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+}
+.bigbox .product{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+}
+.bigbox .product image{
+  width: 117rpx;
+  height: 117rpx;
+  margin-right: 18rpx;
+}
+.bigbox .product  .productbox{
+  flex: 1;
+  padding-bottom: 17rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bigbox .product  .productbox .productname{
+  font-size: 28rpx;
+  color: #333333;
+  
+}
+.bigbox .product  .productbox .stars{
+  display: flex;
+  font-size: 28rpx;
+  color: #808080;
+}
+.bigbox .evaluate{
+  font-size: 28rpx;
+  color: #333333;
+}
+

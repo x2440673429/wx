@@ -1,0 +1,29 @@
+<!--pages/myteam/myteam.wxml-->
+<!-- 我的团队 -->
+<van-tabs active="{{ active }}" bind:change="onChange"  border='ture' color='#029a47' type='line'>
+  <van-tab title="直推人数({{number}}人)"></van-tab>
+  <van-tab title="团队人数({{number}}人)"></van-tab>
+</van-tabs>
+<view class="oneofteam" wx:for='{{myteam}}' wx:key='{{index}}'>
+  <image src="{{item.img}}" class="head"></image>
+  <view class="contact">
+      <view class="phone_box">
+          <view class="team_name">
+            <image src="../../image/4我的/zhanghaoxiaotu@2x.png"></image>
+            <text class="name">{{item.name}}</text>
+          </view>
+          <view class="team_phone">
+            <image src="../../image/4我的/shoujixiaotu@2x.png"></image>
+            <text>{{item.phone}}</text>
+          </view>
+      </view>
+      <view class="wx_box">
+          <view class="team_wx">
+            <image src="../../image/4我的/weixinxiaotu@2x.png"></image>
+            <text>{{item.wx}}</text>
+          </view>
+          <view class="time">{{item.time}}</view>
+      </view>
+      
+  </view>
+</view>

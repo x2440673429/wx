@@ -1,0 +1,27 @@
+/* pages/searchbar/searchbar.wxss */
+.toptit{
+  display: flex;
+  font-size: 26rpx;
+  align-items: center;
+  background: #f2f3f8;
+  border-radius: 50rpx;
+  width: 35vw;
+  height: 30px; 
+  /* 总高44px */
+  padding: 0 20px;
+  margin-top: 7px;
+}
+/* input{
+  width: 250rpx;
+} */
+.topimg{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.titbox{
+  display: flex;
+  background: #029a47;
+  padding: 20rpx 24rpx;
+  margin-top: 64px;
+}

@@ -2,7 +2,7 @@
 <!-- 头部搜索 -->
 <view class="search_box">
   <view class="search">
-    <van-icon name="search"  class="icon"/>
+    <image class="icon" src="../../image/2分类/sousuo@2x.png"></image>  
     <input value="{{value}}" placeholder="输入您当前要搜索的商品" ></input>
   </view>
 </view>

@@ -1,0 +1,76 @@
+<!--pages/detailsofcollage/detailsofcollage.wxml-->
+
+<view class="big_box">
+  <!-- 产品 -->
+  <view class="product_box">
+    <image src="../../image/1首页/chanpin@2x.png"></image>
+    <view class="product">
+      <view class="productname">{{productname}}</view>
+      <view class="text">{{text}}</view>
+      <view class="towgroup">2人团</view>
+      <view class="money">￥{{money}}<text>团购价</text></view>
+      <view class="onemoney">单买价￥{{onemoney}}</view>
+    </view>
+  </view>
+  <!-- 剩余时间 -->
+  <view class="time">
+    <text class="surplus">剩余</text>
+    <view class="time_box">
+      <view class="times">{{hours}}</view>
+      <text>:</text>
+      <view class="times">{{minute}}</view>
+      <text>:</text>
+      <view class="times">{{second}}</view>
+    </view>
+    <text class="end">结束</text>
+  </view>
+  <!-- 再邀请1人可拼团 -->
+  <view class="againone">再邀请<text style="color:#029a47">1</text>人，即可拼团成功</view>
+  <!-- 使用人头像 -->
+  <view class="user_box">
+    <view class="user">
+    <image src="../../image/1首页/kajiatouxiang@2x.png"></image>
+    <view>团长</view>
+    </view>
+    <view class="come">
+      ?
+    </view>
+  </view>
+  <!--  倒计时结束钱参团  -->
+  <view class="addgroup">记得提醒好友在拼团倒计时结束钱参团~</view>
+  <!-- 立即加入 -->
+  <view class="Joinimmediately">立即加入</view>
+</view>
+<!--  拼团规则和订单详情  -->
+<view class="Doubt" catchtap='getrule'>
+<view>拼团规则<text>好友拼单·人满发货·不满退货</text></view>
+<image src="../../image/1首页/youjiantou2@2x.png"></image>
+</view>
+<view class="Doubt">
+<view>订单详情<text>分享团仅发起拼团VIP下单可赚佣金</text></view>
+
+</view>
+<image src="../../image/1首页/youjiantou2@2x.png"></image>
+<!-- 拼团规则弹出框 -->
+<van-popup
+  show='{{ show }}'
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+  close-on-click-overlay='true'
+  safe-area-inset-bottom='true'
+  safe-area-inset-top='true'
+  custom-style="border-radius: 15rpx 15rpx 0 0"
+>
+<view class="rule_box">
+  <view class="rule">拼团规则</view>
+  <view class="step">1.开团 <text>→ </text>2.邀请好友<text>→ </text>3.满员成团发货<text>→ </text> 4.获得佣金</view>
+  <view class="title">发起拼团</view>
+  <view class="text">购买开团：自己购买商品发起拼团，生成发货订单。</view>
+  <view class="text">分享开团：店主可选择直接发起拼团，不生成发货订单。</view>
+  <view class="title">邀请好友</view>
+  <view class="text">购买开团：自己购买商品发起拼团，生成发货订单。</view>
+  <view class="title">拼团奖励</view>
+  <view class="text">购买开团：自己购买商品发起拼团，生成发货订单。</view>
+</view>
+</van-popup>

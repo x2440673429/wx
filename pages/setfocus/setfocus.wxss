@@ -1,0 +1,16 @@
+/* pages/setfocus/setfocus.wxss */
+page{
+  background: #F2F3F8;
+}
+.setfocus{
+  padding: 31rpx 25rpx;
+  box-sizing: border-box;
+  height: 88rpx;
+  font-size: 28rpx;
+  color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid rgb(240, 240, 240);
+  background: #fff;
+}

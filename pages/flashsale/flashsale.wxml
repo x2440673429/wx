@@ -1,0 +1,34 @@
+<!--pages/flashsale/flashsale.wxml-->
+<!-- 顶部图片 -->
+<view class="top">
+  <image src="../../image/1首页/qianggou@2x.png"></image>
+</view>
+<!-- 抢购时间 -->
+<view class="limitedtime" >
+  <view class="all">
+    <view class="time_box" wx:for='{{limitedtime}}' wx:key='{{index}}'>
+      <view>{{item.time}}</view>
+      <view class="name">{{item.name}}</view>
+
+    </view>
+  </view>
+</view>
+<!-- 产品 -->
+<view class="product_box" wx:for='{{product}}' wx:key='{{index}}'>
+  <image src="../../image/1首页/chanpin@2x.png"></image>
+  <view class="product">
+    <view class="productname">{{item.productname}}</view>
+    <view class="text">{{item.text}}</view>
+    <view class="box"><text class="temai">特卖</text><text class="zhijiang">直降</text></view>
+    <view class="big_box">
+      <view class="Price">
+        <view class="money">￥{{item.money}}</view>
+        <view class="addmoney">赚￥{{item.addmoney}}</view>
+      </view>
+      <view class="botton">
+        <text class="quick">马上抢</text>
+        <text class="share">分享赚</text>
+      </view>
+    </view>
+  </view>
+</view>

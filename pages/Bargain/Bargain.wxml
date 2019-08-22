@@ -37,7 +37,7 @@
 </view>
 <!-- 剩余时间 -->
 <view class="center">
-  <view class="time">还剩{{time}}过期，快来砍价吧</view>
+  <view class="time">还剩{{time}}过期，快来砍价吧~</view>
 </view>
 <!-- 帮砍框 -->
 <view class="BargainingGang">
