@@ -16,6 +16,7 @@ Page({
       },
     ]
   },
+  // 点击某个消息
   getnews:function(){
     wx.navigateTo({
       url: '/pages/news/news',

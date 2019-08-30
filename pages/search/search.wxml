@@ -8,7 +8,7 @@
   </view>
   <!-- 标签页及内容 -->
   <view class="tabnav">
-    <van-tabs active="{{ active }}" bind:change="onChange" line-width='105rpx' color='#029a47' border='ture' line-width='52'>
+    <van-tabs active="{{ active }}" bind:change="onChange"  color='#029a47' border='ture'  class='color'>
       <van-tab title="综合"></van-tab>
       <van-tab title="销售"></van-tab>
       <van-tab title="新品"></van-tab>

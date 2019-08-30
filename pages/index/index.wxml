@@ -11,3 +11,175 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view> -->
+<!-- 头部搜索框 -->
+<van-nav-bar
+  left-text=""
+  right-text=""
+  fixed
+  bind:click-left="onClickLeft"
+  safe-area-inset-top
+  border="{{false}}"
+>
+  <view slot="left" class="topleft">
+    <image src="../../image/1首页/xiaoxi.png"></image>
+    消息
+  </view>
+  <view slot="title"  class="toptit">
+    <image src="../../image/1首页/sousuo.png" class='topimg'></image>
+    <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品" />
+  </view> 
+</van-nav-bar>
+<!-- Tab标签页 -->
+<view class="tabpage">
+  <van-tabs active="{{ active }}" bind:change="onChange" color='#029a47' class='color'>
+    <van-tab title="推荐">
+    <!-- 推荐 -->
+    <!-- 轮播图 -->
+      <view class="swiper-box">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+          <block wx:for="{{image}}" wx:key="{{index}}">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class="dots"> 
+            <block wx:for="{{image}}" wx:key="{{index}}"> 
+              <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view> 
+            </block> 
+          </view>
+      </view>
+      <!--  新人特惠等  -->
+      <view class="nav">
+        <view class="oneof" wx:for='{{nav}}' wx:key='{{index}}' catchtap="getnav" data-number="{{index}}" catchtap="getnav" data-number="{{index}}">
+          <image src="{{item.img}}"></image>
+          <view>{{item.title}}</view>
+        </view>
+      </view>
+      <!-- 热卖店铺等 -->
+      <view class="storename">
+        <view class="storename_box {{index==3?'pink':'storename_box'}} {{index1==4?'blue':'storename_box'}}" wx:for='{{shop}}' wx:key='{{index}}' catchtap="getshop" data-number="{{index}}">
+          <view class="storetitle">{{item.title}}</view>
+          <view class="storetxt">{{item.txt}}</view>
+          <image src="{{item.img}}"></image>
+        </view>
+      </view>
+      <!-- 热销 -->
+      <view class="sellwell_box">
+        <view class="sellwell">热销 </view>
+        <view class="sellwellproduct" wx:for='{{sellwellbox}}' wx:key='{{index}}'>
+          <image class="sellwelltitleimg" src='{{item.sellwelltitleimg}}'></image>
+          <view class="sellwellintroduce" wx:for='{{item.sellwell}}' wx:key='{{index}}' wx:for-item='sellwell'>
+            <image class="product_img" src="{{sellwell.img}}"></image>
+            <view class="product_right">
+              <view class="producttitle">{{sellwell.producttitle}}</view>
+              <view class="producttxt">{{sellwell.producttxt}}</view>
+              <view class="weight">{{sellwell.weight}}</view>
+              <view class="product_bottom">
+                <view class="sellwellmoney">￥{{sellwell.sellwellmoney}}<text>￥{{sellwell.sellwelljianmoney}}</text></view>
+                <image src="../../image/1首页/tianjia.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="gouwuche">
+        <image src="../../image/1首页/gouwuche.png" ></image>
+        <view wx:if='{{sign>0?true:false}}'>{{sign}}</view>
+      </view>
+      
+    
+    
+    </van-tab>
+    <van-tab title="精准扶农">
+    <!-- 精准扶农 -->
+    <!-- 轮播图 -->
+      <view class="swiper-box">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+          <block wx:for="{{image}}" wx:key="{{index}}">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class="dots"> 
+            <block wx:for="{{image}}" wx:key="{{index}}"> 
+              <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view> 
+            </block> 
+          </view>
+      </view> 
+    <!-- Tab标签页 -->
+    <van-tabs active="{{ active1 }}" color='#029a47' class='color'>
+      <van-tab title="中央馆"></van-tab>
+      <van-tab title="江西馆"></van-tab>
+      <van-tab title="陕西馆"></van-tab>
+      <van-tab title="河北馆"></van-tab>
+      <van-tab title="新疆馆"></van-tab>
+    </van-tabs>
+      <!-- 地方特色 -->
+     <view class="characteristic">
+      <view class="addresscharacteristic">地方特色扶农</view>
+      <image src="../../image/1首页/difangtesefunong.png" class="characteristic_img"></image>
+      <view class="both">
+        <view class="left_box">
+          <view class="title">藏地扶农大礼包</view>
+          <view class="content">一个礼包</view>
+          <view class="content">寄托着80万</view>
+          <view class="content">贫困人口的幸福梦</view>
+          <image src="../../image/1首页/dalibao.png"></image>
+        </view>
+         <view class="left_box right_box">
+          <view class="title">藏地扶农大礼包</view>
+          <view class="content">一个礼包</view>
+          <view class="content">寄托着80万</view>
+          <view class="content">贫困人口的幸福梦</view>
+          <image src="../../image/1首页/dalibao.png"></image>
+        </view>
+      </view>
+    </view> 
+      <!-- 产品 -->
+       <view class="specialty_box">
+        <view class="specialty" wx:for='{{specialty}}' wx:key='{{index}}'>
+          <view class="address">
+            <view>特色扶农馆<text>丨{{item.city}}</text></view>
+            <image src="../../image/1首页/guan.png"></image>
+          </view>
+          <image src="{{item.img}}" class="specialty_img"></image>
+          <view class="cityshi">【{{item.cityshi}}】</view>
+          <view class="specialtyname">{{item.specialtyname}}</view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="振兴乡村"></van-tab>
+    <van-tab title="品质生活"></van-tab>
+  </van-tabs>
+</view>
+<!-- 振兴农村和品质生活 -->
+<view wx:if="{{active>1?true:false}}">
+<!-- 轮播图 -->
+<view class="swiper-box">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+    <block wx:for="{{image}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="dots"> 
+    <block wx:for="{{image}}" wx:key="{{index}}"> 
+      <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view> 
+    </block> 
+  </view>
+</view>
+<!-- 产品 -->
+<view class="product_bigbox" wx:for='{{product}}' wx:key='{{index}}'>
+  <image src="{{item.banner}}" class="type_img"></image>
+  <view class="product_box">
+    <view class="product" wx:for-item='items' wx:for='{{item.child}}' wx:key='{{img}}' >
+      <image src="{{items.img}}"></image>
+      <view class="product_name">石城翻秋花生</view>
+      <view class="money">￥{{items.money}}<text>￥{{items.oldmoney}}</text></view>
+    </view>
+  </view>
+</view>
+</view>

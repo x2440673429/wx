@@ -12,7 +12,7 @@
 </view>
 <!-- tab标签页 -->
 <view class="tabnav">
-  <van-tabs active="{{ active }}" bind:change="onChange" line-width='105rpx' color='#029a47' border='ture' line-width='52'>
+  <van-tabs active="{{ active }}" bind:change="onChange"  border='ture' color='#029a47' type='line' class='color'>
     <van-tab title="今日热拼"></van-tab>
     <van-tab title="推荐榜"></van-tab>
     <van-tab title="省钱美护"></van-tab>

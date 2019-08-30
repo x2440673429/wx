@@ -1,0 +1,20 @@
+<!--pages/cashwithdrawal/cashwithdrawal.wxml-->
+<view class="tixian_box">
+  <view class="txje">提现金额</view>
+  <view class="shuru">￥
+    <input placeholder="请输入金额" value="{{value}}" type="number" bindinput='handleInput'></input>
+  </view>
+</view>
+<view class="allmoney">
+  <view class="yes">可提现金额 ￥{{money}}</view>
+  <view class="all">全部金额</view>
+</view>
+<!-- 确认按钮 -->
+<view class="confirm" catchtap="cash">确认提现</view>
+<!-- 提现记录 -->
+<view class="record" catchtap="getrecord">提现记录</view>
+<view class="explain_box">
+  <view class="explain">提现说明</view>
+  <view class="explaintext">1.每隔10天可提现一次，每次提现金额限10-50000元以内</view>
+  <view class="explaintext">2.提现申请打款后到账时间具体以银行到账时间为准，一般在5个工作日内</view>
+</view> 

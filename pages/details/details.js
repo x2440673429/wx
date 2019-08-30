@@ -14,13 +14,15 @@ Page({
     assemblename:'李思思',
     address:'福建省厦门市湖里区高薪技术园',
     show: false,
-    pay:''
+    pay:'',
+    num:1
   },
+  // 关闭弹框
   onClose() {
     this.setData({ show: false });
   },
+  // 打开购买弹框
   selfpurchase:function(e){
-    console.log(e)
     let pay=e.currentTarget.dataset.pay
     var that=this
     if(pay=='1'){
@@ -33,6 +35,30 @@ Page({
       })
     }
     this.setData({ show: true });
+  },
+  // 购买+1
+  jia(){
+    this.setData({ num: this.data.num+1 });
+  },
+  // 购买-1
+  jian(){
+    if (this.data.num>1){
+      this.setData({ num: this.data.num - 1 });
+    }else{
+      return
+    }
+  },
+  // 监听购买数量变化
+  // 只能输入数字
+  handleInput(e){
+    let value = this.validateNumber(e.detail.value)
+    this.setData({
+      num: value
+    })
+  },
+   // 正则表达式只能输入数字
+  validateNumber(val) {
+    return val.replace(/\D/g, '')
   },
   /**
    * 生命周期函数--监听页面加载

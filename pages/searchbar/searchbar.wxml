@@ -6,19 +6,34 @@
   left-arrow
   fixed
   bind:click-left="onClickLeft"
+  safe-area-inset-top
   border="{{false}}"
 >
   <view slot="title"  class="toptit">
     <image src="../../image/1首页/sousuo.png" class='topimg'></image>
     <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品"/>
-  </view>
+  </view> 
 </van-nav-bar>
 
+
 <!-- tab标签页 -->
-<van-tree-select
-  items="{{ items.name }}"
-  main-active-index="{{ mainActiveIndex }}"
-  active-id="{{ items.id }}"
-  bind:click-nav="onClickNav"
-  bind:click-item="onClickItem"
-/>
+<view class="tab">
+  <view class="left_box">
+    <view class="name {{key==index?'bor':'name'}}" wx:for='{{items}}' wx:key='{{index}}' catchtap="qiehuan" data-index="{{index}}">{{item.text}}</view>
+  </view>
+</view>
+<!-- 右边内容 -->
+<view class="content_box">  
+  <view wx:for='{{product}}' wx:key='{{index}}'>
+    <view class="content_title">
+      <view class="title">{{item.title}}</view>
+      <view class="hot">热卖榜 <image src="../../image/1首页/lvseyoujiantou@2x.png"></image></view>
+    </view>
+    <view class="product_box">
+      <view class="product" wx:for='{{item.items}}'wx:key='{{name}}' wx:for-item='items' wx:index-item='name'>
+        <image src="{{items.img}}"></image>
+        <view class="product_name">{{items.name}}</view>
+      </view>
+    </view>
+  </view>
+</view> 

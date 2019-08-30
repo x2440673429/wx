@@ -1,0 +1,154 @@
+<!--pages/padetailspage/padetailspage.wxml-->
+<!-- 产品图片和产品名称支持人数等 -->
+<view class="shopimg">
+  <image src="../../image/1首页/chanpin@2x.png"></image>
+  <view class="product_box">
+    <view class="box_top">
+      <view class="shopname">{{shopname}}</view>
+      <view class="shoptext">{{shoptext}}</view>
+    </view>
+    <view class="box_bottom">
+      <view class="padetails">
+        <view class="product_number">{{supportnumber}}</view>
+        <view class="producu_img">
+          <image src="../../image/1首页/zhichirenshu@2x.png"></image>
+          <view>支持人数</view>
+        </view>
+      </view>
+       <view class="padetails">
+        <view class="product_number">￥ {{moneynumber}}</view>
+        <view class="producu_img">
+          <image src="../../image/1首页/zhichirenshu@2x.png"></image>
+          <view>已筹金额</view>
+        </view>
+      </view>
+       <view class="padetails">
+        <view class="product_number">{{reachnumber}}%</view>
+        <view class="producu_img">
+          <image src="../../image/1首页/zhichirenshu@2x.png"></image>
+          <view>达成率</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 步骤条 -->
+<view class="step">
+  <view class="bottom">
+    <view class="step_bor"></view>
+    <view class="step_box">
+      <view class="box"></view>
+      <view class="step_name">创意</view>
+    </view>
+    <view class="step_box">
+      <view class="box"></view>
+      <view class="step_name">评审</view>
+    </view>
+    <view class="step_box">
+      <view class="box"></view>
+      <view class="step_time">众筹中({{time}}小时后结束)</view>
+    </view>
+    <view class="step_box">
+      <view class="box"></view>
+      <view class="step_name">发货</view>
+    </view>
+  </view>
+</view>
+<!-- 众筹故事 -->
+<view class="paStory">
+  <view class="story">众筹故事</view>
+  <image></image>
+</view> 
+<!-- 档位回报 -->
+<view class="return_box">
+  <view class="return">档位回报</view>
+  <text class="seven">共7档</text>
+</view>
+<van-tabs active="{{ active }}" color="#029a47" class='color'>
+  <van-tab title="￥65"></van-tab>
+  <van-tab title="￥120"></van-tab>
+  <van-tab title="￥150"></van-tab>
+  <van-tab title="￥200"></van-tab>
+  <van-tab title="￥220"></van-tab>
+  <van-tab title="￥120"></van-tab>
+</van-tabs>
+<view class="gearposition">
+  <image src="../../image/1首页/chanpin@2x.png"></image>
+  <view class="right">
+    <view class="surplusnumber">剩余{{number}}份</view>
+    <view class="txt">非常感谢您的支持，您将以众筹价65元获得市场价120元的樱桃</view>
+    <view class="gotosupport">去支持</view>
+  </view>
+</view>
+<!-- 隔离层 -->
+<view class="back_box"></view>
+<!-- 评论框 -->
+<view class="comment_box">
+  <view class="allcomment">评论/100</view>
+  <view class="iwantsay">
+    <image src="../../image/1首页/pinglun@2x.png"></image>
+    我想说
+  </view>
+</view>
+<!-- 评论区 -->
+<view class="user_box">
+  <view class="uesr">
+    <image src="../../image/1首页/kajiatouxiang@2x.png"></image>
+    <view class="username">{{username}}</view>
+  </view>
+  <view class="text">{{text}}</view>
+  <view class="user_img">
+    <image></image>
+  </view>
+  <view class="comment_time">{{commenttime}}</view>
+</view>
+<!-- 底部购买框 -->
+<view class="pay_box">
+  <view class="pay">
+    <image src="../../image/1首页/sc.png"></image>
+    <view>收藏</view>
+  </view>
+  <view class="pay border">
+    <image src="../../image/1首页/fenxiang@2x.png"></image>
+    <view>分享</view>
+  </view>
+  <view class="pay">
+    <image src="../../image/1首页/pinlun@2x.png"></image>
+    <view>评论{{allnumber}}</view>
+  </view>
+  <view class="gotopay" catchtap="gotopay">
+    去支付
+  </view>
+</view>
+<!-- 支付弹窗 -->
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+  custom-style='overflow:visible'
+>
+  <view class="payfor">
+    <view class="top">
+      <image src="../../image/1首页/chanpin@2x.png" class="product_img"></image>
+      <view class="payfor_ringt">
+        <view class="close">
+          <image src="../../image/2分类/cha@2x.png" catchtap="onClose"></image>
+        </view>
+        <view class="pay_txt">非常感谢您的支持，您将以众筹价65元获得市场价120元的樱桃</view>
+        <view class="pay_number">剩余数量{{number}}</view>
+      </view>
+    </view>
+    <view class="middle">
+      <view class="title">档位</view>
+      <view class="specifications_box">
+        <view wx:for='{{items}}' wx:key='{{index}}'>{{item}}</view>
+      </view>
+    </view>
+    <view class="tottom">
+      <view class="title">数量：</view>
+      <van-stepper value="{{ 1 }}" bind:change="onChange" input-width='96rpx'integer='true' plus-class='background: #cccccc' minus-class='background: #cccccc'/>
+    </view>
+    <view class="quzc">去支持</view>
+  </view>
+</van-popup>

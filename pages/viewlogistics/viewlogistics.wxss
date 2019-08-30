@@ -1,0 +1,44 @@
+/* pages/viewlogistics/viewlogistics.wxss */
+/* 快递公司等 */
+.order{
+  padding: 20rpx 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.order image{
+  width: 136rpx;
+  height: 136rpx;
+  margin-right: 21rpx;
+}
+.order .company_box{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+  color: #333;
+}
+.order .company_box view{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rpx;
+}
+.order .company_box .phone{
+  color: #029a47;
+}
+/* 隔离层 */
+.box{
+  width: 100%;
+  height: 20rpx;
+  background: #F2F3F8;
+}
+/* 物流信息 */
+.info{
+  height: 88rpx;
+  line-height: 88rpx;
+  padding-left: 25rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333333;
+  border-bottom: 1rpx solid #e6e6e6;
+}

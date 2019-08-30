@@ -1,0 +1,108 @@
+<!--pages/marketing/marketing.wxml-->
+<!-- tab标签页 -->
+<van-tabs active="{{ active }}" bind:change="onChange" class='color' color='#fff'>
+  <van-tab title="商品素材">
+    <van-tabs active="{{ active }}" bind:change="onChange" class='color' color='#029a47' swipe-threshold='5'>
+        <van-tab title="全部"></van-tab>
+        <van-tab title="好东西"></van-tab>
+        <van-tab title="美妆个护"></van-tab>
+        <van-tab title="食品生鲜"></van-tab>
+        <van-tab title="家居生活"></van-tab>
+      </van-tabs>
+      <!-- 图片 -->
+      <view class="img">
+        <image src="{{titleimg}}"></image>
+      </view>
+      <!-- 文章 -->
+      <view class="Article" wx:for='{{list}}' wx:key='{{index}}'>
+        <view class="shop">
+          <view class="info">
+            <image src="{{item.img}}"></image>
+            <view class="shopname">{{item.name}}</view>
+          </view>
+          <view class="number">{{item.number}}人发圈</view>
+        </view>
+        <!-- 文章内容 -->
+        <view class="content">
+          <view>【{{item.title}}】</view>
+          <view class="contenttext">{{item.text}}</view>
+        </view>
+        <view class="open">展开
+        <image src="../../image/3发现/xiangxiajiantou@2x.png"></image>
+        </view>
+        <!-- 文章图片 -->
+        <view class="content_img">
+          <view wx:for='{{item.image}}' wx:for-item="items" wxLfor-index="key" wx:key='{{index}}'>
+            <image src="{{items}}"></image>
+          </view>
+        </view>
+        <!-- 商品 -->
+        <view class="shop_box">
+          <image src="{{item.shopimg}}"></image>
+          <view class="right_box">
+            <view class="shoptitle">
+              <view class="shopname">{{item.shopname}}</view>
+              <view class="shoptext">{{item.shoptext}}</view>
+            </view>
+            <view class="money">￥{{item.money}}/<text>赚￥{{item.addmoney}}</text></view>
+          </view>
+        </view>
+        <!-- 按钮 -->
+        <view class="botton">
+          <view class="download">下载发文</view>
+          <view class="onekey">一键发文</view>
+        </view>
+      </view>
+  </van-tab>
+  <van-tab title="营销素材">
+   <!-- Tab标签页 -->
+    <van-tabs active="{{ active }}" bind:change="onChange" class='color' color='#029a47' swipe-threshold='5'>
+      <van-tab title="全部"></van-tab>
+      <van-tab title="日签海报"></van-tab>
+      <van-tab title="推广海报"></van-tab>
+      <van-tab title="公司动态"></van-tab>
+      <van-tab title="每日品牌团"></van-tab>
+    </van-tabs>
+    <!-- 图片 -->
+    <view class="img">
+      <image src="{{titleimg}}"></image>
+    </view>
+    <!-- 文章 -->
+    <view class="Article" wx:for='{{list}}' wx:key='{{index}}'>
+      <view class="shop">
+        <view class="info">
+          <image src="{{item.img}}"></image>
+          <view class="shopname">{{item.name}}</view>
+        </view>
+        <view class="number">{{item.number}}人发圈</view>
+      </view>
+      <!-- 文章内容 -->
+      <view class="content">
+        <view class="title">
+        <text>【{{item.time}}】 </text>
+          <van-rate
+            readonly
+            value="{{ value }}"
+            bind:change="onChange"
+            color='#029a47'
+            size='15'
+          />
+        </view>
+        <view class="contenttext">{{item.text}}</view>
+      </view>
+      <!-- 文章图片 -->
+      <view class="big_img">
+        <image src="{{item.bigimg}}"></image>
+      </view>
+      <!-- 按钮 -->
+      <view class="botton">
+        <view class="download">下载发文</view>
+        <view class="onekey">一键发文</view>
+      </view>
+
+    </view>
+  </van-tab>
+</van-tabs>
+
+
+

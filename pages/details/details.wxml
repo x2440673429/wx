@@ -37,6 +37,7 @@
     <image src="../../image/1首页/youjiantou2@2x.png"></image>
   </view>
 </view>
+<!-- 地址 -->
 <view class="addassemble">
   <view class="assemble">送至<text class="towgroup">{{address}}</text></view>
 </view>
@@ -87,6 +88,7 @@
   close-on-click-overlay='true'
   safe-area-inset-bottom='true'
   safe-area-inset-top='true'
+  custom-style='overflow:visible'
 >
  <view>
   <view class="big_box">
@@ -99,9 +101,9 @@
       <view class="bottom">
         <view class="left">数量:</view>
         <view class="specifications">
-          <view class="jian">-</view>
-          <view class="number">1</view>
-          <view class="jia">+</view>
+          <view class="jian" catchtap="jian">-</view>
+          <input  class="number" value="{{num}}" bindinput='handleInput'></input>
+          <view class="jia" catchtap="jia">+</view>
         </view>
       </view>
       <view class="payopen">{{pay}}</view>

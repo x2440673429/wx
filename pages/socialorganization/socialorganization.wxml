@@ -1,0 +1,22 @@
+<!--pages/socialorganization/socialorganization.wxml-->
+<view class="title">上传对应证件</view>
+<view class="certificates">
+  <view class="sczj">
+    <image src="../../image/4我的/shangchuanzhengjian@2x.png" ></image>
+    <view class="becareful"><text>*</text>请上传社会组织登记证书</view>
+  </view>
+  <view class="sczj">
+    <image src="../../image/4我的/shangchuanzhengjian@2x.png" ></image>
+    <view class="becareful"><text>*</text>请上传税务登记证</view>
+  </view>
+  <view class="sczj">
+    <image src="../../image/4我的/shangchuanzhengjian@2x.png" ></image>
+    <view class="becareful"><text>*</text>请上传法人身份证</view>
+  </view>
+  <view class="sczj">
+    <image src="../../image/4我的/shangchuanzhengjian@2x.png" ></image>
+    <view class="becareful">请上传公募证书</view>
+  </view>
+</view>
+<!-- 提交 -->
+<view class="btn">提交</view>

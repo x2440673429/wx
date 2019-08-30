@@ -1,6 +1,6 @@
 <!--pages/myteam/myteam.wxml-->
 <!-- 我的团队 -->
-<van-tabs active="{{ active }}" bind:change="onChange"  border='ture' color='#029a47' type='line'>
+<van-tabs active="{{ active }}" bind:change="onChange"  border='ture' color='#029a47' type='line' class='color'>
   <van-tab title="直推人数({{number}}人)"></van-tab>
   <van-tab title="团队人数({{number}}人)"></van-tab>
 </van-tabs>

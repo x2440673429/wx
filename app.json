@@ -29,13 +29,65 @@
     "pages/paypassword/paypassword",
     "pages/setpaypassword/setpaypassword",
     "pages/resetpaypassword/resetpaypassword",
-    "pages/browserecords/browserecords"
+    "pages/browserecords/browserecords",
+    "pages/cashwithdrawal/cashwithdrawal",
+    "pages/endorsementcenter/endorsementcenter",
+    "pages/Iwanttoshare/Iwanttoshare",
+    "pages/balance/balance",
+    "pages/highqualityorigin/highqualityorigin",
+    "pages/padetailspage/padetailspage",
+    "pages/order/order",
+    "pages/commoditydetails/commoditydetails",
+    "pages/confirmationoforders/confirmationoforders",
+    "pages/find/find",
+    "pages/articledetails/articledetails",
+    "pages/marketing/marketing",
+    "pages/myorder/myorder",
+    "pages/orderone/orderone",
+    "pages/viewlogistics/viewlogistics",
+    "pages/evaluate/evaluate",
+    "pages/aftersale/aftersale",
+    "pages/applystore/applystore",
+    "pages/socialorganization/socialorganization",
+    "pages/my/my",
+    "pages/clusterorder/clusterorder",
+    "pages/preferentialoffer/preferentialoffer",
+    "pages/mygiftbag/mygiftbag",
+    "pages/give/give"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/image/bottomimg/shouyeweidianji.png",
+        "selectedIconPath": "/image/bottomimg/shouyedianji.png"
+      },
+      {
+        "pagePath": "pages/searchbar/searchbar",
+        "text": "分类",
+        "iconPath": "/image/bottomimg/fenleiweidianji.png",
+        "selectedIconPath": "/image/bottomimg/fenleidianji.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "/image/bottomimg/faxianweidianji.png",
+        "selectedIconPath": "/image/bottomimg/faxiandianji.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/image/bottomimg/wodeweidianji.png",
+        "selectedIconPath": "/image/bottomimg/wodedianji.png"
+      }
+    ]
+  }
 }

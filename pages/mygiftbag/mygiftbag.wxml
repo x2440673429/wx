@@ -1,0 +1,29 @@
+<!--pages/mygiftbag/mygiftbag.wxml-->
+<view class="top">
+  <view class="number">{{number}}</view>
+  <view class="giftbag">礼包币</view>
+</view>
+<van-tabs active="{{ active }}" bind:change="onChange" color='#029a47'>
+  <van-tab title="待激活"></van-tab>
+  <van-tab title="已激活"></van-tab>
+  <van-tab title="已接收"></van-tab>
+</van-tabs>
+<view class="giftbag_box" wx:for='{{giftbag}}' wx:key='{{index}}'>
+  <view class="giftbag_top">
+    <image src="{{item.img}}"></image>
+    <view class="giftbag_right">
+      <view class="product">
+        <view class="productname">{{item.productname}}</view>
+        <view class="state">{{item.state}}</view>
+      </view>
+      <view class="text">{{item.text}}</view>
+    </view>
+  </view>
+  <view class="giftbag_bottom">
+    <view class="time">{{item.time}}</view>
+    <view class="btn_box" wx:if='{{item.number>1?false:true}}'>
+      <view class="btn" catchtap="give">赠送</view>
+      <view class="btn">激活</view>
+    </view>
+  </view>
+</view>

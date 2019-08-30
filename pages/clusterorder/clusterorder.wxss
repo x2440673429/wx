@@ -1,0 +1,76 @@
+/* pages/clusterorder/clusterorder.wxss */
+page{
+  background: #F2F3F8;
+}
+.order_box{
+  height: 246rpx;
+  box-sizing: border-box;
+  padding: 0 23rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.order_box .order_top{
+  height: 74rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  align-items: center;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.order_box .order_top .ordertime{
+  color: #b1b1b1;
+}
+ .state{
+  color: #029a47;
+}
+.order_box .order_top .fail{
+  color: #d62121;
+}
+.order_box .product_box{
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order_box .product_box image{
+  width: 112rpx;
+  height: 112rpx;
+  margin-right: 19rpx;
+}
+.order_box .product_box .product{
+  flex: 1;
+  height: 112rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.order_box .product_box .product .productname{
+  font-size: 28rpx;
+  color: #333333;
+}
+.order_box .product_box .product .money{
+  font-size: 28rpx;
+  color: #029a47;
+}
+.order_box .product_box .product .product_bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.order_box .product_box .product .product_bottom .money text{
+  font-size: 24rpx;
+  color: #b2b2b2;
+  margin-left: 15rpx;
+}
+.order_box .product_box .product .product_bottom  .group{
+  width: 70rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  text-align: center;
+  background: #f8d6d5;
+  border-radius: 15rpx;
+  color: #e2696b;
+  font-size: 20rpx;
+}

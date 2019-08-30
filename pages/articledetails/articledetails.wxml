@@ -1,0 +1,8 @@
+<!--pages/articledetails/articledetails.wxml-->
+<view class="img">
+  <image src="{{img}}"></image>
+</view>
+<view class="title">{{title}}</view>
+<view class="txt">{{txt}}</view>
+<view class="text">{{text}}</view>
+<view class="purchase">购买</view>

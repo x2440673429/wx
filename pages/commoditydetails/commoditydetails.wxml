@@ -1,0 +1,77 @@
+<!--pages/commoditydetails/commoditydetails.wxml-->
+<view class="img">
+  <image src="{{img}}"></image>
+</view>
+<!-- 商品价格名称等 -->
+<view class="shop_box">
+  <view class="shop_left">
+    <view class="mianbox">
+      <image src="../../image/1首页/m.png" class="mian"></image>
+      <view class="shopname">{{shopname}}</view>
+    </view>
+    <view class="text">{{text}}</view>
+    <view class="money">￥{{money}}<text class="oldmoney">￥{{oldmoney}}</text><text class="Stock">库存: {{number}}</text></view>
+  </view>
+  <view  class="shop_right">
+  <image src="../../image/4我的/fenxiang@2x.png"></image>
+  <text>分享</text>
+  </view>
+</view>
+<!-- 地址 -->
+<view class="addassemble">
+  <view class="assemble">送至<text class="towgroup">{{address}}</text></view>
+  <image src="../../image/1首页/youjiantou2@2x.png"></image>
+</view>
+<!-- 退货 产品保证等 -->
+<view class="performance_box">
+  <view class="performance">
+    <image src="../../image/1首页/duigou.png"></image>
+    <text>极速退款</text>
+  </view>
+  <view class="performance">
+    <image src="../../image/1首页/duigou.png"></image>
+    <text>正品保证</text>
+  </view>
+  <view class="performance">
+    <image src="../../image/1首页/duigou.png"></image>
+    <text>七天无条件退款</text>
+  </view>
+</view>
+<!-- 评论 -->
+<view class="comment_top">
+  <view>买家评价（100）</view>
+  <image src="../../image/1首页/youjiantou2@2x.png"></image>
+</view>
+<view class="comment_box">
+  <view class="coment_user">
+    <image src="../../image/1首页/kajiatouxiang@2x.png"></image>
+    <view>{{comment_name}}</view>
+  </view>
+  <view class="comment_content">{{comment_content}}</view>
+  <view class="img">
+    <image></image>
+  </view>
+  <view class="comment_time">{{comment_time}}</view>
+</view>
+<!-- 商品详情 -->
+<view class="shopdetails">
+  <text>商品详情</text>
+  <image src="../../image/3发现/banner@2x.png"></image>
+</view>
+<!-- 商品导航 -->
+<view class="shopnav">
+  <view class="shopandsc">
+    <image src="../../image/2分类/dianpu.png"></image>
+    <text>店铺</text>
+  </view>
+  <view class="shopandsc">
+    <image src="../../image/2分类/dianpu.png"></image>
+    <text>收藏</text>
+  </view>
+  <view class="savemoney" catchtap="selfpurchase" data-pay="1">
+    <view>购物车</view>
+  </view>
+  <view class="savemoney opengroup" data-pay="2"  catchtap="selfpurchase">
+   <view>立即购买</view>
+  </view>
+</view>

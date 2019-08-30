@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText":"代言中心",
+  "usingComponents": {
+    "van-popup": "/vant/dist/popup/index"
+  }
+}

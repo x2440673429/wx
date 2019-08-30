@@ -1,0 +1,80 @@
+<!--pages/order/order.wxml-->
+<!-- 头部联系人 -->
+<view class="top_box">
+  <view class="user">
+    <view >收货人：{{username}}</view>
+    <view>{{phone}}</view>
+  </view>
+  <view class="useraddress">
+    <image src="../../image/2分类/dz.png" class="addressimg"></image>
+    <view>{{address}}</view>
+    <image src="../../image/1首页/youjiantou2@2x.png" class="youjiantou"></image>
+  </view>
+</view>
+<!-- 店铺产品 -->
+<view class="shop">
+  <view class="shopname">{{shopname}}</view>
+  <view class="productbox">
+    <image src="../../image/1首页/chanpin@2x.png"></image>
+    <view class="productright">
+      <view class="productname">{{productname}}</view>
+      <view class="text">{{text}}</view>
+      <view class="bottom">
+        <view class="money">￥{{money}}</view>
+        <view class="number">x{{number}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="message">
+    <view class="title">买家留言</view>
+    <input placeholder="填写买家留言信息" value="{{value}}" bindinput="txt"></input>
+  </view>
+  <view class="message">
+    <view  class="title">配送方式</view>
+    <view  class="title">{{mode}}</view>
+  </view>
+  <view class="money">合计:¥ {{allmoney}}</view>
+</view>
+<!-- 协议 -->
+<view class="agreement">
+  <view class="selection">
+    <image src="../../image/1首页/xuanzhong@2x.png"></image>
+    <view> 阅读并同意<text>《支持者协议》</text></view>
+  </view>
+  <view class="agreementcontent">
+    <view class="xycontent">请您务必审填阅读、充分理解协议中相关条款内容，其中包括：</view>
+    <view class="xycontent">1.众筹不是商品交易，存在一定风险。支持者应根据自己的判断选
+    择是否支持众筹项目，是否与发起人共同实现梦想并且获得发起人
+    承诺的汇报。</view>
+      <view class="xycontent">2.众筹不是商品交易，存在一定风险。支持者应根据自己的判断选
+    择是否支持众筹项目，是否与发起人共同实现梦想并且获得发起人
+    承诺的汇报。</view>
+      <view class="xycontent">3.众筹不是商品交易，存在一定风险。支持者应根据自己的判断选
+    择是否支持众筹项目，是否与发起人共同实现梦想并且获得发起人
+    承诺的汇报。</view>
+  </view>
+  <view class="paymode">支付方式</view>
+</view>
+<!-- 支付方式 -->
+<view class="pay_box">
+  <view class="left">
+    <image src="../../image/1首页/weixinzhifu@2x.png"></image>
+    <view class="pay">微信支付</view>
+  </view>
+  <view class="border"></view>
+</view>
+<view class="pay_box">
+  <view class="left">
+    <image src="../../image/1首页/yuezhifu@2x.png"></image>
+    <view class="pay">余额</view>
+  </view>
+  <view class="border"></view>
+</view>
+<!-- 支付 -->
+<view class="payfor_btn">
+  <view class="list">
+    <view class="num">共{{number}}件</view>
+    <view class="allmoney">合计:<text>￥{{allmoney}}</text></view>
+  </view>
+  <view class="pay_btn">付款</view>
+</view>

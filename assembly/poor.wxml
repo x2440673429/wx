@@ -1,0 +1,14 @@
+<!--assembly/poor.wxml-->
+<van-popup show="{{ show }}" bind:close="onClose" position="bottom" overlay="{{ true }}">
+  <view>
+    <view>分享赚￥3</view>
+    <view>送好友10元代金券</view>
+    <view>好友注册完成首单，你再得5元无门槛代金券</view>
+    <view>
+      <view>
+        <image></image>
+        <view>微信</view>
+      </view>
+    </view>
+  </view>
+</van-popup>

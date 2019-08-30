@@ -1,0 +1,40 @@
+<!--pages/aftersale/aftersale.wxml-->
+<!-- 商品 -->
+<view class="shop">
+  <image src="{{img}}"></image>
+  <view class="shop_right">
+    <view class="productname">{{productname}}</view>
+    <view class="shopname">{{shopname}}</view>
+    
+    <view class="money">￥{{money}}<text>x{{number}}</text></view>
+  </view>
+</view>
+<!-- 问题描述 -->
+<view class="Apply">
+  <view>申请数量</view>
+  <van-stepper value="{{ 1 }}" bind:change="onChange"  />
+</view>
+<view class="Apply">
+  <view>退款原因</view>
+</view>
+<view class="problem">
+  <view class="title">问题描述</view>
+  <textarea placeholder="请填写问题描述" maxlength='200'  value="{{problem}}" bindinput='number'></textarea>
+  <view class="number">{{problemnumber}}/200</view>
+</view>
+<!-- 上传图片 -->
+<view class="upload">
+  <view class="uploadpictures">上传图片</view>
+  <view class="Requirement">为了更好处理您的商品，请务必上传如下要求图片：</view>
+  <view class="Requirement">·完整的商品图片</view>
+  <view class="Requirement">·商品有问题的细节照片</view>
+  <view class="add">
+    <image src="../../image/4我的/shangchuanpinzheng@2x.png"></image>
+    <view class="add_text">
+      <view>上传凭证</view>
+      <text>(最多3张)</text>
+    </view>
+  </view>
+</view>
+<!-- 确认按钮 -->
+<view class="btn">确认提交</view>

@@ -35,8 +35,9 @@ Page({
     ],
    
   },
+  // 改变Tab标签页
   onChange(event) {
-    console.log(event)
+
   },
 
   /**

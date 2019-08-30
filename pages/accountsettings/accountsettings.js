@@ -9,11 +9,13 @@ Page({
     name:'李思思',
     phone:'15865556898',
   },
+  // 修改密码
   changepassword:function(){
     wx.navigateTo({
       url: '/pages/changepassword/changepassword',
     })
   },
+  // 设置支付密码
   setnewpassword:function(){
     wx.navigateTo({
       url: '/pages/setpaypassword/setpaypassword',

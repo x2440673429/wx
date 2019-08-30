@@ -1,0 +1,23 @@
+<!--pages/clusterorder/clusterorder.wxml-->
+<van-tabs active="{{ active }}" bind:change="onChange" color='#029a47' class='color'>
+  <van-tab title="全部"></van-tab>
+  <van-tab title="拼团中"></van-tab>
+  <van-tab title="拼团成功"></van-tab>
+  <van-tab title="拼团失败"></van-tab>
+</van-tabs>
+<view class="order_box" wx:for='{{items}}' wx:key='{{index}}'>
+  <view class="order_top">
+    <view class="ordertime">{{item.ordertime}}</view>
+    <view class="state==1？state：fail">{{item.state}}</view>
+  </view>
+  <view class="product_box">
+    <image src="{{item.img}}"></image>
+    <view class="product">
+      <view class="productname">{{item.productname}}</view>
+      <view class="product_bottom">
+        <view class="money">￥{{item.money}}<text>单买价￥{{item.onemoney}}</text></view>
+        <view class="group">2人团</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+<!--pages/balance/balance.wxml-->
+<view class="balance_box">
+  <view class="money">{{money}}<text>元</text></view>
+  <view class="mybalance">我的余额</view>
+</view>
+<view>
+  <van-tabs active="{{ active }}" bind:change="onChange" border='ture' color='#029a47' type='line' class='color'> 
+  <van-tab title="收入"  >
+    <view class="flowingwater_box" wx:for='{{flowingwater}}' wx:key="{{index}}">
+      <view class="flowingwater">收入</view>
+      <view class="box">
+        <view class="time">{{item.time}}</view>
+        <view class="number1">+{{item.number}}</view>
+      </view>
+    </view>
+
+  </van-tab>
+  <van-tab title="支出">
+    <view class="flowingwater_box" wx:for='{{flowingwater}}' wx:key="{{index}}">
+      <view class="flowingwater">支出</view>
+      <view class="box">
+        <view class="time">{{item.time}}</view>
+        <view class="number2">-{{item.number}}</view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>
+</view> 

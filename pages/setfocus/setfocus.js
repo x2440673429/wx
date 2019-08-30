@@ -8,6 +8,10 @@ Page({
     number:'20M',
     edition:'1.2.3',
   },
+  clearcache(){
+    wx.clearStorageSync()
+    this.setData({number: 0})
+  },
 
   /**
    * 生命周期函数--监听页面加载

@@ -1,4 +1,7 @@
 /* pages/browserecords/browserecords.wxss */
+page{
+  padding-bottom: 89rpx;
+}
 .browserecords{
   display: flex;
   flex-direction: column;

@@ -1,0 +1,198 @@
+/* pages/my/my.wxss */
+page{
+  background: #F2F3F8;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.my_top{
+  padding-top: 94rpx;
+  height: 296rpx;
+  background: #029a47;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 40rpx;
+  padding-right: 24rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+.my_top .touxiang{
+  width: 106rpx;
+  height: 106rpx;
+  border-radius: 50%;
+  margin-right: 17rpx;
+}
+.my_top .myinfo{
+  height: 106rpx;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+.myinfo_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.my_top .myinfo .nickname{
+  font-size: 34rpx;
+  color: #fff;
+  margin-bottom: 12rpx;
+}
+.my_top .myinfo .members{
+  width: 248rpx;
+  height: 40rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #029a47;
+  padding-left: 11rpx;
+  padding-right: 15rpx;
+  justify-content: space-between;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+}
+.my_top .myinfo .members image{
+  width: 34rpx;
+  height: 28rpx;
+}
+.my_top .myinfo image{
+  width: 12rpx;
+  height: 20rpx;
+}
+/* 余额 */
+.balance_box{
+  width: 702rpx;
+  height: 150rpx;
+  display: flex;
+  background: #fff;
+  margin-top: -65rpx;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.balance_box .economics{
+  padding: 38rpx 0 36rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.balance_box .economics .balance{
+  font-size: 34rpx;
+  color: #191919;
+  font-weight: bold;  
+}
+.balance_box .economics .balance text{
+  font-size: 24rpx;
+}
+.mybalance{
+  font-size: 24rpx;
+  color: #191919;
+}
+.bor{
+  height: 23rpx;
+  border-left: 2rpx solid #b2b2b2;
+}
+/* 购物详情 */
+.Shopping{
+  width: 702rpx;
+  height: 325rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding-bottom: 22rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+}
+.Shopping .Shopping_top{
+  flex: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.Shopping .Shopping_top .step{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Shopping .Shopping_top .step image{
+  width: 66rpx;
+  height: 62rpx;
+}
+.Shopping .Shopping_top .step view{
+  font-size: 24rpx;
+  color: #5b5b5b;
+}
+.Shopping .invitation{
+  width: 684rpx;
+  height: 154rpx;
+}
+/* 浏览记录都能 */
+.function{
+  width: 703rpx;
+  height: 302rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+.function .one_box{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+}
+.function .one_box image{
+  width: 68rpx;
+  height: 68rpx;
+  margin-bottom: 19rpx;
+}
+.function .one_box  view{
+  font-size: 22rpx;
+  color: #5b5b5b;
+}
+/* 设置系统等功能 */
+.system_box{
+  width: 704rpx;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.system_box .onefunction{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 13rpx ;
+  box-sizing: border-box;
+  align-items: center;
+  height: 81rpx;
+  border-bottom: 1rpx solid #f2f3f8;
+}
+.system_box .onefunction .system{
+  font-size: 28rpx;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+}
+.system_box .onefunction .system image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 17rpx;
+}
+.system_box .onefunction .youjiantou{
+  width: 9rpx;
+  height: 16rpx;
+}

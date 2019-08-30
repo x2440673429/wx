@@ -5,9 +5,43 @@ Page({
    * 页面的初始数据
    */
   data: {
+    value1:'',
+    value2: '',
+    value3: '',
+  },
+  // 监听input输入的值
+  // 原密码
+  handleInput1(e) {
+    // 只能输入数字否者重新渲染
+    let value = this.validateNumber(e.detail.value)
+    this.setData({
+      value1: value
+    })
+  },
+  // 第一次输入的密码
+  handleInput2(e) {
+    // 只能输入数字否者重新渲染
+    let value = this.validateNumber(e.detail.value)
+    this.setData({
+      value2: value
+    })
+  },
+  // 第二次输入的密码
+  handleInput3(e) {
+    // 只能输入数字否者重新渲染
+    let value = this.validateNumber(e.detail.value)
+    this.setData({
+      value2: value
+    })
+  },
+  // 正则表达式只能输入数字
+  validateNumber(val) {
+    return val.replace(/\D/g, '')
+  },
+  // 确认按钮
+  confirm(){
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,0 +1,22 @@
+<!--pages/viewlogistics/viewlogistics.wxml-->
+<!-- 快递公司等 -->
+<view class="order">
+  <image src="{{productimg}}"></image>
+  <view class="company_box">
+    <text decode="{{true}}"  space="nbsp">快递公司  {{company}}</text>
+    <text decode="{{true}}"  space="nbsp">快递单号  {{ordernumber}}</text>
+    <view>官方电话<text decode="{{true}}"  space="nbsp" class="phone" catchtap="makephone">  {{phone}}</text></view>
+  </view>
+</view>
+<!-- 隔离层 -->
+<view class="box"></view>
+<!-- 物流信息 -->
+<view class="info">物流信息</view>
+<view>
+  <van-steps
+  steps="{{ steps }}"
+  active="{{ active }}"
+  direction="vertical"
+  active-color="#029a47"
+/>
+</view>

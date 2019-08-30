@@ -5,9 +5,46 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    value1:'',
+    value2:''
   },
-
+  // 监听input输入的值
+  // 第一次输入的密码
+  handleInput1(e) {
+    // 只能输入数字否者重新渲染
+    let value = this.validateNumber(e.detail.value)
+      this.setData({
+        value1:value
+      }) 
+  },
+  // 第二次输入的密码
+  handleInput2(e) {
+    // 只能输入数字否者重新渲染
+    let value = this.validateNumber(e.detail.value)
+    this.setData({
+      value2: value
+    })
+  },
+  // 正则表达式只能输入数字
+  validateNumber(val) {
+    return val.replace(/\D/g, '')
+  },
+  // 确认按钮
+  confirm(){
+    if (this.data.value1.length < 6) {
+      wx.showToast({
+        title: '支付密码必须6位数字',
+        icon: "none",
+        duration: 2000
+      })
+    }else if (this.data.value1 != this.data.value2){
+      wx.showToast({
+        title: '密码不一致请重新输入',
+        icon: "none",
+        duration: 2000
+      })
+    } 
+  },
   /**
    * 生命周期函数--监听页面加载
    */

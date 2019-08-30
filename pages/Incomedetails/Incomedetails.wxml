@@ -1,6 +1,6 @@
 <!--pages/Incomedetails/Incomedetails.wxml-->
 <!-- 收益明细 -->
-<van-tabs active="{{ active }}" bind:change="onChange"  border='ture' color='#029a47' type='line'>
+<van-tabs active="{{ active }}" bind:change="onChange"  border='ture' color='#029a47' type='line' class='color'>
   <van-tab title="已到账"></van-tab>
   <van-tab title="未到账"></van-tab>
 </van-tabs>

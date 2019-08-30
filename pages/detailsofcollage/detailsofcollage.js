@@ -14,11 +14,13 @@ Page({
     onemoney:9,
     show:false,
   },
+  // 打开规则弹框
   getrule:function(){
     this.setData({
       show:true,
     })
   },
+  // 关闭规则弹框
   onClose() {
     this.setData({ show: false });
   },

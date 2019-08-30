@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "拼团订单",
+  "usingComponents": {
+    "van-tab": "/vant/dist/tab/index",
+    "van-tabs": "/vant/dist/tabs/index"
+  }
+}

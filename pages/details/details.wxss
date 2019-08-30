@@ -20,6 +20,7 @@ page{
   padding-left: 25rpx;
   padding-bottom: 34rpx;
   background: #fff;
+ 
 }
 .shop_box .shop_left{
   width: 566rpx;
