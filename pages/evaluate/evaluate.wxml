@@ -7,8 +7,8 @@
 <view class="textarea">
   <textarea placeholder="宝贝满足你的期待吗？说说你的试用感受，分享给想买的小姐妹吧" />
   <view class="add">
-    <image src="../../image/4我的/shangchuanpinzheng@2x.png"></image>
-    <view>添加图片</view>
+    <image src="../../image/4我的/xiangji.png"></image>
+    <!-- <view>添加图片</view> -->
   </view>
 </view>
 <view class="btn">确认</view>

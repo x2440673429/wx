@@ -143,7 +143,12 @@ Page({
       wx.navigateTo({
         url: "/pages/systemmessage/systemmessage" ,
       })
-    } else if (num==4){
+    } 
+    else if (num == 3) {
+      wx.navigateTo({
+        url: "/pages/aboutus/aboutus",
+      })
+    }else if (num==4){
       wx.navigateTo({
         url: "/pages/setfocus/setfocus",
       })

@@ -201,7 +201,7 @@ page{
   width: 91rpx;
   height: 25rpx;
   background: #f8d6d5;
-  font-size: 28rpx;
+  font-size: 20rpx;
   color: #e2696b;
   text-align: center;
   line-height: 25rpx;

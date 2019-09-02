@@ -53,7 +53,8 @@
     "pages/clusterorder/clusterorder",
     "pages/preferentialoffer/preferentialoffer",
     "pages/mygiftbag/mygiftbag",
-    "pages/give/give"
+    "pages/give/give",
+    "pages/aboutus/aboutus"
   ],
   "window": {
     "backgroundTextStyle": "light",

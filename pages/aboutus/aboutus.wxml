@@ -1,0 +1,39 @@
+<!--pages/aboutus/aboutus.wxml-->
+<view class="aboutus">
+  <image src="" class="appearance"></image>
+  <view class="logo_box">
+    <image src="../../image/4我的/shangmian@2x.png"></image>
+    <view class="logo">logo</view>
+  </view>
+</view>
+<view class="company_box top">
+  <image src="" class="company_left"></image>
+  <view class="company_right">  
+    <view class="company_title">
+      <view class="company_profile">公司简介</view>
+      <image src="../../image/4我的/zuo@2x.png"></image>
+    </view>
+    <view class="company_text">{{text}}公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介.</view>
+  </view>
+</view>
+<view  class="company_box back"> 
+  <view class="company_right ">  
+    <view class="company_title right">
+      <view class="company_profile company_name">发展历程</view>
+      <image src="../../image/4我的/you@2x.png" class="company_you"></image>
+    </view>
+    <view class="company_text">{{text}}公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介.</view>
+  </view>
+  <image src="" class="company_left"></image>
+</view>
+<view class="company_box back">
+  <image src="" class="company_left"></image>
+  <view class="company_right">  
+    <view class="company_title">
+      <view class="company_profile">专属领域</view>
+      <image src="../../image/4我的/zuo@2x.png"></image>
+    </view>
+    <view class="company_text">{{text}}公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介公司简介.</view>
+  </view>
+</view>
+<image src="../../image/4我的/xiamian@2x.png" class="xiamian"></image>

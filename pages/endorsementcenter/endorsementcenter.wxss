@@ -147,11 +147,15 @@ page{
   width: 544rpx;
   font-size: 34rpx;
   color: #1a1a1a;
+  line-height: 62rpx;
 }
 .rule_box image{
   width: 30rpx;
   height: 30rpx;
   position: absolute;
-  top: 10rpx;
-  right: 10rpx;
+  top: 15rpx;
+  right: 15rpx;
+}
+.der{
+  border-radius: 10rpx;
 }

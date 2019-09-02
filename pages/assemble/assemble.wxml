@@ -32,7 +32,7 @@
           <view class="money">￥{{item.money}}</view>
           <view class="onemoney">单买价￥{{item.onemoney}}</view>
         </view>
-        <view class="goassemble">去拼团</view>
+        <view class="goassemble" catchtap="goingtothepuzzle">去拼团</view>
       </view>
     </view>
   </view>

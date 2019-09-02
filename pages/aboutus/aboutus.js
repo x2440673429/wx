@@ -1,27 +1,11 @@
-// pages/assemble/assemble.js
+// pages/aboutus/aboutus.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active: 0,
-    productinof:[
-      {
-        image: '../../image/1首页/chanpin@2x.png',
-        name: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 9.9,
-        onemoney: 19.9
-      },
-      {
-        image: '../../image/1首页/chanpin@2x.png',
-        name: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 9.9,
-        onemoney: 19.9
-      },
-    ]
+
   },
 
   /**
@@ -78,11 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  // 点击去拼团
-  goingtothepuzzle(){
-    wx.navigateTo({
-      url: '/pages/details/details',
-    })
-  },
+  }
 })

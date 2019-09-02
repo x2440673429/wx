@@ -19,10 +19,14 @@ page{
   padding-left: 25rpx;
   padding-bottom: 34rpx;
   background: #fff;
+  padding-right: 24rpx;
+  box-sizing: border-box;
 }
 .shop_box .shop_left{
-  width: 566rpx;
-  height: 260rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .mianbox{
   display: flex;
@@ -42,11 +46,30 @@ page{
 .shop_box .shop_left .text{
   font-size: 28rpx;
   color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+/* 分享按钮 */
+.shop_box .shop_right{
+  width: 120rpx;
+  height: 50rpx;
+  background: #029a47;
+  border-radius: 25rpx;
+  color: #fff;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.shop_box .shop_right image{
+  width: 30rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+  vertical-align: -3rpx;
+} 
 .shop_box .shop_left .money{
   color: #029a47;
   font-size: 50rpx;
-  margin-top: 72rpx;
   font-weight: 800;
 }
 .shop_box .shop_left .money text{
@@ -59,24 +82,7 @@ page{
   margin-left: 24rpx;
   margin-right: 59rpx;
 }
-/* 分享按钮 */
-.shop_box .shop_right{
-  width: 120rpx;
-  height: 50rpx;
-  background: #029a47;
-  border-radius: 25rpx;
-  color: #fff;
-  margin-top: 77rpx;
-  line-height: 50rpx;
-  text-align: center;
-  font-size: 24rpx;
-}
-.shop_box .shop_right image{
-  width: 30rpx;
-  height: 28rpx;
-  margin-right: 10rpx;
-  vertical-align: -3rpx;
-} 
+
 /* 地址 */
 .addassemble{
   display: flex;

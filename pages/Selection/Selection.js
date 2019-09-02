@@ -30,7 +30,10 @@ Page({
         text: `[扶农] [顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250-300g)`,
         number: '13',
       },
-    ]
+    ],
+    hour:23,
+    Minute:22,
+    second:22,
   },
 
   /**
@@ -87,5 +90,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 点击免费拿
+  getproduct() {
+    wx.navigateTo({
+      url: '/pages/Bargain/Bargain',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   }
 })

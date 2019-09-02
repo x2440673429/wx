@@ -44,7 +44,7 @@
 <!-- 分享按钮 -->
 <view class="share" catchtap="gotoshare">我要分享</view>
 <!-- 规则弹框 -->
-<van-popup show="{{ show }}" bind:close="onClose">
+<van-popup show="{{ show }}" bind:close="onClose" custom-class='der'>
   <view class="rule_box">
     <view class="title">规则</view>
     <view class="content">规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容</view>
