@@ -44,8 +44,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/aboutus/aboutus",
-					"pathName": "pages/aboutus/aboutus",
+					"name": "pages/bindphone/bindphone",
+					"pathName": "pages/bindphone/bindphone",
 					"query": "",
 					"scene": null
 				}

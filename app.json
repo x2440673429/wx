@@ -54,7 +54,14 @@
     "pages/preferentialoffer/preferentialoffer",
     "pages/mygiftbag/mygiftbag",
     "pages/give/give",
-    "pages/aboutus/aboutus"
+    "pages/aboutus/aboutus",
+    "pages/collection/collection",
+    "pages/feedback/feedback",
+    "pages/help/help",
+    "pages/shoping/shoping",
+    "pages/address/address",
+    "pages/addaddress/addaddress",
+    "pages/bindphone/bindphone"
   ],
   "window": {
     "backgroundTextStyle": "light",
