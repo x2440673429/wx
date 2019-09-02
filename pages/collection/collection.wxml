@@ -1,0 +1,29 @@
+<van-tabs active="{{ active }}" bind:change="onChange" color="#029a47">
+  <van-tab title="店铺收藏"></van-tab>
+  <van-tab title="商品收藏"></van-tab>
+  <van-tab title="内容收藏"></van-tab>
+</van-tabs>
+
+<view>
+  <view class="box" wx:for='{{list}}' key='{{index}}'>
+    <image src="{{item[4]?'../../image/4我的/xuanzhong@2x.png':'../../image/4我的/weixuanzhong@2x.png'}}" 
+    class="isselect" wx:if='{{edit}}' bindtap="select" data-idx="{{index}}"></image>
+    <view class="listbox">
+      <image src="{{item[0]}}" class="goodimg"></image>
+      <view class="goodcont">
+        <view style="font-size: 28rpx;">{{item[1]}}</view>
+        <view style="font-size: 34rpx;color: #029a47">￥{{item[2]}}</view>
+        <view style="font-size: 24rpx;color: #b2b2b2">{{item[3]}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="selectall" wx:if='{{edit}}'>
+  <view class="selectright" bindtap="selectallbtm">
+    <image src="{{selectAll? '../../image/4我的/xuanzhong@2x.png':'../../image/4我的/weixuanzhong@2x.png'}}" class="select"></image>
+    <view>全选</view>
+  </view>
+  <view class="del">删除</view>
+</view>
+<view class="bottombox" bindtap="isedit">{{editName}}</view>

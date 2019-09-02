@@ -1,0 +1,16 @@
+/* pages/help/help.wxss */
+page{
+  background: #F2F3F8;
+}
+.kefu{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #fff;
+  font-size: 30rpx;
+  align-items: center;
+}
+.jiantou{
+  height: 23rpx;
+  width: 14rpx;
+}

@@ -1,0 +1,66 @@
+<van-nav-bar
+  left-text=""
+  right-text=""
+  left-arrow
+  fixed
+  bind:click-left="onClickLeft"
+  border="{{false}}"
+>
+  <view slot="title"  class="toptit">
+    <image src="../../image/1首页/sousuo.png" class='topimg'></image>
+    <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品"/>
+  </view>
+</van-nav-bar>
+
+<view class="titbox">
+  <image src="../../image/1首页/kajiatouxiang@2x.png" class="titimg"></image>
+  <view class="titright">
+    <view class="titr1">
+      <view>店铺名称</view>
+      <image src="../../image/4我的/fenxiang@2x.png" class="titrimg"></image>
+    </view>
+    <view class="titr2" >
+      <view>销量23.9万丨收藏7855</view>
+      <view class="titbtm">收藏</view>
+    </view>
+  </view>
+</view>
+
+<van-tabs active="{{ active }}" bind:change="onChange" color='#029a47'>
+  <van-tab title="商品">
+    <view class="box1" >
+      <view class="goodbox" wx:for='{{list}}' wx:key='{{index}}'>
+        <image src="{{item[0]}}" class="goodimg"></image>
+        <view class="goodname">{{item[1]}}</view>
+        <view class="goodbottom">
+          <view class="bottoml">
+            <text class="goodprice">￥{{item[2]}}</text>
+            <text class="goodpriceo"> ￥{{item[3]}}</text>
+          </view>
+          <view class="bottomr">已售{{item[4]}}件</view>
+        </view>
+
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="店铺信息">
+    <view class="box2">
+      <view class="msgbox">
+        <view class="msgleft">店铺公告</view>
+        <view class="msgrig">专注于品牌设计、环境设计、校园文化建设、文化咨询及艺术创作。</view>
+      </view>
+      <view class="msgbox">
+        <view class="msgleft">地理位置</view>
+        <view class="msgrig">北京  朝阳区 四环到五环之间</view>
+      </view>
+      <view class="msgbox">
+        <view class="msgleft">店铺公告</view>
+        <view class="msgrig">158656666665</view>
+      </view>
+      <view class="msgbox">
+        <view class="msgleft">营业执照</view>
+        <view class="msgrig"></view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

@@ -1,0 +1,21 @@
+<view class="box">
+  <view class="box1">
+    <view>类型</view>
+    <image src="../../image/4我的/xiangxiaxiaojiantou@2x.png" class="jiantou"></image>
+  </view>
+
+  <view style="padding: 31rpx 0 23rpx;">请填写详细问题和意见</view>
+
+  <input bindinput="bindKeyInput" placeholder="请简述标题（20字内）" maxlength="20" />
+
+  <textarea bindblur="bindTextAreaBlur" placeholder="请输入申诉内容" />
+
+  <view class="imglist">
+    <view>请提供相关问题的截图和照片</view>
+    <image src="../../image/4我的/tianjiatupian@2x.png" class="addimg"></image>
+  </view>
+
+  <view class="btnbox">
+    <view class="btn">确认提交</view>
+  </view>
+</view>
