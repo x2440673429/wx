@@ -32,14 +32,14 @@
 <!-- Tab标签页 -->
 <view class="tabpage">
   <van-tabs active="{{ active }}" bind:change="onChange" color='#029a47' class='color'>
-    <van-tab title="推荐">
+    <van-tab title="推荐" data-column='column1'>
     <!-- 推荐 -->
     <!-- 轮播图 -->
       <view class="swiper-box">
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
           <block wx:for="{{image}}" wx:key="{{index}}">
             <swiper-item>
-              <image src="{{item}}" class="slide-image" />
+              <image src="{{item.img_id}}" class="slide-image" />
             </swiper-item>
           </block>
         </swiper>
@@ -58,9 +58,9 @@
       </view>
       <!-- 热卖店铺等 -->
       <view class="storename">
-        <view class=" {{item.id==3?'pink':'storename_box'}}||{{item.id==4?'blue':'storename_box'}}" wx:for='{{shop}}' wx:key='{{index}}' catchtap="getshop" data-item="{{item}}">
+        <view class="storename_box {{index==2?'pink':''}} {{index==3?'bluew':''}}"  wx:for='{{shop}}' wx:key='{{index}}' catchtap="getshop" data-item="{{item}}" data-index="{{index}}">
           <view class="storetitle">{{item.title}}</view>
-          <view class="storetxt">{{item.txt}}</view>
+          <view class="storetxt">{{item.content}}</view>
           <image src="{{item.img}}"></image>
         </view>
       </view>
@@ -101,15 +101,15 @@
       <view class="sellwell_box">
         <view class="sellwell">热销 </view>
         <view class="sellwellproduct" wx:for='{{sellwellbox}}' wx:key='{{index}}'>
-          <image class="sellwelltitleimg" src='{{item.sellwelltitleimg}}'></image>
-          <view class="sellwellintroduce" wx:for='{{item.sellwell}}' wx:key='{{index}}' wx:for-item='sellwell'>
-            <image class="product_img" src="{{sellwell.img}}"></image>
+          <image class="sellwelltitleimg" src='{{item.ad}}'></image>
+          <view class="sellwellintroduce" wx:for='{{item.list}}' wx:key='{{index}}' wx:for-item='sellwell'>
+            <image class="product_img" src="{{item.ad}}"></image>
             <view class="product_right">
-              <view class="producttitle">{{sellwell.producttitle}}</view>
-              <view class="producttxt">{{sellwell.producttxt}}</view>
-              <view class="weight">{{sellwell.weight}}</view>
+              <view class="producttitle">{{sellwell.title}}</view>
+              <view class="producttxt">{{sellwell.short_title}}</view>
+              <view class="weight">{{sellwell.pic}}</view>
               <view class="product_bottom">
-                <view class="sellwellmoney">￥{{sellwell.sellwellmoney}}<text>￥{{sellwell.sellwelljianmoney}}</text></view>
+                <view class="sellwellmoney">￥{{sellwell.price}}<text>￥{{sellwell.original_price}}</text></view>
                 <image src="../../image/1首页/tianjia.png"></image>
               </view>
             </view>
@@ -131,7 +131,7 @@
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
           <block wx:for="{{image}}" wx:key="{{index}}">
             <swiper-item>
-              <image src="{{item}}" class="slide-image" />
+              <image src="{{item.img_id}}" class="slide-image" />
             </swiper-item>
           </block>
         </swiper>
@@ -194,7 +194,7 @@
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
     <block wx:for="{{image}}" wx:key="{{index}}">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" />
+        <image src="{{item.img_id}}" class="slide-image" />
       </swiper-item>
     </block>
   </swiper>

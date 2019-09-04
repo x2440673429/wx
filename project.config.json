@@ -4,12 +4,13 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
+		"checkInvalidKey": true,
 		"coverView": true
 	},
 	"compileType": "miniprogram",
@@ -40,13 +41,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "pages/flashsale/flashsale",
 					"pathName": "pages/flashsale/flashsale",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "shoping",
+					"pathName": "pages/shoping/shoping",
 					"scene": null
 				}
 			]
