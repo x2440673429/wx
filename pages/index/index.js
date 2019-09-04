@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const a = "../utils/https.js"
 
 Page({
   data: {
@@ -23,28 +24,31 @@ Page({
     duration: 800,
     swiperCurrent: 0,
     active1:0,
-    index:3,
-    index1:4,
     nav: [
       {
         img: '../../image/1首页/xinrentehui.png',
         title: '新人特惠',
+        url: '/pages/Discount/Discount',
       },
       {
         img: '../../image/1首页/zhenxuanpintuan.png',
         title: '甄选拼团',
+        url: '/pages/assemble/assemble',
       },
       {
         img: '../../image/1首页/xianshiqianggou.png',
         title: '限时抢购',
+        url: '/pages/flashsale/flashsale',
       },
       {
         img: '../../image/1首页/zhongchouyushou.png',
         title: '众筹预售',
+        url: '/pages/Discount/Discount',
       },
       {
         img: '../../image/1首页/zhulimiandan.png',
         title: '助力免单',
+        url: '/pages/assistancewaiver/assistancewaiver',
       },
     ],
     specialty:[
@@ -80,7 +84,7 @@ Page({
       },
       
     ],
-    product:[
+    product1:[
       {
         banner:'../../image/1首页/zxbanner.png',
         child:[
@@ -144,24 +148,32 @@ Page({
     ],
     shop:[
       {
+        id: 1,
         title:'热卖店铺',
         txt:'长白山黑木耳￥389/1箱',
         img:'../../image/1首页/remaidianpu.png',
+        url: '/pages/Discount/Discount',
       },
       {
+        id: 2,
         title: '甄选砍价',
         txt: '鸭稻米10盒/9.9元',
         img: '../../image/1首页/zhenxuankanjia.png',
+        url: '/pages/Selection/Selection',
       },
       {
+        id: 3,
         title: '今日爆款',
         txt: '松长江稻米香[米]',
         img: '../../image/1首页/jinribaokuan.png',
+        url: '/pages/flashsale/flashsale',
       },
       {
+        id: 4,
         title: '每日精选',
         txt: '九间棚山野小菜[干粮]',
         img: '../../image/1首页/meirijingxuan.png',
+        url: '/pages/Discount/Discount',
       },
     ],
     sellwellbox:[
@@ -225,6 +237,54 @@ Page({
       },
     ],
     sign: 0,
+    // 推荐抢购时间
+    limitedtime: [
+      {
+        time: '16:00',
+        title: '昨日精选',
+      },
+      {
+        time: '16:00',
+        title: '昨日精选',
+      },
+      {
+        time: '16:00',
+        title: '昨日精选',
+      },
+      {
+        time: '16:00',
+        title: '昨日精选',
+      },
+      {
+        time: '16:00',
+        title: '昨日精选',
+      },
+      {
+        time: '16:00',
+        title: '昨日精选',
+      },
+    ],
+    product: [
+      {
+        productname: '手工麻薯小吃永春麻糍糯米',
+        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
+        money: 99,
+        addmoney: 10
+      },
+      {
+        productname: '手工麻薯小吃永春麻糍糯米',
+        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
+        money: 99,
+        addmoney: 10
+      },
+      {
+        productname: '手工麻薯小吃永春麻糍糯米',
+        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
+        money: 99,
+        addmoney: 10
+      },
+    ],
+    time: 0,
   },
   onChange(event){
     console.log(event)
@@ -242,49 +302,17 @@ Page({
   },
   // 跳转新人特惠等
   getnav(e){
-   var num = e.currentTarget.dataset.number
-    if(num==0){
-      wx.navigateTo({
-        url: '/pages/Discount/Discount',
-      })
-    }else if(num==1){
-      wx.navigateTo({
-        url: '/pages/assemble/assemble',
-      })
-    } else if (num == 2) {
-      wx.navigateTo({
-        url: '/pages/flashsale/flashsale',
-      })
-    } else if (num == 3) {
-      wx.navigateTo({
-        url: '/pages/Discount/Discount',
-      })
-    } else if (num == 4) {
-      wx.navigateTo({
-        url: '/pages/assistancewaiver/assistancewaiver',
-      })
-    }
+    var url = e.currentTarget.dataset.item.url
+    wx.navigateTo({
+      url: url,
+    })
   },
   // 跳转热卖店铺等4个
   getshop(e){
-    var num = e.currentTarget.dataset.number
-    if (num == 0) {
-      wx.navigateTo({
-        url: '/pages/Discount/Discount',
-      })
-    } else if (num == 1) {
-      wx.navigateTo({
-        url: '/pages/Selection/Selection',
-      })
-    } else if (num == 2) {
-      wx.navigateTo({
-        url: '/pages/flashsale/flashsale',
-      })
-    } else if (num == 3) {
-      wx.navigateTo({
-        url: '/pages/Discount/Discount',
-      })
-    }
+    var url = e.currentTarget.dataset.item.url
+    wx.navigateTo({
+      url: url,
+    })
   },
 
 
@@ -329,5 +357,89 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+
+  /**
+ * 生命周期函数--监听页面加载
+ */
+  onLoad: function (options) {
+    // getindexpage()
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
+  },
+
+
+
+  // 点击抢购时间
+  flashsale(e) {
+    console.log(e)
+    this.setData({
+      time: e.currentTarget.dataset.time
+    })
+    console.log(this.data.time)
+  },
+  // 获取首页信息（推荐）
+  // getindexpage(){
+  //   wx.request({
+  //     url: 'http://www.yql.com/api.php/index/index',
+  //     data: 'access_token: ; user_token: from',
+  //     header: {},
+  //     method: 'POST',
+  //     dataType: 'json',
+  //     responseType: 'text',
+  //     success: function(res) {
+  //       console.log(res)
+  //     },
+  //     fail: function(res) {},
+  //     complete: function(res) {},
+  //   })
+  // }
+  
 })

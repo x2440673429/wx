@@ -18,7 +18,7 @@ page{
   display: flex;
   height: 224rpx;
 }
-.browserecords .product image{
+.browserecords .product .product_img{
   width: 214rpx;
   height: 195rpx;
   margin-right: 23rpx;
@@ -47,4 +47,45 @@ page{
   left: 0;
   background: #fff;
   width: 100%;
+}
+/* 选中与未选中 */
+.isselect{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 24rpx;
+  align-self:center ;
+}
+
+
+
+/* 全选删除按钮 */
+.selectall{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+  bottom: 88rpx;
+  left: 0;
+  right: 0;
+  font-size: 28rpx;
+  border-bottom: 2rpx solid #F2F3F8;
+}
+.select{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 20rpx 0 24rpx;
+}
+.selectright{
+  display: flex;
+  align-items: center;
+}
+.del{
+  height: 88rpx;
+  width:  224rpx;
+  line-height: 88rpx;
+  color: #fff;
+  background: #ea1010;
+  text-align: center;
+  font-size: 34rpx;
 }

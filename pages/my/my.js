@@ -12,56 +12,69 @@ Page({
       {
         img:'../../image/4我的/shenqingdianpu@2x.png',
         title:'申请店铺',
+        url: "/pages/applystore/applystore",
       },
       {
         img: '../../image/4我的/shehuizhuzhirenzheng@2x.png',
         title: '社会组织认证',
+        url: "/pages/socialorganization/socialorganization",
       },
       {
         img: '../../image/4我的/shehuizhuzhirenzheng@2x.png',
         title: '代言中心',
+        url: "/pages/endorsementcenter/endorsementcenter",
       },
       {
         img: '../../image/4我的/wodepingjia@2x.png',
         title: '我的评价',
+        url: "/pages/myevaluate/myevaluate",
       },
       {
         img: '../../image/4我的/wodehuodong@2x.png',
         title: '我的活动',
+        url: "/pages/myactivities/myactivities",
       },
       {
         img: '../../image/4我的/wodelibao@2x.png',
         title: '我的礼包',
+        url: "/pages/mygiftbag/mygiftbag",
       },
       {
         img: '../../image/4我的/wodeshoucang@2x.png',
         title: '我的收藏',
+        url: "/pages/collection/collection",
       },
       {
         img: '../../image/4我的/liulanjilu@2x.png',
         title: '浏览记录',
+        url: "/pages/browserecords/browserecords",
       },
     ],
     item2:[
       {
         title:'系统消息',
         img:'../../image/4我的/xiaoxi.png',
+        url: "/pages/systemmessage/systemmessage",
       },
       {
         title: '问题反馈',
         img: '../../image/4我的/wentifankui@2x.png',
+        url: "/pages/feedback/feedback",
       },
       {
         title: '帮助中心',
         img: '../../image/4我的/wodekefu@2x.png',
+        url: "/pages/help/help",
       },
       {
         title: '关于我们',
         img: '../../image/4我的/guanyuwomen@2x.png',
+        url: "/pages/aboutus/aboutus",
       },
       {
         title: '设置中心',
         img: '../../image/4我的/shezhizhongxin@2x.png',
+        url: "/pages/setfocus/setfocus",
       },
     ],
     order:[
@@ -101,58 +114,19 @@ Page({
   },
   // 申请店铺浏览记录等页面
   gotopage(e){
-    var num = e.currentTarget.dataset.number
-    if (num == 0) {
-      wx.navigateTo({
-        url: "/pages/applystore/applystore",
-      })
-    } else if (num == 1){
-      wx.navigateTo({
-        url: "/pages/socialorganization/socialorganization",
-      })
-    }else if (num == 2) {
-      wx.navigateTo({
-        url: "/pages/endorsementcenter/endorsementcenter",
-      })
-    }else if (num == 3) {
-      wx.navigateTo({
-        url: "/pages/myevaluate/myevaluate",
-      })
-    }else if (num == 4) {
-      wx.navigateTo({
-        url: "/pages/myactivities/myactivities",
-      })
-    }else if (num == 5) {
-      wx.navigateTo({
-        url: "/pages/mygiftbag/mygiftbag",
-      })
-    }else if (num == 6) {
-      wx.navigateTo({
-        url: "/pages/socialorganization/socialorganization",
-      })
-    } else if (num == 7) {
-      wx.navigateTo({
-        url: "/pages/browserecords/browserecords",
-      })
-    }
+    var url = e.currentTarget.dataset.item.url
+    wx.navigateTo({
+      url: url,
+    })
+ 
   },
   // 跳转对应的页面
   getinfo(e){
-    var num = e.currentTarget.dataset.number
-    if (num == 0) {
-      wx.navigateTo({
-        url: "/pages/systemmessage/systemmessage" ,
-      })
-    } 
-    else if (num == 3) {
-      wx.navigateTo({
-        url: "/pages/aboutus/aboutus",
-      })
-    }else if (num==4){
-      wx.navigateTo({
-        url: "/pages/setfocus/setfocus",
-      })
-    }
+    console.log(e)
+    var url = e.currentTarget.dataset.item.url
+    wx.navigateTo({
+      url: url,
+    })
   },
   // 订单
   order(e){

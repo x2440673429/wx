@@ -89,9 +89,8 @@ Page({
   qiehuan(e){
     console.log(e)
     this.setData({
-      index1: e.currentTarget.dataset.index
+      key: e.currentTarget.dataset.index
     })
-    console.log(this.data.index1)
   },
   // 获取图片大小
   getimg(){
@@ -102,24 +101,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getImageInfo({
-      src: '../../image/2分类/jiemian.png',
-      success(res) {
-        console.log(res.width)
-        console.log(res.height)
-      }
-    })
-    wx.chooseImage({
-      success(res) {
-        wx.getImageInfo({
-          src: res.tempFilePaths[0],
-          success(res) {
-            console.log(res.width)
-            console.log(res.height)
-          }
-        })
-      }
-    })
+  
   },
 
   /**

@@ -21,7 +21,7 @@
 } */
 
 page{
-  background: #F2F3F8;
+  background-color: #F2F3F8;
 }
 
 /* 头部搜索框 */
@@ -137,6 +137,147 @@ page{
   align-self:flex-end;
   width: 136rpx;
   height: 126rpx;
+}
+/* 抢购时间 */
+.limitedtime{
+  width: 100%;
+  height: 145rpx;
+  overflow-y:scroll; 
+  background: #fff;
+}
+.all{
+ white-space:nowrap;
+ padding-top: 24rpx;
+ box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.limitedtime .time_box{
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  font-size: 40rpx;
+  color: #191919;
+  padding-top: 24tpx;
+}
+.limitedtime .time_box .title{
+  box-sizing: border-box;
+  padding-bottom: 5rpx;
+  font-size: 20rpx;
+}
+.limitedtime .time_box .time{
+  font-weight: bold;
+}
+.timecolor{
+  color: #029a47;
+}
+.bor{
+  border-bottom: 2rpx solid #029a47;
+}
+/* 产品 */
+.product_less{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+.product_box{
+  width: 100%;
+  padding: 35rpx 22rpx;
+  display: flex;
+  box-sizing: border-box;
+}
+.product_box image{
+  width: 206rpx;
+  height: 206rpx;
+  margin-right: 44rpx;
+}
+.product_box .product{
+  flex: 1;
+  flex-direction: column;
+}
+.product_box .product .productname{
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+.product_box .product  .text{
+  width: 393rpx;
+  font-size: 20rpx;
+  color: #4d4d4d;
+  margin: 14rpx 0;
+}
+.product_box .product .box{
+  display: flex;
+  margin-bottom: 5rpx;
+}
+.product_box .product .box text{
+  width: 50rpx;
+  height: 25rpx;
+  background: #f8d6d5;
+  color: #e2696b;
+  text-align: center;
+  line-height: 25rpx;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+}
+.product_box .product .big_box{
+  display: flex;
+  justify-content: space-between;
+}
+.product_box .product .big_box .Price{
+  display: flex;
+  flex-direction: column;
+}
+.product_box .product .big_box .Price .money{
+  font-size: 34rpx;
+  color: #029a47;
+  font-weight: bold;
+}
+.product_box .product .big_box .Price .addmoney{
+  font-size: 24rpx;
+  color: #b4b4b4;
+}
+.product_box .product .big_box  .botton{
+  display: flex;
+  align-items: flex-end;
+}
+.product_box .product .big_box  .botton .quick{
+  width: 120rpx;
+  height: 50rpx;
+  border: 1rpx solid #029a47;
+  color: #029a47;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  font-size: 24rpx;
+}
+.product_box .product .big_box  .botton .share{
+  width: 120rpx;
+  height: 50rpx;
+  background: #029a47;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+}
+.lookatall{
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #353535;
+}
+.lookatall image{
+  width: 9rpx;
+  height: 16rpx;
+  margin-left: 12rpx;
 }
 /* 热销 */
 .sellwell_box{
@@ -386,7 +527,7 @@ swiper image {
   margin-top: 21rpx;
 }
 /* 振兴农村和品质生活 */
-.product_bigbox{
+.product1_bigbox{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -395,21 +536,21 @@ swiper image {
   box-sizing: border-box;
   margin-top: 19rpx;
 }
-.product_bigbox:last-child{
+.product1_bigbox:last-child{
   margin-bottom: 19rpx;
 }
-.product_bigbox .type_img{
+.product1_bigbox .type_img{
   width: 700rpx;
   height: 200rpx;
 }
-.product_bigbox .product_box{
+.product1_bigbox .product1_box{
   display: flex;
   width: 100%;
   padding: 0 25rpx;
   box-sizing: border-box;
   flex-wrap: wrap;
 }
-.product_bigbox .product_box .product{
+.product1_bigbox .product1_box .product1{
   width: 228rpx;
   height: 259rpx;
   display: flex;
@@ -418,22 +559,22 @@ swiper image {
   margin-top: 20rpx;
   margin-right: 10rpx;
 }
-.product_bigbox .product_box .product:nth-child(3n+3){
+.product1_bigbox .product1_box .product1:nth-child(3n+3){
   margin-right: -10rpx;
 }
-.product_bigbox .product_box .product image{
+.product1_bigbox .product1_box .product1 image{
   width: 100%;
   height: 167rpx;
 }
-.product_bigbox .product_box .product .product_name{
+.product1_bigbox .product1_box .product1 .product1_name{
   font-size: 26rpx;
   color: #191919;
 }
-.product_bigbox .product_box .product .money{
+.product1_bigbox .product1_box .product1 .money{
   color: #029a47;
   font-size: 24rpx;
 }
-.product_bigbox .product_box .product .money text{
+.product1_bigbox .product1_box .product1 .money text{
   font-size: 20rpx;
   color: #b4b4b4;
   text-decoration:line-through;

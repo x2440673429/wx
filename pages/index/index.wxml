@@ -51,20 +51,53 @@
       </view>
       <!--  新人特惠等  -->
       <view class="nav">
-        <view class="oneof" wx:for='{{nav}}' wx:key='{{index}}' catchtap="getnav" data-number="{{index}}" catchtap="getnav" data-number="{{index}}">
+        <view class="oneof" wx:for='{{nav}}' wx:key='{{index}}' catchtap="getnav" data-item="{{item}}" catchtap="getnav">
           <image src="{{item.img}}"></image>
           <view>{{item.title}}</view>
         </view>
       </view>
       <!-- 热卖店铺等 -->
       <view class="storename">
-        <view class="storename_box {{index==3?'pink':'storename_box'}} {{index1==4?'blue':'storename_box'}}" wx:for='{{shop}}' wx:key='{{index}}' catchtap="getshop" data-number="{{index}}">
+        <view class=" {{item.id==3?'pink':'storename_box'}}||{{item.id==4?'blue':'storename_box'}}" wx:for='{{shop}}' wx:key='{{index}}' catchtap="getshop" data-item="{{item}}">
           <view class="storetitle">{{item.title}}</view>
           <view class="storetxt">{{item.txt}}</view>
           <image src="{{item.img}}"></image>
         </view>
       </view>
-      <!-- 热销 -->
+      <!-- 抢购时间 -->
+      <view class="limitedtime" >
+        <view class="all">
+          <view class="time_box" wx:for='{{limitedtime}}' wx:key='{{index}}' catchtap="flashsale" data-time="{{index}}">
+            <view class="time {{time==index?'timecolor':''}}">{{item.time}}</view>
+            <view class="title {{time==index?'bor timecolor':''}}">{{item.title}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 产品 -->
+      <view class="product_less">
+        <view class="product_box" wx:for='{{product}}' wx:key='{{index}}'>
+          <image src="../../image/1首页/chanpin@2x.png"></image>
+          <view class="product">
+            <view class="productname">{{item.productname}}</view>
+            <view class="text">{{item.text}}</view>
+            <view class="box"><text class="temai">特卖</text><text class="zhijiang">直降</text></view>
+            <view class="big_box">
+              <view class="Price">
+                <view class="money">￥{{item.money}}</view>
+                <view class="addmoney">赚￥{{item.addmoney}}</view>
+              </view>
+              <view class="botton">
+                <text class="quick">马上抢</text>
+                <text class="share">分享赚</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="lookatall">查看全部
+          <image src="../../image/1首页/youjiantou2@2x.png"></image>
+        </view>
+      </view>
+        <!-- 热销 -->
       <view class="sellwell_box">
         <view class="sellwell">热销 </view>
         <view class="sellwellproduct" wx:for='{{sellwellbox}}' wx:key='{{index}}'>
@@ -172,12 +205,12 @@
   </view>
 </view>
 <!-- 产品 -->
-<view class="product_bigbox" wx:for='{{product}}' wx:key='{{index}}'>
+<view class="product1_bigbox" wx:for='{{product1}}' wx:key='{{index}}'>
   <image src="{{item.banner}}" class="type_img"></image>
-  <view class="product_box">
-    <view class="product" wx:for-item='items' wx:for='{{item.child}}' wx:key='{{img}}' >
+  <view class="product1_box">
+    <view class="product1" wx:for-item='items' wx:for='{{item.child}}' wx:key='{{img}}' >
       <image src="{{items.img}}"></image>
-      <view class="product_name">石城翻秋花生</view>
+      <view class="product1_name">石城翻秋花生</view>
       <view class="money">￥{{items.money}}<text>￥{{items.oldmoney}}</text></view>
     </view>
   </view>

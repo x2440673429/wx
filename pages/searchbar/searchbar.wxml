@@ -3,7 +3,6 @@
 <van-nav-bar
   left-text=""
   right-text=""
-  left-arrow
   fixed
   bind:click-left="onClickLeft"
   safe-area-inset-top

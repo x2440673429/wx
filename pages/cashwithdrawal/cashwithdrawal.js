@@ -32,7 +32,13 @@ Page({
   },
   // 确认提现
   cash(){
-
+    if(this.data.money<this.data.value){
+      wx.showToast({
+        title: '输入金额超过余额',
+        icon: 'none',
+        duration: 2000
+      })
+    }
   },
   // 提现记录
   getrecord(){

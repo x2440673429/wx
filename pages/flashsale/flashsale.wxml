@@ -6,10 +6,9 @@
 <!-- 抢购时间 -->
 <view class="limitedtime" >
   <view class="all">
-    <view class="time_box" wx:for='{{limitedtime}}' wx:key='{{index}}'>
-      <view>{{item.time}}</view>
-      <view class="name">{{item.name}}</view>
-
+    <view class="time_box" wx:for='{{limitedtime}}' wx:key='{{index}}' catchtap="flashsale" data-time="{{index}}">
+      <view class="time {{time==index?'timecolor':''}}">{{item.time}}</view>
+      <view class="title {{time==index?'bor timecolor':''}}">{{item.title}}</view>
     </view>
   </view>
 </view>

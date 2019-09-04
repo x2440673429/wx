@@ -8,27 +8,27 @@ Page({
     limitedtime:[
       {
         time:'16:00',
-        name:'昨日精选',
+        title:'昨日精选',
       },
       {
         time: '16:00',
-        name: '昨日精选',
+        title: '昨日精选',
       },
       {
         time: '16:00',
-        name: '昨日精选',
+        title: '昨日精选',
       },
       {
         time: '16:00',
-        name: '昨日精选',
+        title: '昨日精选',
       },
       {
         time: '16:00',
-        name: '昨日精选',
+        title: '昨日精选',
       },
       {
         time: '16:00',
-        name: '昨日精选',
+        title: '昨日精选',
       },
     ],
     product: [
@@ -51,6 +51,7 @@ Page({
         addmoney: 10
       },
     ],
+    time:0,
   },
 
   /**
@@ -107,5 +108,13 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 点击抢购时间
+  flashsale(e){
+    console.log(e)
+    this.setData({
+      time: e.currentTarget.dataset.time
+    }) 
+    console.log(this.data.time)
   }
 })

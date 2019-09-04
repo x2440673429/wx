@@ -11,11 +11,13 @@
 /* 抢购时间 */
 .limitedtime{
   width: 100%;
-  height: 95rpx;
+  height: 145rpx;
   overflow-y:scroll; 
 }
 .all{
  white-space:nowrap;
+ padding-top: 24rpx;
+ box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -27,15 +29,23 @@
   display: inline-block;
   width: 20%;
   text-align: center;
-  color: #191919;
   font-size: 40rpx;
+  color: #191919;
   padding-top: 24tpx;
 }
-.limitedtime .time_box .name{
+.limitedtime .time_box .title{
   box-sizing: border-box;
   padding-bottom: 5rpx;
   font-size: 20rpx;
-  border-bottom: 1rpx solid #029a47;
+}
+.limitedtime .time_box .time{
+  font-weight: bold;
+}
+.timecolor{
+  color: #029a47;
+}
+.bor{
+  border-bottom: 2rpx solid #029a47;
 }
 /* 产品 */
 .product_box{

@@ -38,14 +38,14 @@
 </view>
 <!-- 我的浏览记录等 -->
 <view class="function">
-  <view class="one_box" wx:for='{{items}}' wx:key='{{index}}' catchtap='gotopage' data-number="{{index}}">
+  <view class="one_box" wx:for='{{items}}' wx:key='{{index}}' catchtap='gotopage' data-item="{{item}}">
     <image src="{{item.img}}"></image>
     <view>{{item.title}}</view>
   </view>
 </view>
 <!-- 设置、系统消息等功能 -->
 <view class="system_box">
-  <view class="onefunction" wx:for='{{item2}}' wx:key='{{index}}' data-number="{{index}}" catchtap="getinfo" >
+  <view class="onefunction" wx:for='{{item2}}' wx:key='{{index}}' data-item="{{item}}" catchtap="getinfo" >
     <view class="system">
       <image src="{{item.img}}"></image>
       <view>{{item.title}}</view>
