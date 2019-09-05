@@ -10,7 +10,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     active:0,
-    image:[],//轮播图
+    image:[],// 轮播图
     indicatorDots: false,
     autoplay: true,
     interval: 4000,
