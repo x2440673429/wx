@@ -5,19 +5,12 @@ const https = require("../../utils/https.js")
 
 Page({
   data: {
-    motto: 'Hello World',
+    columnlist: ['column1', 'column2', 'column3', 'column4'],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     active:0,
-    image:[
-      '../../image/1首页/banner.png',
-      '../../image/1首页/banner.png',
-      '../../image/1首页/banner.png',
-      '../../image/1首页/banner.png',
-      '../../image/1首页/banner.png',
-
-    ],
+    image:[],//轮播图
     indicatorDots: false,
     autoplay: true,
     interval: 4000,
@@ -51,6 +44,7 @@ Page({
         url: '/pages/assistancewaiver/assistancewaiver',
       },
     ],
+    navurl: ['/pages/Discount/Discount', '/pages/assemble/assemble'],
     specialty:[
       {
         city:'西藏',
@@ -146,96 +140,9 @@ Page({
         ]
       },
     ],
-    shop:[
-      {
-        id: 1,
-        title:'热卖店铺',
-        txt:'长白山黑木耳￥389/1箱',
-        img:'../../image/1首页/remaidianpu.png',
-        url: '/pages/Discount/Discount',
-      },
-      {
-        id: 2,
-        title: '甄选砍价',
-        txt: '鸭稻米10盒/9.9元',
-        img: '../../image/1首页/zhenxuankanjia.png',
-        url: '/pages/Selection/Selection',
-      },
-      {
-        id: 3,
-        title: '今日爆款',
-        txt: '松长江稻米香[米]',
-        img: '../../image/1首页/jinribaokuan.png',
-        url: '/pages/flashsale/flashsale',
-      },
-      {
-        id: 4,
-        title: '每日精选',
-        txt: '九间棚山野小菜[干粮]',
-        img: '../../image/1首页/meirijingxuan.png',
-        url: '/pages/Discount/Discount',
-      },
-    ],
-    sellwellbox:[
-      {
-        sellwelltitleimg:'../../image/1首页/remaibanner.png',
-        sellwell:[
-          {
-            img:'../../image/1首页/chanpin@2x.png',
-            producttitle:'手工麻薯小吃永春麻糍糯米',
-            producttxt: '[扶农] [顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250 - 300g)',
-            sellwellmoney:'150',
-            sellwelljianmoney:'10',
-            weight:'750/包',
-          },
-          {
-            img: '../../image/1首页/chanpin@2x.png',
-            producttitle: '手工麻薯小吃永春麻糍糯米',
-            producttxt: '[扶农] [顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250 - 300g)',
-            sellwellmoney: '150',
-            sellwelljianmoney: '10',
-            weight: '750/包',
-          },
-          {
-            img: '../../image/1首页/chanpin@2x.png',
-            producttitle: '手工麻薯小吃永春麻糍糯米',
-            producttxt: '[扶农] [顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250 - 300g)',
-            sellwellmoney: '150',
-            sellwelljianmoney: '10',
-            weight: '750/包',
-          },
-        ]
-      },
-      {
-        sellwelltitleimg: '../../image/1首页/remaibanner.png',
-        sellwell: [
-          {
-            img: '../../image/1首页/chanpin@2x.png',
-            producttitle: '手工麻薯小吃永春麻糍糯米',
-            producttxt: '[扶农] [顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250 - 300g)',
-            sellwellmoney: '150',
-            sellwelljianmoney: '10',
-            weight: '750/包',
-          },
-          {
-            img: '../../image/1首页/chanpin@2x.png',
-            producttitle: '手工麻薯小吃永春麻糍糯米',
-            producttxt: '[扶农] [顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250 - 300g)',
-            sellwellmoney: '150',
-            sellwelljianmoney: '10',
-            weight: '750/包',
-          },
-          {
-            img: '../../image/1首页/chanpin@2x.png',
-            producttitle: '手工麻薯小吃永春麻糍糯米',
-            producttxt: '[扶农] [顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250 - 300g)',
-            sellwellmoney: '150',
-            sellwelljianmoney: '10',
-            weight: '750/包',
-          },
-        ]
-      },
-    ],
+    shop:[],
+    jump: ['/pages/Discount/Discount', '/pages/Selection/Selection', '/pages/flashsale/flashsale', '/pages/Discount/Discount'],
+    sellwellbox:[],//热销
     sign: 0,
     // 推荐抢购时间
     limitedtime: [
@@ -290,7 +197,8 @@ Page({
     console.log(event)
     this.setData({
       active: event.detail.index
-    })
+    });
+    this.gettabtext();
   },
   // 轮播图下面白点改变
   swiperChange(e) {
@@ -309,9 +217,9 @@ Page({
   },
   // 跳转热卖店铺等4个
   getshop(e){
-    var url = e.currentTarget.dataset.item.url
+    var index = e.currentTarget.dataset.index
     wx.navigateTo({
-      url: url,
+      url: this.data.jump[index],
     })
   },
 
@@ -322,7 +230,51 @@ Page({
       url: '../logs/logs'
     })
   },
+  //获取首页tab选项内容
+  gettabtext : function(){
+    console.log(https)
+    var that=this;
+    https.request('/index/index', { column_key: this.data.columnlist[this.data.active] },'加载中...', function (res) {//成功回调
+      console.log(11110, res)
+        that.setData({
+          image: res.data[that.data.active].content[0].carousel,//所有tab轮播图（菜单通用）
+        })
+      if (that.data.active==0){//推荐
+          that.setData({
+            nav: res.data[that.data.active].content[1].middle_nav.list,//菜单nav
+            shop: res.data[that.data.active].content[2].class_nav.list,//热卖店铺
+            sellwellbox: res.data[that.data.active].content[3].hot_sale,//热销
+          })
+        }
+
+      if (that.data.active == 1) {//精准抚农
+       
+      }
+
+
+      if (that.data.active == 2) {//振兴
+       
+      }
+
+      if (that.data.active == 3) {//品质生活
+       
+      }
+     
+
+
+    }, function (err) {//错误回调
+      console.log(11110, err)
+    }
+    )
+  },
+
   onLoad: function () {
+    this.gettabtext();//初始化获取tab接口
+
+   
+
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -359,12 +311,7 @@ Page({
     })
   },
 
-  /**
- * 生命周期函数--监听页面加载
- */
-  onLoad: function (options) {
-    // getindexpage()
-  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -440,6 +387,13 @@ Page({
   //     fail: function(res) {},
   //     complete: function(res) {},
   //   })
+
+
+  // https.request('url地址', '参数（对象）', 'message加载信息', 'function成功方法回调','function失败方法回调','接口类型（get/post）不写默认post')
+
+
+
+
   // }
   
 })

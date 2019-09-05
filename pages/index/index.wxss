@@ -105,10 +105,10 @@ page{
   margin-bottom: 20rpx;
 }
 .pink{
-  background: #ffedeb;
+  background: #ffedeb !important;
 }
 .bluew{
-  background: #ffedeb;
+  background: #369 !important;
 }
 .storename .storename_box{
   width: 344rpx;

@@ -1,5 +1,5 @@
-function request(url, params, success, fail) {
-  this.requestLoading(url, params, "", success, fail)
+function request(url, params, message = '', success, fail, type = 'POST') {
+  this.requestLoading(url, params, message, success, fail, type)
 }
 // 展示进度条的网络请求
 // url:网络请求的url
@@ -9,13 +9,14 @@ function request(url, params, success, fail) {
 // fail：失败的回调
 
 // 测试域名;
-const url ='http://www.yql.com/api.php',
+// const url ='http://www.yql.com/api.php';
+const url = 'https://lxsq.tmf520.cn/api.php';
 // websoketurl = 'wss://wss-tuya.chidouye.com',
 //正式域名;
 // const url='https://tuya.fengwankeji.com',
 // websoketurl ='wss://wss-tuya.fengwankeji.com',
-version ='1.3.3';
-function requestLoading(address, arrival, message, success, fail) {
+const From ='4';
+function requestLoading(address, arrival, message, success, fail, type) {
   // wx.showNavigationBarLoading()
   if (message != "") {
     wx.showLoading({
@@ -24,10 +25,11 @@ function requestLoading(address, arrival, message, success, fail) {
     })
   }
   var inherent = {
-    'token': wx.getStorageSync('token'),
-    'version': version
+    'access_token': '5b7f60aca7e7f6f8c680b1b219ad3ec6',
+    'from': From,
+    'user_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Njc2MDE2NTEsImRhdGEiOnsidWlkIjo3fX0.grEdRK9HyOsuoC1Vmw94U0oQlDnlsaEKqB5aY3GnpmE',
   }
-  var params = Object.assign(inherent, arrival);
+  var params = Object.assign(inherent, arrival);//合并对象
   wx.request({
     url: url+address,
     data: params,
@@ -35,7 +37,7 @@ function requestLoading(address, arrival, message, success, fail) {
       //'Content-Type': 'application/json'
       'content-type': 'application/x-www-form-urlencoded'
     },
-    method: 'POST',
+    method: type,
     success: function (res) {
       // wx.hideNavigationBarLoading()
       if (message != "") {
@@ -76,5 +78,5 @@ module.exports = {
   requestLoading: requestLoading,
   url: url,
   // websoketurl: websoketurl,
-  version: version
+
 }
