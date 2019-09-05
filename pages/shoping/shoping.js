@@ -18,7 +18,8 @@ Page({
       ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
       ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
       ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228']
-    ]
+    ],
+    collection:'收藏'
   },
 
   /**
@@ -81,5 +82,24 @@ Page({
       title: `切换到标签 ${event.detail.index + 1}`,
       icon: 'none'
     });
-  }
+  },
+  // 点击收藏
+  collection(){
+    if (this.data.collection=='收藏'){
+      this.setData({
+        collection:'已收藏'
+      })
+    }else{
+      this.setData({
+        collection: '收藏'
+      })
+    }
+  },
+  // 点击返回按钮
+  onClickLeft() {
+    wx.navigateBack({
+      delta:1
+    })
+    wx.showToast({ title: '点击返回', icon: 'none' });
+  },
 })

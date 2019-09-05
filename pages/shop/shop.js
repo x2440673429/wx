@@ -125,5 +125,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 点击进店
+  entershop(){
+    wx.navigateTo({
+      url: "/pages/shoping/shoping",
+    })
   }
 })

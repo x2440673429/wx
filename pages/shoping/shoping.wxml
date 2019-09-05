@@ -21,7 +21,7 @@
     </view>
     <view class="titr2" >
       <view>销量23.9万丨收藏7855</view>
-      <view class="titbtm">收藏</view>
+      <view class=" {{collection=='已收藏'?'titbtmcolor':'titbtm'}}" catchtap="collection">{{collection}}</view>
     </view>
   </view>
 </view>

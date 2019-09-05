@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const a = "../utils/https.js"
+const https = require("../../utils/https.js")
 
 Page({
   data: {
@@ -429,7 +429,7 @@ Page({
   // getindexpage(){
   //   wx.request({
   //     url: 'http://www.yql.com/api.php/index/index',
-  //     data: 'access_token: ; user_token: from',
+  //     data: '{access_token:'' , user_token:'', from:4}',
   //     header: {},
   //     method: 'POST',
   //     dataType: 'json',
