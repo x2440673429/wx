@@ -1,7 +1,7 @@
 <!--pages/my/my.wxml-->
 
 <!-- 顶部 -->
-<view class="my_top">
+<view class="my_top" catchtap="getmyinfo">
   <image src="../../image/4我的/touxiang.png" class="touxiang"></image>
   <view class="myinfo">
     <view class="myinfo_box">
@@ -34,7 +34,7 @@
       <view>{{item.title}}</view>
     </view>
   </view>
-  <image src="../../image/4我的/yaoqingsonghaoli@2x.png" class="invitation"></image>
+  <image src="../../image/4我的/yaoqingsonghaoli@2x.png" class="invitation" catchtap="getgift"></image>
 </view>
 <!-- 我的浏览记录等 -->
 <view class="function">

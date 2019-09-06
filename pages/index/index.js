@@ -5,145 +5,40 @@ const https = require("../../utils/https.js")
 
 Page({
   data: {
-    columnlist: ['column1', 'column2', 'column3', 'column4'],
+    columnlist: ['column1', 'column2', 'column3', 'column4'],// 调接口传的值
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    active:0,
-    image:[],// 轮播图
-    indicatorDots: false,
-    autoplay: true,
-    interval: 4000,
-    duration: 800,
-    swiperCurrent: 0,
-    active1:0,
-    nav: [
-      {
-        img: '../../image/1首页/xinrentehui.png',
-        title: '新人特惠',
-        url: '/pages/Discount/Discount',
-      },
-      {
-        img: '../../image/1首页/zhenxuanpintuan.png',
-        title: '甄选拼团',
-        url: '/pages/assemble/assemble',
-      },
-      {
-        img: '../../image/1首页/xianshiqianggou.png',
-        title: '限时抢购',
-        url: '/pages/flashsale/flashsale',
-      },
-      {
-        img: '../../image/1首页/zhongchouyushou.png',
-        title: '众筹预售',
-        url: '/pages/Discount/Discount',
-      },
-      {
-        img: '../../image/1首页/zhulimiandan.png',
-        title: '助力免单',
-        url: '/pages/assistancewaiver/assistancewaiver',
-      },
-    ],
-    navurl: ['/pages/Discount/Discount', '/pages/assemble/assemble'],
-    specialty:[
-      {
-        city:'西藏',
-        cityshi:'拉萨',
-        specialtyname:'石城翻秋花生',
-        img:'../../image/1首页/chanpin@2x.png'
-      },
-      {
-        city: '西藏',
-        cityshi: '拉萨',
-        specialtyname: '石城翻秋花生',
-        img: '../../image/1首页/chanpin@2x.png'
-      },
-      {
-        city: '西藏',
-        cityshi: '拉萨',
-        specialtyname: '石城翻秋花生',
-        img: '../../image/1首页/chanpin@2x.png'
-      },
-      {
-        city: '西藏',
-        cityshi: '拉萨',
-        specialtyname: '石城翻秋花生',
-        img: '../../image/1首页/chanpin@2x.png'
-      },
-      {
-        city: '西藏',
-        cityshi: '拉萨',
-        specialtyname: '石城翻秋花生',
-        img: '../../image/1首页/chanpin@2x.png'
-      },
-      
-    ],
-    product1:[
-      {
-        banner:'../../image/1首页/zxbanner.png',
-        child:[
-          {
-            money: 99,
-            oldmoney: 100,
-            img: '../../image/1首页/chanpin@2x.png',
-          },
-          {
-            money: 99,
-            oldmoney: 100,
-            img: '../../image/1首页/chanpin@2x.png',
-          },
-          {
-            money: 99,
-            oldmoney: 100,
-            img: '../../image/1首页/chanpin@2x.png',
-          },
-        ]
-      },
-      {
-        banner: '../../image/1首页/zxbanner.png',
-        child: [
-          {
-            money: 99,
-            oldmoney: 100,
-            img: '../../image/1首页/chanpin@2x.png',
-          },
-          {
-            money: 99,
-            oldmoney: 100,
-            img: '../../image/1首页/chanpin@2x.png',
-          },
-          {
-            money: 99,
-            oldmoney: 100,
-            img: '../../image/1首页/chanpin@2x.png',
-          },
-        ]
-      },
-      {
-        banner: '../../image/1首页/zxbanner.png',
-        child: [
-          {
-            money: 99,
-            oldmoney: 100,
-            img: '../../image/1首页/chanpin@2x.png',
-          },
-          {
-            money: 99,
-            oldmoney: 100,
-            img: '../../image/1首页/chanpin@2x.png',
-          },
-          {
-            money: 99,
-            oldmoney: 100,
-            img: '../../image/1首页/chanpin@2x.png',
-          },
-        ]
-      },
-    ],
-    shop:[],
-    jump: ['/pages/Discount/Discount', '/pages/Selection/Selection', '/pages/flashsale/flashsale', '/pages/Discount/Discount'],
-    sellwellbox:[],//热销
-    sign: 0,
+    active:0,// 首页顶部tab标签页的高光
+    indicatorDots: false,// 轮播图白点不显示
+    autoplay: true,//轮播图是否自动切换
+    interval: 4000,//自动切换时间间隔
+    duration: 800,//滑动动画时长
+    swiperCurrent: 0,//白点显示高光
+    active1:0,//精准抚农地区馆高光
+    image: [],// 轮播图
+    // 推荐
+    nav: [],// 新人特惠nav tab页
+    navurl: [ '/pages/Discount/Discount', 
+              '/pages/assemble/assemble', 
+              '/pages/flashsale/flashsale', 
+              '/pages/povertyalleviation/povertyalleviation', 
+              '/pages/assistancewaiver/assistancewaiver'],// 新人特惠nav tab跳转对应页面
+    shop: [],//热卖店铺等
+    jump: [ '/pages/shop/shop', 
+            '/pages/Selection/Selection', 
+            '/pages/flashsale/flashsale', 
+            '/pages/Discount/Discount'],//热卖店铺等4个对应跳转的页面
+    time: 0,// 抢购高光
+    sellwellbox: [],//热销
+    sign: 0,//购物车右上角红色标记显示
+    // 精准抚农
+    addressnva:[],//地区tab页
+    activity:'',//地方特色扶农logo
+    activitylist: [],//地方特色扶农广告
+    specialty: [],//特色扶农馆产品
+    //振兴乡村和品质生活
+    product:[],
     // 推荐抢购时间
     limitedtime: [
       {
@@ -171,7 +66,7 @@ Page({
         title: '昨日精选',
       },
     ],
-    product: [
+    limitedproduct: [
       {
         productname: '手工麻薯小吃永春麻糍糯米',
         text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
@@ -191,7 +86,7 @@ Page({
         addmoney: 10
       },
     ],
-    time: 0,
+    
   },
   onChange(event){
     console.log(event)
@@ -210,14 +105,15 @@ Page({
   },
   // 跳转新人特惠等
   getnav(e){
-    var url = e.currentTarget.dataset.item.url
+    let index = e.currentTarget.dataset.index
+    console.log(e.currentTarget.dataset)
     wx.navigateTo({
-      url: url,
+      url: this.data.navurl[index],
     })
   },
   // 跳转热卖店铺等4个
   getshop(e){
-    var index = e.currentTarget.dataset.index
+    let index = e.currentTarget.dataset.index
     wx.navigateTo({
       url: this.data.jump[index],
     })
@@ -235,7 +131,7 @@ Page({
     console.log(https)
     var that=this;
     https.request('/index/index', { column_key: this.data.columnlist[this.data.active] },'加载中...', function (res) {//成功回调
-      console.log(11110, res)
+      //  console.log(11110, res)
         that.setData({
           image: res.data[that.data.active].content[0].carousel,//所有tab轮播图（菜单通用）
         })
@@ -248,22 +144,26 @@ Page({
         }
 
       if (that.data.active == 1) {//精准抚农
-       
+        that.setData({
+          addressnva: res.data[that.data.active].content[1].middle_nav.list,//地区nav
+          activity: res.data[that.data.active].content[2].place_show.activity.place_logo,//地方特色扶农
+          activitylist: res.data[that.data.active].content[2].place_show.activity.ad_list,//地方特色扶农广告
+          specialty: res.data[that.data.active].content[2].place_show.goods.list,//特色扶农馆产品
+        })
       }
 
 
-      if (that.data.active == 2) {//振兴
-       
+      if (that.data.active == 2 || 3) {//振兴和品质生活
+        that.setData({
+          product: res.data[that.data.active].content[1].class_goods_show,//产品
+        })
       }
 
-      if (that.data.active == 3) {//品质生活
-       
-      }
      
 
 
     }, function (err) {//错误回调
-      console.log(11110, err)
+      // console.log(11110, err)
     }
     )
   },
@@ -366,34 +266,19 @@ Page({
 
   // 点击抢购时间
   flashsale(e) {
-    console.log(e)
     this.setData({
       time: e.currentTarget.dataset.time
     })
-    console.log(this.data.time)
   },
-  // 获取首页信息（推荐）
-  // getindexpage(){
-  //   wx.request({
-  //     url: 'http://www.yql.com/api.php/index/index',
-  //     data: '{access_token:'' , user_token:'', from:4}',
-  //     header: {},
-  //     method: 'POST',
-  //     dataType: 'json',
-  //     responseType: 'text',
-  //     success: function(res) {
-  //       console.log(res)
-  //     },
-  //     fail: function(res) {},
-  //     complete: function(res) {},
-  //   })
+  // 点击查看全部
+  getall(){
+    wx.navigateTo({
+      url: '/pages/povertyalleviation/povertyalleviation',
+    })
+  }
 
 
   // https.request('url地址', '参数（对象）', 'message加载信息', 'function成功方法回调','function失败方法回调','接口类型（get/post）不写默认post')
 
-
-
-
-  // }
   
 })

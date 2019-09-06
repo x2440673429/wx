@@ -1,23 +1,29 @@
 <!--pages/find/find.wxml-->
 <!-- 头部图片 -->
 <view class="top_img">
-  <image src="../../image/3发现/banner@2x.png"></image>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+      <block wx:for="{{banner}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item.img_id}}" class="slide_image" />
+        </swiper-item>
+      </block>
+    </swiper>
 </view>
 <view class="nav">
-  <view class="oneof" wx:for='{{nav}}' wx:key='{{index}}' catchtap="getnav" data-number="{{index}}">
-    <image src="{{item.img}}"></image>
+  <view class="oneof" wx:for='{{nav}}' wx:key='{{index}}' catchtap="getnav" data-id="{{item.id}}" data-tourl='{{item.to_url}}'>
+    <image src="{{item.img_url}}"></image>
     <view>{{item.title}}</view>
   </view>
 </view>
 <!-- 文章列表 -->
 <view class="Articlelist">
   <view>文章列表</view>
-  <image src="../../image/1首页/youjiantou2@2x.png"></image>
+  <!-- <image src="../../image/1首页/youjiantou2@2x.png"></image> -->
 </view>
-<view class="list" wx:for='{{Articlelist}}' wx:key='{{index}}' catchtap="getArticle">
-  <image src="{{item.img}}"></image>
+<view class="list" wx:for='{{Articlelist}}' wx:key='{{index}}' catchtap="getArticle" data-id="{{item.id}}" data-tourl='{{item.to_url}}'>
+  <image src="{{item.cover_url}}"></image>
   <view class="list_box">
-    <view class="title">{{item.title}}</view>
-    <view class="txt">{{item.txt}}</view>
+    <view class="title">{{item.name}}</view>
+    <view class="txt">{{item.small_title}}</view>
   </view>
 </view>

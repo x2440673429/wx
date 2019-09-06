@@ -1,4 +1,5 @@
 // pages/selectedbrands/selectedbrands.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -27,14 +28,39 @@ Page({
     ],
     brandname:  "雅诗兰黛/Estee Lauder",
     number:93,
-    
+    parameter:{
+      class_id:'',
+      search_key:'',
+      type:'',
+      page:'1',
+      pagesize:'10',
+    },
+    citys: ['北京市', '天津市', '上海市', '重庆市', '河北省', '山西省', '辽宁省', '吉林省', '黑龙江', '江苏省', '浙江省', '安徽省', '福建省', '江西省', '山东省', '河南省', '湖北省', '湖南省', '广东省', '海南省', '四川省', '贵州省', '云南省', '陕西省', '甘肃省', '青海省', '台湾省', '内蒙古', '广西', '西藏', '宁夏', '新疆', '香港', '澳门'],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    let obj = this.data.parameter
+    obj.class_id = options.id
+    obj.search_key = options.name
+    obj.type = options.type
+    this.setData({
+      parameter:obj
+    })
+    var that = this
+    console.log(this.data.parameter)
+    https.request('/goods/searchClassGoods', this.data.parameter,'加载中...',function(res){
+      console.log(res)
+      that.setData({
+        citys: res.data.top_info.place_info,
+        product: res.data.list
+      })
+    },function(err){
 
+    })
   },
 
   /**

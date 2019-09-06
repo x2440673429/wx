@@ -195,5 +195,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 点击获取个人资料
+  getmyinfo(){
+    wx.navigateTo({
+      url: '/pages/accountsettings/accountsettings',
+    })
+  },
+  // 点击去升级礼包
+  getgift(){
+    wx.navigateTo({
+      url: '/pages/upgradepackage/upgradepackage',
+    })
   }
 })

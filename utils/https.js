@@ -10,7 +10,8 @@ function request(url, params, message = '', success, fail, type = 'POST') {
 
 // 测试域名;
 // const url ='http://www.yql.com/api.php';
-const url = 'https://lxsq.tmf520.cn/api.php';
+// const url = 'http://192.168.2.197:8080/api.php';
+const url = 'http://www.yql.com/api.php';
 // websoketurl = 'wss://wss-tuya.chidouye.com',
 //正式域名;
 // const url='https://tuya.fengwankeji.com',
@@ -27,7 +28,7 @@ function requestLoading(address, arrival, message, success, fail, type) {
   var inherent = {
     'access_token': '5b7f60aca7e7f6f8c680b1b219ad3ec6',
     'from': From,
-    'user_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Njc2MDE2NTEsImRhdGEiOnsidWlkIjo3fX0.grEdRK9HyOsuoC1Vmw94U0oQlDnlsaEKqB5aY3GnpmE',
+    'user_token':  '' //'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Njc2MDE2NTEsImRhdGEiOnsidWlkIjo3fX0.grEdRK9HyOsuoC1Vmw94U0oQlDnlsaEKqB5aY3GnpmE',
   }
   var params = Object.assign(inherent, arrival);//合并对象
   wx.request({

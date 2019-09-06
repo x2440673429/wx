@@ -1,8 +1,10 @@
 <!--pages/articledetails/articledetails.wxml-->
-<view class="img">
-  <image src="{{img}}"></image>
+<view wx:for='{{textlist}}' wx:key='{{index}}'>
+  <view class="img">
+    <image src="{{item.cover_url}}"></image>
+  </view>
+  <view class="title">{{item.name}}</view>
+  <view class="txt">{{item.small_title}}</view>
+  <view class="text">{{item.content}}</view>
+  <view class="purchase">购买</view>
 </view>
-<view class="title">{{title}}</view>
-<view class="txt">{{txt}}</view>
-<view class="text">{{text}}</view>
-<view class="purchase">购买</view>

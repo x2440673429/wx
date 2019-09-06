@@ -12,7 +12,7 @@
 </view>
 <!-- 产品 -->
 <view class="product_box">
-  <view class="product" wx:for='{{product}}' wx:key='{{index}}'>
+  <view class="product" wx:for='{{product}}' wx:key='{{index}}' catchtap="getpovertyalleviationpage">
     <image src="{{item.image}}"></image>
     <view class="product_txt">
       <view>

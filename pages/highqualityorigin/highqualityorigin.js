@@ -1,4 +1,5 @@
 // pages/highqualityorigin/highqualityorigin.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -27,13 +28,37 @@ Page({
       addmoney: 10
     },
   ],
+    parameter: {
+      class_id: '',
+      search_key: '',
+      type: '',
+      page: '1',
+      pagesize: '10',
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
+    let obj = this.data.parameter
+    obj.class_id = options.id
+    obj.search_key = options.name
+    obj.type = options.type
+    this.setData({
+      parameter: obj
+    })
+    var that = this
+    https.request('/goods/searchClassGoods', this.data.parameter, '加载中...', function (res) {
+      console.log(res)
+      that.setData({
+        citys:res.data.top_info.place_info,
+        product: res.data.list
+      })
+    }, function (err) {
 
+    })
   },
 
   /**

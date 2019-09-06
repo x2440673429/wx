@@ -1,107 +1,61 @@
 // pages/searchbar/searchbar.js
+  const https = require('../../utils/https.js')
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    obj:{
+      class_id: '9999',
+      type:'0',
+    },
     key:0,
-    items :[
-      {
-        text:'精选品牌',
-      },
-      {
-        text: '优质产地',
-      },
-      {
-        text: '美妆个护',
-      },
-      {
-        text: '食品生鲜',
-      },
-      {
-        text: '服饰配件',
-      },
-      {
-        text: '鞋靴箱包',
-      },
-      {
-        text: '家居生活',
-      },
-      {
-        text: '数码家电',
-      },
-      {
-        text: '滋补保健',
-      },
-      {
-        text: '宠物生活', 
-      },
-    ],
-    index:'0',
-    product:[
-      {
-        title: "面部护肤",
-        items:[
-          {
-            img:'../../image/2分类/yasilandai@2x.png',
-            name:'雅诗兰黛',
-          },
-          {
-            img: '../../image/2分类/lankou.png',
-            name: '兰蔻',
-          },
-          {
-            img: '../../image/2分类/jiemian.png',
-            name: '洁面',
-          },
-          {
-            img: '../../image/2分类/lankou.png',
-            name: '兰蔻',
-          },
-          {
-            img: '../../image/2分类/jiemian.png',
-            name: '洁面',
-          },
-        ]
-      },
-      {
-        title: "面部护肤",
-        items: [
-          {
-            img: '../../image/2分类/yasilandai@2x.png',
-            name: '雅诗兰黛',
-          },
-          {
-            img: '../../image/2分类/lankou.png',
-            name: '兰蔻',
-          },
-          {
-            img: '../../image/2分类/jiemian.png',
-            name: '洁面',
-          },
-        ]
-      },
-    ]
-    
+    items :[],
+    product:[],
+    isshow:true,
+    type:'1',
   },
   // tab左侧切换标签页
   qiehuan(e){
     console.log(e)
+    var obj=this.data.obj
+    obj.class_id = e.currentTarget.dataset.id
     this.setData({
-      key: e.currentTarget.dataset.index
+      key: e.currentTarget.dataset.index,
+      obj: obj
     })
+    let bol = false
+    if (e.currentTarget.dataset.id==9998){
+      this.setData({
+        isshow: bol,
+        type:'2'
+      })
+    } else if (e.currentTarget.dataset.id == 9999){
+      this.setData({
+        isshow: true,
+        type:'1'
+      })
+    }else{
+      this.setData({
+        isshow: true,
+        type: '0'
+      })
+    }
+   
+    this.getclassification()
+
+
   },
-  // 获取图片大小
-  getimg(){
-    
-  },
+
    
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getclassification()
   },
 
   /**
@@ -151,5 +105,41 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  // 获取分类内容
+  getclassification(){
+    var that = this 
+    https.request('/classify/goodsClassView', this.data.obj,'加载中...',function(res){
+      console.log(res)
+      that.setData({
+        items: res.data.list,// 分类页面所有参数
+        product: res.data.list[that.data.key].two_list
+     }) 
+      console.log(that.data.items)
+
+    },function(err){
+      // console.log(0000,err)
+    })
+  },
+  // 品牌等
+  getselectedbrands(e){
+    console.log(e)
+    let id = e.currentTarget.dataset.id
+    let name = e.currentTarget.dataset.name
+    let type = e.currentTarget.dataset.type
+    let url = '/pages/selectedbrands/selectedbrands' + '?id=' + id + '&name=' + name + '&type=' + type
+    wx.navigateTo({
+      url: url,
+    })
+  },
+  // //优质地产
+  // gethighqualityorigin(e){
+  //   let id = e.currentTarget.dataset.id
+  //   let name = e.currentTarget.dataset.name
+  //   let type = e.currentTarget.dataset.type
+  //   let url =  '/pages/highqualityorigin/highqualityorigin' + '?id=' + id + '&name=' + name + '&type=' + type
+  //   wx.navigateTo({
+  //     url:url
+  //   })
+  // }
 })

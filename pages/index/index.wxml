@@ -39,7 +39,7 @@
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
           <block wx:for="{{image}}" wx:key="{{index}}">
             <swiper-item>
-              <image src="{{item.img_id}}" class="slide-image" />
+              <image src="{{item.img_id}}" class="slide_image" />
             </swiper-item>
           </block>
         </swiper>
@@ -51,14 +51,14 @@
       </view>
       <!--  新人特惠等  -->
       <view class="nav">
-        <view class="oneof" wx:for='{{nav}}' wx:key='{{index}}' catchtap="getnav" data-item="{{item}}" catchtap="getnav">
+        <view class="oneof" wx:for='{{nav}}' wx:key='{{index}}' catchtap="getnav" data-index="{{index}}">
           <image src="{{item.img}}"></image>
           <view>{{item.title}}</view>
         </view>
       </view>
       <!-- 热卖店铺等 -->
       <view class="storename">
-        <view class="storename_box {{index==2?'pink':''}} {{index==3?'bluew':''}}"  wx:for='{{shop}}' wx:key='{{index}}' catchtap="getshop" data-item="{{item}}" data-index="{{index}}">
+        <view class="storename_box {{index==2?'pink':''}} {{index==3?'bluew':''}}"  wx:for='{{shop}}' wx:key='{{index}}' catchtap="getshop" data-index="{{index}}">
           <view class="storetitle">{{item.title}}</view>
           <view class="storetxt">{{item.content}}</view>
           <image src="{{item.img}}"></image>
@@ -75,7 +75,7 @@
       </view>
       <!-- 产品 -->
       <view class="product_less">
-        <view class="product_box" wx:for='{{product}}' wx:key='{{index}}'>
+        <view class="product_box" wx:for='{{limitedproduct}}' wx:key='{{index}}'>
           <image src="../../image/1首页/chanpin@2x.png"></image>
           <view class="product">
             <view class="productname">{{item.productname}}</view>
@@ -93,7 +93,7 @@
             </view>
           </view>
         </view>
-        <view class="lookatall">查看全部
+        <view class="lookatall" catchtap="getall">查看全部
           <image src="../../image/1首页/youjiantou2@2x.png"></image>
         </view>
       </view>
@@ -120,14 +120,12 @@
         <image src="../../image/1首页/gouwuche.png" ></image>
         <view wx:if='{{sign>0?true:false}}'>{{sign}}</view>
       </view>
-      
-    
-    
+
     </van-tab>
     <van-tab title="精准扶农">
     <!-- 精准扶农 -->
     <!-- 轮播图 -->
-      <view class="swiper-box">
+      <view class="swiper_box">
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
           <block wx:for="{{image}}" wx:key="{{index}}">
             <swiper-item>
@@ -143,30 +141,15 @@
       </view> 
     <!-- Tab标签页 -->
     <van-tabs active="{{ active1 }}" color='#029a47' class='color'>
-      <van-tab title="中央馆"></van-tab>
-      <van-tab title="江西馆"></van-tab>
-      <van-tab title="陕西馆"></van-tab>
-      <van-tab title="河北馆"></van-tab>
-      <van-tab title="新疆馆"></van-tab>
+      <van-tab title="{{item.title}}" wx:for='{{addressnva}}' wx:key='{{index}}'></van-tab>
     </van-tabs>
       <!-- 地方特色 -->
      <view class="characteristic">
       <view class="addresscharacteristic">地方特色扶农</view>
-      <image src="../../image/1首页/difangtesefunong.png" class="characteristic_img"></image>
+      <image src="{{activity}}" class="characteristic_img"></image>
       <view class="both">
-        <view class="left_box">
-          <view class="title">藏地扶农大礼包</view>
-          <view class="content">一个礼包</view>
-          <view class="content">寄托着80万</view>
-          <view class="content">贫困人口的幸福梦</view>
-          <image src="../../image/1首页/dalibao.png"></image>
-        </view>
-         <view class="left_box right_box">
-          <view class="title">藏地扶农大礼包</view>
-          <view class="content">一个礼包</view>
-          <view class="content">寄托着80万</view>
-          <view class="content">贫困人口的幸福梦</view>
-          <image src="../../image/1首页/dalibao.png"></image>
+        <view class="left_box" wx:for='{{activitylist}}' wx:key='{{index}}'>
+          <image src="{{item.img_id}}"></image>
         </view>
       </view>
     </view> 
@@ -174,12 +157,12 @@
        <view class="specialty_box">
         <view class="specialty" wx:for='{{specialty}}' wx:key='{{index}}'>
           <view class="address">
-            <view>特色扶农馆<text>丨{{item.city}}</text></view>
+            <view class="tese">特色扶农馆<text>丨{{item.place_name}}</text></view>
             <image src="../../image/1首页/guan.png"></image>
           </view>
-          <image src="{{item.img}}" class="specialty_img"></image>
-          <view class="cityshi">【{{item.cityshi}}】</view>
-          <view class="specialtyname">{{item.specialtyname}}</view>
+          <image src="{{item.goods_img}}" class="specialty_img"></image>
+          <view class="cityshi">【{{item.place_detail_name}}】</view>
+          <view class="specialtyname">{{item.goods_name}}</view>
         </view>
       </view>
     </van-tab>
@@ -205,13 +188,13 @@
   </view>
 </view>
 <!-- 产品 -->
-<view class="product1_bigbox" wx:for='{{product1}}' wx:key='{{index}}'>
-  <image src="{{item.banner}}" class="type_img"></image>
+<view class="product1_bigbox" wx:for='{{product}}' wx:key='{{index}}'>
+  <image src="{{item.goods_class.pic}}" class="type_img"></image>
   <view class="product1_box">
-    <view class="product1" wx:for-item='items' wx:for='{{item.child}}' wx:key='{{img}}' >
-      <image src="{{items.img}}"></image>
-      <view class="product1_name">石城翻秋花生</view>
-      <view class="money">￥{{items.money}}<text>￥{{items.oldmoney}}</text></view>
+    <view class="product1" wx:for-item='items' wx:for='{{item.goods.list}}' wx:key='{{index}}' >
+      <image src="{{items.img}}../../image/1首页/chanpin@2x.png"></image>
+      <view class="product1_name">{{items.title}}</view>
+      <view class="money">￥{{items.price}}<text>￥{{items.original_price}}</text></view>
     </view>
   </view>
 </view>

@@ -6,7 +6,7 @@
 <!-- tab标签页 -->
 <view >
   <van-tabs active="{{ active }}" color='#029a47' class='color'>
-  <van-tab title="{{item}}"wx:for='{{citys}}' wx:key='{{index}}'></van-tab>
+  <van-tab title="{{item.name}}"wx:for='{{citys}}' wx:key='{{index}}'></van-tab>
 </van-tabs>
 </view>
 <!-- 产品 -->

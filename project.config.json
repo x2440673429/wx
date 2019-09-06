@@ -41,12 +41,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/shop/shop",
-					"pathName": "pages/shop/shop",
+					"name": "pages/details/details",
+					"pathName": "pages/details/details",
 					"query": "",
 					"scene": null
 				},
@@ -54,6 +54,7 @@
 					"id": -1,
 					"name": "shoping",
 					"pathName": "pages/shoping/shoping",
+					"query": "",
 					"scene": null
 				}
 			]

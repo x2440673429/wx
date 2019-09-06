@@ -203,6 +203,9 @@ page{
 .product_box .product .productname{
   font-size: 28rpx;
   color: #1a1a1a;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .product_box .product  .text{
   width: 393rpx;
@@ -332,6 +335,9 @@ page{
 .sellwell_box .sellwellproduct  .sellwellintroduce  .product_right .producttitle{
   font-size: 28rpx;
   color: #1a1a1a;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .sellwell_box .sellwellproduct  .sellwellintroduce  .product_right  .producttxt{
   width: 393rpx;
@@ -394,13 +400,9 @@ page{
 }
 /* 精准扶农 */
 /* 轮播图 */
-.swiper-box{
+.swiper_box{
   position: relative;
   width: 100%;
-}
-.swiper-box .imgs{
-  width: 100%;
-  height: 400rpx;
 }
 swiper image {
   width: 100%;
@@ -430,17 +432,18 @@ swiper image {
 /* 地方特色 */
 .characteristic{
   width: 100%;
-  height: 558rpx;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
   background: #fff;
   margin-top: 11rpx;
+  padding-bottom: 20rpx;
 }
 .characteristic .addresscharacteristic{
   font-size: 34rpx;
   color: #191919;
   margin-top: 28rpx;
+  margin-bottom: 33rpx;
 }
 .characteristic .characteristic_img{
   width: 701rpx;
@@ -451,33 +454,21 @@ swiper image {
   padding: 0 26rpx 0 24rpx;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+ 
 }
 .characteristic .both .left_box{
+  margin-top: 20rpx;
   width: 341rpx;
   height: 185rpx;
-  padding: 22rpx 0 27rpx 30rpx;
-  box-sizing: border-box;
-  position: relative;
-  background: #e5f7ff;
-}
-.characteristic .both .left_box .title{
-  font-size: 24rpx;
-  color: #191919;
-}
-.characteristic .both .left_box .content{
-  font-size: 24rpx;
-  color: #4d4d4d;
+  margin-right: 18rpx;
 }
 .characteristic .both .left_box image{
-  width: 100rpx;
-  height: 118rpx;
-  position: absolute;
-  right: 21rpx;
-  top: 27rpx;
+  width: 100%;
+  height: 100%;
 }
-.characteristic .both .right_box{
-  background: #e5ffee;
+.characteristic .both .left_box:nth-child(even){
+  margin-right: -18rpx;
 }
 /* 产品 */
 .specialty_box{
@@ -486,7 +477,6 @@ swiper image {
   flex-wrap: wrap;
   margin-top: 10rpx;
 }
-
 .specialty_box .specialty{
   width: 244rpx;
   height: 320rpx;
@@ -508,23 +498,40 @@ swiper image {
   padding: 0 8rpx;
   align-items: center;
 }
-.specialty_box  .specialty .address view{
-  font-size: 24rpx;
+.specialty_box  .specialty .address .tese{
+  font-size: 20rpx;
   color: #191919;
 }
-.specialty_box  .specialty .address view text{
+.specialty_box  .specialty .address .tese text{
   color: #191919;
   font-weight: bold;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .specialty_box  .specialty .address image{
   width: 29rpx;
   height: 30rpx;
- 
 }
+
 .specialty_box  .specialty  .specialty_img{
   height: 161rpx;
   width: 100%;
   margin-top: 21rpx;
+}
+.cityshi{
+  color: #191919;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.specialtyname{
+  font-size: 30rpx;
+  color: #191919;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 /* 振兴农村和品质生活 */
 .product1_bigbox{
@@ -546,7 +553,7 @@ swiper image {
 .product1_bigbox .product1_box{
   display: flex;
   width: 100%;
-  padding: 0 25rpx;
+  padding: 0 25rpx 13rpx;
   box-sizing: border-box;
   flex-wrap: wrap;
 }
@@ -554,13 +561,14 @@ swiper image {
   width: 228rpx;
   height: 259rpx;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin-top: 20rpx;
   margin-right: 10rpx;
 }
 .product1_bigbox .product1_box .product1:nth-child(3n+3){
-  margin-right: -10rpx;
+  margin-right: 0;
 }
 .product1_bigbox .product1_box .product1 image{
   width: 100%;
@@ -569,6 +577,10 @@ swiper image {
 .product1_bigbox .product1_box .product1 .product1_name{
   font-size: 26rpx;
   color: #191919;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin: 16rpx 0  5rpx;
 }
 .product1_bigbox .product1_box .product1 .money{
   color: #029a47;

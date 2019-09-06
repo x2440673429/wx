@@ -48,6 +48,9 @@
   left: 181rpx;
   bottom: 0;
   right: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 .content_box .content_title{
   height: 85rpx;
@@ -90,4 +93,22 @@
 .content_box .product_box .product .product_name{
   font-size: 20rpx;
   color: #1d1d1d;
+}
+/* 优质产地样式 */
+.content_box .citybox{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.city{
+  width: 25%;
+  height: 95rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d1d1d;
+  font-size: 24rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
 }

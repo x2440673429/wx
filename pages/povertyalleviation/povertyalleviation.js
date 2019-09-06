@@ -81,5 +81,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 获取众筹扶贫详情页
+  getpovertyalleviationpage(){
+    wx.navigateTo({
+      url: '/pages/padetailspage/padetailspage',
+    })
+    console.log(111)
   }
 })
