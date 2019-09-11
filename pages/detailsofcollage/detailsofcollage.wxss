@@ -172,7 +172,7 @@
   color: #808080;
   margin-left: 17rpx;
 }
-.Doubt image{
+.Doubt .Doubtimg{
   width: 9rpx;
   height: 16rpx;
 }

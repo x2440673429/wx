@@ -3,11 +3,17 @@
 .shopimg{
   width: 100%;
   height: 700rpx;
-  position: relative;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
 }
-.shopimg image{
+.shopimg swiper{
   width: 100%;
   height: 677rpx;
+}
+.shopimg swiper image {
+  width: 100%;
+  height: 100%;
 }
 .product_box{
   width: 702rpx;
@@ -111,13 +117,14 @@
 }
 .step .bottom .step_box  .step_time{
   color: #fff;
-  width: 267rpx;
+  padding:  0 16rpx;
   height: 35rpx;
   border-radius: 18rpx;
   background: #029a47;
   font-size: 24rpx;
   text-align: center;
   line-height: 35rpx;
+  box-sizing: border-box;
 }
 /* 众筹故事 */
 .paStory{
@@ -398,4 +405,8 @@
   bottom: 0;
   left: 0;
   
+}
+.bor{
+  border:  1rpx solid #029a47 !important;
+  color: #029a47 !important;
 }

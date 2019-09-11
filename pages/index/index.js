@@ -40,56 +40,13 @@ Page({
     //振兴乡村和品质生活
     product:[],
     // 推荐抢购时间
-    limitedtime: [
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-    ],
-    limitedproduct: [
-      {
-        productname: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 99,
-        addmoney: 10
-      },
-      {
-        productname: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 99,
-        addmoney: 10
-      },
-      {
-        productname: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 99,
-        addmoney: 10
-      },
-    ],
-    
+    limitedtime: [],
+    limitedproduct: [],//推荐抢购产品
+    tpye:'1',
   },
+  // Tab页改变
   onChange(event){
-    console.log(event)
+    //console.log(event)
     this.setData({
       active: event.detail.index
     });
@@ -128,7 +85,7 @@ Page({
   },
   //获取首页tab选项内容
   gettabtext : function(){
-    console.log(https)
+    //console.log(https)
     var that=this;
     https.request('/index/index', { column_key: this.data.columnlist[this.data.active] },'加载中...', function (res) {//成功回调
       //  console.log(11110, res)
@@ -139,7 +96,10 @@ Page({
           that.setData({
             nav: res.data[that.data.active].content[1].middle_nav.list,//菜单nav
             shop: res.data[that.data.active].content[2].class_nav.list,//热卖店铺
-            sellwellbox: res.data[that.data.active].content[3].hot_sale,//热销
+            limitedtime: res.data[that.data.active].content[3].flash_sale.time_info,//抢购时间
+            limitedproduct: res.data[that.data.active].content[3].flash_sale.list,//抢购产品
+            sellwellbox: res.data[that.data.active].content[4].hot_sale,//热销
+           
           })
         }
 
@@ -273,10 +233,22 @@ Page({
   // 点击查看全部
   getall(){
     wx.navigateTo({
-      url: '/pages/povertyalleviation/povertyalleviation',
+      url: "pages/flashsale/flashsale",
+    })
+  },
+  //点击顶部搜索
+  search(){
+    wx.navigateTo({
+      url: "/pages/searchpage/searchpage",
+    })
+  },
+  // 跳转商品详情页
+  getproductdetails(e){
+    var id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/commoditydetails/commoditydetails?type='+this.data.type+'&id='+id,
     })
   }
-
 
   // https.request('url地址', '参数（对象）', 'message加载信息', 'function成功方法回调','function失败方法回调','接口类型（get/post）不写默认post')
 

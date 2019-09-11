@@ -7,7 +7,7 @@
   <view class="shop_left">
     <view>
       <view class="mianbox">
-        <image src="../../image/1首页/m.png" class="mian"></image>
+        <image src="{{typeimg[1]}}" class="mian"></image>
         <view class="shopname">{{shopname}}</view>
       </view>
       <view class="text">
@@ -67,7 +67,7 @@
 </view>
 <!-- 商品导航 -->
 <view class="shopnav">
-  <view class="shopandsc">
+  <view class="shopandsc" catchtap="getshoping">
     <image src="../../image/2分类/dianpu.png"></image>
     <text>店铺</text>
   </view>

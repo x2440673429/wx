@@ -20,7 +20,7 @@ Page({
   },
   // tab左侧切换标签页
   qiehuan(e){
-    console.log(e)
+    //console.log(e)
     var obj=this.data.obj
     obj.class_id = e.currentTarget.dataset.id
     this.setData({
@@ -110,12 +110,12 @@ Page({
   getclassification(){
     var that = this 
     https.request('/classify/goodsClassView', this.data.obj,'加载中...',function(res){
-      console.log(res)
+      //console.log(res)
       that.setData({
         items: res.data.list,// 分类页面所有参数
         product: res.data.list[that.data.key].two_list
      }) 
-      console.log(that.data.items)
+      //console.log(that.data.items)
 
     },function(err){
       // console.log(0000,err)
@@ -123,7 +123,7 @@ Page({
   },
   // 品牌等
   getselectedbrands(e){
-    console.log(e)
+    // console.log(e)
     let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
     let type = e.currentTarget.dataset.type
@@ -132,14 +132,14 @@ Page({
       url: url,
     })
   },
-  // //优质地产
-  // gethighqualityorigin(e){
-  //   let id = e.currentTarget.dataset.id
-  //   let name = e.currentTarget.dataset.name
-  //   let type = e.currentTarget.dataset.type
-  //   let url =  '/pages/highqualityorigin/highqualityorigin' + '?id=' + id + '&name=' + name + '&type=' + type
-  //   wx.navigateTo({
-  //     url:url
-  //   })
-  // }
+  //优质地产
+  gethighqualityorigin(e){
+    let id = e.currentTarget.dataset.id
+    let name = e.currentTarget.dataset.name
+    let type = e.currentTarget.dataset.type
+    let url =  '/pages/highqualityorigin/highqualityorigin' + '?id=' + id + '&name=' + name + '&type=' + type
+    wx.navigateTo({
+      url:url
+    })
+  }
 })

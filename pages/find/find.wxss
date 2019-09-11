@@ -60,7 +60,6 @@ page{
   margin-left: 19rpx;
 }
 .list{
-  height: 466rpx;
   width: 100%;
 }
 .list image{

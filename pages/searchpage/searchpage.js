@@ -1,4 +1,5 @@
 // pages/searchpage/searchpage.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -22,7 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.gethistory()
   },
 
   /**
@@ -72,5 +73,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 获取搜索内容
+  getsearchlist(){
+    wx.navigateTo({
+      url: "/pages/search/search",
+    })
+  },
+  // 获取历史记录
+  gethistory(){
+    https.request('/user/getSearchLog','','',function(res){
+      console.log(res)
+    },function(err){
+
+    },)
   }
 })

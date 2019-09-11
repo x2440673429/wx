@@ -24,9 +24,9 @@
     <image src="../../image/1首页/xiaoxi.png"></image>
     消息
   </view>
-  <view slot="title"  class="toptit">
+  <view slot="title"  class="toptit" catchtap="search">
     <image src="../../image/1首页/sousuo.png" class='topimg'></image>
-    <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品" />
+    <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品"  />
   </view> 
 </van-nav-bar>
 <!-- Tab标签页 -->
@@ -68,7 +68,7 @@
       <view class="limitedtime" >
         <view class="all">
           <view class="time_box" wx:for='{{limitedtime}}' wx:key='{{index}}' catchtap="flashsale" data-time="{{index}}">
-            <view class="time {{time==index?'timecolor':''}}">{{item.time}}</view>
+            <view class="time {{time==index?'timecolor':''}}">{{item.point_time}}</view>
             <view class="title {{time==index?'bor timecolor':''}}">{{item.title}}</view>
           </view>
         </view>
@@ -76,15 +76,15 @@
       <!-- 产品 -->
       <view class="product_less">
         <view class="product_box" wx:for='{{limitedproduct}}' wx:key='{{index}}'>
-          <image src="../../image/1首页/chanpin@2x.png"></image>
+          <image src="{{item.pic}}"></image>
           <view class="product">
-            <view class="productname">{{item.productname}}</view>
-            <view class="text">{{item.text}}</view>
+            <view class="productname">{{item.title}}</view>
+            <view class="text">{{item.short_title}}</view>
             <view class="box"><text class="temai">特卖</text><text class="zhijiang">直降</text></view>
             <view class="big_box">
               <view class="Price">
-                <view class="money">￥{{item.money}}</view>
-                <view class="addmoney">赚￥{{item.addmoney}}</view>
+                <view class="money">￥{{item.price}}</view>
+                <view class="addmoney">赚￥{{item.original_price}}</view>
               </view>
               <view class="botton">
                 <text class="quick">马上抢</text>
@@ -102,8 +102,8 @@
         <view class="sellwell">热销 </view>
         <view class="sellwellproduct" wx:for='{{sellwellbox}}' wx:key='{{index}}'>
           <image class="sellwelltitleimg" src='{{item.ad}}'></image>
-          <view class="sellwellintroduce" wx:for='{{item.list}}' wx:key='{{index}}' wx:for-item='sellwell'>
-            <image class="product_img" src="{{item.ad}}"></image>
+          <view class="sellwellintroduce" wx:for='{{item.list}}' wx:key='{{index}}' wx:for-item='sellwell' catchtap="getproductdetails" data-id="{{sellwell.id}}">
+            <image class="product_img" src="{{sellwell.pic}}"></image>
             <view class="product_right">
               <view class="producttitle">{{sellwell.title}}</view>
               <view class="producttxt">{{sellwell.short_title}}</view>

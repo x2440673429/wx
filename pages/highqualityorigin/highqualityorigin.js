@@ -41,7 +41,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+   // console.log(options)
     let obj = this.data.parameter
     obj.class_id = options.id
     obj.search_key = options.name
@@ -49,16 +49,7 @@ Page({
     this.setData({
       parameter: obj
     })
-    var that = this
-    https.request('/goods/searchClassGoods', this.data.parameter, '加载中...', function (res) {
-      console.log(res)
-      that.setData({
-        citys:res.data.top_info.place_info,
-        product: res.data.list
-      })
-    }, function (err) {
-
-    })
+   
   },
 
   /**
@@ -108,5 +99,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 获取地区产品列表
+  getaddresslist(){
+    var that = this
+    https.request('/goods/searchClassGoods', this.data.parameter, '加载中...', function (res) {
+      //console.log(res)
+      that.setData({
+        citys: res.data.top_info.place_info,
+        product: res.data.list
+      })
+    }, function (err) {
+
+    })
   }
 })

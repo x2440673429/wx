@@ -1,4 +1,5 @@
 // pages/Discount/Discount.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -6,23 +7,27 @@ Page({
    */
   data: {
    
-        coupon:[
-          {
-            money: '20',
-            coupon_name: '新人专享通用无门槛券',
-            shopname: '李思思',
-            usefulness: '全场通用',
-            time: '2019.07.09 17:30-2019.08.08 17:30',
-          },
-          {
-            money: '20',
-            coupon_name: '新人专享通用无门槛券',
-            shopname: '李思思',
-            usefulness: '全场通用',
-            time: '2019.07.09 17:30-2019.08.08 17:30',
-          },
-        ]
-       
+    coupon:[
+      {
+        money: '20',
+        coupon_name: '新人专享通用无门槛券',
+        shopname: '李思思',
+        usefulness: '全场通用',
+        time: '2019.07.09 17:30-2019.08.08 17:30',
+      },
+      {
+        money: '20',
+        coupon_name: '新人专享通用无门槛券',
+        shopname: '李思思',
+        usefulness: '全场通用',
+        time: '2019.07.09 17:30-2019.08.08 17:30',
+      },
+    ],
+    parameter:{
+      page:'1',
+      pagesize:'10',
+    },
+    rule:'',
      
      
     
@@ -32,7 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getdiscount()
   },
 
   /**
@@ -82,5 +87,21 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 获取页面内容
+  getdiscount(){
+    var that = this
+    https.request('/User/getNewPeopleCoupon', this.data.parameter,'加载中...',function(res){
+      console.log(res)
+     var arr = res.data.rule.split("n")
+     console.log(arr)
+      that.setData({
+        coupon:res.data.list,
+        rule: arr
+      })
+    },function(err){
+
+    },'GET')
   }
+  
 })

@@ -35,14 +35,17 @@ Page({
       page:'1',
       pagesize:'10',
     },
-    citys: ['北京市', '天津市', '上海市', '重庆市', '河北省', '山西省', '辽宁省', '吉林省', '黑龙江', '江苏省', '浙江省', '安徽省', '福建省', '江西省', '山东省', '河南省', '湖北省', '湖南省', '广东省', '海南省', '四川省', '贵州省', '云南省', '陕西省', '甘肃省', '青海省', '台湾省', '内蒙古', '广西', '西藏', '宁夏', '新疆', '香港', '澳门'],
+    title:'',
+    top_info:[
+
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    //console.log(options)
     let obj = this.data.parameter
     obj.class_id = options.id
     obj.search_key = options.name
@@ -50,31 +53,25 @@ Page({
     this.setData({
       parameter:obj
     })
-    var that = this
-    console.log(this.data.parameter)
-    https.request('/goods/searchClassGoods', this.data.parameter,'加载中...',function(res){
-      console.log(res)
-      that.setData({
-        citys: res.data.top_info.place_info,
-        product: res.data.list
-      })
-    },function(err){
-
-    })
+    this.getproductlist()
+   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // wx.setNavigationBarTitle({
+    //   title: this.data.title,
+    // })
+    // console.log(1111,this.data.title)//这个空
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log(1111, this.data.title)
   },
 
   /**
@@ -110,5 +107,24 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 获取产品列表内容
+  getproductlist(){
+    var that = this
+    https.request('/goods/searchClassGoods', this.data.parameter, '加载中...', function (res) {
+      console.log(res)
+      that.setData({
+        total: res.data.total,
+        title: res.data.top_title,//这个传不上去啊标题改不上去
+        product: res.data.list,
+        top_info: res.data.top_info.brand_info
+      })
+      wx.setNavigationBarTitle({
+        title: that.data.title,
+      })
+      console.log(that.data.title)// 这个出来了
+    }, function (err) {
+
+    })
   }
 })

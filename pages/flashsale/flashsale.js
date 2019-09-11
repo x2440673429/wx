@@ -1,64 +1,28 @@
 // pages/flashsale/flashsale.js
+const https = require("../../utils/https.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    limitedtime:[
-      {
-        time:'16:00',
-        title:'昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-      {
-        time: '16:00',
-        title: '昨日精选',
-      },
-    ],
-    product: [
-      {
-        productname: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 99,
-        addmoney: 10
-      },
-      {
-        productname: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 99,
-        addmoney: 10
-      },
-      {
-        productname: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 99,
-        addmoney: 10
-      },
-    ],
+    limitedtime:[],
+    product: [],
+    total:0,
     time:0,
+    parameter:{
+      page:1,
+      page_size:10,
+      time_id:'',
+    },
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getflashsalelist()
   },
 
   /**
@@ -111,10 +75,44 @@ Page({
   },
   // 点击抢购时间
   flashsale(e){
-    console.log(e)
+    var obj = this.data.parameter
+    obj.time_id = e.currentTarget.dataset.timeid.toString()
+    obj.page=1
     this.setData({
-      time: e.currentTarget.dataset.time
+      time: e.currentTarget.dataset.time,
+      parameter:obj,
+      product:[],
     }) 
-    console.log(this.data.time)
+
+    this.getflashsalelist()
+  },
+  //获取抢购产品列表
+  getflashsalelist(){
+    var that = this
+    https.request('/goods/getFlashPointGoodslist', this.data.parameter,'加载中...',function(res){
+      console.log(res)
+      var product = that.data.product.concat(res.data.list)
+      that.setData({
+        limitedtime: res.data.time_info,//抢购时间
+        product: product,//抢购商品内容
+        total: res.data.total//抢购商品总数
+      })
+    },function(err){
+
+    })
+  },
+  //上拉触底加载更多
+  onReachBottom(){
+    var obj = this.data.parameter
+    obj.page++
+    this.setData({
+      parameter: obj
+    })
+    if (this.data.total==this.data.product.length){
+      return
+    }else{
+      this.getflashsalelist()
+    }
+  
   }
 })

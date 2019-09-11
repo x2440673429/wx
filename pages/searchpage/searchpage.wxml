@@ -2,7 +2,7 @@
 <view class="box">
   <view class="search_box">
     <input value="{{value}}" placeholder="请输入关键字"></input>
-    <text class="search">搜索</text>
+    <text class="search" catchtap="getsearchlist">搜索</text>
   </view>
 </view>
 

@@ -84,6 +84,7 @@ page{
   color: transparent;
   line-height: 96rpx;
   font-style: Impact;
+  display: flex;
 }
 .discount_box .discount_bor .Coupon .Coupon_left .RMB text{
   font-size: 48rpx;

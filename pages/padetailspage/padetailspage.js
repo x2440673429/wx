@@ -1,4 +1,5 @@
 // pages/padetailspage/padetailspage.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -7,10 +8,11 @@ Page({
   data: {
     shopname:'手工麻薯小吃永春麻糍糯米',
     shoptext: '[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250 - 300g)',
+    surplus_time:'',//众筹剩余时间
     supportnumber:'90',
-    moneynumber:'10233',
-    reachnumber:'22',
-    time:13,
+    moneynumber:'10233',//以筹金额
+    reachnumber:'22',// 达成率
+    details:'',//众筹故事
     username:'昵***称',
     text:'很甜很大个，很满意',
     commenttime:'2018-05-30',
@@ -18,7 +20,16 @@ Page({
     show:false,
     items:[
       '￥65', '￥69', '￥130', '￥600','￥590','打赏'
-    ]
+    ],
+    grade_count:'',//档位总数
+    goods_grade:[],//档位信息
+    id:0,
+    indicatorDots: false,// 轮播图白点不显示
+    autoplay: true,//轮播图是否自动切换
+    interval: 4000,//自动切换时间间隔
+    duration: 800,//滑动动画时长
+    banner: [],// 轮播图
+    goods_id:'',// 调接口传值商品id是不是冲上个页面传过来的嗯
   },
   // 去支付按钮
   gotopay(){
@@ -32,11 +43,24 @@ Page({
       show: false,
     })
   },
+  //  切换档位
+  onChange(e){
+    console.log( e.detail.index  )
+    this.setData({
+      id: e.detail.index 
+    })
+  },
+  
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // this.setData({
+    //   goods_id:options.id
+    // })
+    // 或者不用定义 用传参的方式也可以
+    this.getpadetailspage(options.id)
   },
 
   /**
@@ -86,5 +110,25 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 获取商品详情
+  getpadetailspage(id){
+    var that = this
+    https.request('/Crowd/getGoodsDetail', { goods_id: id},'加载中...',function(res){
+      console.log(res)
+      that.setData({
+        shopname: res.data.goods_info.title,
+        shoptext: res.data.goods_info.short_title,
+        surplus_time: res.data.goods_info.surplus_time,
+        moneynumber: res.data.goods_info.crowd_funding_money,
+        reachnumber: res.data.goods_info.crowd_rate,
+        details: res.data.goods_info.details,
+        banner: res.data.goods_info.pics,
+        grade_count: res.data.goods_info.grade_count,
+        goods_grade: res.data.goods_info.goods_grade
+      })
+    },function(err){
+
+    },'GET')
   }
 })

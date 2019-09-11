@@ -1,4 +1,5 @@
 // pages/shop/shop.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -6,27 +7,34 @@ Page({
    */
   data: {
     active: 0,
-    list: [
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228'],
-      ['../../image/1首页/chanpin@2x.png', '山东烟台大樱桃', '88.99', '99.99', '228']
-    ],
-    collection:'收藏'
+    shopingname:'',//店铺名称
+    shopnumber: '',//销售量
+    scnumber: '',//收藏量
+    notice: '',//店铺公告
+    pic: '',//店铺logo
+    business_logo: '',//店铺营业执照
+    contacts_phone: '',//店铺电话
+    address:'',//店铺地址
+    list: [],
+    total:'',//商品总数
+    collect:0,
+    is_self:0,
+    parameter:{
+      sid:'1',
+      user_token:'',
+    },
+    parameterpage:{
+      page:'1',
+      pagesize:'10',
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.getshopinginfo()
+    this.getshopinglist()
   },
 
   /**
@@ -85,15 +93,16 @@ Page({
   },
   // 点击收藏
   collection(){
-    if (this.data.collection=='收藏'){
+    if (this.data.collect==0){
       this.setData({
-        collection:'已收藏'
+        collect:1
       })
     }else{
       this.setData({
-        collection: '收藏'
+        collect: 0
       })
     }
+
   },
   // 点击返回按钮
   onClickLeft() {
@@ -102,4 +111,62 @@ Page({
     })
     wx.showToast({ title: '点击返回', icon: 'none' });
   },
+  // 获取店铺详情
+  getshopinginfo(){
+    var that = this
+    https.request('/store/storeInfo', this.data.parameter,'加载中...',function(res){
+      console.log(res)
+      that.setData({
+        shopingname: res.data.info.name,//店铺名称
+        shopnumber: res.data.info.sale_num,//销售量
+        scnumber: res.data.info.collect_num,//收藏量
+        notice: res.data.info.notice,//店铺公告
+        pic: res.data.info.pic,//店铺logo
+        business_logo: res.data.info.business_logo,//店铺营业执照
+        address: res.data.info.address,//店铺地址
+        contacts_phone: res.data.info.contacts_phone,//店铺电话
+        collect: res.data.is_collect,//是否收藏
+        is_self: res.data.is_self,//是否是自己的店铺
+      })
+    },function(err){
+
+    },'GET')
+  },
+  //获取店铺商品列表
+  getshopinglist(){
+    var that = this
+    var data = this.data.parameter
+    var data1 = this.data.parameterpage
+    var params = Object.assign(data, data1);//合并对象
+    console.log(params)
+    https.request('/store/storeGoodsList', params, '加载中...', function (res) {
+      console.log(res)
+      var list = res.data.list
+      var lists = that.data.list.concat(list)
+      that.setData({
+        list: lists,
+        total: res.data.total
+      })
+      console.log(11111111, that.data.list)
+    }, function (err) {
+
+    }, 'GET')
+  },
+  //上拉触底加载更多
+  onReachBottom(){
+    var obj = this.data.parameterpage
+    obj.page++
+    this.setData({
+      parameterpage:obj
+    })
+    console.log(5555)
+    if (this.data.list.length == this.data.total){
+      return
+    }else{
+      this.getshopinglist()
+    }
+    
+    
+  }
+  
 })

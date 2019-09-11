@@ -1,4 +1,5 @@
 // pages/povertyalleviation/povertyalleviation.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -24,13 +25,20 @@ Page({
         text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
         money: 9.9,
       },
-    ]
+    ],
+    parameter:{
+      page:'1',
+      pagesize:'10',
+      keywords:'1',
+    },
+    id:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getpovertyalleviationlist()
 
   },
 
@@ -83,10 +91,25 @@ Page({
 
   },
   // 获取众筹扶贫详情页
-  getpovertyalleviationpage(){
-    wx.navigateTo({
-      url: '/pages/padetailspage/padetailspage',
+  getpovertyalleviationpage(e){
+    this.setData({
+      id: e.currentTarget.dataset.id
     })
-    console.log(111)
+    var url = '/pages/padetailspage/padetailspage?id='+this.data.id
+    wx.navigateTo({
+      url: url,
+    })
+  },
+  //获取众筹列表
+  getpovertyalleviationlist(){
+    var that = this 
+    https.request('/Crowd/getGoodsList', that.data.parameter,'加载中...',function(res){
+      console.log(res)
+      that.setData({
+        product:res.data.list
+      })
+    },function(err){
+
+    },'GET')
   }
 })

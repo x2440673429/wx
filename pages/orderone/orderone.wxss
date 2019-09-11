@@ -81,7 +81,7 @@ page{
   height: 39rpx;
 }
 .top_box .useraddress view{
-  width: 564rpx;
+  width: 559rpx;
   font-size: 28rpx;
   color: #333333;
   margin-left: 11rpx;
@@ -102,6 +102,7 @@ page{
   flex-direction: column;
   background: #fff;
   border-radius: 10rpx;
+  margin-bottom: 104rpx;
 }
 .shop .shopname{
   font-size: 28rpx;

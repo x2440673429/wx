@@ -1,7 +1,14 @@
 <!--pages/padetailspage/padetailspage.wxml-->
 <!-- 产品图片和产品名称支持人数等 -->
 <view class="shopimg">
-  <image src="../../image/1首页/chanpin@2x.png"></image>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{banner}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide_image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  <!-- <image src="../../image/1首页/chanpin@2x.png"></image> -->
   <view class="product_box">
     <view class="box_top">
       <view class="shopname">{{shopname}}</view>
@@ -46,7 +53,7 @@
     </view>
     <view class="step_box">
       <view class="box"></view>
-      <view class="step_time">众筹中({{time}}小时后结束)</view>
+      <view class="step_time">众筹中({{surplus_time}})</view>
     </view>
     <view class="step_box">
       <view class="box"></view>
@@ -62,24 +69,20 @@
 <!-- 档位回报 -->
 <view class="return_box">
   <view class="return">档位回报</view>
-  <text class="seven">共7档</text>
+  <text class="seven">共{{grade_count}}档</text>
 </view>
-<van-tabs active="{{ active }}" color="#029a47" class='color'>
-  <van-tab title="￥65"></van-tab>
-  <van-tab title="￥120"></van-tab>
-  <van-tab title="￥150"></van-tab>
-  <van-tab title="￥200"></van-tab>
-  <van-tab title="￥220"></van-tab>
-  <van-tab title="￥120"></van-tab>
-</van-tabs>
-<view class="gearposition">
-  <image src="../../image/1首页/chanpin@2x.png"></image>
+<van-tabs active="{{ id }}" color="#029a47" class='color' bind:change="onChange">
+  <van-tab title="￥{{item.price}}" wx:for='{{goods_grade}}' wx:key='{{index}}'></van-tab>
+  <view class="gearposition">
+  <image src="{{goods_grade[id].thumb}}"></image>
   <view class="right">
-    <view class="surplusnumber">剩余{{number}}份</view>
-    <view class="txt">非常感谢您的支持，您将以众筹价65元获得市场价120元的樱桃</view>
-    <view class="gotosupport">去支持</view>
+    <view class="surplusnumber">剩余{{goods_grade[id].stock}}份</view>
+    <view class="txt">{{goods_grade[id].desc}}</view>
+    <view class="gotosupport" catchtap="gotopay">去支持</view>
   </view>
 </view>
+</van-tabs>
+
 <!-- 隔离层 -->
 <view class="back_box"></view>
 <!-- 评论框 -->
@@ -142,7 +145,7 @@
     <view class="middle">
       <view class="title">档位</view>
       <view class="specifications_box">
-        <view wx:for='{{items}}' wx:key='{{index}}'>{{item}}</view>
+        <view wx:for='{{goods_grade}}' wx:key='{{index}}' class="bor">￥{{item.price}}</view>
       </view>
     </view>
     <view class="tottom">

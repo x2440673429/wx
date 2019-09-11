@@ -7,18 +7,12 @@
   </view>
 </view>
 <!-- 品牌 -->
-<view class="brand" wx:if='{{parameter.type==2?false:true}}'>
-  <image src="../../image/2分类/yasilandai@2x.png"></image>
+<view class="brand">
+  <image src="{{top_info.pic}}"></image>
   <view class="brandbox">
-    <view class="brandname">{{brandname}}</view>
-    <view class="number">在售商品{{number}}件</view>
+    <view class="brandname">{{top_info.brand_name}}</view>
+    <view class="number">在售商品{{total}}件</view>
   </view>
-</view>
-<!-- tab标签页 -->
-<view wx:if='{{parameter.type==2?true:false}}'>
-  <van-tabs active="{{ active }}" color='#029a47' class='color'>
-    <van-tab title="{{item.name}}" wx:for='{{citys}}' wx:key='{{index}}'></van-tab>
-  </van-tabs>
 </view>
 <!-- 品牌在售产品 -->
 <view class="product_box" wx:for='{{product}}' wx:key='{{index}}'>

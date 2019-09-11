@@ -20,7 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     let obj = this.data.textid
     obj.id=options.id
     this.setData({
@@ -82,11 +82,17 @@ Page({
     var that = this
     https.request('/article/getOneArtic',this.data.textid,'加载中...',function(res){
       console.log(res)
+      // console.log(888,res.data.list)
+      // var newlist = that.data.textlist.push(res.data.list)
+      // console.log(777,newlist)
       that.setData({
+        //textlist: newlist
         textlist:res.data.list
       })
+      
     },function(err){
 
     })
+    console.log(999, that.data.textlist)
   }
 })

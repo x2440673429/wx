@@ -10,8 +10,7 @@ function request(url, params, message = '', success, fail, type = 'POST') {
 
 // 测试域名;
 // const url ='http://www.yql.com/api.php';
-// const url = 'http://192.168.2.197:8080/api.php';
-const url = 'http://www.yql.com/api.php';
+const url = 'https://lxsq.tmf520.cn/api.php';
 // websoketurl = 'wss://wss-tuya.chidouye.com',
 //正式域名;
 // const url='https://tuya.fengwankeji.com',
@@ -22,7 +21,7 @@ function requestLoading(address, arrival, message, success, fail, type) {
   if (message != "") {
     wx.showLoading({
       title: message,
-      
+      mask: true
     })
   }
   var inherent = {

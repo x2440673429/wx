@@ -34,7 +34,7 @@ Page({
     var to_url = e.currentTarget.dataset.tourl
     var id = e.currentTarget.dataset.id
     var url = '/pages/marketing/marketing' + '?id=' + id
-    console.log(e)
+    //console.log(e)
       wx.navigateTo({
         url: url
       })
@@ -107,7 +107,7 @@ Page({
     var that = this
     https.request('/article/getFindArticle', this.data.content, '加载中...', function (res) {
       //console.log(res)
-      // var newlist = that.data.Articlelis.push(res.data.list)
+      //var newlist = that.data.Articlelis.push(res.data.list)
       that.setData({
         banner:res.data.banner, // 轮播图
         Articlelist:res.data.list,// 文章列表
@@ -121,5 +121,13 @@ Page({
   getnextpage(){
 
     this.getfindlist()
+  },
+  //
+  swiperChange(){
+    
+  },
+  // 上拉触底
+  onReachBottom(){
+    
   },
 })

@@ -199,6 +199,8 @@ page{
 .product_box .product{
   flex: 1;
   flex-direction: column;
+  display: flex;
+  justify-content: space-between;
 }
 .product_box .product .productname{
   font-size: 28rpx;

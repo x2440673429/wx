@@ -69,8 +69,16 @@ page{
 .product_box .product .product_txt .name{
     font-size: 28rpx;
     color: #1a1a1a;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 } 
 .product_box .product .product_txt .text{
+  overflow: hidden;
+  display: -webkit-box; 
+  -webkit-box-orient:vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp:2; 
   font-size: 20rpx;
   color: #4d4d4d;
   width: 393rpx;

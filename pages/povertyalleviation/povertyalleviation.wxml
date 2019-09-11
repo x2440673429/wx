@@ -12,14 +12,14 @@
 </view>
 <!-- 产品 -->
 <view class="product_box">
-  <view class="product" wx:for='{{product}}' wx:key='{{index}}' catchtap="getpovertyalleviationpage">
-    <image src="{{item.image}}"></image>
+  <view class="product" wx:for='{{product}}' wx:key='{{index}}' catchtap="getpovertyalleviationpage" data-id="{{item.id}}">
+    <image src="{{item.pic}}"></image>
     <view class="product_txt">
       <view>
-        <view class="name">{{item.name}}</view>
-        <view class="text">{{item.text}}</view>
+        <view class="name">{{item.title}}</view>
+        <view class="text">{{item.short_title}}</view>
       </view>
-      <view class="money">￥{{item.money}}</view>
+      <view class="money">￥{{item.price}}</view>
     </view>
   </view>
 </view>

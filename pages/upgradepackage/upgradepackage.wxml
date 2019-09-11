@@ -7,14 +7,14 @@
 <!-- 产品 -->
 
   <view class="product" wx:for='{{product}}' wx:key='{{index}}'>
-    <image src="{{item.image}}"></image>
+    <image src="{{item.pic}}"></image>
     <view class="product_txt">
       <view>
-        <view class="name">{{item.name}}</view>
+        <view class="name">{{item.title}}</view>
         <view class="text">{{item.text}}</view>
       </view>
       <view class="bottom">
-        <view class="money">￥{{item.money}}</view>
+        <view class="money">￥{{item.price}}</view>
         <view class="shopping">购买升级</view>
       </view>
     </view>

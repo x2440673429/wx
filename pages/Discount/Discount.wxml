@@ -15,14 +15,14 @@
       <view class="Coupon_box">
         <image src="../../image/1首页/xinrentehui@2x.png"></image>
         <view class="Coupon_left">
-          <view class="RMB">{{item.money}}<text>元</text></view>
+          <view class="RMB">{{item.price}}<text>元</text></view>
           <view class="Receive">立即领取</view>
         </view>
         <view class="Coupon_right" >
           <view class="Coupon_name">{{item.coupon_name}}</view>
           <view class="shopname">使用店铺： {{item.shopname}}</view>
-          <view class="Usefulness">{{item.usefulness}}</view>
-          <view class="time">{{item.time}}</view>
+          <view class="Usefulness">{{item.note}}</view>
+          <view class="time">{{item.limit_time}}</view>
         </view>
       </view>
     </view>
@@ -38,7 +38,7 @@
       </view>
       <view class="rule_box">
         <text class="number">1</text>
-        <view class="rule1">新人福利仅限扶农商城新用户参与。新用户是指没有在扶农商城下过单的用户。</view>
+        <view class="rule1">{{rule}}</view>
       </view>
       <view class="rule_box rule_box2">
         <text class="number">2</text>

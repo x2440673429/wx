@@ -44,13 +44,13 @@
 <!--  拼团规则和订单详情  -->
 <view class="Doubt" catchtap='getrule'>
 <view>拼团规则<text>好友拼单·人满发货·不满退货</text></view>
-<image src="../../image/1首页/youjiantou2@2x.png"></image>
+<image src="../../image/1首页/youjiantou2@2x.png" class="Doubtimg"></image>
 </view>
 <view class="Doubt">
 <view>订单详情<text>分享团仅发起拼团VIP下单可赚佣金</text></view>
-
+<image src="../../image/1首页/youjiantou2@2x.png" class="Doubtimg"></image>
 </view>
-<image src="../../image/1首页/youjiantou2@2x.png"></image>
+
 <!-- 拼团规则弹出框 -->
 <van-popup
   show='{{ show }}'
