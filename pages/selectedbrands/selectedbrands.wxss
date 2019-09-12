@@ -72,6 +72,8 @@
 .product_box .product{
   flex: 1;
   flex-direction: column;
+  display: flex;
+  justify-content: space-between;
 }
 .product_box .product .productname{
   font-size: 28rpx;
@@ -81,11 +83,11 @@
   width: 393rpx;
   font-size: 20rpx;
   color: #4d4d4d;
-  margin: 14rpx 0;
+  /* margin: 14rpx 0; */
 }
 .product_box .product .box{
   display: flex;
-  margin-bottom: 5rpx;
+  margin-bottom: 16rpx;
 }
 .product_box .product .box text{
   width: 50rpx;

@@ -1,4 +1,5 @@
 // pages/preferentialoffer/preferentialoffer.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -20,14 +21,18 @@ Page({
         usefulness: '全场通用',
         time: '2019.07.09 17:30-2019.08.08 17:30',
       },
-    ]
+    ],
+    parameter:{
+      page:'1',
+      pagesize:'10',
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getyhjlist()
   },
 
   /**
@@ -77,5 +82,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 获取优惠卷列表
+  getyhjlist(){
+    var that = this
+    https.request('/User/getMyCouponList', this.data.parameter,'加载中',function(res){
+      console.log(res)
+    },function(err){
+
+    },'GET')
   }
 })

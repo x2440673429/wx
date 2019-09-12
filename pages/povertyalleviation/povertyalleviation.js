@@ -6,32 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    product:[
-      {
-        image: '../../image/1首页/chanpin@2x.png',
-        name: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 9.9,
-      },
-      {
-        image: '../../image/1首页/chanpin@2x.png',
-        name: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 9.9,
-      },
-      {
-        image: '../../image/1首页/chanpin@2x.png',
-        name: '手工麻薯小吃永春麻糍糯米',
-        text: `[扶农][顺风配送]手工麻薯小吃永春麻糍糯米(4斤盒装 250- 300g)`,
-        money: 9.9,
-      },
-    ],
+    product:[],
     parameter:{
       page:'1',
       pagesize:'10',
       keywords:'1',
     },
     id:'',
+    total:0,
   },
 
   /**
@@ -105,11 +87,27 @@ Page({
     var that = this 
     https.request('/Crowd/getGoodsList', that.data.parameter,'加载中...',function(res){
       console.log(res)
+      var product = that.data.product.concat(res.data.list)
       that.setData({
-        product:res.data.list
+        product: product,
+        total: res.data.total
       })
     },function(err){
 
     },'GET')
+  },
+  //上拉触底加载更多
+  onReachBottom(){
+    var obj = this.data.parameter
+    obj.page++
+    this.setData({
+      parameter: obj,
+    })
+    if (this.data.product.length == this.data.total){
+      return
+    }else{
+      this.getpovertyalleviationlist()
+    }
+    
   }
 })

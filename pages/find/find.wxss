@@ -42,7 +42,7 @@ page{
   margin-top: 25rpx;
 }
 /* 文章列表 */
-.Articlelist{
+.articlelis{
   width: 100%;
   height: 100rpx;
   display: flex;
@@ -50,11 +50,11 @@ page{
   align-items: center;
   background: #fff;
 }
-.Articlelist view{
+.articlelis view{
   font-size: 28rpx;
   color: #1a1a1a;
 }
-.Articlelist image{
+.articlelis image{
   width: 9rpx;
   height: 16rpx;
   margin-left: 19rpx;

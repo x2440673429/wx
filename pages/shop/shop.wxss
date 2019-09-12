@@ -88,14 +88,17 @@ page{
 /* 店铺产品价格 */
 .shop_bottom{
   width: 100%;
-   display: flex;
-  justify-content: space-between;
+  display: flex;
   margin-top: 40rpx;
 }
 .shop_bottom .product{
   width: 205rpx;
   height: 206rpx;
   position: relative;
+  margin-left: 20rpx;
+}
+.shop_bottom .product:first-child{
+  margin-left: 0rpx;
 }
 .shop_bottom .product image{
   width: 100%;

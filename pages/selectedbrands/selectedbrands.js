@@ -36,9 +36,7 @@ Page({
       pagesize:'10',
     },
     title:'',
-    top_info:[
-
-    ]
+    top_info:[],
   },
 
   /**
@@ -48,30 +46,28 @@ Page({
     //console.log(options)
     let obj = this.data.parameter
     obj.class_id = options.id
-    obj.search_key = options.name
+    // obj.search_key = options.name
     obj.type = options.type
     this.setData({
       parameter:obj
     })
     this.getproductlist()
-   
+    
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    // wx.setNavigationBarTitle({
-    //   title: this.data.title,
-    // })
-    // console.log(1111,this.data.title)//这个空
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(1111, this.data.title)
+
   },
 
   /**
@@ -113,16 +109,29 @@ Page({
     var that = this
     https.request('/goods/searchClassGoods', this.data.parameter, '加载中...', function (res) {
       console.log(res)
+      for (var i = 0; i < res.data.list.length; i++) {
+        var tag = res.data.list[i].customer_tag.split(',')
+        res.data.list[i].customer_tag = tag
+      }
       that.setData({
         total: res.data.total,
-        title: res.data.top_title,//这个传不上去啊标题改不上去
+        title: res.data.top_title,
         product: res.data.list,
-        top_info: res.data.top_info.brand_info
       })
+      if (that.data.parameter.type==1){
+        that.setData({
+          top_info: res.data.top_info.brand_info 
+        })
+      }else{
+        that.setData({
+          top_info:  res.data.top_info.class_info
+        })
+      }
+      // 标题名称
       wx.setNavigationBarTitle({
         title: that.data.title,
       })
-      console.log(that.data.title)// 这个出来了
+      
     }, function (err) {
 
     })

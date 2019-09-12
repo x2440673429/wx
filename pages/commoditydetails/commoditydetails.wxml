@@ -45,25 +45,26 @@
   </view>
 </view>
 <!-- 评论 -->
-<view class="comment_top">
-  <view>买家评价（100）</view>
+<view class="comment_top" >
+  <view>买家评价（{{evaluate_total}}）</view>
   <image src="../../image/1首页/youjiantou2@2x.png"></image>
 </view>
-<view class="comment_box">
+<view class="comment_box" wx:for='{{evaluate_info}}' wx:key='{{index}}'>
   <view class="coment_user">
-    <image src="../../image/1首页/kajiatouxiang@2x.png"></image>
-    <view>{{comment_name}}</view>
+    <image src="{{item.avatar}}"></image>
+    <view>{{item.name}}</view>
   </view>
-  <view class="comment_content">{{comment_content}}</view>
+  <view class="comment_content">{{item.content}}</view>
   <view class="img">
-    <image></image>
+    <image src="{{img}}" wx:for='{{item.image}}' wx:key='{{index}}' wx:for-item='img'></image>
   </view>
-  <view class="comment_time">{{comment_time}}</view>
+  <view class="comment_time">{{item.create_time}}</view>
 </view>
 <!-- 商品详情 -->
 <view class="shopdetails">
   <text>商品详情</text>
   <image src="../../image/3发现/banner@2x.png"></image>
+  <view>{{item.details}}</view>
 </view>
 <!-- 商品导航 -->
 <view class="shopnav">
@@ -71,14 +72,25 @@
     <image src="../../image/2分类/dianpu.png"></image>
     <text>店铺</text>
   </view>
-  <view class="shopandsc">
-    <image src="../../image/2分类/dianpu.png"></image>
+  <view class="shopandsc" catchtap="collection">
+    <image src="{{is_collect==0?'../../image/img/sc.png':'../../image/img/ysc.png'}}"></image>
     <text>收藏</text>
   </view>
-  <view class="savemoney" catchtap="selfpurchase" data-pay="1">
+  <view class="savemoney" catchtap="selfpurchase" data-pay="1" >
     <view>购物车</view>
   </view>
   <view class="savemoney opengroup" data-pay="2"  catchtap="selfpurchase">
    <view>立即购买</view>
   </view>
 </view>
+
+<!-- 分享赚弹框 -->
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  overlay="{{ false }}"
+  bind:close="onClose"
+>
+  内容
+</van-popup>
+

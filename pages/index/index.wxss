@@ -346,14 +346,18 @@ page{
   font-size: 20rpx;
   color: #4d4d4d;
 }
+.tag{
+  display: flex;
+}
 .weight{
-  width: 91rpx;
+  padding: 0 10rpx;
   height: 25rpx;
   background: #f8d6d5;
   font-size: 20rpx;
   color: #e2696b;
   text-align: center;
   line-height: 25rpx;
+  margin-right: 10rpx;
 }
 .sellwell_box .sellwellproduct  .sellwellintroduce  .product_right  .product_bottom{
   display: flex;

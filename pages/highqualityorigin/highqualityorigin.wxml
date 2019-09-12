@@ -11,15 +11,15 @@
 </view>
 <!-- 产品 -->
 <view class="product_box" wx:for='{{product}}' wx:key='{{index}}'>
-  <image src="../../image/1首页/chanpin@2x.png"></image>
+  <image src="{{item.pic}}"></image>
   <view class="product">
-    <view class="productname">{{item.productname}}</view>
-    <view class="text">{{item.text}}</view>
-    <view class="box"><text class="temai">特卖</text><text class="zhijiang">直降</text></view>
+    <view class="productname">{{item.title}}</view>
+    <view class="text">{{item.short_title}}</view>
+    <view class="box"><text class="temai" wx:for='{{item.customer_tag}}' wx:key='{{index}}' wx:for-item='tag'>{{tag}}</text></view>
     <view class="big_box">
       <view class="Price">
-        <view class="money">￥{{item.money}}</view>
-        <view class="addmoney">赚￥{{item.addmoney}}</view>
+        <view class="money">￥{{item.price}}</view>
+        <view class="addmoney">赚￥{{item.profit}}</view>
       </view>
       <view class="botton">
         <text class="quick">马上抢</text>

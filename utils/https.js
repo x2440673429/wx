@@ -27,7 +27,7 @@ function requestLoading(address, arrival, message, success, fail, type) {
   var inherent = {
     'access_token': '5b7f60aca7e7f6f8c680b1b219ad3ec6',
     'from': From,
-    'user_token':  '' //'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1Njc2MDE2NTEsImRhdGEiOnsidWlkIjo3fX0.grEdRK9HyOsuoC1Vmw94U0oQlDnlsaEKqB5aY3GnpmE',
+    'user_token':               'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NjgyNTY2MzMsImRhdGEiOnsidWlkIjo4fX0.6XD2cysT8BN9mdm05HBEjtSZHjXDhQdlratgMOLPDtA' ,
   }
   var params = Object.assign(inherent, arrival);//合并对象
   wx.request({

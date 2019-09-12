@@ -11,7 +11,7 @@
 </view>
 <view class="title">联系人</view>
 <view class="optionbox">
-  <input type="text" placeholder="请填写联系人姓名" value='{{name}}'></input>
+  <input type="text" placeholder="请填写联系人姓名" value='{{name}}' bindinput="getname"></input>
 </view>
 <view class="title">联系电话</view>
 <view class="optionbox">

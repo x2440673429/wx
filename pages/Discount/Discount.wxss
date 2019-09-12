@@ -28,11 +28,11 @@ page{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-bottom: 35rpx;
+  padding-bottom: 70rpx;
 }
 /* 优惠券标题 */
 .discount_box .discount_bor .discount_title{
-  margin: 60rpx 0 36rpx 0; 
+  margin: 60rpx 0 0 0; 
   font-weight: 100;
   font-size: 42rpx;
   color: #f94c2b;
@@ -101,18 +101,19 @@ page{
   line-height: 31rpx;
 }
 .discount_box .discount_bor .Coupon .Coupon_right{
-  /* flex:1; */
+  flex:1;
   display: flex;
   flex-direction: column;
-  
+  justify-content: space-around;
   color: #808080;
   font-size: 24rpx;
   position: absolute;
   left: 229rpx;
   top: 0;
+  padding: 15rpx 0;
+  box-sizing: border-box;
   /* padding: 15rpx 0; */
   /* padding-top: 30rpx; */
-  justify-content: center;
   height: 180rpx;
 }
 .discount_box .discount_bor .Coupon .Coupon_right .Coupon_name{
@@ -126,6 +127,7 @@ page{
 .rule_box{
   width: 100%; 
   display: flex;
+  margin-top: 60rpx;
 }
 /* 第二条 */
 .rule_box2{

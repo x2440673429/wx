@@ -1,39 +1,24 @@
 // pages/search/search.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    text:'樱桃',
+    value:'樱桃',
     active: 0,
-    productinof:[
-      {
-        image:'../../image/4我的/xiaotuop@2x.png',
-        name: '山东烟台大樱桃',
-        money: 88.99,
-        number: 228
-      },
-       {
-         image: '../../image/4我的/xiaotuop@2x.png',
-        name: '山东烟台大樱桃',
-        money: 88.99,
-        number: 228
-      },
-      {
-        image: '../../image/4我的/xiaotuop@2x.png',
-        name: '山东烟台大樱桃',
-        money: 88.99,
-        number: 228
-      },
-      {
-        image: '../../image/4我的/xiaotuop@2x.png',
-        name: '山东烟台大樱桃',
-        money: 88.99,
-        number: 228
-      },
-    ],
-   
+    productinof:[],
+    parameter:{
+      min_price:'0',
+      max_price:'99999',
+      page:'1',
+      pagesize:'10',
+      is_new:'0',
+      sales_num_type:'2',
+      search_key:'',
+    },
+    total:0,
   },
   // 改变Tab标签页
   onChange(event) {
@@ -44,7 +29,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var obj = this.data.parameter
+    obj.search_key = options.search_key
+    this.setData({
+      value: options.search_key,
+      parameter:obj
+    })
+    this.getsearchlist()
   },
 
   /**
@@ -94,5 +85,35 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 获取搜索产品列表
+  getsearchlist(){
+    var that = this
+    https.request('/goods/searchGoods', this.data.parameter,'加载中...',function(res){
+      console.log(res)
+      var productinof = that.data.productinof.concat(res.data.list)
+      that.setData({
+        productinof: productinof,
+        total: res.data.total
+      })
+    },function(err){
+
+    })
+  },
+  // 上拉触底加载更多
+  onReachBottom(){
+    var obj = this.data.parameter
+    obj.page++
+    this.setData({
+      parameter:obj
+    })
+    console.log(this.data.productinof.length)
+    console.log(this.data.total)
+    if (this.data.productinof.length == this.data.total){
+      return
+    }else{
+      this.getsearchlist()
+    }
+    
   }
 })
