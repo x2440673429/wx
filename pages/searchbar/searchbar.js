@@ -123,11 +123,11 @@ Page({
   },
   // 品牌等
   getselectedbrands(e){
-    // console.log(e)
+     //console.log(e)
     let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
     let type = e.currentTarget.dataset.type
-    let url = '/pages/selectedbrands/selectedbrands' + '?id=' + id + '&name=' + name + '&type=' + type
+    let url = '/pages/selectedbrands/selectedbrands' + '?id=' + id  + '&type=' + type
     wx.navigateTo({
       url: url,
     })
@@ -137,7 +137,7 @@ Page({
     let id = e.currentTarget.dataset.id
     let name = e.currentTarget.dataset.name
     let type = e.currentTarget.dataset.type
-    let url =  '/pages/highqualityorigin/highqualityorigin' + '?id=' + id + '&name=' + name + '&type=' + type
+    let url =  '/pages/highqualityorigin/highqualityorigin' + '?id=' + id  + '&type=' + type
     wx.navigateTo({
       url:url
     })

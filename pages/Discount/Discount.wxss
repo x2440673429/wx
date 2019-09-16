@@ -28,7 +28,7 @@ page{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding-bottom: 70rpx;
+  padding-bottom: 11rpx;
 }
 /* 优惠券标题 */
 .discount_box .discount_bor .discount_title{
@@ -46,7 +46,8 @@ page{
     width: 650rpx;
     height: 180rpx;
     border-bottom: 1rpx dotted #dba372;
-    margin-bottom: 23rpx;
+    /* margin-bottom: 23rpx; */
+    margin-top: 23rpx;
     padding-bottom: 23rpx;
     display: flex;
     justify-content: center;
@@ -162,4 +163,5 @@ page{
 .newrule{
   margin-top: 35rpx;
   margin-bottom: 111rpx;
+  padding-bottom: 76rpx !important;
 }

@@ -15,7 +15,9 @@ Page({
     number:'1',
     mode:'免邮',
     allmoney:'280.00',
-
+    read:0,// 协议 1未选中。0 选中
+    wxpayfor:0,// 微信付款 1选中 0 未选中
+    balance: 0,// 余额付款 1选中 0 未选中
   },
 
   /**
@@ -72,5 +74,46 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 点击是否选中协议
+  getread(){
+    if (this.data.read){
+      this.setData({
+        read:0
+      })
+    }else{
+      this.setData({
+        read: 1
+      })
+    }
+  },
+  // 付款方式
+  paymentmethod(){
+    if (this.data.wxpayfor){
+      this.setData({
+        wxpayfor: 0,
+        balance: 1
+      })
+    }else{
+      this.setData({
+        wxpayfor: 1,
+        balance: 0
+      })
+    }
+    // if (this.data.balance){
+    //   this.setData({
+    //     balance: 0
+    //   })
+    // } else {
+    //   this.setData({
+    //     balance: 1
+    //   })
+    // }
+  },
+  //选择收货地址
+  getaddress(){
+    wx.navigateTo({
+      url: '/pages/address/address',
+    })
   }
 })

@@ -129,5 +129,11 @@ Page({
 
       })
     }
+  },
+  // 标题
+  change(){
+    wx.setNavigationBarTitle({
+      title: this.data.title,
+    })
   }
 })

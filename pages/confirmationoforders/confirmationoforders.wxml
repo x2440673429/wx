@@ -1,6 +1,6 @@
 <!--pages/confirmationoforders/confirmationoforders.wxml-->
 <!-- 头部联系人 -->
-<view class="top_box">
+<view class="top_box" catchtap="getaddress">
   <view class="user">
     <view >收货人：{{username}}</view>
     <view>{{phone}}</view>

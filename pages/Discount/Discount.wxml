@@ -19,8 +19,8 @@
           <view class="Receive">立即领取</view>
         </view>
         <view class="Coupon_right" >
-          <view class="Coupon_name">{{item.coupon_name}}</view>
-          <view class="shopname">使用店铺： {{item.shopname}}</view>
+          <view class="Coupon_name">{{item.name}}</view>
+          <view class="shopname">{{item.limit_desc}}</view>
           <view class="Usefulness">{{item.note}}</view>
           <view class="time">{{item.limit_time}}</view>
         </view>

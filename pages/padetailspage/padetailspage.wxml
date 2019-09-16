@@ -65,6 +65,7 @@
 <view class="paStory">
   <view class="story">众筹故事</view>
   <image></image>
+  <view>{{details}}</view>
 </view> 
 <!-- 档位回报 -->
 <view class="return_box">
@@ -86,7 +87,7 @@
 <!-- 隔离层 -->
 <view class="back_box"></view>
 <!-- 评论框 -->
-<view class="comment_box">
+<view class="comment_box" catchtap="iwantsay">
   <view class="allcomment">评论/100</view>
   <view class="iwantsay">
     <image src="../../image/1首页/pinglun@2x.png"></image>
@@ -108,7 +109,7 @@
 <!-- 底部购买框 -->
 <view class="pay_box">
   <view class="pay">
-    <image src="../../image/1首页/sc.png"></image>
+    <image src="../../image/img/sc.png"></image>
     <view>收藏</view>
   </view>
   <view class="pay border">
@@ -133,25 +134,25 @@
 >
   <view class="payfor">
     <view class="top">
-      <image src="../../image/1首页/chanpin@2x.png" class="product_img"></image>
+      <image src="{{goods_grade[key].thumb}}" class="product_img"></image>
       <view class="payfor_ringt">
         <view class="close">
           <image src="../../image/2分类/cha@2x.png" catchtap="onClose"></image>
         </view>
-        <view class="pay_txt">非常感谢您的支持，您将以众筹价65元获得市场价120元的樱桃</view>
-        <view class="pay_number">剩余数量{{number}}</view>
+        <view class="pay_txt">{{goods_grade[key].desc}}</view>
+        <view class="pay_number">剩余数量{{goods_grade[key].stock}}</view>
       </view>
     </view>
     <view class="middle">
       <view class="title">档位</view>
       <view class="specifications_box">
-        <view wx:for='{{goods_grade}}' wx:key='{{index}}' class="bor">￥{{item.price}}</view>
+        <view wx:for='{{goods_grade}}' wx:key='{{index}}' class="{{key==index?'bor':''}}" catchtap="getgrade" data-index="{{index}}">￥{{item.price}}</view>
       </view>
     </view>
     <view class="tottom">
       <view class="title">数量：</view>
-      <van-stepper value="{{ 1 }}" bind:change="onChange" input-width='96rpx'integer='true' plus-class='background: #cccccc' minus-class='background: #cccccc'/>
+      <van-stepper value="{{ value }}" bind:change="onChange" input-width='96rpx'integer='true' plus-class='background: #cccccc' minus-class='background: #cccccc' />
     </view>
-    <view class="quzc">去支持</view>
+    <view class="quzc" catchtap="getorder">去支持</view>
   </view>
 </van-popup>

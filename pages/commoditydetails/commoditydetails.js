@@ -29,7 +29,43 @@ Page({
       ftype:'0',
       handle_type:'1',
     },
-   
+    autoplay: true,//轮播图是否自动切换
+    interval: 4000,//自动切换时间间隔
+    duration: 800,//滑动动画时长
+    share:[
+      {
+        img:'../../image/img/weixin.png',
+        title:'微信',
+      },
+      {
+        img: '../../image/img/pengyouquan.png',
+        title: '微信朋友圈',
+      },
+      {
+        img: '../../image/img/fuzhilianjie.png',
+        title: '复制连接',
+      },
+      {
+        img: '../../image/img/erweima.png',
+        title: '二维码',
+      },
+    ],
+    show: false,// 分享弹框
+    showpay: false,// 立即购买弹框
+    goods_id:'0',// 商品id
+    specifications:[],// 商品规格
+    attr:{
+      goods_id:'0',
+      attr_ids:[]
+    },
+    gradeinof:{},// 规格详情
+    key:0,
+    value:1,
+    addshopping:{
+      goods_id:'',
+      num:'',
+      attr_id:'',
+    }
   },
 
   /**
@@ -37,13 +73,15 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+
     var id = options.id
     this.geiproductinfo(id)
     //this.geiproductattrs(id)
     var obj = this.data.parameter
     obj.fid = id
     this.setData({
-      parameter:obj
+      parameter:obj,
+      goods_id: id
     })
   },
 
@@ -120,34 +158,16 @@ Page({
         evaluate_total: res.data.goods_info.evaluate_info.total,//评价列表
         is_collect: res.data.goods_info.is_collect,//是否收藏
         details: res.data.goods_info.details,// 商品详情
-        // shopname: res.data.goods_info.title,//商品名称
-        // shopname: res.data.goods_info.title,//商品名称
-        // shopname: res.data.goods_info.title,//商品名称
-        // shopname: res.data.goods_info.title,//商品名称
       })
     },function(err){
 
     },'GET')
   },
-  // 获取商品规格
-  // geiproductattrs(id){
-  //   var that = this
-  //   https.request('/Goods/getGoodsAttr',{goods_id:id},'加载中...',function(res){
-  //     console.log(res)
-      
-  //   },function(err){
-
-  //   },'GET')
-  //},
   // 获取店铺详情
   getshoping(){
     wx.navigateTo({
       url: '/pages/shoping/shoping?sid='+this.data.sid,
     })
-  },
-  //点击购物车
-  selfpurchase(){
-    
   },
   // 点击收藏
   collection(){
@@ -180,5 +200,91 @@ Page({
       })
      }
     
+  },
+  // 点击分享
+  share(){
+    this.setData({
+      show:true
+    })
+  },
+  // 关闭分享
+  onClose(){
+    this.setData({
+      show: false,
+      showpay: false
+    })
+  },
+  // 获取规格接口
+  getgoodsattr(){
+    var that = this
+    https.request('/Goods/getGoodsAttr', { goods_id: this.data.goods_id},'',function(res){
+      console.log(res)
+      that.setData({
+        specifications: res.data.attrs_list
+      })
+    },function(err){
+
+    },'GET')
+  },
+  // 规格详情接口
+  getgoodsattrinfo(){
+    var that = this
+    https.request('/Goods/getGoodsAttrInfo', this.data.attr, '', function (res) {
+      console.log(res)
+      that.setData({
+        specifications: res.data.attrs_list
+      })
+    }, function (err) {
+
+    }, 'GET')
+  },
+  //点击购物车
+  selfpurchase() {
+    this.setData({
+      showpay: true
+    })
+    this.getgoodsattr()
+    this.getgoodsattrinfo()
+  },
+  // 选择规格
+  getgrade(e){
+    console.log(e)
+    this.setData({
+      key: e.currentTarget.dataset.key
+    })
+    var arr = []
+    arr.push(e.currentTarget.dataset.ids)
+    arr.push(e.currentTarget.dataset.id)
+    // JSON.parse(arr)
+    JSON.stringify(arr)
+    console.log(arr)
+  },
+  // 购买数量
+  onChange(e){
+    this.setData({
+      value: e.detail
+    })
+  },
+  // 点击确定
+  getorder(){
+    wx.navigateTo({
+      url: '/pages/confirmationoforders/confirmationoforders?number=' + this.data.value + '&id=' + this.data.goods_id + '&attr=' ,
+    })
+  },
+  // 加入购物车
+  addshopping(){
+    var addshopping = this.data.addshopping
+    addshopping.num = this.data.value
+    // addshopping.attr_id = this.data.
+    addshopping.goods_id = this.data.goods_id
+    this.setData({
+      addshopping: addshopping
+    })
+    https.request('/order/joinCart', this.data.addshopping,'',function(res){
+      console.log(res)
+    },function(err){
+
+    },'GET')
   }
+  
 })

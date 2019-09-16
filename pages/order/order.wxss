@@ -184,7 +184,7 @@ page{
   width: 38rpx;
   height: 39rpx;
   border-radius: 50%;
-  border: 2rpx solid #7f7f7f;
+  /* border: 2rpx solid #7f7f7f; */
 }
 /* 付款 */
 .payfor_btn{
