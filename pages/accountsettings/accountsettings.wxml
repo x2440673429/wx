@@ -16,14 +16,14 @@
   </view>
 </view>
 <!-- 收货地址 -->
-<view class="head address">
+<view class="head address" catchtap="address">
   <view>收货地址</view>
   <view class="right">
     <image src="../../image/4我的/huiseyoujiantou@2x.png" class="click"></image>
   </view>
 </view>
 <!-- 手机 -->
-<view class="head ">
+<view class="head " catchtap="bindphone">
   <view>绑定手机号码</view>
   <view class="right">
     <view class="phone">{{phone}}</view>

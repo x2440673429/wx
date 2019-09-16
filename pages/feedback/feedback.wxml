@@ -12,10 +12,9 @@
 
   <view class="imglist">
     <view>请提供相关问题的截图和照片</view>
-    <image src="../../image/4我的/tianjiatupian@2x.png" class="addimg"></image>
-  </view>
-
+      <image src="../../image/4我的/tianjiatupian@2x.png" class="addimg" bindtap="choose" data-id="{{id}}"></image>
+</view>
   <view class="btnbox">
-    <view class="btn">确认提交</view>
+    <view class="btn" type="primary" formType='submit'>确认提交</view>
   </view>
 </view>

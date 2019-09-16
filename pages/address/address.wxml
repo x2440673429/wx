@@ -20,6 +20,6 @@
   
 </view>
 
-<view class="btmbox">
+<view class="btmbox" catchtap="addaddress">
   <view class="btm">添加收货地址</view>
 </view>

@@ -1,22 +1,22 @@
-// pages/muorder/myorder.js
+// pages/Bargain-orders/Bargain-orders.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active:0,
-    order:[
+    active: 0,
+    order: [
       {
-        shopname:'阿甘食品店',
-        ordernumber:'D12645189459',
-        state:'待付款',
-        img:'../../image/4我的/xiaotuop@2x.png',
-        productname:'糍粑传统营养小食品',
-        money:29.9,
-        number:1,
+        shopname: '阿甘食品店',
+        ordernumber: 'D12645189459',
+        state: '待付款',
+        img: '../../image/4我的/xiaotuop@2x.png',
+        productname: '糍粑传统营养小食品',
+        money: 100,
+        number: 1,
         statentm1: '',
-        statentm2:'去付款',
+        statentm2: '去付款',
       },
       {
         shopname: '阿甘食品店',
@@ -24,7 +24,7 @@ Page({
         state: '待发货',
         img: '../../image/4我的/xiaotuop@2x.png',
         productname: '糍粑传统营养小食品',
-        money: 29.9,
+        money:100,
         number: 1,
         statentm1: '',
         statentm2: '去付款',
@@ -35,7 +35,7 @@ Page({
         state: '待收货',
         img: '../../image/4我的/xiaotuop@2x.png',
         productname: '糍粑传统营养小食品',
-        money: 39.9,
+        money: 100,
         number: 1,
         statentm1: '',
         statentm2: '去付款',
@@ -47,7 +47,7 @@ Page({
         state: '待评价',
         img: '../../image/4我的/xiaotuop@2x.png',
         productname: '糍粑传统营养小食品',
-        money: 39.9,
+        money: 100,
         number: 1,
         statentm1: '',
         statentm2: '去付款',
@@ -59,19 +59,19 @@ Page({
         state: '退款中',
         img: '../../image/4我的/xiaotuop@2x.png',
         productname: '糍粑传统营养小食品',
-        money: 39.9,
+        money: 100,
         number: 1,
-        statentm1:'',
+        statentm1: '',
         statentm2: '去付款',
         allmoney: 0,
       },
-    ], 
+    ],
     btn: true,
     cancelbtn: true,
     statebtn: true,
   },
-  
-  
+
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -129,5 +129,9 @@ Page({
   onShareAppMessage: function () {
 
   },
-  
+  orderone:function(){
+    wx.navigateTo({
+      url: '/pages/orderone/orderone',
+    })
+  }
 })

@@ -1,11 +1,15 @@
 // pages/addaddress/addaddress.js
+const app = getApp()
+const https = require("../../utils/https.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    info:[],
+    province_id:[],
+    province_name:[],
   },
 
   /**
@@ -62,5 +66,15 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  /*
+  getaddress:function(){
+    https: request('common/getProvinceInfo', this.data.info), '加载中...', function (res) 
+    {
+      that.setData({
+        
+      })
+    }
+    
+  },*/
 })

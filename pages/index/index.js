@@ -41,8 +41,9 @@ Page({
     product:[],
     // 推荐抢购时间
     limitedtime: [],
-    limitedproduct: [],//推荐抢购产品
+    limitedproduct: [],//推荐抢购产品\
     tpye:'1',
+    
   },
   // Tab页改变
   onChange(event){
@@ -248,7 +249,12 @@ Page({
     wx.navigateTo({
       url: '/pages/commoditydetails/commoditydetails?type='+this.data.type+'&id='+id,
     })
-  }
+  },
+  theshoppingcart: function () {
+    wx.navigateTo({
+      url: '/pages/theshoppingcart/theshoppingcart',
+    })
+  },
 
   // https.request('url地址', '参数（对象）', 'message加载信息', 'function成功方法回调','function失败方法回调','接口类型（get/post）不写默认post')
 

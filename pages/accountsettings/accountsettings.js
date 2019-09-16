@@ -15,10 +15,22 @@ Page({
       url: '/pages/changepassword/changepassword',
     })
   },
+  //绑定手机号码
+  bindphone:function(){
+    wx.navigateTo({
+      url: '/pages/bindphone/bindphone',
+    })
+  },
   // 设置支付密码
   setnewpassword:function(){
     wx.navigateTo({
       url: '/pages/setpaypassword/setpaypassword',
+    })
+  },
+  //收货地址跳转
+  address:function(){
+    wx.navigateTo({
+      url: '/pages/address/address',
     })
   },
   /**

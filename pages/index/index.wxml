@@ -116,7 +116,7 @@
           </view>
         </view>
       </view>
-      <view class="gouwuche">
+      <view class="gouwuche" catchtap="theshoppingcart">
         <image src="../../image/1首页/gouwuche.png" ></image>
         <view wx:if='{{sign>0?true:false}}'>{{sign}}</view>
       </view>

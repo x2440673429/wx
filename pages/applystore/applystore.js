@@ -1,5 +1,7 @@
 // pages/applystore/applystore.js
 Page({
+  "code": "0000",
+  "msg": "操作成功", 
 
   /**
    * 页面的初始数据
@@ -7,7 +9,11 @@ Page({
   data: {
     name:'',
     phone:'',
+    main_class_info:'',
+    main_class_id:"",
+    main_class_name:'',
   },
+  "exe_time": "0.094005",
   // 手机号
   getphone(e){
 
@@ -66,5 +72,7 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  //主营类型
+  
 })

@@ -91,5 +91,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //订单详情跳转
+  detailsofcollage:function(){
+    wx.navigateTo({
+      url: '/pages/detailsofcollage/detailsofcollage',
+    })
   }
 })

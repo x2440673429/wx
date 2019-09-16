@@ -1,11 +1,11 @@
 <!--pages/applystore/applystore.wxml-->
-<view class="title">主营类型</view>
-<view class="optionbox">
-  <view>请选择类型</view>
+<view class="title" main-class-info="{{item.main_class_info}}">主营类型</view>
+<view class="optionbox" data-main-class="{{main_class_id}}{{main_class_name}}">
+  <view >请选择类型</view>
   <image src="../../image/4我的/xiangxiaxiaojiantou@2x.png"></image>
 </view>
-<view class="title">商户分类</view>
-<view class="optionbox">
+<view class="title" data="{{store_class_info}}">商户分类</view>
+<view class="optionbox" >
   <view>请选择类型</view>
   <image src="../../image/4我的/xiangxiaxiaojiantou@2x.png"></image>
 </view>
