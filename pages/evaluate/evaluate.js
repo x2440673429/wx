@@ -6,7 +6,16 @@ Page({
    */
   data: {
     value:0,
-    img:'../../image/1首页/kajiatouxiang@2x.png'
+    img:'../../image/1首页/kajiatouxiang@2x.png',
+    text:'',
+    parameter:{
+      order_goods_id:'',
+      img_ids:'',
+      content:'',
+      scores:'',
+      type:'',
+      log_id:'',
+    }
   },
   onChange(event) {
     this.setData({
@@ -67,5 +76,24 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 发表评价
+  evaluate(){
+    var parameter = this.data.parameter
+    parameter.scores=this.data.value
+    parameter.content = this.data.text
+    parameter.img_ids = this.data.imgs
+    this.setData({
+      parameter: parameter
+    })
+    this.goodsevaluate(parameter)
+  },
+  // 发表评价接口
+  goodsevaluate(parameter){
+    https.requset('/user/goodsEvaluate', parameter,'',function(res){
+      console.log(res)
+    },function(res){
+
+    })
   }
 })

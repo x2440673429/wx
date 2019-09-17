@@ -29,7 +29,6 @@ Page({
             '/pages/Selection/Selection', 
             '/pages/flashsale/flashsale', 
             '/pages/Discount/Discount'],//热卖店铺等4个对应跳转的页面
-    time: 0,// 抢购高光
     sellwellbox: [],//热销
     carisShow: 3,//购物车右上角红色标记显示
     // 精准抚农
@@ -41,9 +40,24 @@ Page({
     product:[],
     // 推荐抢购时间
     limitedtime: [],
+<<<<<<< HEAD
     limitedproduct: [],//推荐抢购产品\
     tpye:'1',
     
+=======
+    limitedproduct: [],//推荐抢购产品
+    parameter: {// 抢购时间参数
+      page: 1,
+      pagesize: 3,
+      time_id: '',
+    },
+    placeinfo:{// 分馆信息参数
+      place_id:'',
+      page:'1',
+      pagesize:'',
+    },
+    is_sale: 0,//抢购状态(0预热中1抢购中)
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
   },
   // Tab页改变
   onChange(event){
@@ -89,7 +103,7 @@ Page({
     //console.log(https)
     var that=this;
     https.request('/index/index', { column_key: this.data.columnlist[this.data.active] },'加载中...', function (res) {//成功回调
-      //  console.log(11110, res)
+       console.log(11110, res)
         that.setData({
           image: res.data[that.data.active].content[0].carousel,//所有tab轮播图（菜单通用）
         })
@@ -98,6 +112,7 @@ Page({
             nav: res.data[that.data.active].content[1].middle_nav.list,//菜单nav
             shop: res.data[that.data.active].content[2].class_nav.list,//热卖店铺
             limitedtime: res.data[that.data.active].content[3].flash_sale.time_info,//抢购时间
+            //is_sale: res.data[that.data.active].content[3].flash_sale.time_info.is_sale,// 抢购状态(0预热中1抢购中)
             limitedproduct: res.data[that.data.active].content[3].flash_sale.list,//抢购产品
             sellwellbox: res.data[that.data.active].content[4].hot_sale,//热销
            
@@ -120,9 +135,6 @@ Page({
         })
       }
 
-     
-
-
     }, function (err) {//错误回调
       // console.log(11110, err)
     }
@@ -131,10 +143,6 @@ Page({
 
   onLoad: function () {
     this.gettabtext();//初始化获取tab接口
-
-   
-
-
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -222,21 +230,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-
-
-
-  // 点击抢购时间
-  flashsale(e) {
-    this.setData({
-      time: e.currentTarget.dataset.time
-    })
-  },
-  // 点击查看全部
-  getall(){
-    wx.navigateTo({
-      url: "pages/flashsale/flashsale",
-    })
-  },
+  
   //点击顶部搜索
   search(){
     wx.navigateTo({
@@ -247,8 +241,67 @@ Page({
   getproductdetails(e){
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/commoditydetails/commoditydetails?type='+this.data.type+'&id='+id,
+      url: '/pages/commoditydetails/commoditydetails?id='+id,
     })
+  },
+
+
+  // 获取不同时间抢购产品
+  gettimelist(){
+    var that = this 
+    https.request('/goods/getFlashPointGoodslist',this.data.parameter,'加载中...',function(res){
+      //console.log(res)
+      that.setData({
+        limitedproduct: res.data.list
+      })
+    },function(err){
+
+    })
+  },
+  // 点击抢购时间
+  flashsale(e) {
+    var obj = this.data.parameter
+    obj.time_id = e.currentTarget.dataset.timeid.toString()
+    obj.page = 1
+    this.setData({
+      parameter: obj,
+      limitedproduct: [],
+    })
+    this.gettimelist()
+    console.log(this.data.limitedtime)
+  },
+  // 点击查看全部
+  getall() {
+    wx.navigateTo({
+      url: "/pages/flashsale/flashsale",
+    })
+  },
+  // 获取分馆信息
+  getPlaceInfo(){
+    var that = this
+    https.request('/index/getPlaceInfo',this.data.placeinfo,'加载中...',function(res){
+     // console.log(res)
+      that.setData({
+        activity: res.data.activity.place_logo,//地方特色扶农
+        activitylist: res.data.activity.ad_list,//地方特色扶农广告
+        specialty: res.data.goods.list,//特色扶农馆产品
+      })
+      
+    },function(err){
+
+    },'GET')
+  },
+  // 点击不同分馆
+  changePlaceInfo(e){
+    var index = e.detail.index
+    var key = this.data.addressnva
+    var place_id = key[index].place_id
+    var obj = this.data.placeinfo
+    obj.place_id = place_id
+    this.setData({
+      placeinfo: obj
+    })
+<<<<<<< HEAD
   },
   theshoppingcart: function () {
     wx.navigateTo({
@@ -256,6 +309,10 @@ Page({
     })
   },
 
+=======
+    this.getPlaceInfo()
+  }
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
   // https.request('url地址', '参数（对象）', 'message加载信息', 'function成功方法回调','function失败方法回调','接口类型（get/post）不写默认post')
 
   

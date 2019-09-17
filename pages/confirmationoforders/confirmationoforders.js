@@ -33,14 +33,24 @@ Page({
       },
     ],
     allnumber:2,
-    allmoney:280
+    allmoney:280,
+    parameter:{
+      goods_id:'',
+      num:'',
+      attr_id:'',
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var obj = this.data.parameter
+    obj.num = options.number
+    obj.goods_id = options.attr_id
+    this.setData({
+      parameter:obj
+    })
   },
 
   /**
@@ -90,5 +100,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  // 选择收货地址
+  getaddress(){
+    wx.navigateTo({
+      url: '/pages/address/address',
+    })
+  },
+  // 确认订单列表
+  getcheckorderinof(){
+    var that = this 
+    https.request('/Order/checkOrderInfo','','',function(res){
+      console.log(res)
+    },function(err){
+
+    },'GET')
   }
 })

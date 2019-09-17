@@ -1,17 +1,31 @@
 <view class="box">
   <view class="cell1">
     <text>手机号码</text>
+<<<<<<< HEAD
     <input bindinput='getPhoneValue' type="check_user" value='{{phone}}' placeholder="请输入手机号码" />
+=======
+    <input bindinput="bindKeyInput" placeholder="请输入手机号码"  value="{{inputValue}}" maxlength='11'/>
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
   </view>
   <view class="cell2">
     <view class="cell3">
       <text>短信验证</text>
+<<<<<<< HEAD
       <input  placeholder="请输入验证码" bindinput='getCodeValue' />
     </view>
     <view class="btmcode" bindtap='getVerificationCode' disabled='{{disabled}}'value='{[code]}' >获取验证码</view>
+=======
+      <input bindinput="bindcode" placeholder="请输入验证码"  value="{{code}}" maxlength='6'/>
+    </view>
+    <view class="btmcode" catchtap="getcode">{{type}}</view>
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
   </view>
 </view>
 
 <view class="box2">
+<<<<<<< HEAD
   <view class="btm2"  bindtap='save'>确认绑定</view>
+=======
+  <view class="btm2" catchtap="binding">确认绑定</view>
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
 </view>

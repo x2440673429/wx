@@ -19,8 +19,8 @@
           <view class="Receive">立即领取</view>
         </view>
         <view class="Coupon_right" >
-          <view class="Coupon_name">{{item.coupon_name}}</view>
-          <view class="shopname">使用店铺： {{item.shopname}}</view>
+          <view class="Coupon_name">{{item.name}}</view>
+          <view class="shopname">{{item.limit_desc}}</view>
           <view class="Usefulness">{{item.note}}</view>
           <view class="time">{{item.limit_time}}</view>
         </view>
@@ -36,13 +36,9 @@
         <text>新人规则</text>
         <image src=""></image>
       </view>
-      <view class="rule_box">
+      <view class="rule_box"wx:for='{{rule}}' wx:key='{{index}}'>
         <text class="number">1</text>
-        <view class="rule1">{{rule}}</view>
-      </view>
-      <view class="rule_box rule_box2">
-        <text class="number">2</text>
-        <view class="rule2">新人福利每人限领取1次，不可重复领取。优惠券使用条件详见优惠券说明。</view>
+        <view class="rule1" >{{item}}</view>
       </view>
     </view>
   </view>

@@ -1,17 +1,24 @@
 // pages/bindphone/bindphone.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+<<<<<<< HEAD
     name: '',//姓名
     phone: '',//手机号
     code: '',//验证码
     iscode: null,//用于存放验证码接口里获取到的code
     codename: '获取验证码'
+=======
+    inputValue:'',
+    code:'',
+    type:'获取验证码',
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
@@ -67,12 +74,19 @@ Page({
   onShareAppMessage: function () {
 
   },
+  // 正则表达式只能输入数字
+  validateNumber(val) {
+    return val.replace(/\D/g, '')
+  },
+  // 获取手机号
   bindKeyInput: function (e) {
+    let val = this.validateNumber(e.detail.value)
     this.setData({
-      inputValue: e.detail.value
+      inputValue: val
     })
   },
 
+<<<<<<< HEAD
   // 手机号验证
   //获取input输入框的值
   getNameValue: function (e) {
@@ -95,18 +109,29 @@ Page({
     var _this = this;
     var myreg = /^(14[0-9]|13[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$$/;
     if (this.data.phone == "") {
+=======
+  // 获取验证码
+  getcode(){
+    var that = this
+    if (this.data.inputValue==''){
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
       wx.showToast({
         title: '手机号不能为空',
         icon: 'none',
         duration: 1000
       })
+<<<<<<< HEAD
       return false;
     } else if (!myreg.test(this.data.phone)) {
+=======
+    } else if (this.data.inputValue.length<11){
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
       wx.showToast({
         title: '请输入正确的手机号',
         icon: 'none',
         duration: 1000
       })
+<<<<<<< HEAD
       return false;
     } else {
       wx.request({
@@ -188,3 +213,37 @@ Page({
     }
   },
 })
+=======
+    } else if ((/^1[3456789]\d{9}$/.test(this.data.inputValue))){
+      https.request('/user/bindPhone', { mobile: this.data.phone, code: 'check_user' }, '正在发送', function (res) {
+        console.log(res)
+        wx.showToast({
+          title: '发送成功',
+          icon: 'none',
+          duration: 1000
+        })
+        // that.setData({
+        //   type: res.data.next_send_time
+        // })
+      }, function (err) {
+
+      }, 'GET')
+    } else {
+      wx.showToast({
+        title: '发送失败',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+  
+  },
+  // 输入验证码
+  bindcode(){
+
+  },
+  // 确认绑定
+  binding(){
+
+  }
+})
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9

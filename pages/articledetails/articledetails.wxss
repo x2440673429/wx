@@ -31,6 +31,26 @@ page{
   color: #1a1a1a;
   
 }
+.bottom_box{
+  display: flex;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  margin: 63rpx 0 44rpx;
+}
+.bottom_box .collection{
+  height: 88rpx;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  color: #1a1a1a;
+  font-size: 24rpx;
+}
+.bottom_box .collection image{
+  width: 90rpx;
+  height: 68rpx;
+}
 .purchase{
   width: 702rpx;
   height: 88rpx;
@@ -39,6 +59,5 @@ page{
   color: #029a47;
   font-size: 34rpx;
   border: 1rpx solid #029a47;
-  margin: 63rpx auto 44rpx;
   border-radius: 10rpx;
 }

@@ -6,13 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    textlist:[],
-    img:'../../image/3发现/wenzhangliebiao@2x.png',
-    title:'全能仙女锅，小户型的厨房神器',
-    txt:'品食材原味，享轻奢生活',
-    text: '第一个是结实强壮的西瓜，它瓜绿囔红，外衣绿的就像地上青草做起来的大球，头上还有一根小小的辫子。把它切开，里面就是鲜红透亮的果实，如果一到炎热无比的夏天，你把它从冰箱里拿出来，咬上一口，就感觉既汁多味甜，又冰凉爽口，而且，它的营养价值很高呢，所以，它很受人的欢迎呢！',
-    textid:{
-      id:'',
+    textlist:{},
+    // img:'../../image/3发现/wenzhangliebiao@2x.png',
+    // title:'全能仙女锅，小户型的厨房神器',
+    // txt:'品食材原味，享轻奢生活',
+    // text: '第一个是结实强壮的西瓜，它瓜绿囔红，外衣绿的就像地上青草做起来的大球，头上还有一根小小的辫子。把它切开，里面就是鲜红透亮的果实，如果一到炎热无比的夏天，你把它从冰箱里拿出来，咬上一口，就感觉既汁多味甜，又冰凉爽口，而且，它的营养价值很高呢，所以，它很受人的欢迎呢！',
+    onchangecollect: {// 收藏
+      fid: '',
+      ftype: '2',
+      handle_type: '',
     }
   },
 
@@ -20,13 +22,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options)
-    let obj = this.data.textid
-    obj.id=options.id
+    var id = options.id
+    let obj = this.data.onchangecollect
+    obj.fid = id
     this.setData({
-      textid:obj
+      onchangecollect:obj
     })
-    this.gettextcontent()
+ 
+    this.gettextcontent(id)
+   
   },
 
   /**
@@ -78,21 +82,58 @@ Page({
 
   },
   // 获取文章详情
-  gettextcontent(){
+  gettextcontent(id){
     var that = this
-    https.request('/article/getOneArtic',this.data.textid,'加载中...',function(res){
-      console.log(res)
-      // console.log(888,res.data.list)
-      // var newlist = that.data.textlist.push(res.data.list)
-      // console.log(777,newlist)
+
+    https.request('/article/getOneArtic', {id:id},'加载中...',function(res){
+      console.log(555,res)
+     
       that.setData({
-        //textlist: newlist
         textlist:res.data.list
       })
-      
+      console.log(that.data.textlist)
     },function(err){
 
     })
-    console.log(999, that.data.textlist)
+
+  },
+  //点击收藏
+  collection(){
+    if (this.data.textlist.collect==0){
+      let obj = this.data.onchangecollect
+      let add = this.data.textlist
+      add.collect = 1
+      obj.handle_type = '1'
+      this.setData({
+        textlist: add,
+        onchangecollect:obj
+      })
+      console.log(this.data.onchangecollect)
+      https.request('/user/usercollect', this.data.onchangecollect,'加载中...',function(res){
+        console.log(res)
+      },function(err){
+        
+      })
+    }else{
+      let obj = this.data.onchangecollect
+      let add = this.data.textlist
+      add.collect = 0
+      obj.handle_type = '0'
+      this.setData({
+        textlist: add,
+        onchangecollect: obj
+      })
+      https.request('/user/usercollect', this.data.onchangecollect, '加载中...', function (res) {
+        console.log(res)
+      }, function (err) {
+
+      })
+    }
+  },
+  // 标题
+  change(){
+    wx.setNavigationBarTitle({
+      title: this.data.title,
+    })
   }
 })

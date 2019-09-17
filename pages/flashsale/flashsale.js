@@ -9,7 +9,6 @@ Page({
     limitedtime:[],
     product: [],
     total:0,
-    time:0,
     parameter:{
       page:1,
       page_size:10,
@@ -77,9 +76,8 @@ Page({
   flashsale(e){
     var obj = this.data.parameter
     obj.time_id = e.currentTarget.dataset.timeid.toString()
-    obj.page=1
+    obj.page = 1
     this.setData({
-      time: e.currentTarget.dataset.time,
       parameter:obj,
       product:[],
     }) 

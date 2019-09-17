@@ -35,6 +35,8 @@ Page({
    */
   onLoad: function (options) {
     this.getdiscount()
+    this.data.rule.split('.')
+    console.log(this.data.rule)
   },
 
   /**

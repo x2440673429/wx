@@ -26,18 +26,29 @@ Page({
         is_use:''
       },
     ],
+<<<<<<< HEAD
     parameter: {
       page: '1',
       pagesize: '10',
     },
    
+=======
+    parameter:{
+      page:'1',
+      pagesize:'10',
+    }
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
     this.getdiscount()
+=======
+    this.getyhjlist()
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
   },
 
   /**
@@ -88,6 +99,7 @@ Page({
   onShareAppMessage: function () {
 
   },
+<<<<<<< HEAD
   // 获取页面内容
   getdiscount() {
     var that = this
@@ -99,5 +111,15 @@ Page({
     }, function (err) {
 
     }, 'GET')
+=======
+  // 获取优惠卷列表
+  getyhjlist(){
+    var that = this
+    https.request('/User/getMyCouponList', this.data.parameter,'加载中',function(res){
+      console.log(res)
+    },function(err){
+
+    },'GET')
+>>>>>>> 2827eceb8f03e01b0a5c5a7bec778c3d5b02aed9
   }
 })

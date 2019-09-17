@@ -1,4 +1,5 @@
 // pages/shop/shop.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -6,76 +7,20 @@ Page({
    */
   data: {
     value:'',
-    shop:[
-      {
-        headportrait:'../../image/0-1logo/120.png',
-        shopname:'热带森林专营店',
-        number: '2.2',
-        branch: '5',
-        product:[
-          {
-            img:'../../image/1首页/morenshangpin@2x.png',
-            money:'59.00',
-          },
-          {
-            img: '../../image/1首页/morenshangpin@2x.png',
-            money: '59.00',
-          },
-          {
-            img: '../../image/1首页/morenshangpin@2x.png',
-            money: '59.00',
-          },
-        ]
-      },
-      {
-        headportrait: '../../image/0-1logo/120.png',
-        shopname: '热带森林专营店',
-        number: '2.2',
-        branch: '5',
-        product: [
-          {
-            img: '../../image/1首页/morenshangpin@2x.png',
-            money: '59.00',
-          },
-          {
-            img: '../../image/1首页/morenshangpin@2x.png',
-            money: '59.00',
-          },
-          {
-            img: '../../image/1首页/morenshangpin@2x.png',
-            money: '59.00',
-          },
-        ]
-      },
-      {
-        headportrait: '../../image/0-1logo/120.png',
-        shopname: '热带森林专营店',
-        number: '2.2',
-        branch: '5',
-        product: [
-          {
-            img: '../../image/1首页/morenshangpin@2x.png',
-            money: '59.00',
-          },
-          {
-            img: '../../image/1首页/morenshangpin@2x.png',
-            money: '59.00',
-          },
-          {
-            img: '../../image/1首页/morenshangpin@2x.png',
-            money: '59.00',
-          },
-        ]
-      },
-    ],
-    
+    shop:[],
+    parameter:{// 获取店铺列表
+      search_key:'',
+      page:'1',
+      pagesize:'10',
+    },
+    total:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getshoplist()
   },
 
   /**
@@ -126,10 +71,56 @@ Page({
   onShareAppMessage: function () {
 
   },
-  // 点击进店
-  entershop(){
-    wx.navigateTo({
-      url: "/pages/shoping/shoping",
+  // input值
+  getinput(e){
+    console.log(e)
+    this.setData({
+      value: e.detail.value
     })
+  },
+  // 点击搜索店铺
+  getshop(){
+    var obj = this.data.parameter
+    obj.search_key = this.data.value
+    this.setData({
+      parameter:obj
+    })
+    this.getshoplist()
+  },
+  // 点击进店
+  entershop(e){
+    console.log(e)
+    var sid = e.currentTarget.dataset.sid
+    wx.navigateTo({
+      url: "/pages/shoping/shoping?sid="+sid,
+    })
+  },
+  // 获取店铺列表
+  getshoplist(){
+    var that = this 
+    https.request('/store/storeList', this.data.parameter,'加载中...',function(res){
+      console.log(res)
+      var shop = that.data.shop.concat(res.data.list)
+      that.setData({
+        shop: shop,
+        total: res.data.total
+      })
+    },function(err){
+
+    })
+  },
+  // 上拉触底加载更多
+  onReachBottom(){
+    var obj = this.data.parameter
+    obj.page++
+    this.setData({
+      shop:obj
+    })
+    if(this.data.shop.length==this.data.total){
+      return
+    }else{
+      this.getshoplist()
+    }
+  
   }
 })

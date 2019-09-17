@@ -16,7 +16,12 @@ Page({
       '欧式电视柜 1.8米',
       '空调帽子',
       '帽子室内',
-    ]
+    ],
+    value:'',
+    parameter:{//删除历史记录
+      type:'',
+      log_id:''
+    }
   },
 
   /**
@@ -74,18 +79,66 @@ Page({
   onShareAppMessage: function () {
 
   },
+  // input数据绑定
+  gettext(e){
+    console.log(e)
+    this.setData({
+      value: e.detail.value
+    })
+  },
   // 获取搜索内容
   getsearchlist(){
     wx.navigateTo({
-      url: "/pages/search/search",
+      url: "/pages/search/search?search_key="+this.data.value,
     })
+    //  var histroy = this.data.value.concat(this.data.arr)
+    // this.setData({
+    //   arr: histroy
+    // })
   },
   // 获取历史记录
   gethistory(){
-    https.request('/user/getSearchLog','','',function(res){
+    var that = this 
+    https.request('/user/getSearchLog','','加载中...',function(res){
       console.log(res)
+      that.setData({
+        arr:res.data.list
+      })
     },function(err){
 
     },)
+  },
+  // 点击删除全部历史记录
+  deleteall(){
+   
+    var obj = this.data.parameter
+    obj.type=2
+    this.setData({
+      parameter:obj
+    })
+    this.deletehistory()
+    this.setData({
+      arr:[]
+    })
+  },
+  // 删除历史记录接口
+  deletehistory(){
+    var that = this
+    https.request('/user/delSearchLog', this.data.parameter, '加载中...', function (res) {
+      console.log(res)
+      that.setData({
+        // arr:res.data.list
+      })
+    }, function (err) {
+
+    })
+  },
+  // 点击历史记录
+  getlssearch(e){
+    console.log(e)
+    this.setData({
+      value : e.currentTarget.dataset.content
+    })
+    this.getsearchlist()
   }
 })

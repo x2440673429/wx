@@ -67,9 +67,9 @@
       <!-- 抢购时间 -->
       <view class="limitedtime" >
         <view class="all">
-          <view class="time_box" wx:for='{{limitedtime}}' wx:key='{{index}}' catchtap="flashsale" data-time="{{index}}">
-            <view class="time {{time==index?'timecolor':''}}">{{item.point_time}}</view>
-            <view class="title {{time==index?'bor timecolor':''}}">{{item.title}}</view>
+          <view class="time_box" wx:for='{{limitedtime}}' wx:key='{{index}}' catchtap="flashsale"  data-timeid="{{item.time_id}}">
+            <view class="time {{item.is_select==1?'timecolor':''}}">{{item.point_time}}</view>
+            <view class="title {{item.is_select==1?'bor timecolor':''}}">{{item.is_sale==0?'预热中':'抢购中'}}</view>
           </view>
         </view>
       </view>
@@ -80,11 +80,11 @@
           <view class="product">
             <view class="productname">{{item.title}}</view>
             <view class="text">{{item.short_title}}</view>
-            <view class="box"><text class="temai">特卖</text><text class="zhijiang">直降</text></view>
+            <view class="box"><text wx:for='{{item.customer_tag}}' wx:key='{{index}}' wx:for-item='tag'>{{tag}}</text></view>
             <view class="big_box">
               <view class="Price">
                 <view class="money">￥{{item.price}}</view>
-                <view class="addmoney">赚￥{{item.original_price}}</view>
+                <view class="addmoney">赚￥{{item.profit}}</view>
               </view>
               <view class="botton">
                 <text class="quick">马上抢</text>
@@ -107,7 +107,9 @@
             <view class="product_right">
               <view class="producttitle">{{sellwell.title}}</view>
               <view class="producttxt">{{sellwell.short_title}}</view>
-              <view class="weight">{{sellwell.pic}}</view>
+              <view class="tag">
+                <view class="weight" wx:for='{{sellwell.customer_tag}}' wx:key='{{index}}' wx:for-item='tag'>{{tag}}</view>
+              </view>
               <view class="product_bottom">
                 <view class="sellwellmoney">￥{{sellwell.price}}<text>￥{{sellwell.original_price}}</text></view>
                 <image src="../../image/1首页/tianjia.png"></image>
@@ -141,7 +143,7 @@
           </view>
       </view> 
     <!-- Tab标签页 -->
-    <van-tabs active="{{ active1 }}" color='#029a47' class='color'>
+    <van-tabs active="{{ active1 }}" color='#029a47' class='color' bind:change="changePlaceInfo">
       <van-tab title="{{item.title}}" wx:for='{{addressnva}}' wx:key='{{index}}'></van-tab>
     </van-tabs>
       <!-- 地方特色 -->

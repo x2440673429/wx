@@ -18,18 +18,16 @@ Page({
     commenttime:'2018-05-30',
     allnumber:32,
     show:false,
-    items:[
-      '￥65', '￥69', '￥130', '￥600','￥590','打赏'
-    ],
     grade_count:'',//档位总数
     goods_grade:[],//档位信息
-    id:0,
     indicatorDots: false,// 轮播图白点不显示
     autoplay: true,//轮播图是否自动切换
     interval: 4000,//自动切换时间间隔
     duration: 800,//滑动动画时长
     banner: [],// 轮播图
     goods_id:'',// 调接口传值商品id是不是冲上个页面传过来的嗯
+    value:0,
+    key:0,
   },
   // 去支付按钮
   gotopay(){
@@ -43,11 +41,10 @@ Page({
       show: false,
     })
   },
-  //  切换档位
+  //  支持数量
   onChange(e){
-    console.log( e.detail.index  )
     this.setData({
-      id: e.detail.index 
+      value: e.detail
     })
   },
   
@@ -56,10 +53,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.setData({
-    //   goods_id:options.id
-    // })
-    // 或者不用定义 用传参的方式也可以
     this.getpadetailspage(options.id)
   },
 
@@ -130,5 +123,23 @@ Page({
     },function(err){
 
     },'GET')
+  },
+  // 选择档位
+  getgrade(e){
+    this.setData({
+      key: e.currentTarget.dataset.index
+    })
+  },
+  // 点击去支持，获得订单
+  getorder(){
+    wx.navigateTo({
+      url: '/pages/order/order?number=' + this.data.value,
+    })
+  },
+  // 评论
+  iwantsay(){
+    wx.navigateTo({
+      url: '/pages/evaluate/evaluate',
+    })
   }
 })

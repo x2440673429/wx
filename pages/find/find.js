@@ -18,7 +18,8 @@ Page({
     swiperCurrent: 0,//白点显示高光
     banner:[],// 轮播图
     nav: [],// 新品体验馆等nav
-    Articlelist:[],// 文章列表
+    articlelis:[],// 文章列表
+    total:0,// 列表总数
   },
   // 跳转文章详情
   getArticle(e){
@@ -85,16 +86,21 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  // onReachBottom: function () {
-  //   let obj = this.data.content
+  onReachBottom: function () {
+    let obj = this.data.content
     
-  //   obj.page++
-  //   this.setData({
-  //     content:obj
-  //   })
-  //   this.getfindlist()
+    obj.page++
+    this.setData({
+      content:obj
+    })
+    if (this.data.articlelis.length==this.data.total){
+      return
+    }else{
+      this.getfindlist()
+    }
+   
     
-  // },
+  },
 
   /**
    * 用户点击右上角分享
@@ -104,14 +110,15 @@ Page({
   },
   // 获取发现页面内容
   getfindlist(){
-    var that = this
+    var that = this 
     https.request('/article/getFindArticle', this.data.content, '加载中...', function (res) {
-      //console.log(res)
-      //var newlist = that.data.Articlelis.push(res.data.list)
+      console.log(res)
+      var newlist = that.data.articlelis.concat(res.data.list)
       that.setData({
         banner:res.data.banner, // 轮播图
-        Articlelist:res.data.list,// 文章列表
+        articlelis: newlist,// 文章列表
         nav: res.data.picList,// 新品体验馆
+        total:res.data.total
       })
     }, function (err) {
       //console.log(err)
@@ -121,13 +128,5 @@ Page({
   getnextpage(){
 
     this.getfindlist()
-  },
-  //
-  swiperChange(){
-    
-  },
-  // 上拉触底
-  onReachBottom(){
-    
   },
 })

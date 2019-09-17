@@ -18,6 +18,7 @@ Page({
     this.setData({
       value1: value
     })
+    
   },
   // 登陆新密码
   handleInput2(e) {
