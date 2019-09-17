@@ -22,13 +22,14 @@
   <view class="shop_left">
     <view>
       <view class="mianbox">
-        <image src="{{typeimg[1]}}" class="mian"></image>
+        <image src="../../image/img/pin.png" class="mian" wx:if='{{goods_type==1}}'></image>
+        <image src="../../image/img/m.png" class="mian" wx:if='{{is_exemption==1}}'></image>
         <view class="shopname">{{shopname}}</view>
       </view>
       <view class="text">
-        <view >{{text}}</view>
+        <view class="shrottitle">{{text}}</view>
         <view  class="shop_right" catchtap="share">
-            <image src="../../image/4我的/fenxiang@2x.png"></image>
+            <image src="../../image/img/fenxiang.png"></image>
           <text>分享</text>
         </view>
       </view>
@@ -42,27 +43,27 @@
 <!-- 地址 -->
 <view class="addassemble">
   <view class="assemble">送至<text class="towgroup">{{address}}</text></view>
-  <image src="../../image/1首页/youjiantou2@2x.png"></image>
+  <image src="../../image/img/youjiantou.png"></image>
 </view>
 <!-- 退货 产品保证等 -->
 <view class="performance_box">
   <view class="performance">
-    <image src="../../image/1首页/duigou.png"></image>
+    <image src="../../image/img/duigou.png"></image>
     <text>极速退款</text>
   </view>
   <view class="performance">
-    <image src="../../image/1首页/duigou.png"></image>
+    <image src="../../image/img/duigou.png"></image>
     <text>正品保证</text>
   </view>
   <view class="performance">
-    <image src="../../image/1首页/duigou.png"></image>
+    <image src="../../image/img/duigou.png"></image>
     <text>七天无条件退款</text>
   </view>
 </view>
 <!-- 评论 -->
 <view class="comment_top" >
   <view>买家评价（{{evaluate_total}}）</view>
-  <image src="../../image/1首页/youjiantou2@2x.png"></image>
+  <image src="../../image/img/youjiantou.png"></image>
 </view>
 <view class="comment_box" wx:for='{{evaluate_info}}' wx:key='{{index}}'>
   <view class="coment_user">
@@ -84,7 +85,7 @@
 <!-- 商品导航 -->
 <view class="shopnav">
   <view class="shopandsc" catchtap="getshoping">
-    <image src="../../image/2分类/dianpu.png"></image>
+    <image src="../../image/img/dianpu.png"></image>
     <text>店铺</text>
   </view>
   <view class="shopandsc" catchtap="collection">
@@ -130,18 +131,18 @@
 >
   <view class="payfor">
     <view class="top">
-      <image src="{{img}}" class="product_img"></image>
+      <image src="{{gradeinof==true?shopinfo.thumb:img}}" class="product_img"></image>
       <view class="payfor_ringt">
         <view class="closebtn" >
-          <image src="../../image/2分类/cha@2x.png" catchtap="onClose"></image>
+          <image src="../../image/img/cha.png" catchtap="onClose"></image>
         </view>
-        <view class="pay_txt">{{money}}<view>{{oldmoney}}</view></view>
+        <view class="pay_txt">{{gradeinof==true?shopinfo.price:money}}<view>{{gradeinof==true?shopinfo.original_price:oldmoney}}</view></view>
       </view>
     </view>
     <view class="middle" wx:for='{{specifications}}' wx:key='{{index}}'>
       <view class="title">{{item.title}}</view>
       <view class="specifications_box">
-        <view wx:for='{{item.attrs}}' wx:key='{{index}}' wx:for-item='items' class="{{key==key?'bor':''}}" catchtap="getgrade" data-id="{{items.id}}" data-ids="{{item.id}}" data-key="{{index}}">{{items.title}}</view>
+        <view wx:for='{{item.attrs}}' wx:for-key='index2' wx:key='{{index2}}' wx:for-item='items' class="{{items.id==item.zid?'bor':''}}" catchtap="getgrade" data-id="{{items.id}}" data-ids="{{item.id}}"  data-items="{{item}}">{{items.title}}</view>
       </view>
     </view>
     <view class="tottom">

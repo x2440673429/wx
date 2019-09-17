@@ -1,7 +1,7 @@
 <!--pages/upgradepackage/upgradepackage.wxml-->
 <!-- 顶部图片 -->
 <view class="top">
-  <image src="../../image/4我的/shengjilibao@2x.png"></image>
+  <image src="../../image/img/shengjilibao.png"></image>
 </view>
 
 <!-- 产品 -->

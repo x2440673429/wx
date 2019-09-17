@@ -10,42 +10,42 @@ Page({
     number:16,
     items:[
       {
-        img:'../../image/4我的/shenqingdianpu@2x.png',
+        img:'../../image/img/shenqingdianpu.png',
         title:'申请店铺',
         url: "/pages/applystore/applystore",
       },
       {
-        img: '../../image/4我的/shehuizhuzhirenzheng@2x.png',
+        img: '../../image/img/shehuizhuzhirenzheng.png',
         title: '社会组织认证',
         url: "/pages/socialorganization/socialorganization",
       },
       {
-        img: '../../image/4我的/shehuizhuzhirenzheng@2x.png',
+        img: '../../image/img/shehuizhuzhirenzheng.png',
         title: '代言中心',
         url: "/pages/endorsementcenter/endorsementcenter",
       },
       {
-        img: '../../image/4我的/wodepingjia@2x.png',
+        img: '../../image/img/wodepingjia.png',
         title: '我的评价',
         url: "/pages/myevaluate/myevaluate",
       },
       {
-        img: '../../image/4我的/wodehuodong@2x.png',
+        img: '../../image/img/wodehuodong.png',
         title: '我的活动',
         url: "/pages/myactivities/myactivities",
       },
       {
-        img: '../../image/4我的/wodelibao@2x.png',
+        img: '../../image/img/wodelibao.png',
         title: '我的礼包',
         url: "/pages/mygiftbag/mygiftbag",
       },
       {
-        img: '../../image/4我的/wodeshoucang@2x.png',
+        img: '../../image/img/wodeshoucang.png',
         title: '我的收藏',
         url: "/pages/collection/collection",
       },
       {
-        img: '../../image/4我的/liulanjilu@2x.png',
+        img: '../../image/img/liulanjilu.png',
         title: '浏览记录',
         url: "/pages/browserecords/browserecords",
       },
@@ -53,49 +53,49 @@ Page({
     item2:[
       {
         title:'系统消息',
-        img:'../../image/4我的/xiaoxi.png',
+        img:'../../image/img/xx.png',
         url: "/pages/systemmessage/systemmessage",
       },
       {
         title: '问题反馈',
-        img: '../../image/4我的/wentifankui@2x.png',
+        img: '../../image/img/wentifankui.png',
         url: "/pages/feedback/feedback",
       },
       {
         title: '帮助中心',
-        img: '../../image/4我的/wodekefu@2x.png',
+        img: '../../image/img/wodekefu.png',
         url: "/pages/help/help",
       },
       {
         title: '关于我们',
-        img: '../../image/4我的/guanyuwomen@2x.png',
+        img: '../../image/img/guanyuwomen.png',
         url: "/pages/aboutus/aboutus",
       },
       {
         title: '设置中心',
-        img: '../../image/4我的/shezhizhongxin@2x.png',
+        img: '../../image/img/shezhizhongxin.png',
         url: "/pages/setfocus/setfocus",
       },
     ],
     order:[
       {
-        img:'../../image/4我的/quanbu@2x.png',
+        img:'../../image/img/quanbu.png',
         title:'全部',
       },
       {
-        img: '../../image/4我的/daifukuan@2x.png',
+        img: '../../image/img/daifukuan.png',
         title: '待付款',
       },
       {
-        img: '../../image/4我的/daifahuo@2x.png',
+        img: '../../image/img/daifahuo.png',
         title: '待发货',
       },
       {
-        img: '../../image/4我的/daishouhuo@2x.png',
+        img: '../../image/img/daishouhuo.png',
         title: '待收货',
       },
       {
-        img: '../../image/4我的/daipinjia@2x.png',
+        img: '../../image/img/daipinjia.png',
         title: '待评价',
       },
     ]

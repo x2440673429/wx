@@ -63,7 +63,16 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    if (this.data.total == this.data.product.length) {
+      return
+    } else {
+      var obj = this.data.parameter
+      obj.page++
+      this.setData({
+        parameter: obj
+      })
+      this.getflashsalelist()
+    }
   },
 
   /**
@@ -99,18 +108,5 @@ Page({
 
     })
   },
-  //上拉触底加载更多
-  onReachBottom(){
-    var obj = this.data.parameter
-    obj.page++
-    this.setData({
-      parameter: obj
-    })
-    if (this.data.total==this.data.product.length){
-      return
-    }else{
-      this.getflashsalelist()
-    }
-  
-  }
+ 
 })

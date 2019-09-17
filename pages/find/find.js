@@ -124,9 +124,4 @@ Page({
       //console.log(err)
     })
   },
-  // 获取分页内容
-  getnextpage(){
-
-    this.getfindlist()
-  },
 })

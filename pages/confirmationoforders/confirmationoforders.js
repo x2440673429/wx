@@ -1,4 +1,5 @@
 // pages/confirmationoforders/confirmationoforders.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -8,37 +9,22 @@ Page({
     address: '收货地址：福建省思明区软件园二期观日路30号之六508B',
     username: '李思思',
     phone: '13646005163',
-    shop:[
-      {
-        shopimg:'../../image/1首页/chanpin@2x.png',
-        shopname: '原生态店铺',
-        productname: '山东烟台大樱桃车厘子新鲜水果',
-        text: '原生态无无污染蜂蜜',
-        money: '280.00',
-        number: '1',
-        mode: '免邮',
-        allmoney: '280.00',
-        jige:2,
-      },
-      {
-        shopimg: '../../image/1首页/chanpin@2x.png',
-        shopname: '原生态店铺',
-        productname: '山东烟台大樱桃车厘子新鲜水果',
-        text: '原生态无无污染蜂蜜',
-        money: '280.00',
-        number: '1',
-        mode: '免邮',
-        allmoney: '280.00',
-        jige: 2,
-      },
-    ],
+    shop: {}, // 商品信息
+    store_name: '', // 商户名称
+    sid: '', // 商户id
+    coupon_num:0, // 优惠卷数量
+    calculate_info: '',// 例：共1件商品 合计：￥137", 
+    address_info:{},// 收货地址
     allnumber:2,
     allmoney:280,
     parameter:{
       goods_id:'',
       num:'',
       attr_id:'',
-    }
+    },
+    wxpay:true,// 微信付款
+    balance: false,// 余额付款
+    value:'',//卖家留言
   },
 
   /**
@@ -47,10 +33,12 @@ Page({
   onLoad: function (options) {
     var obj = this.data.parameter
     obj.num = options.number
-    obj.goods_id = options.attr_id
+    obj.goods_id = options.id
+    obj.attr_id = options.attr
     this.setData({
       parameter:obj
     })
+    this.getcheckorderinof()
   },
 
   /**
@@ -110,10 +98,41 @@ Page({
   // 确认订单列表
   getcheckorderinof(){
     var that = this 
-    https.request('/Order/checkOrderInfo','','',function(res){
+    https.request('/Order/checkOrderInfo', this.data.parameter,'加载中...',function(res){
       console.log(res)
+      that.setData({
+        shop: res.data.goods_info,
+        store_name: res.data.store_name,
+        sid: res.data.sid,
+        coupon_num: res.data.coupon_num,
+        calculate_info: res.data.calculate_info,
+        address_info: res.data.address_info
+      })
     },function(err){
 
     },'GET')
+  },
+  // 点击选择付款方式
+  payfor(){
+    console.log(11223)
+    if (this.data.wxpay){
+      this.setData({
+        wxpay: false,
+        balance: true
+      })
+    }else{
+      this.setData({
+        wxpay: true,
+        balance: false,
+      })
+    }
+   
+  },
+  // 卖家留言
+  txt(e){
+    console.log(e)
+    this.setData({
+      value:e.detail.value
+    })
   }
 })

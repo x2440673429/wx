@@ -1,26 +1,26 @@
 <!--pages/assistancewaiver/assistancewaiver.wxml-->
 <!-- 顶部图片 -->
 <view class="top">
-  <image src="../../image/1首页/miandan@2x.png"></image>
+  <image src="../../image/img/miandan.png"></image>
 </view>
 <!-- 搜索框 -->
 <view class="big_box">
   <view class="search_box">
-    <image src="../../image/1首页/sousuo.png"></image>
+    <image src="../../image/img/sousuo.png"></image>
     <input placeholder="输入您当前要搜索的商品" value="{{value}}"></input>
   </view>
 </view>
 <!-- 产品 -->
 <view class="product_box">
-  <view class="product" wx:for='{{product}}' wx:key='{{index}}'>
-    <image src="{{item.image}}"></image>
+  <view class="product" wx:for='{{product}}' wx:key='{{index}}' catchtap="sharinghelp" data-fid="{{item.fid}}" data-id="{{item.id}}">
+    <image src="{{item.pic}}"></image>
     <view class="product_txt">
       <view>
-        <view class="name">{{item.name}}</view>
-        <view class="text">{{item.text}}</view>
+        <view class="name">{{item.title}}</view>
+        <view class="text">{{item.short_title}}</view>
       </view>
       <view class="bottom">
-        <view class="money">￥{{item.money}}</view>
+        <view class="money">￥{{item.price}}</view>
         <view class="share">分享助力</view>
       </view>
     </view>

@@ -64,6 +64,16 @@ Page({
    */
   onReachBottom: function () {
 
+    if (this.data.product.length == this.data.total) {
+      return
+    } else {
+      var obj = this.data.parameter
+      obj.page++
+      this.setData({
+        parameter: obj,
+      })
+      this.getpovertyalleviationlist()
+    }
   },
 
   /**
@@ -96,18 +106,5 @@ Page({
 
     },'GET')
   },
-  //上拉触底加载更多
-  onReachBottom(){
-    var obj = this.data.parameter
-    obj.page++
-    this.setData({
-      parameter: obj,
-    })
-    if (this.data.product.length == this.data.total){
-      return
-    }else{
-      this.getpovertyalleviationlist()
-    }
-    
-  }
+ 
 })

@@ -21,11 +21,11 @@
   border="{{false}}"
 >
   <view slot="left" class="topleft">
-    <image src="../../image/1首页/xiaoxi.png"></image>
+    <image src="../../image/img/xiaoxi.png"></image>
     消息
   </view>
   <view slot="title"  class="toptit" catchtap="search">
-    <image src="../../image/1首页/sousuo.png" class='topimg'></image>
+    <image src="../../image/img/sousuo.png" class='topimg'></image>
     <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品"  />
   </view> 
 </van-nav-bar>
@@ -94,7 +94,7 @@
           </view>
         </view>
         <view class="lookatall" catchtap="getall">查看全部
-          <image src="../../image/1首页/youjiantou2@2x.png"></image>
+          <image src="../../image/img/youjiantou.png"></image>
         </view>
       </view>
         <!-- 热销 -->
@@ -112,14 +112,14 @@
               </view>
               <view class="product_bottom">
                 <view class="sellwellmoney">￥{{sellwell.price}}<text>￥{{sellwell.original_price}}</text></view>
-                <image src="../../image/1首页/tianjia.png"></image>
+                <image src="../../image/img/tianjia.png"></image>
               </view>
             </view>
           </view>
         </view>
       </view>
       <view class="gouwuche">
-        <image src="../../image/1首页/gouwuche.png" ></image>
+        <image src="../../image/img/gouwuche.png" ></image>
         <view wx:if='{{sign>0?true:false}}'>{{sign}}</view>
       </view>
 
@@ -160,7 +160,7 @@
         <view class="specialty" wx:for='{{specialty}}' wx:key='{{index}}'>
           <view class="address">
             <view class="tese">特色扶农馆<text>丨{{item.place_name}}</text></view>
-            <image src="../../image/1首页/guan.png"></image>
+            <image src="../../image/img/guan.png"></image>
           </view>
           <image src="{{item.goods_img}}" class="specialty_img"></image>
           <view class="cityshi">【{{item.place_detail_name}}】</view>

@@ -48,6 +48,7 @@ swiper image {
 .shop_box .shop_left .mian{
   width: 37rpx;
   height: 58rpx;
+  margin-right: 10rpx;
 }
 .shop_box .shop_left .shopname{
   font-size: 36rpx;
@@ -55,6 +56,10 @@ swiper image {
   font-weight: bold;
   margin: 16rpx 0 17rpx;
   margin-left: 5rpx;
+  width: 510rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .shop_box .shop_left .text{
   font-size: 28rpx;
@@ -62,6 +67,12 @@ swiper image {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.shop_box .shop_left .text .shrottitle{
+  width: 510rpx;
+   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 /* 分享按钮 */
 .shop_box .shop_right{

@@ -6,21 +6,21 @@
     <view>{{phone}}</view>
   </view>
   <view class="useraddress">
-    <image src="../../image/2分类/dz.png" class="addressimg"></image>
+    <image src="../../image/img/dz.png" class="addressimg"></image>
     <view>{{address}}</view>
-    <image src="../../image/1首页/youjiantou2@2x.png" class="youjiantou"></image>
+    <image src="../../image/img/youjiantou.png" class="youjiantou"></image>
   </view>
 </view>
 <!-- 店铺产品 -->
-<view class="shop" wx:for='{{shop}}' wx:key='{{index}}'>
-  <view class="shopname">{{item.shopname}}</view>
+<view class="shop">
+  <view class="shopname">{{store_name}}</view>
   <view class="productbox">
-    <image src="{{item.shopimg}}"></image>
+    <image src="{{shop.pic}}"></image>
     <view class="productright">
-      <view class="productname">{{item.productname}}</view>
-      <view class="text">{{item.text}}</view>
+      <view class="productname">{{shop.title}}</view>
+      <view class="text">{{shop.attr_name}}</view>
       <view class="bottom">
-        <view class="money">￥{{item.money}}</view>
+        <view class="moneyone">￥{{shop.price}}</view>
         <view class="number">x{{item.number}}</view>
       </view>
     </view>
@@ -33,30 +33,30 @@
     <view  class="title">配送方式</view>
     <view  class="title">{{item.mode}}</view>
   </view>
-  <text class="money" decode="{{true}}" space="{{true}}">共{{item.number}}件商品&nbsp;&nbsp;合计:¥ {{item.allmoney}}</text>
+  <text class="money" decode="{{true}}" space="{{true}}">{{calculate_info}}</text>
   <view class="message youhui">
     <view  class="title">优惠劵</view>
     <view  class="title title1">
-    有{{item.jige}}个可用
-    <image src="../../image/1首页/youjiantou2@2x.png"></image>
+    有{{coupon_num}}个可用
+    <image src="../../image/img/youjiantou.png"></image>
     </view>
   </view>
 </view>
 <!-- 支付方式 -->
 <view class="paymentmethod">支付方式</view>
-<view class="pay_box">
+<view class="pay_box" catchtap="payfor">
   <view class="left">
-    <image src="../../image/1首页/weixinzhifu@2x.png"></image>
+    <image src="../../image/img/weixinzhifu.png"></image>
     <view class="pay">微信支付</view>
   </view>
-  <view class="border"></view>
+  <image class="border" src="{{wxpay==true?'../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}}"></image>
 </view>
-<view class="pay_box">
+<view class="pay_box"  catchtap="payfor">
   <view class="left">
-    <image src="../../image/1首页/yuezhifu@2x.png"></image>
+    <image src="../../image/img/yuezhifu.png"></image>
     <view class="pay">余额</view>
   </view>
-  <view class="border"></view>
+  <image class="border" src="{{balance==true?'../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}}"></image>
 </view>
 <!-- 支付 -->
 <view class="payfor_btn">

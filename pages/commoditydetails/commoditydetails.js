@@ -7,7 +7,7 @@ Page({
    */
   data: {
     imgs:[],
-    typeimg: ['../../image/1首页/m.png','../../image/1首页/pin@2x.png'],
+    typeimg: ['../../image/img/m.png','../../image/img/pin.png'],
     img: '../../image/1首页/morenshangpin@2x.png',
     shopname: '山东烟台大樱桃车厘子新鲜水果',
     text: '[扶农]民勤大樱桃',
@@ -54,18 +54,18 @@ Page({
     showpay: false,// 立即购买弹框
     goods_id:'0',// 商品id
     specifications:[],// 商品规格
-    attr:{
-      goods_id:'0',
-      attr_ids:[]
-    },
-    gradeinof:{},// 规格详情
+    attr:[],//存商品规格信息
+    gradeinof:false,// 
     key:0,
     value:1,
     addshopping:{
       goods_id:'',
       num:'',
       attr_id:'',
-    }
+    },
+    shopinfo: [],//商品价格信息,规格详情
+    is_exemption:1,// 是否为免单
+    goods_type:1,// 是否贫困 1显示贫图
   },
 
   /**
@@ -79,9 +79,10 @@ Page({
     //this.geiproductattrs(id)
     var obj = this.data.parameter
     obj.fid = id
+
     this.setData({
       parameter:obj,
-      goods_id: id
+      goods_id: id,
     })
   },
 
@@ -158,6 +159,8 @@ Page({
         evaluate_total: res.data.goods_info.evaluate_info.total,//评价列表
         is_collect: res.data.goods_info.is_collect,//是否收藏
         details: res.data.goods_info.details,// 商品详情
+        goods_type: res.data.goods_info.goods_type,// 是否贫困
+        is_exemption: res.data.goods_info.is_exemption,// 是否为免单
       })
     },function(err){
 
@@ -207,11 +210,14 @@ Page({
       show:true
     })
   },
-  // 关闭分享
+  // 关闭分享弹框和购买弹框
   onClose(){
     this.setData({
       show: false,
-      showpay: false
+      showpay: false,
+      specifications:[],
+      attr:[],
+      gradeinof:false
     })
   },
   // 获取规格接口
@@ -228,11 +234,19 @@ Page({
   },
   // 规格详情接口
   getgoodsattrinfo(){
-    var that = this
-    https.request('/Goods/getGoodsAttrInfo', this.data.attr, '', function (res) {
+    var that = this;
+    var arr=[];
+    that.data.attr.map((val,key)=>{
+      arr.push(val.zid)
+    })
+    var obj={
+      goods_id: that.data.goods_id,
+      attr_ids: arr
+    }
+    https.request('/Goods/getGoodsAttrInfo', obj, '', function (res) {
       console.log(res)
       that.setData({
-        specifications: res.data.attrs_list
+        shopinfo: res.data.info
       })
     }, function (err) {
 
@@ -249,15 +263,48 @@ Page({
   // 选择规格
   getgrade(e){
     console.log(e)
-    this.setData({
-      key: e.currentTarget.dataset.key
+    var id = e.currentTarget.dataset.id;//子集id
+    var fid = e.currentTarget.dataset.ids;//父级id
+    var items = e.currentTarget.dataset.items;//父级item
+    var arr = this.data.attr;//存进去的规格数组
+    if (arr.length>0){
+        var bol =true;
+      arr.map((val,key)=>{
+        if (val.id == fid){//如果当前父级规格存在数组里
+          val.zid = id;
+          bol=false
+        }
+      })
+
+      if (bol) {//如果为true说明fid是新的
+        items.zid = id;
+        arr.push(items)
+        this.setData({gradeinof:true})
+      }
+    }else{//第一次点击规格
+      items.zid = id;
+      arr.push(items)
+    }
+   
+
+    //为了把attr数组里每项的zid赋值到对应specifications数字里的每项zid(按钮高亮部分)
+    var arr1 = this.data.specifications;
+    arr.map((valc,keyc)=>{
+      arr1.map((valD,keyD)=>{
+        if (valc.id == valD.id){
+          valD.zid = valc.zid
+        }
+      })
     })
-    var arr = []
-    arr.push(e.currentTarget.dataset.ids)
-    arr.push(e.currentTarget.dataset.id)
-    // JSON.parse(arr)
-    JSON.stringify(arr)
-    console.log(arr)
+    console.log('attr数组',arr)
+    console.log('specifications数组', arr1)
+    this.setData({
+      attr: arr,
+      specifications: arr1
+      })
+   
+    this.getgoodsattrinfo();
+    
   },
   // 购买数量
   onChange(e){
@@ -267,8 +314,13 @@ Page({
   },
   // 点击确定
   getorder(){
+    if (this.data.shopinfo.length==0){//如果为空数组说明没值返回
+       
+      return;
+   }
+
     wx.navigateTo({
-      url: '/pages/confirmationoforders/confirmationoforders?number=' + this.data.value + '&id=' + this.data.goods_id + '&attr=' ,
+      url: '/pages/confirmationoforders/confirmationoforders?number=' + this.data.value + '&id=' + this.data.goods_id + '&attr=' + this.data.shopinfo.id,
     })
   },
   // 加入购物车

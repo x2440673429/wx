@@ -2,16 +2,16 @@
 
 <!-- 顶部 -->
 <view class="my_top" catchtap="getmyinfo">
-  <image src="../../image/4我的/touxiang.png" class="touxiang"></image>
+  <image src="../../image/img/touxiang.png" class="touxiang"></image>
   <view class="myinfo">
     <view class="myinfo_box">
       <view class="nickname">{{nickname}}</view>
       <view class="members">  
-        <image src="../../image/4我的/dengji@2x.png"></image>
+        <image src="../../image/img/dengji.png"></image>
         <view>您还不是VIP会员</view>
       </view>
     </view>
-    <image src="../../image/4我的/baiseyoujiantou@2x.png"></image>
+    <image src="../../image/img/baiseyoujiantou.png"></image>
   </view>
 </view>
 <!-- 账户余额 -->
@@ -34,7 +34,7 @@
       <view>{{item.title}}</view>
     </view>
   </view>
-  <image src="../../image/4我的/yaoqingsonghaoli@2x.png" class="invitation" catchtap="getgift"></image>
+  <image src="../../image/img/yaoqingsonghaoli.png" class="invitation" catchtap="getgift"></image>
 </view>
 <!-- 我的浏览记录等 -->
 <view class="function">
@@ -50,6 +50,6 @@
       <image src="{{item.img}}"></image>
       <view>{{item.title}}</view>
     </view>
-    <image src="../../image/4我的/huiseyoujiantou@2x.png" class="youjiantou"></image>
+    <image src="../../image/img/youjiantou.png" class="youjiantou"></image>
   </view>
 </view>

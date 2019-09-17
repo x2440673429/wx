@@ -65,8 +65,12 @@ page{
   margin-bottom: 40rpx;
 }
 .shop .productbox{
+  padding: 14rpx 0;
+  box-sizing: border-box;
+  height: 143rpx;
   display: flex;
   margin-bottom: 68rpx;
+  justify-content: space-between;
 }
 .shop .productbox image{
   width: 118rpx;
@@ -91,7 +95,7 @@ page{
   display: flex;
   justify-content: space-between;
 }
-.shop .productbox  .productright .bottom .money{
+.shop .productbox  .productright .bottom .moneyone{
   color: #029a47;
   font-size: 28rpx;
 }
@@ -162,7 +166,6 @@ page{
   width: 38rpx;
   height: 39rpx;
   border-radius: 50%;
-  border: 2rpx solid #7f7f7f;
 }
 /* 付款 */
 .payfor_btn{

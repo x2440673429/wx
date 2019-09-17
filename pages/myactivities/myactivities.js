@@ -7,15 +7,15 @@ Page({
   data: {
     activity:[
       {
-        leftimg:'../../image/4我的/pintuandingdan@2x.png',
+        leftimg:'../../image/img/pintuandingdan.png',
         leftname:'拼团订单',
-        rightimg:'../../image/4我的/kanjiadingdan@2x.png',
+        rightimg:'../../image/img/kanjiadingdan.png',
         rightname:'砍价订单'
       },
       {
-        leftimg: '../../image/4我的/zhongchoudingdan@2x.png',
+        leftimg: '../../image/img/zhongchoudingdan.png',
         leftname: '众筹订单',
-        rightimg: '../../image/4我的/quanfandingdan@2x.png',
+        rightimg: '../../image/img/quanfandingdan.png',
         rightname: '全返订单'
       },
     ]

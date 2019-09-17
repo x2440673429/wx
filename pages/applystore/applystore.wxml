@@ -2,12 +2,12 @@
 <view class="title">主营类型</view>
 <view class="optionbox">
   <view>请选择类型</view>
-  <image src="../../image/4我的/xiangxiaxiaojiantou@2x.png"></image>
+  <image src="../../image/img/xiangxiaxiaojiantou.png"></image>
 </view>
 <view class="title">商户分类</view>
 <view class="optionbox">
   <view>请选择类型</view>
-  <image src="../../image/4我的/xiangxiaxiaojiantou@2x.png"></image>
+  <image src="../../image/img/xiangxiaxiaojiantou.png"></image>
 </view>
 <view class="title">联系人</view>
 <view class="optionbox">
@@ -20,26 +20,26 @@
 <view class="title">所在地区</view>
 <view class="optionbox">
   <view>请选择类型</view>
-  <image src="../../image/4我的/xiangxiaxiaojiantou@2x.png"></image>
+  <image src="../../image/img/xiangxiaxiaojiantou.png"></image>
 </view>
 <view class="title">上传对应证件</view>
 <view class="certificates">
   <view class="sczj">
-    <image src="../../image/4我的/shangchuanzhengjian@2x.png" ></image>
+    <image src="../../image/img/shangchuanzhengjian.png" ></image>
     <view class="becareful"><text>*</text>请上传身份证正面照</view>
   </view>
   <view class="sczj">
-    <image src="../../image/4我的/shangchuanzhengjian@2x.png" ></image>
+    <image src="../../image/img/shangchuanzhengjian.png" ></image>
     <view class="becareful"><text>*</text>请上传身份证反面照</view>
   </view>
   <view class="sczj">
-    <image src="../../image/4我的/shangchuanzhengjian@2x.png" ></image>
+    <image src="../../image/img/shangchuanzhengjian.png" ></image>
     <view class="becareful"><text>*</text>请上传营业执照</view>
   </view>
 </view>
 <!-- 协议 -->
 <view class="Agreement">
-  <image src="../../image/1首页/xuanzhong@2x.png"></image>
+  <image src="../../image/img/xuanzhong.png"></image>
   <view>我已阅读并同意<text>《店铺协议》</text></view>
 </view>
 <!-- 提交 -->

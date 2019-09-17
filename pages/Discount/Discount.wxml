@@ -1,7 +1,7 @@
 <!--pages/Discount/Discount.wxml-->
 <!-- 头部 -->
 <view class="top">
-  <image src="../../image/1首页/youhuiquan@2x.png"></image>
+  <image src="../../image/img/youhuiquan.png"></image>
 </view>
 <!-- 专享优惠券框 -->
 <view class="discount_box" >
@@ -13,7 +13,7 @@
     </view>
     <view class="Coupon" wx:for='{{coupon}}' wx:key='{{index}}'>
       <view class="Coupon_box">
-        <image src="../../image/1首页/xinrentehui@2x.png"></image>
+        <image src="../../image/img/xinrentehui.png"></image>
         <view class="Coupon_left">
           <view class="RMB">{{item.price}}<text>元</text></view>
           <view class="Receive">立即领取</view>

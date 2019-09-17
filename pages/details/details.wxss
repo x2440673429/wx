@@ -85,7 +85,7 @@ page{
 .addassemble .moreassemble{
   color: #808080;
 }
-.addassemble .moreassemble image{
+.addassemble image{
   width: 9rpx;
   height: 16rpx; 
   margin-left: 10rpx; 

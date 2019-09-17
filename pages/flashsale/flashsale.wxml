@@ -1,7 +1,7 @@
 <!--pages/flashsale/flashsale.wxml-->
 <!-- 顶部图片 -->
 <view class="top">
-  <image src="../../image/1首页/qianggou@2x.png"></image>
+  <image src="../../image/img/qianggou.png"></image>
 </view>
 <!-- 抢购时间 -->
 <view class="limitedtime" >

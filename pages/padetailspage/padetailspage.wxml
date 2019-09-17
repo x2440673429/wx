@@ -18,21 +18,21 @@
       <view class="padetails">
         <view class="product_number">{{supportnumber}}</view>
         <view class="producu_img">
-          <image src="../../image/1首页/zhichirenshu@2x.png"></image>
+          <image src="../../image/img/zhichirenshu.png"></image>
           <view>支持人数</view>
         </view>
       </view>
        <view class="padetails">
         <view class="product_number">￥ {{moneynumber}}</view>
         <view class="producu_img">
-          <image src="../../image/1首页/zhichirenshu@2x.png"></image>
+          <image src="../../image/img/weibiaoti.png"></image>
           <view>已筹金额</view>
         </view>
       </view>
        <view class="padetails">
         <view class="product_number">{{reachnumber}}%</view>
         <view class="producu_img">
-          <image src="../../image/1首页/zhichirenshu@2x.png"></image>
+          <image src="../../image/img/shijiancopy.png"></image>
           <view>达成率</view>
         </view>
       </view>
@@ -90,7 +90,7 @@
 <view class="comment_box" catchtap="iwantsay">
   <view class="allcomment">评论/100</view>
   <view class="iwantsay">
-    <image src="../../image/1首页/pinglun@2x.png"></image>
+    <image src="../../image/img/pinglun.png"></image>
     我想说
   </view>
 </view>
@@ -113,11 +113,11 @@
     <view>收藏</view>
   </view>
   <view class="pay border">
-    <image src="../../image/1首页/fenxiang@2x.png"></image>
+    <image src="../../image/img/fx.png"></image>
     <view>分享</view>
   </view>
   <view class="pay">
-    <image src="../../image/1首页/pinlun@2x.png"></image>
+    <image src="../../image/img/pinl.png"></image>
     <view>评论{{allnumber}}</view>
   </view>
   <view class="gotopay" catchtap="gotopay">
@@ -137,7 +137,7 @@
       <image src="{{goods_grade[key].thumb}}" class="product_img"></image>
       <view class="payfor_ringt">
         <view class="close">
-          <image src="../../image/2分类/cha@2x.png" catchtap="onClose"></image>
+          <image src="../../image/img/cha.png" catchtap="onClose"></image>
         </view>
         <view class="pay_txt">{{goods_grade[key].desc}}</view>
         <view class="pay_number">剩余数量{{goods_grade[key].stock}}</view>

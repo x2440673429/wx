@@ -136,6 +136,7 @@ Page({
   },
 
   onLoad: function () {
+    console.log(545455)
     this.gettabtext();//初始化获取tab接口
 
     if (app.globalData.userInfo) {

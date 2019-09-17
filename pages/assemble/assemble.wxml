@@ -1,12 +1,12 @@
 <!--pages/assemble/assemble.wxml-->
 <!-- 顶部图片 -->
 <view class="top">
-  <image src="../../image/1首页/pintuan@2x.png"></image>
+  <image src="../../image/img/pintuan.png"></image>
 </view>
 <!-- 搜索框 -->
 <view class="big_box">
   <view class="search_box">
-    <image src="../../image/1首页/sousuo.png"></image>
+    <image src="../../image/img/sousuo.png"></image>
     <input placeholder="输入您当前要搜索的商品" value="{{value}}"></input>
   </view>
 </view>

@@ -89,7 +89,17 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    
+      if (this.data.list.length == this.data.total) {
+        return
+      } else {
+        var obj = this.data.parameterpage
+        obj.page++
+        this.setData({
+          parameterpage: obj
+        })
+        this.getshopinglist()
+      }
   },
 
   /**
@@ -177,20 +187,6 @@ Page({
 
     }, 'GET')
   },
-  //上拉触底加载更多
-  onReachBottom(){
-    var obj = this.data.parameterpage
-    obj.page++
-    this.setData({
-      parameterpage:obj
-    })
-    if (this.data.list.length == this.data.total){
-      return
-    }else{
-      this.getshopinglist()
-    }
-    
-    
-  }
+
   
 })

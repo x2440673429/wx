@@ -111,14 +111,15 @@ Page({
   },
   // 上拉触底加载更多
   onReachBottom(){
-    var obj = this.data.parameter
-    obj.page++
-    this.setData({
-      shop:obj
-    })
+    
     if(this.data.shop.length==this.data.total){
       return
     }else{
+      var obj = this.data.parameter
+      obj.page++
+      this.setData({
+        shop: obj
+      })
       this.getshoplist()
     }
   

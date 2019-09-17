@@ -6,7 +6,7 @@
 
 <view>
   <view class="box" wx:for='{{list}}' key='{{index}}'>
-    <image src="{{item[4]?'../../image/4我的/xuanzhong@2x.png':'../../image/4我的/weixuanzhong@2x.png'}}" 
+    <image src="{{item[4]?'../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}}" 
     class="isselect" wx:if='{{edit}}' bindtap="select" data-idx="{{index}}"></image>
     <view class="listbox">
       <image src="{{item[0]}}" class="goodimg"></image>
@@ -21,7 +21,7 @@
 
 <view class="selectall" wx:if='{{edit}}'>
   <view class="selectright" bindtap="selectallbtm">
-    <image src="{{selectAll? '../../image/4我的/xuanzhong@2x.png':'../../image/4我的/weixuanzhong@2x.png'}}" class="select"></image>
+    <image src="{{selectAll? '../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}}" class="select"></image>
     <view>全选</view>
   </view>
   <view class="del">删除</view>
