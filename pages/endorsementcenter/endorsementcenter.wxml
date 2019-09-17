@@ -2,7 +2,7 @@
 <view class="my_box">
   <image src="../../image/4我的/morenxiaotouxiang@2x.png" class="head"></image>
   <view class="endorsement">
-    <image src="../../image/4我的/dengjikuang@2x.png"></image>
+    <image src="../../image/img/dengjikuang.png"></image>
     <view class="firstlevel">一级代言</view>
   </view>
   <view class="rule" catchtap="getrule">规则</view>
@@ -26,7 +26,7 @@
     <view class="teamnumber">间推人数</view>
   </view>
   <view class="bor"></view>
-  <image src="../../image/4我的/huiseyoujiantou@2x.png"></image>
+  <image src="../../image/img/youjiantou.png"></image>
 </view>
 <!-- 累计收益 -->
 <view class="number_box">
@@ -39,7 +39,7 @@
     <view class="teamnumber">今日收益</view>
   </view>
   <view class="bor"></view>
-  <image src="../../image/4我的/huiseyoujiantou@2x.png"></image>
+ <image src="../../image/img/youjiantou.png"></image>
 </view>
 <!-- 分享按钮 -->
 <view class="share" catchtap="gotoshare">我要分享</view>
@@ -48,6 +48,6 @@
   <view class="rule_box">
     <view class="title">规则</view>
     <view class="content">规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容</view>
-    <image src="../../image/2分类/cha@2x.png" catchtap="onClose"></image>
+    <image src="../../image/img/cha.png" catchtap="onClose"></image>
   </view>
 </van-popup>

@@ -6,16 +6,16 @@
     <view>{{phone}}</view>
   </view>
   <view class="useraddress">
-    <image src="../../image/2分类/dz.png" class="addressimg"></image>
+    <image src="../../image/img/dz.png" class="addressimg"></image>
     <view>{{address}}</view>
-    <image src="../../image/1首页/youjiantou2@2x.png" class="youjiantou"></image>
+    <image src="../../image/img/youjiantou2.png" class="youjiantou"></image>
   </view>
 </view>
 <!--商品-->
 <view class="container">
   <view class='no_shop' wx:if="{{carisShow}}">
     <view class='no_shop_only'>
-      <image class='shop_show_only' src='../../image/1首页/gouwuche.png'></image>
+      <image class='shop_show_only' src='../../image/img/gouwuche.png'></image>
       <text class='on_shop_txt'>购物车空空如也</text>
       <navigator url="/pages/index/index" open-type='switchTab' hover-class="none">
         <view class='btn_return'>
@@ -30,9 +30,9 @@
       <view class='position_title'>
         <view class='has_shop_circleunchecked' wx:if="{{!isChecked}}" bindtap='checkAll'></view>
         <view class='position_shop_circlechecked' wx:else bindtap='checkAll'>
-          <image class='has_shop_circlechecked1' src='../../image/1首页/gouwuche.png'></image>
+          <image class='has_shop_circlechecked1' src='../../image/img/gouwuche.png'></image>
         </view>
-        <image class='has_shop_icon1' src='../../image/2分类/dianpu.png'></image>
+        <image class='has_shop_icon1' src='../../image/img/dianpu.png'></image>
         <text class='has_shop_smalltxt'>长智超市(配送/自提)</text>
       </view>
       <text class='btn_shop_change' wx:if="{{isEdit}}" bindtap='editGood'>编辑</text>
@@ -47,7 +47,7 @@
             <!-- 判断是否为选中状态 -->
             <view class='img_icon_ischeck' wx:if="{{!item.selected}}" bindtap='selectShop' data-index='{{index}}'></view>
             <view class='position_shop_circlechecked' wx:else data-index='{{index}}' bindtap='selectShop'>
-              <image class='has_shop_circlechecked1' src='../../image/1首页/gouwuche.png'></image>
+              <image class='has_shop_circlechecked1' src='../../image/img/gouwuche.png'></image>
             </view>
             <view class='position_hasshop_item'>
               <view class='position_hasshop_img'>
@@ -74,7 +74,7 @@
     <view class='shop_car_total'>
       <view class='car_total_left'>
         <view class='has_shop_circleunchecked' wx:if="{{!isChecked}}" bindtap='checkAll'></view>
-        <image class='has_shop_circlechecked' src='../../image/1首页/gouwuche.png' wx:else bindtap='checkAll'></image>
+        <image class='has_shop_circlechecked' src='../../image/img/gouwuche.png' wx:else bindtap='checkAll'></image>
         <text class='total_txt'>全选</text>
       </view>
       <view class='shop_total_right'>
