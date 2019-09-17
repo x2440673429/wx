@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  //添加收货地址
+  addaddress:function(){
+    wx.navigateTo({
+      url: '/pages/addaddress/addaddress',
+    })
   }
 })

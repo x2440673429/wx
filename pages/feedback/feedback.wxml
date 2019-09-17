@@ -1,7 +1,7 @@
 <view class="box">
   <view class="box1">
     <view>类型</view>
-    <image src="../../image/4我的/xiangxiaxiaojiantou@2x.png" class="jiantou"></image>
+    <image src="../../image/img/xiangxiaxiaojiantou.png" class="jiantou"></image>
   </view>
 
   <view style="padding: 31rpx 0 23rpx;">请填写详细问题和意见</view>
@@ -12,10 +12,9 @@
 
   <view class="imglist">
     <view>请提供相关问题的截图和照片</view>
-    <image src="../../image/4我的/tianjiatupian@2x.png" class="addimg"></image>
-  </view>
-
+      <image src="../../image/img/tianjiatupian.png" class="addimg" bindtap="choose" data-id="{{id}}"></image>
+</view>
   <view class="btnbox">
-    <view class="btn">确认提交</view>
+    <view class="btn" type="primary" formType='submit'>确认提交</view>
   </view>
 </view>

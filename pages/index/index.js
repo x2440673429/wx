@@ -30,7 +30,7 @@ Page({
             '/pages/flashsale/flashsale', 
             '/pages/Discount/Discount'],//热卖店铺等4个对应跳转的页面
     sellwellbox: [],//热销
-    sign: 0,//购物车右上角红色标记显示
+    carisShow: 3,//购物车右上角红色标记显示
     // 精准抚农
     addressnva:[],//地区tab页
     activity:'',//地方特色扶农logo
@@ -40,6 +40,10 @@ Page({
     product:[],
     // 推荐抢购时间
     limitedtime: [],
+    limitedproduct: [],//推荐抢购产品\
+    tpye:'1',
+    
+
     limitedproduct: [],//推荐抢购产品
     parameter: {// 抢购时间参数
       page: 1,
@@ -52,6 +56,7 @@ Page({
       pagesize:'',
     },
     is_sale: 0,//抢购状态(0预热中1抢购中)
+
   },
   // Tab页改变
   onChange(event){
@@ -296,8 +301,19 @@ Page({
     this.setData({
       placeinfo: obj
     })
+
     this.getPlaceInfo()
-  }
+  },
+  // 购物车
+  theshoppingcart: function () {
+    wx.navigateTo({
+      url: '/pages/theshoppingcart/theshoppingcart',
+    })
+  },
+
+
+  
+
   // https.request('url地址', '参数（对象）', 'message加载信息', 'function成功方法回调','function失败方法回调','接口类型（get/post）不写默认post')
 
   

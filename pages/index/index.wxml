@@ -118,9 +118,11 @@
           </view>
         </view>
       </view>
-      <view class="gouwuche">
-        <image src="../../image/img/gouwuche.png" ></image>
-        <view wx:if='{{sign>0?true:false}}'>{{sign}}</view>
+
+      <!--购物车-->
+      <view class="gouwuche" catchtap="theshoppingcart">
+        <image src="../../image/img/gwc.png"></image>
+        <view wx:if='{{carisShow>0?true:false}}'>{{carisShow}}</view>
       </view>
 
     </van-tab>
@@ -194,7 +196,7 @@
   <image src="{{item.goods_class.pic}}" class="type_img"></image>
   <view class="product1_box">
     <view class="product1" wx:for-item='items' wx:for='{{item.goods.list}}' wx:key='{{index}}' >
-      <image src="{{items.img}}../../image/1首页/chanpin@2x.png"></image>
+      <image src="{{items.img}}"></image>
       <view class="product1_name">{{items.title}}</view>
       <view class="money">￥{{items.price}}<text>￥{{items.original_price}}</text></view>
     </view>

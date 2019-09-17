@@ -1,4 +1,6 @@
 // pages/changepassword/changepassword.js
+const app = getApp()
+const https = require("../../utils/https.js")
 Page({
 
   /**
@@ -8,6 +10,9 @@ Page({
     value1:'',
     value2: '',
     value3: '',
+    old_pwd:[],
+    handleInput1:[],
+    handleInput:[],
   },
   // 监听input输入的值
   // 原密码
@@ -96,5 +101,20 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+   //修改登录密码
+  /*getconfirm() {
+    let that = this
+    https.request('user/changePassword', this.data.old_pwd, '加载中...', function (res) {
+      let dataset = e.currentTarget.dataset
+      let value = e.datail.value
+      _this.data[value1] = value
+      console.log(res)
+      that.setData({
+        value: _this.data[value]
+      })
+    }, function (err) {
+
+    })
+  }, */
 })

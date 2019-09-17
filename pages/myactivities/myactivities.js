@@ -9,18 +9,29 @@ Page({
       {
         leftimg:'../../image/img/pintuandingdan.png',
         leftname:'拼团订单',
+        lefturl: '/pages/clusterorder/clusterorder',
         rightimg:'../../image/img/kanjiadingdan.png',
-        rightname:'砍价订单'
+        rightname:'砍价订单',
+        righurl:"/pages/Bargainorders/Bargainorders"
       },
       {
         leftimg: '../../image/img/zhongchoudingdan.png',
         leftname: '众筹订单',
+        lefturl: '/pages/Theraiseorders/Theraiseorders',
         rightimg: '../../image/img/quanfandingdan.png',
-        rightname: '全返订单'
+        rightname: '全返订单',
+        righurl: "/pages/myorder/myorder"
       },
     ]
   },
+  getorder(e){
+    console.log(e)
+    var url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: url,
+    })
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -32,7 +43,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**

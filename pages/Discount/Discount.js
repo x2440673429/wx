@@ -28,9 +28,6 @@ Page({
       pagesize:'10',
     },
     rule:'',
-     
-     
-    
   },
 
   /**

@@ -1,0 +1,45 @@
+<!--pages/Bargain-orders/Bargain-orders.wxml-->
+<van-tabs active="{{ active }}" bind:change="onChange" class='color' color='#029a47' swipe-threshold='6'>
+  <van-tab title="全部"></van-tab>
+  <van-tab title="待付款"></van-tab>
+  <van-tab title="待发货"></van-tab>
+  <van-tab title="待收货"></van-tab>
+  <van-tab title="待评价"></van-tab>
+  <van-tab title="申诉"></van-tab>
+</van-tabs>
+<!-- 订单 -->
+<view class="order" wx:for='{{order}}' wx:key='{{index}}' catchtap="orderone">
+  <view class="shopname">{{item.shopname}}</view>
+  <view class="ordernumber">
+    <view>订单号:{{item.ordernumber}}</view>
+    <view class="state">{{item.state}}</view>
+  </view>
+  <view class="product">
+    <image src="{{item.img}}"></image>
+    <view class="product_right">
+      <view class="productname">{{item.productname}}</view>
+      <view class="product_bottom">
+        <view class="money">￥{{item.money}}</view>
+        <view class="number">×{{item.number}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="hascut">已砍<text>{{item.money}}</text>元</view>
+  <view class="allmoney">合计: <text>￥{{item.money*item.number}}</text></view>
+  <view class="btn">
+    <view class="cancel_btn" 
+      wx:if='{{item.state =="待付款"||item.state =="待评价"}}'>
+      {{item.state =="待付款"?"取消订单":""}}
+
+      {{item.state =="待评价"?"申请售后":""}}
+    </view>
+    <view class="state_btn" 
+      wx:if='{{item.state =="待收货"||item.state =="待评价"||item.state=="退款中"||item.state =="待付款"}}'>
+      {{item.state =="待收货"?"确认收货":""}}
+      {{item.state =="待评价"?"去评价":""}}
+      {{item.state =="退款中"?"取消退款":""}}
+      {{item.state =="待付款"?"去付款":""}}
+
+    </view>
+  </view>
+</view>

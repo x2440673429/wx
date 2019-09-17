@@ -2,19 +2,19 @@
 <view class="title">上传对应证件</view>
 <view class="certificates">
   <view class="sczj">
-    <image src="../../image/img/shangchuanzhengjian.png" ></image>
+    <image src="../../image/img/shangchuanzhengjian.png" bindtap="uploadimg"  data-id="{{id}}"></image>
     <view class="becareful"><text>*</text>请上传社会组织登记证书</view>
   </view>
   <view class="sczj">
-    <image src="../../image/img/shangchuanzhengjian.png" ></image>
+    <image src="../../image/img/shangchuanzhengjian.png" bindtap="uploadimg"  data-id="{{id}}"></image>
     <view class="becareful"><text>*</text>请上传税务登记证</view>
   </view>
   <view class="sczj">
-    <image src="../../image/img/shangchuanzhengjian.png" ></image>
+    <image src="../../image/img/shangchuanzhengjian.png" bindtap="uploadimg"  data-id="{{id}}"></image>
     <view class="becareful"><text>*</text>请上传法人身份证</view>
   </view>
   <view class="sczj">
-    <image src="../../image/img/shangchuanzhengjian.png" ></image>
+    <image src="../../image/img/shangchuanzhengjian.png" bindtap="uploadimg"  data-id="{{id}}"></image>
     <view class="becareful">请上传公募证书</view>
   </view>
 </view>

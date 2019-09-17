@@ -5,7 +5,7 @@
   <van-tab title="拼团成功"></van-tab>
   <van-tab title="拼团失败"></van-tab>
 </van-tabs>
-<view class="order_box" wx:for='{{items}}' wx:key='{{index}}'>
+<view class="order_box" wx:for='{{items}}' wx:key='{{index}}' catchtap="detailsofcollage">
   <view class="order_top">
     <view class="ordertime">{{item.ordertime}}</view>
     <view class="state==1？state：fail">{{item.state}}</view>

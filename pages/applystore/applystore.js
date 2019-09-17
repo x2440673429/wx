@@ -1,6 +1,8 @@
 // pages/applystore/applystore.js
 const https = require('../../utils/https.js')
 Page({
+  "code": "0000",
+  "msg": "操作成功", 
 
   /**
    * 页面的初始数据
@@ -8,8 +10,14 @@ Page({
   data: {
     name:'',
     phone:'',
+    main_class_info:'',
+    main_class_id:"",
+    main_class_name:'',
   },
- 
+  // 手机号
+  getphone(e){
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */

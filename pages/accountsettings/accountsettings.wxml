@@ -4,7 +4,7 @@
   <view>头像</view>
   <view class="right">
     <image src="{{img}}" class="headimg"></image>
-    <image src="../../image/4我的/huiseyoujiantou@2x.png" class="click"></image>
+    <image src="../../image/img/youjiantou.png" class="click"></image>
   </view>
 </view>
 <!-- 昵称 -->
@@ -12,36 +12,36 @@
   <view>昵称</view>
   <view class="right">
     <view class="name">{{name}}</view>
-    <image src="../../image/4我的/huiseyoujiantou@2x.png" class="click"></image>
+    <image src="../../image/img/youjiantou.png" class="click"></image>
   </view>
 </view>
 <!-- 收货地址 -->
-<view class="head address">
+<view class="head address" catchtap="address">
   <view>收货地址</view>
   <view class="right">
-    <image src="../../image/4我的/huiseyoujiantou@2x.png" class="click"></image>
+    <image src="../../image/img/youjiantou.png" class="click"></image>
   </view>
 </view>
 <!-- 手机 -->
-<view class="head ">
+<view class="head " catchtap="bindphone">
   <view>绑定手机号码</view>
   <view class="right">
     <view class="phone">{{phone}}</view>
-    <image src="../../image/4我的/huiseyoujiantou@2x.png" class="click"></image>
+    <image src="../../image/img/youjiantou.png" class="click"></image>
   </view>
 </view>
 <!-- 修改登录密码 -->
 <view class="head " catchtap="changepassword">
   <view>修改登录密码</view>
   <view class="right">
-    <image src="../../image/4我的/huiseyoujiantou@2x.png" class="click"></image>
+    <image src="../../image/img/youjiantou.png" class="click"></image>
   </view>
 </view>
 <!-- 设置支付密码 -->
 <view class="head " catchtap="setnewpassword">
   <view>设置支付密码</view>
   <view class="right">
-    <image src="../../image/4我的/huiseyoujiantou@2x.png" class="click"></image>
+    <image src="../../image/img/youjiantou.png" class="click"></image>
   </view>
 </view>
 <!-- 清除缓存 -->

@@ -1,42 +1,45 @@
 <!--pages/applystore/applystore.wxml-->
+
 <view class="title">主营类型</view>
-<view class="optionbox">
-  <view>请选择类型</view>
-  <image src="../../image/img/xiangxiaxiaojiantou.png"></image>
-</view>
-<view class="title">商户分类</view>
-<view class="optionbox">
-  <view>请选择类型</view>
-  <image src="../../image/img/xiangxiaxiaojiantou.png"></image>
-</view>
+  <view class="optionbox">
+    <view>请选择类型</view>
+    <image src="../../image/img/xiangxiaxiaojiantou.png"></image>
+  </view>
+<view class="title" data="{{store_class_info}}">商户分类</view>
+  <view class="optionbox" >
+    <view>请选择类型</view>
+    <image src="../../image/img/xiangxiaxiaojiantou.png"></image>
+  </view>
 <view class="title">联系人</view>
-<view class="optionbox">
-  <input type="text" placeholder="请填写联系人姓名" value='{{name}}' bindinput="getname"></input>
-</view>
+  <view class="optionbox">
+    <input type="text" placeholder="请填写联系人姓名" value='{{name}}' bindinput="getname"></input>
+  </view>
 <view class="title">联系电话</view>
-<view class="optionbox">
-  <input type="number" placeholder="请填写联系电话" value="{{phone}}" bindinput="getphone"></input>
-</view>
+  <view class="optionbox">
+    <input type="number" placeholder="请填写联系电话" value="{{phone}}" bindinput="getphone"></input>
+  </view>
 <view class="title">所在地区</view>
-<view class="optionbox">
-  <view>请选择类型</view>
-  <image src="../../image/img/xiangxiaxiaojiantou.png"></image>
-</view>
+  <view class="optionbox">
+    <view>请选择类型</view>
+    <image src="../../image/img/xiangxiaxiaojiantou.png"></image>
+  </view>
+
 <view class="title">上传对应证件</view>
-<view class="certificates">
-  <view class="sczj">
-    <image src="../../image/img/shangchuanzhengjian.png" ></image>
-    <view class="becareful"><text>*</text>请上传身份证正面照</view>
-  </view>
-  <view class="sczj">
-    <image src="../../image/img/shangchuanzhengjian.png" ></image>
-    <view class="becareful"><text>*</text>请上传身份证反面照</view>
-  </view>
-  <view class="sczj">
-    <image src="../../image/img/shangchuanzhengjian.png" ></image>
-    <view class="becareful"><text>*</text>请上传营业执照</view>
-  </view>
-</view>
+  <view class="certificates">
+    <view class="sczj">
+      <image src="../../image/img/shangchuanzhengjian.png" ></image>
+      <view class="becareful"><text>*</text>请上传身份证正面照</view>
+    </view>
+    <view class="sczj">
+      <image src="../../image/img/shangchuanzhengjian.png" ></image>
+      <view class="becareful"><text>*</text>请上传身份证反面照</view>
+    </view>
+    <view class="sczj">
+      <image src="../../image/img/shangchuanzhengjian.png" ></image>
+      <view class="becareful"><text>*</text>请上传营业执照</view>
+    </view>
+  </view>  
+
 <!-- 协议 -->
 <view class="Agreement">
   <image src="../../image/img/xuanzhong.png"></image>

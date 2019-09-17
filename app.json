@@ -61,7 +61,10 @@
     "pages/shoping/shoping",
     "pages/address/address",
     "pages/addaddress/addaddress",
-    "pages/bindphone/bindphone"
+    "pages/bindphone/bindphone",
+    "pages/Bargainorders/Bargainorders",
+    "pages/Theraiseorders/Theraiseorders",
+    "pages/theshoppingcart/theshoppingcart"
   ],
   "window": {
     "backgroundTextStyle": "light",
