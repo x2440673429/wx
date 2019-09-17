@@ -19,7 +19,6 @@
       <text class='on_shop_txt'>购物车空空如也</text>
       <navigator url="/pages/index/index" open-type='switchTab' hover-class="none">
         <view class='btn_return'>
-
           <text class='txt_btn_return'>去首页逛逛吧</text>
         </view>
       </navigator>
@@ -63,7 +62,7 @@
                   <!-- 商品最新价格 -->
                   <text class='menu_right_nprice'>¥{{item.npriceGood}}</text>
                   <!-- 商品数量按钮 -->
-                  <van-stepper value="{{item.count}}" class="has_shop_num" bind:change="onChange" data-index='{{index}}' />
+                  <van-stepper value="{{value}}" class="has_shop_num" bind:change="onChange" data-index='{{index}}' />
                 </view>
               </view>
             </view>
@@ -88,11 +87,9 @@
             <text class='total_freight'>不含运费</text>
           </view>
         </view>
-        <!-- 一个都没选择，展示灰色结算按钮 -->
-        <view class='btn_detele_all' wx:if="{{isSettlement}}">结算</view>
-        <view class='btn_detele_all_red' wx:if="{{isSettlementRed}}" bindtap='goOrder'>结算</view>
+        <!-- 一个都没选择，展示按钮 -->
+        <view class='btn_detele_all_red' wx:if="{{isSettlementRed}}" bindtap='goOrder' catchtap="confirmationoforders">结算</view>
         <view class='btn_detele_all_red' wx:if="{{idDeteleRed}}" bindtap='deteleMore'>删除</view>
-        <view class='btn_detele_all' wx:if="{{idDetel}}">删除</view>
       </view>
     </view>
   </view>

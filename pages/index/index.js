@@ -31,7 +31,7 @@ Page({
             '/pages/Discount/Discount'],//热卖店铺等4个对应跳转的页面
     time: 0,// 抢购高光
     sellwellbox: [],//热销
-    sign: 0,//购物车右上角红色标记显示
+    carisShow: 3,//购物车右上角红色标记显示
     // 精准抚农
     addressnva:[],//地区tab页
     activity:'',//地方特色扶农logo

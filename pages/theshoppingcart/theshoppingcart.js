@@ -13,9 +13,7 @@ Page({
     isChecked: true, //全选状态设置
     isEdit: true, //是否编辑状态
     isSettlementRed: true, //红色结算按钮状态
-    isSettlement: false, //红色结算按钮状态
     idDeteleRed: false, //红色删除按钮
-    idDetel: false, //灰色删除按钮
     isSelect: false, //是否为编辑状态
     goodsCar: [], //用来接收接口返回数据
     goodsCar: [{
@@ -64,7 +62,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.totalPrice();
   },
   // 编辑事件
   editGood: function() {
@@ -72,7 +70,6 @@ Page({
       isEdit: false,
       isSelect: true,
       isSettlementRed: false,
-      isSettlement: false,
       idDeteleRed: true,
       idDetel: false
     });
@@ -87,13 +84,14 @@ Page({
       idDetel: false
     });
   },
+
   // 全选事件
   checkAll: function() {
     let isChecked = this.data.isChecked; //获取全选状态
     let isSettlementRed = this.data.isSettlementRed; //获取红色结算按钮的状态
     let isSettlement = this.data.isSettlement;
     isChecked = !isChecked;
-    isSettlementRed = !isSettlementRed;
+    isSettlementRed = isSettlementRed;
     isSettlement = !isSettlement;
     let list = this.data.goodsCar;
     if (this.data.isSelect) {
@@ -104,17 +102,15 @@ Page({
         if (list[i].selected) {
           console.log(1)
           this.data.isChecked = false;
-          isSettlementRed = false;
+          isSettlementRed = true;
           isSettlement = false;
         }
       }
       this.setData({
         isChecked: isChecked,
         goodsCar: list,
-        isSettlementRed: isSettlementRed, //隐藏红色结算
-        isSettlement: isSettlement, //显示灰色结算
-        idDeteleRed: true,
-        idDetel: false
+        isSettlementRed: true, //隐藏红色结算
+        idDeteleRed: false,
       });
     } else {
       // 设置全选状态
@@ -131,8 +127,7 @@ Page({
       this.setData({
         isChecked: isChecked,
         goodsCar: list,
-        isSettlementRed: isSettlementRed, //隐藏红色结算
-        isSettlement: isSettlement, //显示灰色结算
+        isSettlementRed: isSettlementRed, //显示灰色结算
         idDeteleRed: false,
         idDetel: false
       });
@@ -168,7 +163,7 @@ Page({
         goodsCar: list,
         isChecked: false,
         isSettlement: false,
-        isSettlementRed: false,
+        isSettlementRed: true,
         idDeteleRed: !isUncheck,
         idDetel: isUncheck
       })
@@ -233,7 +228,7 @@ Page({
     });
     this.totalPrice();
   },
-  
+
   // 计算金额
   totalPrice: function() {
     let list = this.data.goodsCar;
@@ -324,9 +319,8 @@ Page({
   // 结算生成订单
   goOrder: function() {
     let _this = this;
-    wx.showModal({
-      title: '提示',
-      content: '确认生成订单？',
+    wx.hideLoading({
+      
       success: function(res) {
         if (res.confirm) {
           // 携带订单信息生成订单
@@ -339,7 +333,7 @@ Page({
           }
           API.orderinfo = nlist; //将订单的信息传给API.js
           wx.navigateTo({
-            url: '../theshoppingcart/theshoppingcart'
+            url: '/confirmationoforders/confirmationoforders'
           })
         } else {
           console.log(res);
@@ -347,5 +341,10 @@ Page({
       }
     })
   },
-
+  //跳转确认订单
+  confirmationoforders: function () {
+    wx.navigateTo({
+      url: '/pages/confirmationoforders/confirmationoforders',
+    })
+  },
 })

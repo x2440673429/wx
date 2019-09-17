@@ -116,9 +116,10 @@
           </view>
         </view>
       </view>
+      <!--购物车-->
       <view class="gouwuche" catchtap="theshoppingcart">
-        <image src="../../image/1首页/gouwuche.png" ></image>
-        <view wx:if='{{sign>0?true:false}}'>{{sign}}</view>
+        <image src="../../image/1首页/gouwuche.png"></image>
+        <view wx:if='{{carisShow>0?true:false}}'>{{carisShow}}</view>
       </view>
 
     </van-tab>
