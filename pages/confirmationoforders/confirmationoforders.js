@@ -1,4 +1,5 @@
 // pages/confirmationoforders/confirmationoforders.js
+const time = require('../../utils/util.js')
 const https = require('../../utils/https.js')
 Page({
 
@@ -23,6 +24,7 @@ Page({
     value:'',//卖家留言
     goods_id:'',
     price: {
+      
         coupon_id: '',
         goods_info: [
           {
@@ -31,6 +33,19 @@ Page({
             attr_id: '',
           }
         ],
+      // goods_info: {
+      //   {
+      //     goods: [{
+      //       {
+      //         goods_id: '',
+      //         num: '',
+      //         attr_id: '',
+      //       }
+      //     },
+      //     coupon_id: '',
+      //   },
+      
+      // }
     },
     show:false,
     amount:'',
@@ -51,6 +66,15 @@ Page({
     obj.attr_id = options.attr
     // 计算价格
     var arr = this.data.price
+    // arr.goods_info.map((val,key)=>{
+    //   console.log(val)
+    //   val.goods.map((txt,index)=>{
+    //     console.log(txt)
+    //     txt.goods_id = options.id
+    //     txt.num = options.number
+    //     txt.attr_id = options.attr
+    //   })
+    // })
     arr.goods_info[0].goods_id = options.id
     arr.goods_info[0].num = options.number
     arr.goods_info[0].attr_id = options.attr
@@ -201,11 +225,14 @@ Page({
     })
 
   },
+
+
+
   // 计算价格
   calculatedprice(){
     var that = this
     https.request('/order/calculateOrder', this.data.price,'加载中...',function(res){
-      //console.log(res)
+      console.log(res)
       that.setData({
         amount: res.data.amount,// 订单总金额
         coupon_money: res.data.coupon_money,//优惠券抵扣金额
@@ -219,7 +246,7 @@ Page({
   },
   // 点击付款
   payment(){
-    var time = new Data()
+    var time = time.formatTime(data())
     console.log(time)
     wx.requestPayment({
       timeStamp: '',
@@ -230,5 +257,9 @@ Page({
       success(res) { },
       fail(res) { }
     })
+  },
+  // 点击选择优惠券
+  choiceyhq(e){
+    var yhqid = e.currentTarget.dataset.yhqid
   }
 })

@@ -55,7 +55,7 @@ Page({
     goods_id:'0',// 商品id
     specifications:[],// 商品规格
     attr:[],//存商品规格信息
-    gradeinof:false,// 
+    gradeinof:false,// 选取规格之前
     key:0,
     value:1,
     addshopping:{
@@ -66,7 +66,7 @@ Page({
     shopinfo: [],//商品价格信息,规格详情
     is_exemption:1,// 是否为免单
     goods_type:1,// 是否贫困 1显示贫图
-    
+
   },
 
   /**
@@ -318,11 +318,19 @@ Page({
     if (this.data.shopinfo.length==0){//如果为空数组说明没值返回
        
       return;
+   }else{
+      wx.navigateTo({
+        url: '/pages/confirmationoforders/confirmationoforders?number=' + this.data.value + '&id=' + this.data.goods_id + '&attr=' + this.data.shopinfo.id,
+      })
+      this.setData({
+        showpay: false,
+        specifications: [],
+        attr: [],
+        gradeinof:false
+      })
    }
 
-    wx.navigateTo({
-      url: '/pages/confirmationoforders/confirmationoforders?number=' + this.data.value + '&id=' + this.data.goods_id + '&attr=' + this.data.shopinfo.id,
-    })
+  
   },
   // 加入购物车
   addshopping(){
@@ -333,14 +341,30 @@ Page({
     addshopping.goods_id = this.data.goods_id
     this.setData({
       addshopping: addshopping,
-      show: false,
-
     })
-    https.request('/order/joinCart', this.data.addshopping,'',function(res){
-      console.log(res)
-    },function(err){
+    var that = this
+    if (this.data.addshopping.attr_id){
+      https.request('/order/joinCart', this.data.addshopping, '', function (res) {
+        console.log(res)
+        that.setData({
+          showpay: false,
+        })
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 1000
+        })
+      }, function (err) {
 
-    },'GET')
+      }, 'GET')
+    }else{
+      wx.showToast({
+        title: '请选择颜色和尺寸',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    
   }
   
 })

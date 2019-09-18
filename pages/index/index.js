@@ -77,7 +77,7 @@ Page({
   // 跳转新人特惠等
   getnav(e){
     let index = e.currentTarget.dataset.index
-    console.log(e.currentTarget.dataset)
+
     wx.navigateTo({
       url: this.data.navurl[index],
     })
@@ -102,7 +102,7 @@ Page({
     //console.log(https)
     var that=this;
     https.request('/index/index', { column_key: this.data.columnlist[this.data.active] },'加载中...', function (res) {//成功回调
-       console.log(11110, res)
+       //console.log(11110, res)
         that.setData({
           image: res.data[that.data.active].content[0].carousel,//所有tab轮播图（菜单通用）
         })
@@ -141,7 +141,6 @@ Page({
   },
 
   onLoad: function () {
-    console.log(545455)
     this.gettabtext();//初始化获取tab接口
 
     if (app.globalData.userInfo) {

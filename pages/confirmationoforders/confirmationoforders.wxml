@@ -74,10 +74,10 @@
 <van-popup show="{{ show }}" bind:close="onClose" custom-style='border-radius: 10rpx'>
   <view class="yhq_less">
     <view class="choiceyhq">选择优惠券</view>
-    <view class="yhq_box" wx:for='{{yhq}}' wx:key='{{index}}'>
+    <view class="yhq_box" wx:for='{{yhq}}' wx:key='{{index}}' catchtap="choiceyhq" data-yhqid="{{item.id}}">
       <view class="yhq_left">
         <view class="yhqmoney"><text>{{item.money}}</text>元</view>
-        <view class="yhqtype">{{item.type}}</view>
+        <view class="yhqtype">{{item.note}}</view>
       </view>
       <view class="yhq_right">
         <view class="right_txt">
