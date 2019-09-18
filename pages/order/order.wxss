@@ -1,0 +1,217 @@
+/* pages/order/order.wxss */
+page{
+  background: #F2F3F8;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+/* 头部联系人 */
+.top_box{
+  width: 702rpx;
+  height: 160rpx;
+  border-radius: 12rpx;
+  background: #fff;
+  padding: 20rpx 0 29rpx;
+  box-sizing: border-box;
+  margin: 20rpx 0 ;
+}
+.top_box .user{
+  padding-left: 21rpx;
+  padding-right: 61rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #333333;
+  display: flex;
+  justify-content: space-between;
+}
+.top_box .useraddress{
+  display: flex;
+  padding: 0 72rpx 0 25rpx;
+  box-sizing: border-box;
+  position: relative;
+  margin-top: 6rpx;
+}
+.top_box .useraddress .addressimg{
+  width: 30rpx;
+  height: 39rpx;
+}
+.top_box .useraddress view{
+  width: 566rpx;
+  font-size: 28rpx;
+  color: #333333;
+  margin-left: 11rpx;
+}
+.top_box .useraddress .youjiantou{
+  width: 9rpx;
+  height: 16rpx;
+  position: absolute;
+  top: 14rpx;
+  right: 20rpx;
+}
+/* 店铺产品 */
+.shop{
+  width: 704rpx;
+  height: 552rpx;
+  padding: 29rpx 20rpx 46rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.shop .shopname{
+  font-size: 28rpx;
+  color: #333333; 
+  margin-bottom: 40rpx;
+}
+.shop .productbox{
+  display: flex;
+  margin-bottom: 68rpx;
+}
+.shop .productbox image{
+  width: 118rpx;
+  height: 118rpx;
+  margin-right: 21rpx;
+}
+.shop .productbox  .productright{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.shop .productbox  .productright .productname{
+  font-size: 28rpx;
+  color: #333333;
+}
+.shop .productbox  .productright .text{
+  font-size: 24rpx;
+  color: #808080;
+}
+.shop .productbox  .productright .bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.shop .productbox  .productright .bottom .money{
+  color: #029a47;
+  font-size: 28rpx;
+}
+.shop .productbox  .productright .bottom  .number{
+  font-size: 26rpx;
+  color: #333333;
+}
+.shop .message{
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin-bottom: 50rpx;
+  align-items: center;
+}
+.shop .message .title{
+  color: #333333;
+}
+.shop .message input{
+  color: #808080;
+  width: 222rpx;
+}
+.shop .money{
+  font-size: 28rpx;
+  color: #029a47;
+  text-align: right;
+  font-weight: bold;
+}
+/* 协议 */
+.agreement{
+  width: 695rpx;
+  margin-top: 21rpx;
+}
+.agreement .selection{
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0 44rpx;
+}
+.agreement .selection image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.agreement .selection view{
+  font-size: 28rpx;
+  color: #333333;
+}
+.agreement .selection view text{
+  color: #029a47;
+}
+.agreementcontent{
+  font-size: 24rpx;
+  color: #808080;
+}
+.agreementcontent view{
+  line-height: 37rpx;
+}
+.paymode{
+  color: #808080;
+  font-size: 24rpx;
+  margin-left: 11rpx;
+  margin-bottom: 19rpx;
+  margin-top: 44rpx;
+}
+/* 支付方式 */
+.pay_box{
+  height: 88rpx;
+  padding-left: 24rpx;
+  padding-right: 23rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  width: 100%;
+}
+.pay_box .left{
+  display: flex;
+  align-items: center;
+}
+.pay_box .left image{
+  width: 37rpx;
+  height: 30rpx;
+  margin-right: 19rpx;
+}
+.pay_box .left .pay{
+  color: #24b71a;
+  font-size: 28rpx;
+}
+.pay_box  .border{
+  width: 38rpx;
+  height: 39rpx;
+  border-radius: 50%;
+  /* border: 2rpx solid #7f7f7f; */
+}
+/* 付款 */
+.payfor_btn{
+  display: flex;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  margin-top: 13rpx;
+}
+.payfor_btn .list{
+  flex: 1;
+  padding: 0 21rpx 0 23rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #333333;
+  font-size: 28rpx;
+}
+.payfor_btn .list .allmoney text{
+  color: #029a47;
+}
+.payfor_btn .pay_btn{
+  width: 248rpx;
+  text-align: center;
+  line-height: 120rpx;
+  color: #fff;
+  font-size: 34rpx;
+  background: #029a47;
+}

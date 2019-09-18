@@ -1,0 +1,61 @@
+/* pages/feedback/feedback.wxss */
+page{
+  background: #F2F3F8;
+}
+.box{
+  padding: 20rpx 25rpx;
+  font-size: 28rpx;
+  color: #878787;
+}
+
+.box1{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 25rpx;
+  background: #fff;
+  border-radius: 17rpx;
+}
+.jiantou{
+  height: 9rpx;
+  width: 16rpx;
+}
+input{
+  background: #fff;
+  height: 75rpx;
+  border-radius: 17rpx;
+  padding: 0 25rpx;
+}
+textarea{
+  background: #fff;
+  height: 350rpx;
+  width: 650rpx;
+  border-radius: 17rpx;
+  padding: 15rpx 25rpx;
+  margin: 26rpx 0;
+}
+
+.imglist{
+  padding: 15rpx 25rpx;
+  border-radius: 17rpx;
+  background: #fff;
+}
+.addimg{
+  height: 132rpx;
+  width: 132rpx;
+  margin: 60rpx 0;
+}
+.btnbox{
+  text-align: center;
+  margin-top: 60rpx;
+}
+.btn{
+  height: 88rpx;
+  width: 570rpx;
+  display: inline-block;
+  border-radius: 15rpx;
+  line-height: 88rpx;
+  background: #029a47;
+  color: #fff;
+  font-size: 32rpx;
+}

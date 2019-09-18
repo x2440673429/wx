@@ -1,0 +1,39 @@
+<!--pages/assemble/assemble.wxml-->
+<!-- 顶部图片 -->
+<view class="top">
+  <image src="../../image/img/pintuan.png"></image>
+</view>
+<!-- 搜索框 -->
+<view class="big_box">
+  <view class="search_box">
+    <image src="../../image/img/sousuo.png"></image>
+    <input placeholder="输入您当前要搜索的商品" value="{{value}}"></input>
+  </view>
+</view>
+<!-- tab标签页 -->
+<view class="tabnav">
+  <van-tabs active="{{ active }}" bind:change="onChange"  border='ture' color='#029a47' type='line' class='color'>
+    <van-tab title="今日热拼"></van-tab>
+    <van-tab title="推荐榜"></van-tab>
+    <van-tab title="省钱美护"></van-tab>
+    <van-tab title="居家好物"></van-tab>
+  </van-tabs>
+</view>
+<!-- 产品 -->
+<view class="product_box">
+  <view class="product" wx:for='{{productinof}}' wx:key='{{index}}'>
+    <image src="{{item.image}}"></image>
+    <view class="product_txt">
+      <view class="name">{{item.name}}</view>
+      <view class="text">{{item.text}}</view>
+      <view class="towgroup">2人团</view>
+      <view class="assemble_box">
+        <view class="Price">
+          <view class="money">￥{{item.money}}</view>
+          <view class="onemoney">单买价￥{{item.onemoney}}</view>
+        </view>
+        <view class="goassemble" catchtap="goingtothepuzzle">去拼团</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<view class="box">
+
+  <view class="box1">
+    <view class="cell1">收货人： <text>韩韩</text></view>
+    <view class="cell1">联系电话： <text>13666666666</text></view>
+    <view class="cell1">收货地址： <text>福建 厦门 湖里 经度科技</text></view>
+    <view class="box2">
+     <view class="leftcell">
+      <image src="../../image/img/sheweimoren.png"></image>
+      <text>设为默认</text>
+     </view>
+     <view class="rightcell">
+        <view class="del">删除</view>
+        <view class="bianji">编辑</view>
+     </view>
+  </view>
+  </view>
+
+
+  
+</view>
+
+<view class="btmbox" catchtap="addaddress">
+  <view class="btm">添加收货地址</view>
+</view>

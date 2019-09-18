@@ -1,0 +1,10 @@
+<!--pages/setfocus/setfocus.wxml-->
+<view class="setfocus" catchtap="clearcache">
+  <view class="ClearCache" >清楚缓存</view>
+  <view class="number">{{number}}</view>
+</view>
+<view class="setfocus">
+  <view class="ClearCache">当前版本</view>
+  <view class="number">{{edition}}</view>
+</view>
+<view class="signout" catchtap="signout"><navigator open-type="exit" target="miniProgram">退出登录</navigator></view>

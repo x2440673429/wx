@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "扶贫众筹",
+  "usingComponents": {
+    "van-tab": "/vant/dist/tab/index",
+    "van-tabs": "/vant/dist/tabs/index",
+    "van-popup": "/vant/dist/popup/index",
+    "van-stepper": "/vant/dist/stepper/index"
+  }
+}

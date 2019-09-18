@@ -1,0 +1,59 @@
+/* pages/myteam/myteam.wxss */
+page{
+  background: #F2F3F8;
+}
+.oneofteam{
+  width: 100%;
+  height:   154rpx;
+  padding: 28rpx 25rpx 25rpx 23rpx;
+  box-sizing: border-box;
+  background: #fff;
+  display: flex;
+  border-bottom:  1rpx solid rgb(240, 240, 240);
+}
+.oneofteam .head{
+  width: 101rpx;
+  height: 101rpx;
+  margin-right: 28rpx;
+}
+.oneofteam .contact{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #333;
+}
+/* 手机微信人头图片大小 */
+.oneofteam .contact image{
+  width: 31rpx;
+  height: 31rpx;
+  margin-right: 22rpx;
+}
+.oneofteam .contact .phone_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.oneofteam .contact .phone_box .team_name{
+  display: flex;
+  align-items: center;
+}
+.oneofteam .contact .wx_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.oneofteam .contact .phone_box .team_phone{
+  display: flex;
+  align-items: center;
+}
+.oneofteam .contact .wx_box .team_wx{
+  display: flex;
+  align-items: center;
+}
+.oneofteam .contact .wx_box .team_wx image{
+  margin-right: 12rpx;
+}
+.oneofteam .contact .wx_box .time{
+  color: #8b8b8b;
+}

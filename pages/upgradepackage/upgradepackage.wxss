@@ -1,0 +1,62 @@
+/* pages/upgradepackage/upgradepackage.wxss */
+page{
+    background: #F2F3F8;
+}
+/* 头部图片 */
+.top{
+  width: 100%;
+  height: 353rpx;
+}
+.top image{
+  width: 100%;
+  height: 100%;
+}
+/* 产品 */
+.product{
+  width: 100%;
+  height: 272rpx;
+  padding: 30rpx  26rpx 36rpx 22rpx;
+  box-sizing: border-box;
+  background: #fff;
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.product image{
+  width: 206rpx;
+  height: 206rpx;
+  margin-right: 44rpx;
+}
+.product .product_txt{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product .product_txt .name{
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+.product .product_txt  .text{
+  width: 393rpx;
+  font-size: 20rpx;
+  color: #4d4d4d;
+  margin-top: 5rpx;
+}
+.product .product_txt .bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.product .product_txt .bottom .money{
+  color: #029a47;
+  font-size: 34rpx;
+}
+.product .product_txt .bottom .shopping{
+  width: 164rpx;
+  height: 50rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background: #029a47;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+}

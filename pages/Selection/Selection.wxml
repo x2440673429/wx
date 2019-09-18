@@ -1,0 +1,58 @@
+<!--pages/Selection/Selection.wxml-->
+<!-- 顶部图片 -->
+<view class="top">
+  <image src="../../image/1首页/kanjia@2x.png"></image>
+</view>
+<!-- 正在进行中 -->
+<view class="inprogress">
+  <view class="small"></view>
+  <view class="normal"></view>
+  <view class="big"></view>
+  <view>正在进心中</view>
+  <view class="big"></view>
+  <view class="normal"></view>
+  <view class="small"></view>
+</view>
+<view class="product_box">
+  <view class="product" wx:for='{{productinof}}' wx:key='{{index}}'>
+    <image src="{{item.image}}"></image>
+    <view class="product_txt">
+      <view class="name">{{item.name}}</view>
+      <view class="text">{{item.text}}</view>
+      <view class="Chop">以砍<text>{{199}}</text>元</view>
+      <view class="send">
+          <!-- 剩余时间 -->
+        <view class="remainingtime">
+          <text class="time">{{11}}</text>
+          <text>：</text>
+          <text class="time">{{22}}</text>
+          <text>：</text>
+          <text class="time">{{33}}</text>
+          <text class="end">后结束</text>
+        </view>
+        <text class="click" catchtap="getproduct">继续砍价</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 产品 -->
+
+<view class="product_box">
+  <view class="product" wx:for='{{productinof}}' wx:key='{{index}}'>
+    <image src="{{item.image}}"></image>
+    <view class="product_txt">
+      <view>
+        <view class="name">{{item.name}}</view>
+        <view class="text">{{item.text}}</view>
+      </view>
+      <view class="send">
+        <view>
+          已送出<text class="number">{{item.number}}万</text>件
+        </view>
+        <text class="click" catchtap="getproduct">点击免费拿</text>
+      </view>
+    </view>
+  </view>
+</view>
+

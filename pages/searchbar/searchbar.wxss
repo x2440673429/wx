@@ -1,0 +1,120 @@
+/* pages/searchbar/searchbar.wxss */
+.toptit{
+  display: flex;
+  font-size: 26rpx;
+  align-items: center;
+  background: #f2f3f8;
+  border-radius: 50rpx;
+  width: 35vw;
+  height: 30px; 
+  /* 总高44px */
+  padding: 0 20px;
+  margin-top: 7px;
+}
+.topimg{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+
+/* 标签页 */
+.tab{
+  margin-top: 64px;
+}
+.tab .left_box{
+  width: 181rpx;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  background: #F2F3F8;
+}
+.name{
+  height: 85rpx;
+  font-size: 26rpx;
+  color: #2a2a2a;
+  text-align: center;
+  line-height: 85rpx;
+}
+.bor{
+  background: #fff;
+  border-left: 5rpx solid #029a47;
+  color: #029a47;
+}
+/* 右边内容 */
+.content_box{
+  position: absolute;
+  top: 64px;
+  left: 181rpx;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+.content_box .content_title{
+  height: 85rpx;
+  padding: 0 24rpx 12rpx 14rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid  #e5e5e5;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 20rpx;
+}
+.content_box .content_title .title{
+  color: #1d1d1d;
+}
+.content_box .content_title .hot{
+  color: #029a47;
+}
+.content_box .content_title .hot image{
+  width: 9rpx;
+  height: 16rpx;
+}
+.content_box .product_box{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.content_box .product_box .product{
+  width: 30%;
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-between;
+  margin: 20rpx 10rpx;
+}
+.content_box .product_box .product image{
+  width: 100%;
+  height: 120rpx;
+}
+.content_box .product_box .product .product_name{
+  width: 100%;
+  text-align: center;
+  font-size: 20rpx;
+  color: #1d1d1d;
+  margin-top: 5rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* 优质产地样式 */
+.content_box .citybox{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.city{
+  width: 25%;
+  height: 95rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d1d1d;
+  font-size: 24rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}

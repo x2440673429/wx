@@ -1,0 +1,21 @@
+<!--pages/browserecords/browserecords.wxml-->
+<view class="browserecords" wx:for='{{browserecords}}' wx:key='{{index}}'>
+<view class="data">{{item.data}}</view>
+    
+  <view class="product" wx:for='{{item.product}}' wx:key='{{id}}' wx:for-item='product' wx:for-index='id'>
+  <image src="{{product.display?'../../image/4我的/xuanzhong@2x.png':'../../image/4我的/weixuanzhong@2x.png'}}" class="isselect" wx:if='{{edit}}' bindtap="select" data-idx="{{id}}" data-index="{{index}}"></image>
+    <image src="../../image/4我的/xiaotuop@2x.png" class="product_img"></image>
+    <view class="product_box">
+      <view class="productname">{{product.productname}}</view>
+      <view class="money">￥{{product.money}}</view>
+    </view>
+  </view>
+</view>
+<view class="selectall" wx:if='{{edit}}'>
+  <view class="selectright" catchtap="selectallbtm">
+    <image src="{{selectAll? '../../image/4我的/xuanzhong@2x.png':'../../image/4我的/weixuanzhong@2x.png'}}" class="select"></image>
+    <view>全选</view>
+  </view>
+  <view class="del">删除</view>
+</view>
+<view class="edit" catchtap="isedit">{{editName}}</view>

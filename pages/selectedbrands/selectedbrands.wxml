@@ -1,0 +1,39 @@
+<!--pages/selectedbrands/selectedbrands.wxml-->
+<!-- 头部搜索 -->
+<view class="top">
+  <view class='search_box'>
+    <image src="../../image/1首页/sousuo.png"></image>
+    <input placeholder="输入您当前要搜索的商品"></input>
+  </view>
+</view>
+<!-- 品牌 -->
+<view class="brand">
+  <image src="{{top_info.pic}}"></image>
+  <view class="brandbox">
+    <view class="brandname">{{top_info.brand_name}}</view>
+    <view class="number">在售商品{{total}}件</view>
+  </view>
+</view>
+<!-- 品牌在售产品 -->
+<view class="product_box" wx:for='{{product}}' wx:key='{{index}}'>
+  <image src="{{item.pic}}"></image>
+  <view class="product">
+    <view>
+      <view class="productname">{{item.title}}</view>
+      <view class="text">{{item.short_title}}</view>
+    </view>
+    <view>
+      <view class="box"><text class="temai" wx:for='{{item.customer_tag}}' wx:key='{{index}}' wx:for-item='tag'>{{tag}}</text></view>
+      <view class="big_box">
+        <view class="Price">
+          <view class="money">￥{{item.price}}</view>
+          <view class="addmoney">赚￥{{item.profit}}</view>
+        </view>
+        <view class="botton">
+          <text class="quick">马上抢</text>
+          <text class="share">分享赚</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

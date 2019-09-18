@@ -1,0 +1,118 @@
+/* pages/assemble/assemble.wxss */
+page{
+   background: #F2F3F8;
+}
+/* 甄选拼团 */
+.top{
+  width: 100%;
+  height: 353rpx;
+}
+.top image{
+  width: 100%;
+  height: 100%;
+}
+/* 搜索框 */
+.big_box{
+  width: 100%;
+  background: #fff;
+  padding-top: 32rpx;
+  display: flex;
+  justify-content: center;
+}
+.search_box{
+  width: 560rpx;
+  height: 63rpx;
+  border-radius: 50rpx;
+  padding-left: 121rpx;
+  background: #e5e5e5;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.search_box image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 11rpx;
+}
+.search_box input{
+  color: #999;
+  font-size: 26rpx;
+}
+/* tab标签页 */
+.tabnav{
+  width: 100%;
+}
+/* 产品 */
+.product_box{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.product_box .product{
+  width: 703rpx;
+  height: 263rpx;
+  padding: 24rpx 24rpx 34rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+.product_box .product image{
+  width: 206rpx;
+  height: 206rpx;
+  margin-right: 44rpx;
+}
+.product_box .product .product_txt{
+  flex: 1;
+  font-size: 24rpx;
+}
+.product_box .product .product_txt .name{
+    font-size: 28rpx;
+    color: #1a1a1a;
+} 
+.product_box .product .product_txt .text{
+  font-size: 20rpx;
+  color: #4d4d4d;
+  width: 393rpx;
+  height: 49rpx;
+  line-height: 27rpx;
+  margin: 14rpx 0;
+}
+/* 2人团 */
+.product_box .product .product_txt .towgroup{
+  width: 65rpx;
+  height: 25rpx;
+  background: #f8d6d5;
+  text-align: center;
+  line-height: 25rpx;
+  color: #e2696b;
+  margin-bottom: 20rpx;
+}
+/* 价格和拼团按钮 */
+.product_box .product .product_txt .assemble_box{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.product_box .product .product_txt .assemble_box .Price{
+  display: flex;
+  flex-direction: column;
+}
+.product_box .product .product_txt .assemble_box .Price .money{
+  color: #029a47;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.product_box .product .product_txt .assemble_box .Price .onemoney{
+  color: #b4b4b4;
+}
+.product_box .product .product_txt .assemble_box .goassemble{
+  width: 120rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
+  background: #029a47;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+}

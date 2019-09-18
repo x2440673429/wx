@@ -1,0 +1,113 @@
+<!--pages/details/details.wxml-->
+<view class="img">
+  <image src="{{img}}"></image>
+</view>
+<!-- 商品价格名称等 -->
+<view class="shop_box">
+  <view class="shop_left">
+    <view class="shopname">{{shopname}}</view>
+    <view class="text">{{text}}</view>
+    <view class="money">￥{{money}}<text class="oldmoney">￥{{oldmoney}}</text><text class="Stock">库存:{{number}}</text></view>
+  </view>
+  <view  class="shop_right">
+  <image src="../../image/img/fenxiang.png"></image>
+  <text>分享</text>
+  </view>
+</view>
+<!-- 更多拼团活动 -->
+<view class="addassemble">
+  <view>TA们正在拼，直接加入成团</view>
+  <view class="moreassemble">更多拼团活动
+  <image src="../../image/img/youjiantou.png"></image>
+  </view>
+</view>
+<!-- 谁的拼团队伍 -->
+<view class="whogroup_box">
+  <view class="whogroup">
+      <view class="assembleimg">
+          <image src="../../image/img/xiaotouxiang.png"></image>
+      </view>
+      <view class="assemblename">{{assemblename}}的团<text>只差{{number}}人</text></view>
+  </view>
+  <view class="quick">快速成团</view>
+</view>
+<view class="addassemble">
+  <view class="assemble">拼团<text class="towgroup">2人团</text></view>
+  <view class="moreassemble">拼团规则
+    <image src="../../image/img/youjiantou.png"></image>
+  </view>
+</view>
+<!-- 地址 -->
+<view class="addassemble">
+  <view class="assemble">送至<text class="towgroup">{{address}}</text></view>
+  <image src="../../image/img/youjiantou.png"></image>
+</view>
+<!-- 退货 产品保证等 -->
+<view class="performance_box">
+  <view class="performance">
+    <image src="../../image/img/duigou.png"></image>
+    <text>极速退款</text>
+  </view>
+  <view class="performance">
+    <image src="../../image/img/duigou.png"></image>
+    <text>正品保证</text>
+  </view>
+  <view class="performance">
+    <image src="../../image/img/duigou.png"></image>
+    <text>七天无条件退款</text>
+  </view>
+</view>
+<!-- 商品详情 -->
+<view class="shopdetails">
+  <text>商品详情</text>
+  <image src="../../image/3发现/banner@2x.png"></image>
+</view>
+<!-- 商品导航 -->
+<view class="shopnav">
+  <view class="shopandsc">
+    <image src="../../image/img/dianpu.png"></image>
+    <text>店铺</text>
+  </view>
+  <view class="shopandsc">
+    <image src="../../image/img/sc.png"></image>
+    <text>收藏</text>
+  </view>
+  <view class="savemoney" catchtap="selfpurchase" data-pay="1">
+    <view>￥99</view>
+    <text>自购省￥15</text>
+  </view>
+  <view class="savemoney opengroup" data-pay="2"  catchtap="selfpurchase">
+   <view>￥69.9</view>
+    <text>开团剩￥15</text>
+  </view>
+</view>
+<van-popup
+  show='{{ show }}'
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+  close-on-click-overlay='true'
+  safe-area-inset-bottom='true'
+  safe-area-inset-top='true'
+  custom-style='overflow:visible'
+>
+ <view>
+  <view class="big_box">
+ 
+      <view class="top">
+        <image src="{{img}}" class="product_img"></image>
+        <view class="money">￥{{money}}<text>￥{{oldmoney}}</text></view>
+        <image src="../../image/img/cha.png" class="cha" catchtap="onClose"></image>
+      </view>
+      <view class="bottom">
+        <view class="left">数量:</view>
+        <view class="specifications">
+          <view class="jian" catchtap="jian">-</view>
+          <input  class="number" value="{{num}}" bindinput='handleInput'></input>
+          <view class="jia" catchtap="jia">+</view>
+        </view>
+      </view>
+      <view class="payopen">{{pay}}</view>
+  </view>
+  </view>
+</van-popup>

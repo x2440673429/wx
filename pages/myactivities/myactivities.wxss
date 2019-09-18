@@ -1,0 +1,44 @@
+/* pages/myactivities/myactivities.wxss */
+page{
+  background: #F2F3F8;
+}
+.leftactivity{
+  width: 702rpx;
+  height: 200rpx;
+  position: relative;
+  margin: auto;
+  margin-top: 20rpx;
+}
+.leftactivity image{
+  width: 100%;
+  height: 100%;
+}
+.leftactivity  view{
+  font-size: 50rpx;
+  color: #ffffff;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  margin-top: -38rpx;
+  left: 66rpx;
+}
+.rightactivity{
+    width: 702rpx;
+  height: 200rpx;
+  position: relative;
+  margin: auto;
+  margin-top: 20rpx;
+}
+.rightactivity image{
+  width: 100%;
+  height: 100%;
+}
+.rightactivity  view{
+  font-size: 50rpx;
+  color: #ffffff;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  margin-top: -38rpx;
+  right: 71rpx;
+}

@@ -1,0 +1,205 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<!-- 头部搜索框 -->
+<van-nav-bar
+  left-text=""
+  right-text=""
+  fixed
+  bind:click-left="onClickLeft"
+  safe-area-inset-top
+  border="{{false}}"
+>
+  <view slot="left" class="topleft">
+    <image src="../../image/img/xiaoxi.png"></image>
+    消息
+  </view>
+  <view slot="title"  class="toptit" catchtap="search">
+    <image src="../../image/img/sousuo.png" class='topimg'></image>
+    <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品"  />
+  </view> 
+</van-nav-bar>
+<!-- Tab标签页 -->
+<view class="tabpage">
+  <van-tabs active="{{ active }}" bind:change="onChange" color='#029a47' class='color'>
+    <van-tab title="推荐" data-column='column1'>
+    <!-- 推荐 -->
+    <!-- 轮播图 -->
+      <view class="swiper-box">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+          <block wx:for="{{image}}" wx:key="{{index}}">
+            <swiper-item>
+              <image src="{{item.img_id}}" class="slide_image" />
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class="dots"> 
+            <block wx:for="{{image}}" wx:key="{{index}}"> 
+              <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view> 
+            </block> 
+          </view>
+      </view>
+      <!--  新人特惠等  -->
+      <view class="nav">
+        <view class="oneof" wx:for='{{nav}}' wx:key='{{index}}' catchtap="getnav" data-index="{{index}}">
+          <image src="{{item.img}}"></image>
+          <view>{{item.title}}</view>
+        </view>
+      </view>
+      <!-- 热卖店铺等 -->
+      <view class="storename">
+        <view class="storename_box {{index==2?'pink':''}} {{index==3?'bluew':''}}"  wx:for='{{shop}}' wx:key='{{index}}' catchtap="getshop" data-index="{{index}}">
+          <view class="storetitle">{{item.title}}</view>
+          <view class="storetxt">{{item.content}}</view>
+          <image src="{{item.img}}"></image>
+        </view>
+      </view>
+      <!-- 抢购时间 -->
+      <view class="limitedtime" >
+        <view class="all">
+          <view class="time_box" wx:for='{{limitedtime}}' wx:key='{{index}}' catchtap="flashsale"  data-timeid="{{item.time_id}}">
+            <view class="time {{item.is_select==1?'timecolor':''}}">{{item.point_time}}</view>
+            <view class="title {{item.is_select==1?'bor timecolor':''}}">{{item.is_sale==0?'预热中':'抢购中'}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 产品 -->
+      <view class="product_less">
+        <view class="product_box" wx:for='{{limitedproduct}}' wx:key='{{index}}'>
+          <image src="{{item.pic}}"></image>
+          <view class="product">
+            <view class="productname">{{item.title}}</view>
+            <view class="text">{{item.short_title}}</view>
+            <view class="box"><text wx:for='{{item.customer_tag}}' wx:key='{{index}}' wx:for-item='tag'>{{tag}}</text></view>
+            <view class="big_box">
+              <view class="Price">
+                <view class="money">￥{{item.price}}</view>
+                <view class="addmoney">赚￥{{item.profit}}</view>
+              </view>
+              <view class="botton">
+                <text class="quick">马上抢</text>
+                <text class="share">分享赚</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="lookatall" catchtap="getall">查看全部
+          <image src="../../image/img/youjiantou.png"></image>
+        </view>
+      </view>
+        <!-- 热销 -->
+      <view class="sellwell_box">
+        <view class="sellwell">热销 </view>
+        <view class="sellwellproduct" wx:for='{{sellwellbox}}' wx:key='{{index}}'>
+          <image class="sellwelltitleimg" src='{{item.ad}}'></image>
+          <view class="sellwellintroduce" wx:for='{{item.list}}' wx:key='{{index}}' wx:for-item='sellwell' catchtap="getproductdetails" data-id="{{sellwell.id}}">
+            <image class="product_img" src="{{sellwell.pic}}"></image>
+            <view class="product_right">
+              <view class="producttitle">{{sellwell.title}}</view>
+              <view class="producttxt">{{sellwell.short_title}}</view>
+              <view class="tag">
+                <view class="weight" wx:for='{{sellwell.customer_tag}}' wx:key='{{index}}' wx:for-item='tag'>{{tag}}</view>
+              </view>
+              <view class="product_bottom">
+                <view class="sellwellmoney">￥{{sellwell.price}}<text>￥{{sellwell.original_price}}</text></view>
+                <image src="../../image/img/tianjia.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!--购物车-->
+      <view class="gouwuche" catchtap="theshoppingcart">
+        <image src="../../image/img/gwc.png"></image>
+        <view wx:if='{{carisShow>0?true:false}}'>{{carisShow}}</view>
+      </view>
+
+    </van-tab>
+    <van-tab title="精准扶农">
+    <!-- 精准扶农 -->
+    <!-- 轮播图 -->
+      <view class="swiper_box">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+          <block wx:for="{{image}}" wx:key="{{index}}">
+            <swiper-item>
+              <image src="{{item.img_id}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+        <view class="dots"> 
+            <block wx:for="{{image}}" wx:key="{{index}}"> 
+              <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view> 
+            </block> 
+          </view>
+      </view> 
+    <!-- Tab标签页 -->
+    <van-tabs active="{{ active1 }}" color='#029a47' class='color' bind:change="changePlaceInfo">
+      <van-tab title="{{item.title}}" wx:for='{{addressnva}}' wx:key='{{index}}'></van-tab>
+    </van-tabs>
+      <!-- 地方特色 -->
+     <view class="characteristic">
+      <view class="addresscharacteristic">地方特色扶农</view>
+      <image src="{{activity}}" class="characteristic_img"></image>
+      <view class="both">
+        <view class="left_box" wx:for='{{activitylist}}' wx:key='{{index}}'>
+          <image src="{{item.img_id}}"></image>
+        </view>
+      </view>
+    </view> 
+      <!-- 产品 -->
+       <view class="specialty_box">
+        <view class="specialty" wx:for='{{specialty}}' wx:key='{{index}}'>
+          <view class="address">
+            <view class="tese">特色扶农馆<text>丨{{item.place_name}}</text></view>
+            <image src="../../image/img/guan.png"></image>
+          </view>
+          <image src="{{item.goods_img}}" class="specialty_img"></image>
+          <view class="cityshi">【{{item.place_detail_name}}】</view>
+          <view class="specialtyname">{{item.goods_name}}</view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="振兴乡村"></van-tab>
+    <van-tab title="品质生活"></van-tab>
+  </van-tabs>
+</view>
+<!-- 振兴农村和品质生活 -->
+<view wx:if="{{active>1?true:false}}">
+<!-- 轮播图 -->
+<view class="swiper-box">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperChange">
+    <block wx:for="{{image}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item.img_id}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="dots"> 
+    <block wx:for="{{image}}" wx:key="{{index}}"> 
+      <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view> 
+    </block> 
+  </view>
+</view>
+<!-- 产品 -->
+<view class="product1_bigbox" wx:for='{{product}}' wx:key='{{index}}'>
+  <image src="{{item.goods_class.pic}}" class="type_img"></image>
+  <view class="product1_box">
+    <view class="product1" wx:for-item='items' wx:for='{{item.goods.list}}' wx:key='{{index}}' >
+      <image src="{{items.img}}"></image>
+      <view class="product1_name">{{items.title}}</view>
+      <view class="money">￥{{items.price}}<text>￥{{items.original_price}}</text></view>
+    </view>
+  </view>
+</view>
+</view>

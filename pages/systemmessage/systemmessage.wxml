@@ -1,0 +1,8 @@
+<!--pages/systemmessage/systemmessage.wxml-->
+<view class="systemmessage" wx:for='{{systemmessage}}' wx:key='{{index}}' catchtap="getnews">
+  <view class="message">{{item.message}}</view>
+  <view class="right">
+    <text>{{item.time}}</text>
+    <image src="../../image/img/youjiantou.png"></image>
+  </view>
+</view>

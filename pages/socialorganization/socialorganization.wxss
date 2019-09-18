@@ -1,0 +1,52 @@
+/* pages/socialorganization/socialorganization.wxss */
+page{
+  background: #F2F3F8;
+  padding: 0  26rpx;
+  box-sizing: border-box;
+}
+.title{
+  font-size: 24rpx;
+  color: #878787;
+  margin: 21rpx 0;
+}
+/* 上传证件 */
+.certificates{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 25rpx;
+  box-sizing: border-box;
+}
+.sczj{
+  width: 288rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sczj:nth-child(odd){
+  margin-right: 69rpx;
+}
+.sczj image{
+  width: 100%;
+  height: 170rpx;
+  border-radius: 10rpx;
+}
+.sczj .becareful{
+  font-size: 24rpx;
+  color: #878787;
+  margin: 20rpx 0;
+}
+.sczj .becareful text{
+  color: #029a47;
+}
+/* 提交 */
+.btn{
+  width: 572rpx;
+  height: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+  color: #fff;
+  background: #029a47;
+  font-size: 32rpx;
+  border-radius: 10rpx;
+  margin: 134rpx auto 87rpx; 
+}

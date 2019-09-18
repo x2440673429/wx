@@ -1,0 +1,53 @@
+<!--pages/endorsementcenter/endorsementcenter.wxml-->
+<view class="my_box">
+  <image src="../../image/4我的/morenxiaotouxiang@2x.png" class="head"></image>
+  <view class="endorsement">
+    <image src="../../image/img/dengjikuang.png"></image>
+    <view class="firstlevel">一级代言</view>
+  </view>
+  <view class="rule" catchtap="getrule">规则</view>
+</view>
+<!-- 提现 -->
+<view class="Cash_box">
+  <view class="Cash">
+    <view class="money">{{money}}</view>
+    <view class="yes">可提现收益</view>
+  </view>
+  <view class="tixian" catchtap="gotixian">提现</view>
+</view>
+<!-- 团队 -->
+<view class="number_box">
+  <view class="team"> 
+    <view class="number">{{number1}}</view>
+    <view class="teamnumber">团队人数</view>
+  </view>
+  <view  class="team">
+    <view class="number">{{number2}}</view>
+    <view class="teamnumber">间推人数</view>
+  </view>
+  <view class="bor"></view>
+  <image src="../../image/img/youjiantou.png"></image>
+</view>
+<!-- 累计收益 -->
+<view class="number_box">
+  <view class="team"> 
+    <view class="number">{{money1}}</view>
+    <view class="teamnumber">累计收益</view>
+  </view>
+  <view  class="team">
+    <view class="number">{{money2}}</view>
+    <view class="teamnumber">今日收益</view>
+  </view>
+  <view class="bor"></view>
+ <image src="../../image/img/youjiantou.png"></image>
+</view>
+<!-- 分享按钮 -->
+<view class="share" catchtap="gotoshare">我要分享</view>
+<!-- 规则弹框 -->
+<van-popup show="{{ show }}" bind:close="onClose" custom-class='der'>
+  <view class="rule_box">
+    <view class="title">规则</view>
+    <view class="content">规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容</view>
+    <image src="../../image/img/cha.png" catchtap="onClose"></image>
+  </view>
+</van-popup>

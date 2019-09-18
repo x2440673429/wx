@@ -1,0 +1,11 @@
+
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item title="{{item[0]}}" name="{{index}}" wx:for='{{list}}'  wx:key='{{index}}'>
+    {{item[1]}}
+  </van-collapse-item>
+</van-collapse>
+
+<view class="kefu">  
+  <view>联系客服</view>
+  <image src="../../image/img/youjiantou.png" class="jiantou"></image>
+</view>

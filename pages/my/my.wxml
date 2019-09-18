@@ -1,0 +1,55 @@
+<!--pages/my/my.wxml-->
+
+<!-- 顶部 -->
+<view class="my_top" catchtap="getmyinfo">
+  <image src="../../image/img/touxiang.png" class="touxiang"></image>
+  <view class="myinfo">
+    <view class="myinfo_box">
+      <view class="nickname">{{nickname}}</view>
+      <view class="members">  
+        <image src="../../image/img/dengji.png"></image>
+        <view>您还不是VIP会员</view>
+      </view>
+    </view>
+    <image src="../../image/img/baiseyoujiantou.png"></image>
+  </view>
+</view>
+<!-- 账户余额 -->
+<view class="balance_box">
+  <view class="economics" catchtap="getbalance">
+    <view class="balance">{{balance}}<text>元</text></view>
+    <view class="mybalance">我的余额</view>
+  </view>
+  <view class="bor"></view>
+  <view class="economics" catchtap="getyhj">
+    <view class="balance">{{number}}<text>张</text></view>
+    <view  class="mybalance">我的优惠券</view>
+  </view>
+</view>
+<!-- 购物详情 -->
+<view class="Shopping">
+  <view class="Shopping_top">
+    <view class="step" catchtap="order" wx:for='{{order}}' wx:key='{{index}}' data-number="{{index}}">
+      <image src="{{item.img}}"></image>
+      <view>{{item.title}}</view>
+    </view>
+  </view>
+  <image src="../../image/img/yaoqingsonghaoli.png" class="invitation" catchtap="getgift"></image>
+</view>
+<!-- 我的浏览记录等 -->
+<view class="function">
+  <view class="one_box" wx:for='{{items}}' wx:key='{{index}}' catchtap='gotopage' data-item="{{item}}">
+    <image src="{{item.img}}"></image>
+    <view>{{item.title}}</view>
+  </view>
+</view>
+<!-- 设置、系统消息等功能 -->
+<view class="system_box">
+  <view class="onefunction" wx:for='{{item2}}' wx:key='{{index}}' data-item="{{item}}" catchtap="getinfo" >
+    <view class="system">
+      <image src="{{item.img}}"></image>
+      <view>{{item.title}}</view>
+    </view>
+    <image src="../../image/img/youjiantou.png" class="youjiantou"></image>
+  </view>
+</view>

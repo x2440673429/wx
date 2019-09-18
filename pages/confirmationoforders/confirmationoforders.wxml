@@ -1,0 +1,68 @@
+<!--pages/confirmationoforders/confirmationoforders.wxml-->
+<!-- 头部联系人 -->
+<view class="top_box" catchtap="getaddress">
+  <view class="user">
+    <view >收货人：{{username}}</view>
+    <view>{{phone}}</view>
+  </view>
+  <view class="useraddress">
+    <image src="../../image/img/dz.png" class="addressimg"></image>
+    <view>{{address}}</view>
+    <image src="../../image/img/youjiantou.png" class="youjiantou"></image>
+  </view>
+</view>
+<!-- 店铺产品 -->
+<view class="shop">
+  <view class="shopname">{{store_name}}</view>
+  <view class="productbox">
+    <image src="{{shop.pic}}"></image>
+    <view class="productright">
+      <view class="productname">{{shop.title}}</view>
+      <view class="text">{{shop.attr_name}}</view>
+      <view class="bottom">
+        <view class="moneyone">￥{{shop.price}}</view>
+        <view class="number">x{{item.number}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="message">
+    <view class="title">买家留言</view>
+    <input placeholder="填写买家留言信息" value="{{value}}" bindinput="txt"></input>
+  </view>
+  <view class="message">
+    <view  class="title">配送方式</view>
+    <view  class="title">{{item.mode}}</view>
+  </view>
+  <text class="money" decode="{{true}}" space="{{true}}">{{calculate_info}}</text>
+  <view class="message youhui">
+    <view  class="title">优惠劵</view>
+    <view  class="title title1">
+    有{{coupon_num}}个可用
+    <image src="../../image/img/youjiantou.png"></image>
+    </view>
+  </view>
+</view>
+<!-- 支付方式 -->
+<view class="paymentmethod">支付方式</view>
+<view class="pay_box" catchtap="payfor">
+  <view class="left">
+    <image src="../../image/img/weixinzhifu.png"></image>
+    <view class="pay">微信支付</view>
+  </view>
+  <image class="border" src="{{wxpay==true?'../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}}"></image>
+</view>
+<view class="pay_box"  catchtap="payfor">
+  <view class="left">
+    <image src="../../image/img/yuezhifu.png"></image>
+    <view class="pay">余额</view>
+  </view>
+  <image class="border" src="{{balance==true?'../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}}"></image>
+</view>
+<!-- 支付 -->
+<view class="payfor_btn">
+  <view class="list">
+    <view class="num">共{{allnumber}}件</view>
+    <view class="allmoney">合计:<text>￥{{allmoney}}</text></view>
+  </view>
+  <view class="pay_btn">付款</view>
+</view>

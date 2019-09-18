@@ -1,0 +1,123 @@
+/* pages/preferentialoffer/preferentialoffer.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(left,#FE4935,#FC8235);
+}
+/* 头部图片 */
+.top{
+  width: 100%;
+  height: 496rpx;
+}
+.top image{
+  width: 100%;
+  height: 496rpx;
+}
+/* 专享优惠券框 */
+.discount_box{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.discount_box .discount_bor{
+  width: 711rpx;
+  border: 12rpx solid #fddb8e;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 35rpx;
+}
+/* 优惠券标题 */
+.discount_box .discount_bor .discount_title{
+  margin: 60rpx 0 36rpx 0; 
+  font-weight: 100;
+  font-size: 42rpx;
+  color: #f94c2b;
+}
+.discount_box .discount_bor .discount_title image{
+  width: 21rpx;
+  height: 19rpx;
+}
+/* 优惠券内容 */
+.discount_box .discount_bor .Coupon{
+    width: 650rpx;
+    height: 180rpx;
+    border-bottom: 1rpx dotted #dba372;
+    margin-bottom: 23rpx;
+    padding-bottom: 23rpx;
+    display: flex;
+    justify-content: center;
+}
+.Coupon_box{
+  width: 606rpx;
+  height: 180rpx;
+  position: relative;
+}
+.discount_box .discount_bor .Coupon:last-child{
+    border: 0;
+}
+.discount_box .discount_bor .Coupon image{
+  width: 606rpx;
+  height: 180rpx;
+}
+.discount_box .discount_bor .Coupon .Coupon_left{
+  width: 229rpx;
+  height: 180rpx;
+  padding-left: 33rpx;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.discount_box .discount_bor .Coupon .Coupon_left .RMB{
+  font-size: 96rpx;
+  font-weight: bold;
+  background: -webkit-linear-gradient(top,#ffe3a9,#f9f7be);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 96rpx;
+  font-style: Impact;
+}
+.discount_box .discount_bor .Coupon .Coupon_left .RMB text{
+  font-size: 48rpx;
+  font-weight: 100;
+}
+.discount_box .discount_bor .Coupon .Coupon_left .Receive {
+  width: 138rpx;
+  height: 31rpx;
+  background: -webkit-linear-gradient(top,#ffe3a9,#f9f7be);
+  font-size: 26rpx;
+  color: #fe675a;
+  border-radius: 16rpx;
+  text-align: center;
+  line-height: 31rpx;
+}
+.discount_box .discount_bor .Coupon .Coupon_right{
+  /* flex:1; */
+  display: flex;
+  flex-direction: column;
+  
+  color: #808080;
+  font-size: 24rpx;
+  position: absolute;
+  left: 229rpx;
+  top: 0;
+  /* padding: 15rpx 0; */
+  /* padding-top: 30rpx; */
+  justify-content: center;
+  height: 180rpx;
+}
+.discount_box .discount_bor .Coupon .Coupon_right .Coupon_name{
+  font-size: 29rpx;
+  color: #333;
+}
+.discount_box .discount_bor .Coupon .Coupon_right  .time{
+  font-size: 20rpx;
+}

@@ -1,0 +1,53 @@
+/* pages/bindphone/bindphone.wxss */
+page{
+  background: #F2F3F8;
+}
+.box{
+  padding: 20rpx 30rpx;
+  font-size: 28rpx;
+  
+}
+.cell1{
+  padding: 30rpx 35rpx;
+  background: #fff;
+  border-radius: 18rpx;
+  display: flex;
+  align-items: center;
+}
+text{
+  margin-right: 32rpx;
+}
+.cell2{
+  padding: 18rpx 35rpx;
+  background: #fff;
+  border-radius: 18rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.cell3{
+  display: flex;
+}
+.btmcode{
+  color: #fff;
+  background: #029a47;
+  padding: 12rpx;
+  border-radius: 12rpx;
+}
+
+.box2{
+  text-align: center;
+  margin-top: 152rpx;
+}
+.btm2{
+  display: inline-block;
+  height: 88rpx;
+  width: 550rpx;
+  background: #029a47;
+  text-align: center;
+  font-size: 34rpx;
+  color: #fff;
+  line-height: 88rpx;
+  border-radius: 17rpx;
+}

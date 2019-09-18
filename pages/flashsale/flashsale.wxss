@@ -1,0 +1,133 @@
+/* pages/flashsale/flashsale.wxss */
+/* 限时抢购 */
+.top{
+  width: 100%;
+  height: 353rpx;
+}
+.top image{
+  width: 100%;
+  height: 100%;
+}
+/* 抢购时间 */
+.limitedtime{
+  width: 100%;
+  height: 145rpx;
+  overflow-y:scroll; 
+}
+.all{
+ white-space:nowrap;
+ padding-top: 24rpx;
+ box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.limitedtime .time_box{
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  font-size: 40rpx;
+  color: #191919;
+  padding-top: 24tpx;
+}
+.limitedtime .time_box .title{
+  box-sizing: border-box;
+  padding-bottom: 5rpx;
+  font-size: 20rpx;
+}
+.limitedtime .time_box .time{
+  font-weight: bold;
+}
+.timecolor{
+  color: #029a47;
+}
+.bor{
+  border-bottom: 2rpx solid #029a47;
+}
+/* 产品 */
+.product_box{
+  width: 100%;
+  padding: 35rpx 22rpx;
+  display: flex;
+  box-sizing: border-box;
+}
+.product_box image{
+  width: 206rpx;
+  height: 206rpx;
+  margin-right: 44rpx;
+}
+.product_box .product{
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+.product_box .product .productname{
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+.product_box .product  .text{
+  width: 393rpx;
+  font-size: 20rpx;
+  color: #4d4d4d;
+  margin: 14rpx 0;
+}
+.product_box .product .box{
+  display: flex;
+  margin-bottom: 5rpx;
+}
+.product_box .product .box text{
+  width: 50rpx;
+  height: 25rpx;
+  background: #f8d6d5;
+  color: #e2696b;
+  text-align: center;
+  line-height: 25rpx;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+}
+.product_box .product .big_box{
+  display: flex;
+  justify-content: space-between;
+}
+.product_box .product .big_box .Price{
+  display: flex;
+  flex-direction: column;
+}
+.product_box .product .big_box .Price .money{
+  font-size: 34rpx;
+  color: #029a47;
+  font-weight: bold;
+}
+.product_box .product .big_box .Price .addmoney{
+  font-size: 24rpx;
+  color: #b4b4b4;
+}
+.product_box .product .big_box  .botton{
+  display: flex;
+  align-items: flex-end;
+}
+.product_box .product .big_box  .botton .quick{
+  width: 120rpx;
+  height: 50rpx;
+  border: 1rpx solid #029a47;
+  color: #029a47;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  font-size: 24rpx;
+}
+.product_box .product .big_box  .botton .share{
+  width: 120rpx;
+  height: 50rpx;
+  background: #029a47;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+}

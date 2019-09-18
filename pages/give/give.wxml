@@ -1,0 +1,49 @@
+<!--pages/give/give.wxml-->
+<view class="give_box">
+  <view class="give_user">
+    <view class="user_box">
+      <image src="{{userimg}}"></image>
+      <view class="givewho">{{givewho}}</view>
+    </view>
+    <view class="time">{{time}}</view> 
+  </view>
+  <view class="give_product">
+    <image src="{{productimg}}"></image>
+    <view class="product">
+      <view class="productname">{{productname}}</view>
+      <view class="producttxt">{{producttxt}}</view>
+    </view>
+  </view>
+</view>
+<!-- 订单联系人收货地址 -->
+<view class="top_box">
+  <view class="user">
+    <view >收货人：{{username}}</view>
+    <view>{{phone}}</view>
+  </view>
+  <view class="useraddress">
+    <image src="../../image/2分类/dz.png" class="addressimg"></image>
+    <view>{{address}}</view>
+    <image src="../../image/1首页/youjiantou2@2x.png" class="youjiantou"></image>
+  </view>
+</view>
+<!-- 激活按钮 -->
+<view class="btn">激活</view>
+<!-- 为您推荐 -->
+<view class="title_box">
+  <image src="../../image/4我的/weinintuijian@2x.png"></image>
+  <view>为您推荐</view>
+</view>
+<!-- 推荐的产品 -->
+<view class="recommended_box">
+  <view class="recommended" wx:for='{{recommended}}' wx:key='{{index}}'>
+    <view class="recommendedimg">
+      <image src="{{item.recommendedimg}}"></image>
+    </view>
+    <view class="recommended_bottom">
+      <view class="recommendedtitle">{{item.recommendedtitle}}</view>
+      <view class="recommendedtxt">{{item.recommendedtxt}}</view>
+      <view class="recommendedmoney">￥{{item.recommendedmoney}}</view>
+    </view>
+  </view>
+</view>

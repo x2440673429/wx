@@ -1,0 +1,100 @@
+/* pages/assistancewaiver/assistancewaiver.wxss */
+page{
+  background: #F2F3F8;
+  padding-bottom: 25rpx;
+}
+/* 助力免单 */
+.top{
+  width: 100%;
+  height: 353rpx;
+}
+.top image{
+  width: 100%;
+  height: 100%;
+}
+/* 搜索框 */
+.big_box{
+  width: 100%;
+  background: #fff;
+  padding: 21rpx 0;
+  display: flex;
+  justify-content: center;
+}
+.search_box{
+  width: 560rpx;
+  height: 63rpx;
+  border-radius: 50rpx;
+  padding-left: 121rpx;
+  background: #e5e5e5;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+.search_box image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 11rpx;
+}
+.search_box input{
+  color: #999;
+  font-size: 26rpx;
+}
+/* 产品 */
+.product_box{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.product_box .product{
+  width: 703rpx;
+  height: 263rpx;
+  padding: 24rpx 24rpx 34rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+.product_box .product image{
+  width: 206rpx;
+  height: 206rpx;
+  margin-right: 44rpx;
+}
+.product_box .product .product_txt{
+  flex: 1;
+  font-size: 24rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.product_box .product .product_txt .name{
+    font-size: 28rpx;
+    color: #1a1a1a;
+} 
+.product_box .product .product_txt .text{
+  font-size: 20rpx;
+  color: #4d4d4d;
+  width: 393rpx;
+  height: 49rpx;
+  line-height: 27rpx;
+  margin: 14rpx 0;
+}
+.product_box .product .product_txt  .money{
+  color: #029a47;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.product_box .product .product_txt .bottom{
+  display: flex;
+  justify-content: space-between;
+}
+.product_box .product .product_txt .bottom .share{
+  width: 120rpx;
+  height: 50rpx;
+  background: #029a47;
+  border-radius: 25rpx;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 50rpx;
+  text-align: center;
+}

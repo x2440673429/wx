@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "van-nav-bar": "/vant/dist/nav-bar/index",
+    "van-tab": "/vant/dist/tab/index",
+    "van-tabs": "/vant/dist/tabs/index"
+  }
+}

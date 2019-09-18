@@ -1,0 +1,23 @@
+<!--pages/myevaluate/myevaluate.wxml-->
+<!-- 评价店铺 -->
+<view class="bigbox" wx:for='{{myevaluate}}' wx:key='{{index}}'>
+  <view class="product">
+    <image src="{{item.img}}"></image>
+    <view class="productbox">
+      <view class="productname">{{item.productname}}</view>
+      <view class="stars">
+      <text>评分:</text>
+      <!-- 星星插件 -->
+        <van-rate
+          readonly
+          value="{{ item.value }}"
+          bind:change="onChange"
+          color='#029a47'
+          count='5'
+          size='15'
+        />
+      </view>
+    </view>
+  </view>
+  <view class="evaluate">{{item.evaluate}}</view>
+</view>

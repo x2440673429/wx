@@ -1,0 +1,30 @@
+<!--pages/preferentialoffer/preferentialoffer.wxml-->
+<!-- 头部 -->
+<view class="top">
+  <image src="../../image/img/youhuiquan.png"></image>
+</view>
+<!-- 专享优惠券框 -->
+<view class="discount_box" >
+  <view class="discount_bor" >
+    <view class="discount_title">
+      <image src=""></image>
+      <text>专享优惠券</text>
+      <image src=""></image>
+    </view>
+    <view class="Coupon" wx:for='{{coupon}}' wx:key='{{index}}'>
+      <view class="Coupon_box">
+        <image src="../../image/img/xinrentehui.png"></image>
+        <view class="Coupon_left">
+          <view class="RMB">{{item.money}}<text>元</text></view>
+          <view class="Receive">立即领取</view>
+        </view>
+        <view class="Coupon_right" >
+          <view class="Coupon_name">{{item.coupon_name}}</view>
+          <view class="shopname">使用店铺： {{item.shopname}}</view>
+          <view class="Usefulness">{{item.usefulness}}</view>
+          <view class="time">{{item.time}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

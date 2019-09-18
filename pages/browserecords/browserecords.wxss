@@ -1,0 +1,91 @@
+/* pages/browserecords/browserecords.wxss */
+page{
+  padding-bottom: 89rpx;
+}
+.browserecords{
+  display: flex;
+  flex-direction: column;
+}
+.browserecords .data{
+  padding: 28rpx 24rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  color: #191919;
+}
+.browserecords .product{
+  padding: 13rpx 0 16rpx 7rpx;
+  box-sizing: border-box;
+  display: flex;
+  height: 224rpx;
+}
+.browserecords .product .product_img{
+  width: 214rpx;
+  height: 195rpx;
+  margin-right: 23rpx;
+}
+.browserecords .product .product_box{
+  flex: 1;
+}
+.browserecords .product .product_box .productname{
+  width: 418rpx;
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 38rpx;
+}
+.browserecords .product .product_box  .money{
+  font-size: 34rpx;
+  color: #029a47;
+  margin-top: 33rpx;
+}
+.edit{
+  color: #191919;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 88rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+}
+/* 选中与未选中 */
+.isselect{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 24rpx;
+  align-self:center ;
+}
+
+
+
+/* 全选删除按钮 */
+.selectall{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+  bottom: 88rpx;
+  left: 0;
+  right: 0;
+  font-size: 28rpx;
+  border-bottom: 2rpx solid #F2F3F8;
+}
+.select{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 20rpx 0 24rpx;
+}
+.selectright{
+  display: flex;
+  align-items: center;
+}
+.del{
+  height: 88rpx;
+  width:  224rpx;
+  line-height: 88rpx;
+  color: #fff;
+  background: #ea1010;
+  text-align: center;
+  font-size: 34rpx;
+}

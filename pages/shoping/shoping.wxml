@@ -1,0 +1,73 @@
+<!-- <van-nav-bar
+  left-text=""
+  right-text=""
+  left-arrow
+  fixed
+  bind:click-left="onClickLeft"
+  border="{{false}}"
+>
+ 
+</van-nav-bar> -->
+<view class="topbox">
+<view class="search_box">  
+  <van-icon name="arrow-left" size='20px' custom-style='color:#fff' bind:click='onClickLeft'/>
+  <view slot="title"  class="toptit">
+    <image src="../../image/1首页/sousuo.png" class='topimg'></image>
+    <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品" class="search"/>
+  </view>
+</view>
+  
+  <view class="titbox">
+    <image src="{{pic}}" class="titimg"></image>
+    <view class="titright">
+      <view class="titr1">
+        <view>{{shopingname}}</view>
+        <image src="../../image/4我的/fenxiang@2x.png" class="titrimg"></image>
+      </view>
+      <view class="titr2" >
+        <view>销量{{shopnumber}}丨收藏{{scnumber}}</view>
+        <view class=" {{collect==0?'titbtmcolor':'titbtm'}}" catchtap="collection">{{collect==0?'收藏':'已收藏'}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-tabs active="{{ active }}" bind:change="onChange" color='#029a47'>
+  <van-tab title="商品">
+    <view class="box1" >
+      <view class="goodbox" wx:for='{{list}}' wx:key='{{index}}'>
+        <image src="{{item.pic}}" class="goodimg"></image>
+        <view class="goodname">{{item.title}}</view>
+        <view class="goodbottom">
+          <view class="bottoml">
+            <text class="goodprice">￥{{item.price}}</text>
+            <text class="goodpriceo"> ￥{{item.original_price}}</text>
+          </view>
+          <view class="bottomr">已售{{item[4]}}件</view>
+        </view>
+
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="店铺信息">
+    <view class="box2">
+      <view class="msgbox">
+        <view class="msgleft">店铺公告</view>
+        <view class="msgrig">{{notice}}</view>
+      </view>
+      <view class="msgbox">
+        <view class="msgleft">地理位置</view>
+        <view class="msgrig">{{address}}</view>
+      </view>
+      <view class="msgbox">
+        <view class="msgleft">店铺电话</view>
+        <view class="msgrig">{{contacts_phone}}</view>
+      </view>
+      <view class="msgbox">
+        <view class="msgleft">营业执照</view>
+        <!-- <view class="msgrig"></view> -->
+        <image src="{{business_logo}}" class="business_logo"></image>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>

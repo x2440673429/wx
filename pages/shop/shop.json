@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "店铺",
+  "usingComponents": {
+    "van-icon": "/vant/dist/icon/index",
+    "van-rate": "/vant/dist/rate/index"
+  }
+}

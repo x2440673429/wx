@@ -1,0 +1,84 @@
+/* pages/mygiftbag/mygiftbag.wxss */
+page{
+  background: #F2F3F8;
+}
+.top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+}
+.top .number{
+  color: #029a47;
+  font-size: 53rpx;
+  margin: 63rpx 0;
+}
+.top .giftbag{
+  font-size: 28rpx;
+  color: #7f7f7f;
+  margin-bottom: 55rpx;
+}
+/* 礼包 */
+.giftbag_box{
+  height: 246rpx;
+  display: flex;
+  padding: 0 23rpx;
+  box-sizing: border-box;
+  flex-direction: column;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.giftbag_box .giftbag_top{
+  height: 165rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.giftbag_box .giftbag_top image{
+  width: 112rpx;
+  height: 112rpx;
+  margin-right: 19rpx;
+}
+.giftbag_box .giftbag_top .giftbag_right{
+  flex: 1;
+  height: 112rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.giftbag_box .giftbag_top .giftbag_right .product{
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #333333;
+}
+.giftbag_box .giftbag_top .giftbag_right .product .state{
+  color: #029a47;
+}
+.giftbag_box .giftbag_top .giftbag_right .text{
+  color: #b1b1b1;
+  font-size: 28rpx;
+}
+.giftbag_box .giftbag_bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+}
+.giftbag_box .giftbag_bottom .time{
+    font-size: 28rpx;
+    color: #b1b1b1;
+}
+.giftbag_box .giftbag_bottom .btn_box{
+  display: flex;
+}
+.giftbag_box .giftbag_bottom .btn_box .btn{
+  width: 130rpx;
+  height: 50rpx;
+  color: #fff;
+  background: #029a47;
+  border-radius: 10rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+}

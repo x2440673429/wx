@@ -1,0 +1,14 @@
+<!--pages/evaluate/evaluate.wxml-->
+<view class="user_box">
+  <image src="{{img}}"></image>
+  <view class="describe">描述···</view>
+  <van-rate value="{{ value }}" bind:change="onChange" size='15' color="#029a47"/>
+</view>
+<view class="textarea">
+  <textarea placeholder="宝贝满足你的期待吗？说说你的试用感受，分享给想买的小姐妹吧" value="{{text}}" maxlength='100'/>
+  <view class="add">
+    <image src="../../image/img/xiangji.png"></image>
+    <!-- <view>添加图片</view> -->
+  </view>
+</view>
+<view class="btn" catchtap="evaluate">确认</view>

@@ -1,0 +1,148 @@
+page {
+  background: #f2f3f8;
+}
+
+/* 订单 */
+
+.order {
+  width: 100%;
+  background: #fff;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.order .shopname {
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #333;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.order .ordernumber {
+  height: 67rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #333;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.order .ordernumber .state {
+  color: #029a47;
+}
+
+.order .product {
+  height: 153rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.order .product image {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 10rpx;
+}
+
+.order .product .product_right {
+  flex: 1;
+  height: 121rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin-left: 19rpx;
+}
+
+.order .product .product_right .productname {
+  color: #333;
+}
+
+.order .product .product_right .product_bottom {
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.order .product .product_right .product_bottom .money {
+  color: #029a47;
+}
+
+.order .allmoney {
+  color: #333;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1rpx solid #e5e5e5;
+  height: 0rpx;
+  align-items: center;
+  position: relative;
+  bottom: 50rpx;
+}
+
+.order .allmoney text {
+  color: #029a47;
+}
+
+.order .hascut text {
+  color: #029a47;
+}
+
+.order .percent text {
+  color: #029a47;
+}
+
+.order .btn {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 46rpx;
+}
+
+.order .btn .cancel_btn {
+  width: 156rpx;
+  height: 46rpx;
+  color: #029a47;
+  border: 1rpx solid #029a47;
+  border-radius: 10rpx;
+}
+
+.order .btn .state_btn {
+  width: 156rpx;
+  height: 46rpx;
+  background: #029a47;
+  border-radius: 10rpx;
+  color: #fff;
+  margin-left: 20rpx;
+}
+
+.hascut {
+  font-size: 28rpx;
+  color: #333;
+  position: relative;
+  top: 10rpx;
+}
+
+.percent {
+  margin: 0 auto;
+  position: relative;
+  bottom: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.headingsname{
+  width: 470rpx;
+  font-size: 24rpx;
+  color: #191919;
+}

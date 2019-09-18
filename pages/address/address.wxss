@@ -1,0 +1,71 @@
+/* pages/address/address.wxss */
+page{
+  background: #F2F3F8
+}
+.box{
+  padding: 20rpx 23rpx;
+  font-size: 28rpx;
+}
+.box1{
+  padding: 34rpx 37rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.cell1{
+  color: #b7b7b7;
+  margin-bottom: 10rpx;
+}
+text{
+  margin-left: 20rpx;
+  color: #000;
+}
+.box2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top:20rpx;
+   border-top: 2rpx solid #f2f3f8;
+}
+.leftcell{
+  display: flex;
+  align-items: center;
+}
+image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.rightcell{
+  display: flex;
+  align-items: center;
+}
+.del{
+  background: #e0e0e0;
+  padding: 14rpx 22rpx;
+  font-size: 24rpx;
+  color: #727272;
+  border-radius: 10rpx;
+}
+.bianji{
+   background: #029a47;
+  padding: 14rpx 22rpx;
+  font-size: 24rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+}
+
+.btmbox{
+  margin-top: 100rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color: #fff;
+}
+.btm{
+  display: inline-block;
+  height: 88rpx;
+  width: 550rpx;
+  line-height: 88rpx;
+  background: #029a47;
+  border-radius: 15rpx;
+}

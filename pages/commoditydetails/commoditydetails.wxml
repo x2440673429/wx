@@ -1,0 +1,157 @@
+<!--pages/commoditydetails/commoditydetails.wxml-->
+<!-- <view class="img">
+  <image src="{{img}}"></image>
+</view> -->
+    <!-- 轮播图 -->
+      <view class="swiper_box">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{imgs}}" wx:key="{{index}}">
+            <swiper-item>
+              <image src="{{item}}" class="slide_image" />
+            </swiper-item>
+          </block>
+        </swiper>
+        <!-- <view class="dots"> 
+            <block wx:for="{{image}}" wx:key="{{index}}"> 
+              <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view> 
+            </block> 
+          </view> -->
+      </view>
+<!-- 商品价格名称等 -->
+<view class="shop_box">
+  <view class="shop_left">
+    <view>
+      <view class="mianbox">
+        <image src="../../image/img/pin.png" class="mian" wx:if='{{goods_type==1}}'></image>
+        <image src="../../image/img/m.png" class="mian" wx:if='{{is_exemption==1}}'></image>
+        <view class="shopname">{{shopname}}</view>
+      </view>
+      <view class="text">
+        <view class="shrottitle">{{text}}</view>
+        <view  class="shop_right" catchtap="share">
+            <image src="../../image/img/fenxiang.png"></image>
+          <text>分享</text>
+        </view>
+      </view>
+    </view>
+    <view class="money">￥{{money}}<text class="oldmoney">￥{{oldmoney}}</text><text class="Stock">库存: {{number}}</text></view>
+  </view>
+  
+
+ 
+</view>
+<!-- 地址 -->
+<view class="addassemble">
+  <view class="assemble">送至<text class="towgroup">{{address}}</text></view>
+  <image src="../../image/img/youjiantou.png"></image>
+</view>
+<!-- 退货 产品保证等 -->
+<view class="performance_box">
+  <view class="performance">
+    <image src="../../image/img/duigou.png"></image>
+    <text>极速退款</text>
+  </view>
+  <view class="performance">
+    <image src="../../image/img/duigou.png"></image>
+    <text>正品保证</text>
+  </view>
+  <view class="performance">
+    <image src="../../image/img/duigou.png"></image>
+    <text>七天无条件退款</text>
+  </view>
+</view>
+<!-- 评论 -->
+<view class="comment_top" >
+  <view>买家评价（{{evaluate_total}}）</view>
+  <image src="../../image/img/youjiantou.png"></image>
+</view>
+<view class="comment_box" wx:for='{{evaluate_info}}' wx:key='{{index}}'>
+  <view class="coment_user">
+    <image src="{{item.avatar}}"></image>
+    <view>{{item.name}}</view>
+  </view>
+  <view class="comment_content">{{item.content}}</view>
+  <view class="img">
+    <image src="{{img}}" wx:for='{{item.image}}' wx:key='{{index}}' wx:for-item='img'></image>
+  </view>
+  <view class="comment_time">{{item.create_time}}</view>
+</view>
+<!-- 商品详情 -->
+<view class="shopdetails">
+  <text>商品详情</text>
+  <image src="../../image/3发现/banner@2x.png"></image>
+  <view>{{item.details}}</view>
+</view>
+<!-- 商品导航 -->
+<view class="shopnav">
+  <view class="shopandsc" catchtap="getshoping">
+    <image src="../../image/img/dianpu.png"></image>
+    <text>店铺</text>
+  </view>
+  <view class="shopandsc" catchtap="collection">
+    <image src="{{is_collect==0?'../../image/img/sc.png':'../../image/img/ysc.png'}}"></image>
+    <text>收藏</text>
+  </view>
+  <view class="savemoney" catchtap="selfpurchase" data-pay="1" >
+    <view>购物车</view>
+  </view>
+  <view class="savemoney opengroup" data-pay="2"  catchtap="selfpurchase">
+   <view>立即购买</view>
+  </view>
+</view>
+
+<!-- 分享赚弹框 -->
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+  custom-style="border-radius: 15rpx 15rpx 0 0"
+>
+ <view class="share_box">
+  <view class="share_money">分享赚￥{{share_money}}</view>
+  <view class="send">送好友{{money}}元代金券</view>
+  <view class="first">好友注册完成首单，你再得5元无门槛代金券</view>
+  <view class="share_less">
+    <view class="share" wx:for='{{share}}' wx:key='{{index}}'>
+      <image src="{{item.img}}"></image>
+      <view>{{item.title}}</view>
+    </view>
+  </view>
+  <view class="close" catchtap="onClose">取消</view>
+ </view>
+</van-popup>
+<!-- 立即购买 -->
+<van-popup
+  show="{{ showpay }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+  custom-style='overflow:visible'
+>
+  <view class="payfor">
+    <view class="top">
+      <image src="{{gradeinof==true?shopinfo.thumb:img}}" class="product_img"></image>
+      <view class="payfor_ringt">
+        <view class="closebtn" >
+          <image src="../../image/img/cha.png" catchtap="onClose"></image>
+        </view>
+        <view class="pay_txt">{{gradeinof==true?shopinfo.price:money}}<view>{{gradeinof==true?shopinfo.original_price:oldmoney}}</view></view>
+      </view>
+    </view>
+    <view class="middle" wx:for='{{specifications}}' wx:key='{{index}}'>
+      <view class="title">{{item.title}}</view>
+      <view class="specifications_box">
+        <view wx:for='{{item.attrs}}' wx:for-key='index2' wx:key='{{index2}}' wx:for-item='items' class="{{items.id==item.zid?'bor':''}}" catchtap="getgrade" data-id="{{items.id}}" data-ids="{{item.id}}"  data-items="{{item}}">{{items.title}}</view>
+      </view>
+    </view>
+    <view class="tottom">
+      <view class="title">数量：</view>
+      <van-stepper value="{{ value }}" bind:change="onChange" input-width='96rpx'integer='true' plus-class='background: #cccccc' minus-class='background: #cccccc' />
+    </view>
+    <view class="getorderbtn">
+      <view class="quzc back" catchtap="addshopping">加入购物车</view>
+      <view class="quzc" catchtap="getorder">确定</view>
+    </view>
+  </view>
+</van-popup>

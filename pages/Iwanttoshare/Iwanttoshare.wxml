@@ -1,0 +1,5 @@
+<!--pages/Iwanttoshare/Iwanttoshare.wxml-->
+<view class="share">
+  <image src="../../image/img/fenxiangbeijing.png" class="img"></image>
+  <view>二维码</view>
+</view>

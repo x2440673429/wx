@@ -1,0 +1,31 @@
+<!--pages/search/search.wxml-->
+<!-- 搜索出来的内容 -->
+
+<!-- 搜索框 -->
+  <view class="searchinput">
+    <input value="{{value}}" ></input>
+    <text>搜素</text>
+  </view>
+  <!-- 标签页及内容 -->
+  <view class="tabnav">
+    <van-tabs active="{{ active }}" bind:change="onChange"  color='#029a47' border='ture'  class='color'>
+      <van-tab title="综合"></van-tab>
+      <van-tab title="销售"></van-tab>
+      <van-tab title="新品"></van-tab>
+      <van-tab title="价格"></van-tab>
+    </van-tabs>
+  </view>
+  <view class="product">
+    <view class="Oneoftheproducts" wx:for='{{productinof}}' wx:key='{{index}}'>
+      <image src="{{item.pic}}" class="log"></image>
+      <view class="name">{{item.title}}</view>
+      <view class="money">
+      <view>
+        ￥{{item.price}}
+        
+        <text>已售{{item.sales_num}}件</text>
+      </view>
+      
+      <image src="../../image/1首页/gouwuche1@2x.png"></image></view>
+    </view>
+  </view>

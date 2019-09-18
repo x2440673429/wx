@@ -1,0 +1,56 @@
+<!--pages/Bargain/Bargain.wxml-->
+<!-- 顶部白色框 -->
+<view class="top">
+  <view class="top_box">
+  <!-- 用户 -->
+    <view class="user">
+      <image src="{{headportrait}}"></image>
+      <view class="username">
+        <view class="name">{{name}}</view>
+        <view class="text">{{text}}</view>
+      </view>
+    </view>
+    <!-- 产品 -->
+    <view class="product_box">
+      <image src="{{productimage}}"></image>
+      <view class="product">
+        <view class="name">{{productname}}</view>
+        <view class="mn">
+          <text class="money">￥{{productmoney}}</text>
+          <text class="number">已有{{productnumber}}人免费拿</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 已砍价格 -->
+<view class="center">
+<view class="speedofprogress">已砍<text>{{barmoney}}</text>元，还差<text>{{badmoney}}</text>元</view>
+</view>
+<!-- 进度条 -->
+<view class="center">
+<view class="Progress"><view class="bar"></view></view>
+</view>
+<!-- 分享 -->
+<view class="center">
+<view class="share">分享给好友，多砍一刀</view>
+</view>
+<!-- 剩余时间 -->
+<view class="center">
+  <view class="time">还剩{{time}}过期，快来砍价吧~</view>
+</view>
+<!-- 帮砍框 -->
+<view class="BargainingGang">
+  <view class="Gang">砍价帮</view>
+  <view class="BargainingGang_box">
+    <view class="BargainingGang_one" wx:for='{{bargainingGang}}' wx:key='{{index}}'>
+      <image src="{{item.image}}"></image>
+      <view class="BargainingGang_name">
+        <view class="username">{{item.name}}</view>
+        <view class="usertext">一起来砍价0元拿</view>
+        <view class="usermonet">砍掉{{item.money}}元</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="rule">规则</view>

@@ -1,0 +1,60 @@
+/* pages/accountsettings/accountsettings.wxss */
+page{
+  background: #F2F3F8;
+
+}
+.head{
+  width: 100%;
+  height: 88rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid rgb(240, 240, 240);
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+/* 头像 */
+.head .right{
+  display: flex;
+  align-items: center;
+}
+.head .right .headimg{
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  margin-right: 43rpx;
+}
+.head .right .click{
+  width: 9rpx;
+  height: 16rpx;
+}
+/* 昵称 */
+.head .right .name{
+  font-size: 28rpx;
+  color: #1a1a1a;
+  margin-right: 18rpx;
+}
+/* 地址 */
+.address{
+  margin: 20rpx 0;
+}
+/* 手机 */
+.head .right .phone{
+  font-size: 28rpx;
+  color: #1a1a1a;
+  margin-right: 18rpx;
+}
+/* 退出登录 */
+.botton{
+  width: 550rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  margin: 124rpx auto 0;
+  color: #fff;
+  background: #029a47;
+  border-radius: 10rpx;
+}

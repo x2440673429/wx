@@ -1,0 +1,67 @@
+/* pages/cashwithdrawal/cashwithdrawal.wxss */
+page{
+  background: #F2F3F8;
+}
+.tixian_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 146rpx;
+  padding: 30rpx 20rpx 8rpx 25rpx;
+  color: #808080;
+  font-size: 28rpx;
+  background: #fff;
+}
+.tixian_box .shuru{
+  display: flex;
+  align-items: flex-end;
+}
+.tixian_box .shuru input{
+  font-size: 34rpx;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+.allmoney{
+  display: flex;
+  padding: 9rpx 20rpx 13rpx 25rpx;
+  box-sizing: border-box;
+  height: 46rpx;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20rpx;
+  background: #fff;
+  border-top: 1rpx solid #f2f3f8;
+}
+.allmoney .yes{
+  color: #808080
+}
+.allmoney .all{
+  color: #029a47;
+}
+/* 确认按钮 */
+.confirm{
+  width: 550rpx;
+  height: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+  color: #fff;
+  background: #029a47;
+  margin: 91rpx auto 30rpx;
+  border-radius: 10rpx;
+}
+/* 提现记录 */
+.record{
+  color: #808080;
+  font-size: 24rpx;
+ text-align: center;
+}
+/* 提现说明 */
+.explain_box{
+  width: 681rpx;
+  margin: auto;
+  height: 140rpx;
+  color: #808080;
+  font-size: 24rpx;
+  line-height: 39rpx;
+  margin-top: 105rpx;
+}

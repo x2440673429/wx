@@ -1,0 +1,103 @@
+/* pages/highqualityorigin/highqualityorigin.wxss */
+/* 搜索框 */
+.input_box{
+  height: 63rpx;
+  width: 568rpx;
+  line-height: 63rpx;
+  padding: 16rpx 0 17rpx 121rpx;
+  border-radius: 50rpx;
+  background: #f2f3f8;
+  margin: 20rpx auto;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  color: #999999;
+}
+.input_box image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 11rpx;
+}
+/* 产品样式 */
+.product_box{
+  width: 100%;
+  padding: 35rpx 22rpx;
+  display: flex;
+  box-sizing: border-box;
+}
+.product_box image{
+  width: 206rpx;
+  height: 206rpx;
+  margin-right: 44rpx;
+}
+.product_box .product{
+  flex: 1;
+  flex-direction: column;
+}
+.product_box .product .productname{
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+.product_box .product  .text{
+  width: 393rpx;
+  font-size: 20rpx;
+  color: #4d4d4d;
+  margin: 14rpx 0;
+}
+.product_box .product .box{
+  display: flex;
+  margin-bottom: 5rpx;
+}
+.product_box .product .box text{
+  width: 50rpx;
+  height: 25rpx;
+  background: #f8d6d5;
+  color: #e2696b;
+  text-align: center;
+  line-height: 25rpx;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+}
+.product_box .product .big_box{
+  display: flex;
+  justify-content: space-between;
+}
+.product_box .product .big_box .Price{
+  display: flex;
+  flex-direction: column;
+}
+.product_box .product .big_box .Price .money{
+  font-size: 34rpx;
+  color: #029a47;
+  font-weight: bold;
+}
+.product_box .product .big_box .Price .addmoney{
+  font-size: 24rpx;
+  color: #b4b4b4;
+}
+.product_box .product .big_box  .botton{
+  display: flex;
+  align-items: flex-end;
+}
+.product_box .product .big_box  .botton .quick{
+  width: 120rpx;
+  height: 50rpx;
+  border: 1rpx solid #029a47;
+  color: #029a47;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  font-size: 24rpx;
+}
+.product_box .product .big_box  .botton .share{
+  width: 120rpx;
+  height: 50rpx;
+  background: #029a47;
+  color: #fff;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+}

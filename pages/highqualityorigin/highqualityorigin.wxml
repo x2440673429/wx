@@ -1,0 +1,30 @@
+<!--pages/highqualityorigin/highqualityorigin.wxml-->
+<view class="input_box">
+  <image src="../../image/2分类/sousuo@2x.png"></image>
+  <input placeholder="输入您当前要搜索的商品"></input>
+</view>
+<!-- tab标签页 -->
+<view >
+  <van-tabs active="{{ active }}" color='#029a47' class='color'>
+  <van-tab title="{{item.name}}"wx:for='{{citys}}' wx:key='{{index}}'></van-tab>
+</van-tabs>
+</view>
+<!-- 产品 -->
+<view class="product_box" wx:for='{{product}}' wx:key='{{index}}'>
+  <image src="{{item.pic}}"></image>
+  <view class="product">
+    <view class="productname">{{item.title}}</view>
+    <view class="text">{{item.short_title}}</view>
+    <view class="box"><text class="temai" wx:for='{{item.customer_tag}}' wx:key='{{index}}' wx:for-item='tag'>{{tag}}</text></view>
+    <view class="big_box">
+      <view class="Price">
+        <view class="money">￥{{item.price}}</view>
+        <view class="addmoney">赚￥{{item.profit}}</view>
+      </view>
+      <view class="botton">
+        <text class="quick">马上抢</text>
+        <text class="share">分享赚</text>
+      </view>
+    </view>
+  </view>
+</view>

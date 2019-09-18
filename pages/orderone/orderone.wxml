@@ -1,0 +1,62 @@
+<!--pages/orderone/orderone.wxml-->
+<!-- 顶部订单状态 -->
+<view class="orderstate_box">
+  <view class="orderstate">订单状态：<text>{{orderstate}}</text></view>
+  <view class="ordernumber_box">
+    <view class="ordernumber">订单编号：{{ordernumber}}</view>
+    <view class="copy" catchtap="textPaste">复制</view>
+  </view>
+  <view class="ordertime">下单时间：{{ordertime}}</view>
+  <view class="Paymentmethod">支付方式：{{Paymentmethod}}</view>
+</view>
+<!-- 订单联系人收货地址 -->
+<view class="top_box">
+  <view class="user">
+    <view >收货人：{{username}}</view>
+    <view>{{phone}}</view>
+  </view>
+  <view class="useraddress">
+    <image src="../../image/2分类/dz.png" class="addressimg"></image>
+    <view>{{address}}</view>
+    <!-- <image src="../../image/1首页/youjiantou2@2x.png" class="youjiantou"></image> -->
+  </view>
+</view>
+<!-- 店铺产品 -->
+<view class="shop">
+  <view class="shopname">{{shopname}}</view>
+  <view class="business_box">
+    <view class="business">
+      <image src="../../image/4我的/shangjia@2x.png"></image>
+      <view>商家发货</view>
+    </view>
+    <view class="state">已发货</view>
+  </view>
+  <view class="productbox">
+    <image src="{{productimg}}"></image>
+    <view class="productright">
+      <view class="productname">{{productname}}</view>
+      <view class="text">{{text}}</view>
+      <view class="bottom">
+        <view class="money">￥{{money}}</view>
+        <view class="number">x{{number}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="message">
+    <view class="title">买家留言</view>
+    <input placeholder="填写买家留言信息" value="{{value}}" bindinput="txt"></input>
+  </view>
+  <view class="message">
+    <view class="title">优惠劵</view>
+    <view class="title">-￥5</view>
+  </view>
+  <view class="message">
+    <view  class="title">配送方式</view>
+    <view  class="title">{{mode}}</view>
+  </view>
+  <view class="money">合计:¥ {{allmoney}}</view>
+  <view class="btn">
+    <view class="logistics_btn" catchtap="viewlogistics">查看物流</view>
+    <view class="confirm_btn">确认收货</view>
+  </view>
+</view>

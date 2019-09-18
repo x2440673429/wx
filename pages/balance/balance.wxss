@@ -1,0 +1,58 @@
+/* pages/balance/balance.wxss */
+page{
+  background: #F2F3F8;
+}
+.balance_box{
+  padding: 62rpx 0 116rpx;
+  box-sizing: border-box;
+  height: 300rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  align-items: center;
+  border-top: 1rpx solid #F2F3F8;
+  border-bottom: 1rpx solid #F2F3F8;
+}
+.balance_box .money{
+  color: #029a47;
+  font-size: 66rpx;
+  font-weight: bold;
+}
+.balance_box .money text{
+  font-size: 34rpx;
+
+}
+.balance_box .mybalance{
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+/* 流水的样式 */
+.flowingwater_box{
+  padding: 21rpx 36rpx 20rpx 24rpx;
+  box-sizing: border-box;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+   font-size: 24rpx;
+}
+.flowingwater_box .flowingwater{
+  color: #1a1a1a;
+}
+.flowingwater_box .box{
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+.flowingwater_box .box .time{
+  color: #1a1a1a;
+}
+/* 收入 */
+.flowingwater_box .box .number1{
+  color: #029a47;
+}
+/* 支出 */
+.flowingwater_box .box .number2{
+  color: #00a2ff;
+}

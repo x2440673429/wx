@@ -1,0 +1,47 @@
+<!--pages/searchbar/searchbar.wxml-->
+<!-- 头部搜索框 -->
+<van-nav-bar
+  left-text=""
+  right-text=""
+  fixed
+  bind:click-left="onClickLeft"
+  safe-area-inset-top
+  border="{{false}}"
+>
+  <view slot="title"  class="toptit">
+    <image src="../../image/img/sousuo.png" class='topimg'></image>
+    <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品"/>
+  </view> 
+</van-nav-bar>
+
+
+<!-- tab标签页 -->
+<view class="tab">
+  <view class="left_box">
+    <view class="name {{key==index?'bor':''}}" wx:for='{{items}}' wx:key='{{index}}' catchtap="qiehuan" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
+  </view>
+  <!-- 右边内容 -->
+  <view class="content_box" wx:if="{{isshow}}">  
+    <!-- 除去优质产地的样式 -->
+    <view wx:for='{{product}}' wx:key='{{index}}' >
+      <view class="content_title"> 
+        <view class="title">{{item.name}}</view>
+        <view class="hot">热卖榜 <image src="../../image/img/lvseyoujiantou.png"></image></view>
+      </view>
+      <view class="product_box">
+        <view class="product" wx:for='{{item.three_list}}' wx:key='{{index}}' wx:for-item='three' catchtap="getselectedbrands" data-id="{{three.id}}" data-name="{{three.name}}" data-type="{{type}}">
+          <image src="{{three.pic}}"></image>
+          <view class="product_name">{{three.name}}</view>
+        </view>
+      </view>
+    </view>
+    
+  </view> 
+</view>
+<!-- 优质产地的样式 -->
+    <view class="content_box" wx:if="{{!isshow}}">
+      <view class="citybox">
+        <view class="city" wx:for='{{product}}' wx:key='{{index}}' catchtap="gethighqualityorigin" data-type="{{type}}" data-name="{{item.name}}" data-id="{{item.id}}">{{item.name}}</view>
+      </view>
+    </view>
+    

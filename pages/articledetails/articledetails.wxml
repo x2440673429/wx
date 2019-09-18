@@ -1,0 +1,16 @@
+<!--pages/articledetails/articledetails.wxml-->
+<view>
+  <view class="img">
+    <image src="{{textlist.cover_url}}"></image>
+  </view>
+  <view class="title">{{textlist.name}}</view>
+  <view class="txt">{{textlist.small_title}}</view>
+  <view class="text">{{textlist.content}}</view>
+  <view class="bottom_box">
+    <view class="collection" catchtap="collection">
+      <image src="{{textlist.collect==0?'../../image/img/sc.png':'../../image/img/ysc.png'}}"></image>
+      <view>收藏</view>
+    </view>
+    <view class="purchase">购买</view>
+  </view>
+</view>

@@ -1,0 +1,171 @@
+/* pages/shop/shop.wxss */
+page{
+  background: #F2F3F8;
+}
+.topbox{
+  width: 100%;
+  height: 321rpx;
+  background: #029a47;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.search_box{
+  width: 100%;
+  display: flex;
+  margin-top: 50rpx;
+  align-items: center;
+}
+.toptit{
+  display: flex;
+  font-size: 26rpx;
+  align-items: center;
+  background: #f2f3f8;
+  border-radius: 50rpx;
+  width: 568rpx;
+  height: 30px; 
+  /* 总高44px */
+  padding: 0 0 0 121rpx;
+  box-sizing: border-box;
+  margin-left: 68rpx;
+}
+/* input{
+  width: 250rpx;
+} */
+.topimg{
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 11rpx;
+}
+.titbox{
+  width: 100%;
+  display: flex;
+}
+.titimg{
+  height: 135rpx;
+  width: 135rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.search{
+  font-size: 26rpx;
+}
+.titright{
+  flex: 1;
+  font-size: 28rpx;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.titr1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 34rpx;
+}
+.titrimg{
+  height: 33rpx;
+  width: 35rpx;
+}
+.titr2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.titbtm{
+  width: 110rpx;
+  height: 45rpx;
+  background: #fff;
+  color: #b3b3b3;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+  text-align: center;
+  line-height: 45rpx;
+}
+.titbtmcolor{
+  color: #029a47;
+  width: 110rpx;
+  height: 45rpx;
+  font-size: 28rpx;
+  border-radius: 30rpx;
+  background: #fff;
+  text-align: center;
+  line-height: 45rpx;
+}
+
+
+
+.box1{
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 24rpx;
+
+}
+.goodbox{
+  margin: 20rpx 20rpx 0 0;
+  background: #fff;
+  border-radius: 14rpx;
+}
+.goodimg{
+  height: 294rpx;
+  width: 342rpx;
+  border-radius: 12rpx 12rpx 0 0;
+}
+.goodname{
+  font-size: 28rpx;
+  margin: 16rpx 0 36rpx 20rpx;
+}
+.goodbottom{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 17rpx 20rpx;
+  align-items: flex-end;
+}
+.bottoml{
+  display: flex;
+  align-items: flex-end;
+}
+.goodprice{
+  font-size: 28rpx;
+  color: #029a47;
+}
+.goodpriceo{
+  font-size: 24rpx;
+  color: #b3b3b3;
+  text-decoration:line-through;
+
+}
+.bottomr{
+  font-size: 20rpx;
+  color: #b3b3b3;
+}
+
+.box2{
+  margin: 21rpx 24rpx;
+  background: #fff;
+  padding: 36rpx;
+  font-size: 34rpx;
+  border-radius: 15rpx;
+}
+.msgbox{
+  display: flex;
+  margin-bottom: 30rpx;
+}
+.msgrig{
+  flex: 1;
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 50rpx;
+}
+.msgleft{
+  width: 180rpx;
+}
+.business_logo{
+  width: 440rpx;
+  height: 610rpx;
+}

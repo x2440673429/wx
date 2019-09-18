@@ -1,0 +1,158 @@
+<!--pages/padetailspage/padetailspage.wxml-->
+<!-- 产品图片和产品名称支持人数等 -->
+<view class="shopimg">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{banner}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide_image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  <!-- <image src="../../image/1首页/chanpin@2x.png"></image> -->
+  <view class="product_box">
+    <view class="box_top">
+      <view class="shopname">{{shopname}}</view>
+      <view class="shoptext">{{shoptext}}</view>
+    </view>
+    <view class="box_bottom">
+      <view class="padetails">
+        <view class="product_number">{{supportnumber}}</view>
+        <view class="producu_img">
+          <image src="../../image/img/zhichirenshu.png"></image>
+          <view>支持人数</view>
+        </view>
+      </view>
+       <view class="padetails">
+        <view class="product_number">￥ {{moneynumber}}</view>
+        <view class="producu_img">
+          <image src="../../image/img/weibiaoti.png"></image>
+          <view>已筹金额</view>
+        </view>
+      </view>
+       <view class="padetails">
+        <view class="product_number">{{reachnumber}}%</view>
+        <view class="producu_img">
+          <image src="../../image/img/shijiancopy.png"></image>
+          <view>达成率</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 步骤条 -->
+<view class="step">
+  <view class="bottom">
+    <view class="step_bor"></view>
+    <view class="step_box">
+      <view class="box"></view>
+      <view class="step_name">创意</view>
+    </view>
+    <view class="step_box">
+      <view class="box"></view>
+      <view class="step_name">评审</view>
+    </view>
+    <view class="step_box">
+      <view class="box"></view>
+      <view class="step_time">众筹中({{surplus_time}})</view>
+    </view>
+    <view class="step_box">
+      <view class="box"></view>
+      <view class="step_name">发货</view>
+    </view>
+  </view>
+</view>
+<!-- 众筹故事 -->
+<view class="paStory">
+  <view class="story">众筹故事</view>
+  <image></image>
+  <view>{{details}}</view>
+</view> 
+<!-- 档位回报 -->
+<view class="return_box">
+  <view class="return">档位回报</view>
+  <text class="seven">共{{grade_count}}档</text>
+</view>
+<van-tabs active="{{ id }}" color="#029a47" class='color' bind:change="onChange">
+  <van-tab title="￥{{item.price}}" wx:for='{{goods_grade}}' wx:key='{{index}}'></van-tab>
+  <view class="gearposition">
+  <image src="{{goods_grade[id].thumb}}"></image>
+  <view class="right">
+    <view class="surplusnumber">剩余{{goods_grade[id].stock}}份</view>
+    <view class="txt">{{goods_grade[id].desc}}</view>
+    <view class="gotosupport" catchtap="gotopay">去支持</view>
+  </view>
+</view>
+</van-tabs>
+
+<!-- 隔离层 -->
+<view class="back_box"></view>
+<!-- 评论框 -->
+<view class="comment_box" catchtap="iwantsay">
+  <view class="allcomment">评论/100</view>
+  <view class="iwantsay">
+    <image src="../../image/img/pinglun.png"></image>
+    我想说
+  </view>
+</view>
+<!-- 评论区 -->
+<view class="user_box">
+  <view class="uesr">
+    <image src="../../image/1首页/kajiatouxiang@2x.png"></image>
+    <view class="username">{{username}}</view>
+  </view>
+  <view class="text">{{text}}</view>
+  <view class="user_img">
+    <image></image>
+  </view>
+  <view class="comment_time">{{commenttime}}</view>
+</view>
+<!-- 底部购买框 -->
+<view class="pay_box">
+  <view class="pay">
+    <image src="../../image/img/sc.png"></image>
+    <view>收藏</view>
+  </view>
+  <view class="pay border">
+    <image src="../../image/img/fx.png"></image>
+    <view>分享</view>
+  </view>
+  <view class="pay">
+    <image src="../../image/img/pinl.png"></image>
+    <view>评论{{allnumber}}</view>
+  </view>
+  <view class="gotopay" catchtap="gotopay">
+    去支付
+  </view>
+</view>
+<!-- 支付弹窗 -->
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+  custom-style='overflow:visible'
+>
+  <view class="payfor">
+    <view class="top">
+      <image src="{{goods_grade[key].thumb}}" class="product_img"></image>
+      <view class="payfor_ringt">
+        <view class="close">
+          <image src="../../image/img/cha.png" catchtap="onClose"></image>
+        </view>
+        <view class="pay_txt">{{goods_grade[key].desc}}</view>
+        <view class="pay_number">剩余数量{{goods_grade[key].stock}}</view>
+      </view>
+    </view>
+    <view class="middle">
+      <view class="title">档位</view>
+      <view class="specifications_box">
+        <view wx:for='{{goods_grade}}' wx:key='{{index}}' class="{{key==index?'bor':''}}" catchtap="getgrade" data-index="{{index}}">￥{{item.price}}</view>
+      </view>
+    </view>
+    <view class="tottom">
+      <view class="title">数量：</view>
+      <van-stepper value="{{ value }}" bind:change="onChange" input-width='96rpx'integer='true' plus-class='background: #cccccc' minus-class='background: #cccccc' />
+    </view>
+    <view class="quzc" catchtap="getorder">去支持</view>
+  </view>
+</van-popup>

@@ -1,0 +1,90 @@
+/* pages/find/find.wxss */
+page{
+  background: #F2F3F8;
+}
+/* 头部图片 */
+.top_img{
+  width: 100%;
+  height: 400rpx;
+}
+.top_img  swiper{
+    width: 100%;
+    height: 400rpx;
+}
+.top_img swiper image {
+  width: 100%;
+  height: 100%;
+}
+/* 新品体验等 */
+.nav{
+  width: 100%;
+  height:   193rpx;
+  padding: 42rpx 21rpx 33rpx;
+  box-sizing: border-box;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 21rpx;
+}
+.nav .oneof{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav .oneof image{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+.nav .oneof view{
+  font-size: 24rpx;
+  color: #1a1a1a;
+  margin-top: 25rpx;
+}
+/* 文章列表 */
+.articlelis{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+.articlelis view{
+  font-size: 28rpx;
+  color: #1a1a1a;
+}
+.articlelis image{
+  width: 9rpx;
+  height: 16rpx;
+  margin-left: 19rpx;
+}
+.list{
+  width: 100%;
+}
+.list image{
+  width: 100%;
+  height: 330rpx;
+}
+.list .list_box{
+  width: 100%;
+  background: #fff;
+  height: 136rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.list .list_box .title{
+  font-size: 34rpx;
+  color: #1a1a1a;
+  font-weight: bold;
+  margin-top: 27rpx;
+}
+.list .list_box .txt{
+  font-size: 24rpx;
+  color: #808080;
+  margin-top: 11rpx;
+}
+.list:last-child{
+  margin-bottom: 20rpx;
+}
