@@ -33,7 +33,7 @@
           <image class='has_shop_circlechecked1' src='../../image/0登录/dagou@2x.png'></image>
         </view>
         <image class='has_shop_icon1' src='../../image/img/dianpu.png'></image>
-        <view class='has_shop_smalltxt' wx:key="{{goodsCar}}" wx:for="{{goodsCar}}">{{item.store_name}}</view>
+        <view class='has_shop_smalltxt' wx:key="key{{goods_car_index}}" wx:for="{{goodsCar}}">{{item.store_name}}</view>
       </view>
       <text class='btn_shop_change' wx:if="{{isEdit}}" bindtap='editGood'>编辑</text>
       <text class='btn_shop_change' wx:else bindtap='editComplete'>完成</text>

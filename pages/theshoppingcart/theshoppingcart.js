@@ -28,15 +28,6 @@ Page({
         attr_id: 0, //商品规格
         goods_title: "糍粑传统营养小食品"
       },
-      {
-        goods_pic: "../../image/4我的/dingdanxiaotupian@2x.png",
-        goods_price: 45,
-        num: 1,
-        goods_id: 1,
-        selected: true,
-        attr_id: 0,
-        goods_title: "糍粑传统营养小食品"
-      }
     ],
 
     parameter: {
