@@ -196,7 +196,7 @@
   <image src="{{item.goods_class.pic}}" class="type_img"></image>
   <view class="product1_box">
     <view class="product1" wx:for-item='items' wx:for='{{item.goods.list}}' wx:key='{{index}}' >
-      <image src="{{items.img}}"></image>
+      <image src="{{items.pic}}"></image>
       <view class="product1_name">{{items.title}}</view>
       <view class="money">￥{{items.price}}<text>￥{{items.original_price}}</text></view>
     </view>

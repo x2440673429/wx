@@ -66,6 +66,7 @@ Page({
     shopinfo: [],//商品价格信息,规格详情
     is_exemption:1,// 是否为免单
     goods_type:1,// 是否贫困 1显示贫图
+    
   },
 
   /**
@@ -244,7 +245,7 @@ Page({
       attr_ids: arr
     }
     https.request('/Goods/getGoodsAttrInfo', obj, '', function (res) {
-      console.log(res)
+      //console.log(res)
       that.setData({
         shopinfo: res.data.info
       })
@@ -262,7 +263,7 @@ Page({
   },
   // 选择规格
   getgrade(e){
-    console.log(e)
+    //console.log(e)
     var id = e.currentTarget.dataset.id;//子集id
     var fid = e.currentTarget.dataset.ids;//父级id
     var items = e.currentTarget.dataset.items;//父级item
@@ -296,8 +297,8 @@ Page({
         }
       })
     })
-    console.log('attr数组',arr)
-    console.log('specifications数组', arr1)
+    //console.log('attr数组',arr)
+    //console.log('specifications数组', arr1)
     this.setData({
       attr: arr,
       specifications: arr1
@@ -327,10 +328,13 @@ Page({
   addshopping(){
     var addshopping = this.data.addshopping
     addshopping.num = this.data.value
-    // addshopping.attr_id = this.data.
+    addshopping.attr_id = this.data.shopinfo.id
+    console.log(addshopping)
     addshopping.goods_id = this.data.goods_id
     this.setData({
-      addshopping: addshopping
+      addshopping: addshopping,
+      show: false,
+
     })
     https.request('/order/joinCart', this.data.addshopping,'',function(res){
       console.log(res)

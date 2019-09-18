@@ -44,10 +44,10 @@ page{
   align-items: center;
   background: #f2f3f8;
   border-radius: 120rpx;
-  width: 568rpx;
+  width: 420rpx;
   height: 63rpx; 
   /* 总高44px */
-  padding-left: 121rpx;
+  padding-left: 82rpx;
   margin-top: 7px;
   box-sizing: border-box;
 }
@@ -100,6 +100,7 @@ page{
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   background: #fff;
   padding: 8rpx 25rpx 20rpx;
   margin-bottom: 20rpx;

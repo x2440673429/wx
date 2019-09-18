@@ -12,7 +12,7 @@
 <view class="search_box">  
   <van-icon name="arrow-left" size='20px' custom-style='color:#fff' bind:click='onClickLeft'/>
   <view slot="title"  class="toptit">
-    <image src="../../image/1首页/sousuo.png" class='topimg'></image>
+    <image src="../../image/img/sousuo.png" class='topimg'></image>
     <input  bindinput="bindKeyInput" placeholder="输入要搜索的商品" class="search"/>
   </view>
 </view>
@@ -22,7 +22,7 @@
     <view class="titright">
       <view class="titr1">
         <view>{{shopingname}}</view>
-        <image src="../../image/4我的/fenxiang@2x.png" class="titrimg"></image>
+        <image src="../../image/img/fenxiang.png" class="titrimg"></image>
       </view>
       <view class="titr2" >
         <view>销量{{shopnumber}}丨收藏{{scnumber}}</view>

@@ -9,11 +9,7 @@ Page({
     address: '收货地址：福建省思明区软件园二期观日路30号之六508B',
     username: '李思思',
     phone: '13646005163',
-    shop: {}, // 商品信息
-    store_name: '', // 商户名称
-    sid: '', // 商户id
-    coupon_num:0, // 优惠卷数量
-    calculate_info: '',// 例：共1件商品 合计：￥137", 
+    shop: [], // 商品信息
     address_info:{},// 收货地址
     allnumber:2,
     allmoney:280,
@@ -25,6 +21,24 @@ Page({
     wxpay:true,// 微信付款
     balance: false,// 余额付款
     value:'',//卖家留言
+    goods_id:'',
+    price: {
+        coupon_id: '',
+        goods_info: [
+          {
+            goods_id: '',
+            num: '',
+            attr_id: '',
+          }
+        ],
+    },
+    show:false,
+    amount:'',
+    goods_amount:'',
+    dispatch_price:'',
+    coupon_money:'',
+    pay_amount:'',
+    yhq:[],// 优惠券
   },
 
   /**
@@ -35,10 +49,22 @@ Page({
     obj.num = options.number
     obj.goods_id = options.id
     obj.attr_id = options.attr
+    // 计算价格
+    var arr = this.data.price
+    arr.goods_info[0].goods_id = options.id
+    arr.goods_info[0].num = options.number
+    arr.goods_info[0].attr_id = options.attr
+
     this.setData({
-      parameter:obj
+      parameter:obj,
+      goods_id: options.id,
+      price: arr
     })
     this.getcheckorderinof()
+
+ 
+
+    this.calculatedprice()
   },
 
   /**
@@ -99,13 +125,9 @@ Page({
   getcheckorderinof(){
     var that = this 
     https.request('/Order/checkOrderInfo', this.data.parameter,'加载中...',function(res){
-      console.log(res)
+      // console.log(res)
       that.setData({
         shop: res.data.goods_info,
-        store_name: res.data.store_name,
-        sid: res.data.sid,
-        coupon_num: res.data.coupon_num,
-        calculate_info: res.data.calculate_info,
         address_info: res.data.address_info
       })
     },function(err){
@@ -114,7 +136,7 @@ Page({
   },
   // 点击选择付款方式
   payfor(){
-    console.log(11223)
+   // console.log(11223)
     if (this.data.wxpay){
       this.setData({
         wxpay: false,
@@ -130,9 +152,83 @@ Page({
   },
   // 卖家留言
   txt(e){
-    console.log(e)
+    //console.log(e)
     this.setData({
       value:e.detail.value
+    })
+  },
+  // 优惠券确认接口
+  getyhqlist(sid,money){
+    var that = this
+    var pic = money.substr(-3,)
+    var goods_ids=[]
+    goods_ids.push(this.data.goods_id)
+   var id =  sid.toString()
+    let obj={
+      sid: id,
+      goods_ids: goods_ids,
+      money: pic
+    }
+    console.log(999,obj)
+    https.request('/order/getCouponList', obj,'加载中...',function(res){
+      console.log(res)
+      that.setData({
+        yhq:res.data.list
+      })
+    },function(err){
+
+    },'')
+  },
+  // 选择优惠券
+  choice(e){
+    this.setData({
+      show:true
+    })
+    var sid = e.currentTarget.dataset.sid
+    var money = e.currentTarget.dataset.money
+    this.getyhqlist(sid,money)
+  },
+  // 关闭优惠券弹框
+  onClose(){
+    this.setData({
+      show: false
+    })
+  },
+  // 确认按钮
+  confirm(){
+    this.setData({
+      show: false
+    })
+
+  },
+  // 计算价格
+  calculatedprice(){
+    var that = this
+    https.request('/order/calculateOrder', this.data.price,'加载中...',function(res){
+      //console.log(res)
+      that.setData({
+        amount: res.data.amount,// 订单总金额
+        coupon_money: res.data.coupon_money,//优惠券抵扣金额
+        dispatch_price: res.data.dispatch_price,//运费
+        goods_amount: res.data.goods_amount,//商品总金额
+        pay_amount: res.data.pay_amount,//应支付费用
+      })
+    },function(err){
+
+    },'GET')
+  },
+  // 点击付款
+  payment(){
+    var time = new Data()
+    console.log(time)
+    wx.requestPayment({
+      timeStamp: '',
+      nonceStr: '',
+      package: '',
+      signType: 'MD5',
+      paySign: '',
+      success(res) { },
+      fail(res) { }
     })
   }
 })

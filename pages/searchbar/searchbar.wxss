@@ -9,7 +9,7 @@
   height: 30px; 
   /* 总高44px */
   padding: 0 20px;
-  margin-top: 7px;
+  margin-top: 15rpx;
 }
 .topimg{
   height: 30rpx;

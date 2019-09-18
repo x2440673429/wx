@@ -42,11 +42,33 @@ page{
   margin-left: 11rpx;
 }
 .top_box .useraddress .youjiantou{
-  width: 9rpx;
-  height: 16rpx;
+  /* width: 9rpx;
+  height: 16rpx; */
+  width: 13rpx;
+  height: 25rpx;
   position: absolute;
   top: 14rpx;
   right: 20rpx;
+}
+/* 添加收货地址 */
+.addaddress_box{
+  width: 702rpx;
+  display: flex;
+  justify-content: center;
+  height: 88rpx;
+  align-items: center;
+  background: #fff;
+  margin: 20rpx 0 0;
+  border-radius: 12rpx;
+}
+.addaddress_box image{
+  width: 13rpx;
+  height: 25rpx;
+  margin-left: 20rpx;
+}
+.addaddress{
+  display: flex;
+  align-items: center;
 }
 /* 店铺产品 */
 .shop{
@@ -204,4 +226,89 @@ page{
   box-sizing: border-box;
   margin-top: 23rpx;
   margin-bottom: 19rpx;
+}
+/* 优惠券弹框 */
+.yhq_less{
+  width: 702rpx;
+  padding: 44rpx 48rpx 68rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.yhq_less  .choiceyhq{
+  color: #333333;
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 74rpx;
+}
+.yhq_less .yhq_box{
+  width: 606rpx;
+  height: 140rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22rpx 20rpx 30rpx;
+  box-sizing: border-box;
+  background: #f2f3f8;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.yhq_less .yhq_box .yhq_left{
+  width: 140rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 25rpx;
+}
+.yhq_less .yhq_box .yhq_left .yhqmoney{
+  font-size: 34rpx;
+  color: #000000
+}
+.yhq_less .yhq_box .yhq_left .yhqmoney text{
+  font-weight: bold;
+  font-size: 40rpx;
+}
+.yhq_less .yhq_box .yhq_left .yhqtype{
+  color: #333333;
+  font-size: 24rpx;
+}
+.yhq_less .yhq_box .yhq_right{
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.yhq_less .yhq_box .yhq_right .right_txt{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.yhq_less .yhq_box .yhq_right .right_txt .yhqtitle{
+  color: #333333;
+  font-size: 24rpx;
+}
+.yhq_less .yhq_box .yhq_right .right_txt .yhqtime{
+  color: #808080;
+  font-size: 20rpx;
+}
+.yhq_less .yhq_box  .yhq_right .choiceimg{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+.confirm_btn{
+  width: 550rpx;
+  height: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+  color: #fff;
+  background: #029a47;
+  font-size: 34rpx;
+  border-radius: 10rpx;
+  margin-top: 124rpx;
 }

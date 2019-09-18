@@ -106,5 +106,9 @@ Page({
     }, function (err) {
 
     }, 'GET')
+  },
+  // 点击使用
+  use(){
+    
   }
 })

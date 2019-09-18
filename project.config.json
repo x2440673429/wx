@@ -45,8 +45,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/socialorganization/socialorganization",
-					"pathName": "pages/socialorganization/socialorganization",
+					"name": "pages/orderone/orderone",
+					"pathName": "pages/orderone/orderone",
 					"query": "",
 					"scene": null
 				},

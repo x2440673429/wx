@@ -252,7 +252,8 @@ Page({
     https.request('/goods/getFlashPointGoodslist',this.data.parameter,'加载中...',function(res){
       //console.log(res)
       that.setData({
-        limitedproduct: res.data.list
+        limitedproduct: res.data.list,
+        limitedtime: res.data.time_info
       })
     },function(err){
 
@@ -263,12 +264,13 @@ Page({
     var obj = this.data.parameter
     obj.time_id = e.currentTarget.dataset.timeid.toString()
     obj.page = 1
+    //console.log(obj.time_id)
     this.setData({
       parameter: obj,
       limitedproduct: [],
     })
     this.gettimelist()
-    console.log(this.data.limitedtime)
+    //console.log(this.data.limitedtime)
   },
   // 点击查看全部
   getall() {

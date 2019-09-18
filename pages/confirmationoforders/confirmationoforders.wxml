@@ -1,27 +1,31 @@
 <!--pages/confirmationoforders/confirmationoforders.wxml-->
 <!-- 头部联系人 -->
-<view class="top_box" catchtap="getaddress">
-  <view class="user">
-    <view >收货人：{{username}}</view>
-    <view>{{phone}}</view>
-  </view>
-  <view class="useraddress">
-    <image src="../../image/img/dz.png" class="addressimg"></image>
-    <view>{{address}}</view>
-    <image src="../../image/img/youjiantou.png" class="youjiantou"></image>
-  </view>
+<view class="top_box" catchtap="getaddress" wx:if='{{address_info.has_address==1}}'>
+
+    <view class="user">
+      <view >收货人：{{username}}</view>
+      <view>{{phone}}</view>
+    </view>
+    <view class="useraddress">
+      <image src="../../image/img/dz.png" class="addressimg"></image>
+      <view>{{address}}</view>
+      <image src="../../image/img/youjiantou.png" class="youjiantou"></image>
+    </view>
 </view>
+<view wx:if='{{address_info.has_address==0}}' class="addaddress_box" catchtap="getaddress">
+    <view class='addaddress'>添加收货地址 <image src="../../image/img/youjiantou.png" class="youjiantou"></image></view>
+  </view>
 <!-- 店铺产品 -->
-<view class="shop">
-  <view class="shopname">{{store_name}}</view>
-  <view class="productbox">
-    <image src="{{shop.pic}}"></image>
+<view class="shop" wx:for='{{shop}}' wx:key='{{index}}'>
+  <view class="shopname">{{item.store_name}}</view>
+  <view class="productbox" wx:for='{{item.goods_info}}' wx:key='{{index}}' wx:for-item='items'>
+    <image src="{{items.pic}}"></image>
     <view class="productright">
-      <view class="productname">{{shop.title}}</view>
-      <view class="text">{{shop.attr_name}}</view>
+      <view class="productname">{{items.title}}</view>
+      <view class="text">{{items.attr_name}}</view>
       <view class="bottom">
-        <view class="moneyone">￥{{shop.price}}</view>
-        <view class="number">x{{item.number}}</view>
+        <view class="moneyone">￥{{items.price}}</view>
+        <view class="number">x{{items.num}}</view>
       </view>
     </view>
   </view>
@@ -31,13 +35,13 @@
   </view>
   <view class="message">
     <view  class="title">配送方式</view>
-    <view  class="title">{{item.mode}}</view>
+    <view  class="title">{{item.express}}</view>
   </view>
-  <text class="money" decode="{{true}}" space="{{true}}">{{calculate_info}}</text>
-  <view class="message youhui">
+  <text class="money" decode="{{true}}" space="{{true}}">{{item.calculate_info}}</text>
+  <view class="message youhui" catchtap="choice" data-sid="{{item.sid}}" data-id="{{items.id}}" data-money="{{item.calculate_info}}">
     <view  class="title">优惠劵</view>
     <view  class="title title1">
-    有{{coupon_num}}个可用
+    有{{item.coupon_num}}个可用
     <image src="../../image/img/youjiantou.png"></image>
     </view>
   </view>
@@ -62,7 +66,27 @@
 <view class="payfor_btn">
   <view class="list">
     <view class="num">共{{allnumber}}件</view>
-    <view class="allmoney">合计:<text>￥{{allmoney}}</text></view>
+    <view class="allmoney">合计:<text>￥{{pay_amount}}</text></view>
   </view>
-  <view class="pay_btn">付款</view>
+  <view class="pay_btn" catchtap="payment">付款</view>
 </view>
+<!-- 优惠券弹框 -->
+<van-popup show="{{ show }}" bind:close="onClose" custom-style='border-radius: 10rpx'>
+  <view class="yhq_less">
+    <view class="choiceyhq">选择优惠券</view>
+    <view class="yhq_box" wx:for='{{yhq}}' wx:key='{{index}}'>
+      <view class="yhq_left">
+        <view class="yhqmoney"><text>{{item.money}}</text>元</view>
+        <view class="yhqtype">{{item.type}}</view>
+      </view>
+      <view class="yhq_right">
+        <view class="right_txt">
+          <view class="yhqtitle">{{item.name}}</view>
+          <view class="yhqtime">{{item.begin_time}}-{{item.end_time}}</view>
+        </view>
+        <image src="../../image/img/weixuanzhong.png" class="choiceimg"></image>
+      </view>
+    </view>
+    <view class="confirm_btn" catchtap="confirm">确认</view>
+  </view>
+</van-popup>

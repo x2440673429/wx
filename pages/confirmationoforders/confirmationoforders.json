@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "确认订单",
   "usingComponents": {
+    "van-popup": "/vant/dist/popup/index"
   }
 }
