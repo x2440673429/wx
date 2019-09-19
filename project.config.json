@@ -45,15 +45,15 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/orderone/orderone",
-					"pathName": "pages/orderone/orderone",
+					"name": "pages/address/address",
+					"pathName": "pages/address/address",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 1,
-					"name": "pages/shoping/shoping",
-					"pathName": "pages/shoping/shoping",
+					"name": "pages/evaluate/evaluate",
+					"pathName": "pages/evaluate/evaluate",
 					"query": "",
 					"scene": null
 				}

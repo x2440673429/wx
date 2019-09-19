@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText": "添加收货地址",
-  "usingComponents": {}
+  "usingComponents": {
+      "van-picker": "/vant/dist/picker/index",
+      "van-popup": "/vant/dist/popup/index"
+  }
 }

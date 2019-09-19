@@ -1,27 +1,51 @@
 <view class="box">
   <view class="cell1">
     <view class="tit">收货人</view>
-    <input bindinput="bindKeyInput" placeholder="请填写收货人姓名" />
+    <input bindinput="bindNameInput" placeholder="请填写收货人姓名"  value='{{name}}'/>
   </view>
   
   <view class="cell1">
     <view class="tit">联系电话</view>
-    <input bindinput="bindKeyInput" placeholder="请填写联系电话" />
+    <input bindinput="bindPhoneInput" placeholder="请填写联系电话" value='{{phone}}' type="number" maxlength="11"/>
   </view>
 
   <view class="cell2">
     <view class="cell3" >
       <view class="tit">所在地区</view>
-      <input bindinput="{{bindKeyInput}}" bindchange="getaddress" data-info="{{info}}" placeholder="请选择所在区域"  />
+      <input  catchtap='getaddress' value='{{addresstxt}}' placeholder="请选择所在区域" disabled='{{true}}'  />
+      <!-- <view>
+      <van-picker columns="{{ sheng }}" bind:change="onChange" />
+      <van-picker columns="{{ shi }}" bind:change="onChange" />
+      <van-picker columns="{{ qu }}" bind:change="onChange" />
+      </view> -->
     </view>
-    <image src="../../image/4我的/xiangxiaxiaojiantou@2x.png" class="jiantou"></image>
+    <image src="../../image/img/xiangxiaxiaojiantou.png" class="jiantou"></image>
   </view>
 
   <view class="cell4">
     <view>详细地址</view>
-     <textarea bindblur="bindTextAreaBlur" auto-height placeholder="请填写街道、门牌号等详细地址" />
+     <textarea bindinput="bindTextAreaBlur" auto-height placeholder="请填写街道、门牌号等详细地址"  value="{{addressxq}}" />
+  
   </view>
 </view>
 <view class="box2">
-  <view class="btm2">确认</view>
+  <view class="btm2" catchtap='submitinfo'>确认</view>
 </view>
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  overlay="{{ true }}"
+  bind:close="onClose"
+>
+
+  <van-picker 
+    id='pickerv'
+    show-toolbar="{{true}}" 
+    title='地区选择' 
+    columns="{{ columns }}" 
+    bind:confirm='submitaddress'
+    bind:cancel='onClose'
+     bind:change="onChange"
+      />
+
+</van-popup>

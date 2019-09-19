@@ -17,6 +17,7 @@ page{
 }
 .tit{
   width: 140rpx;
+  
 }
 .cell2{
   padding: 30rpx 35rpx;
@@ -63,4 +64,8 @@ textarea{
   color: #fff;
   line-height: 88rpx;
   border-radius: 17rpx;
+}
+
+.van-picker__columns{
+  height: 440rpx;
 }

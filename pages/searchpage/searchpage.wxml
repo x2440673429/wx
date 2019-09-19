@@ -9,7 +9,7 @@
 <!-- 历史记录 -->
 <view class="history">
   <view>历史记录</view>
-  <image src="../../image/1首页/shanchu@2x.png" catchtap="deleteall"></image>
+  <image src="../../image/img/shanchu.png" catchtap="deleteall"></image>
 </view>
 <!-- 历史记录框 -->
 <view class="history_box">

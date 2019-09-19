@@ -34,20 +34,22 @@
 
 <van-tabs active="{{ active }}" bind:change="onChange" color='#029a47'>
   <van-tab title="商品">
-    <view class="box1" >
-      <view class="goodbox" wx:for='{{list}}' wx:key='{{index}}'>
-        <image src="{{item.pic}}" class="goodimg"></image>
-        <view class="goodname">{{item.title}}</view>
-        <view class="goodbottom">
-          <view class="bottoml">
-            <text class="goodprice">￥{{item.price}}</text>
-            <text class="goodpriceo"> ￥{{item.original_price}}</text>
+    <scroll-view bindscrolltolower='lower'>
+      <view class="box1" >
+        <view class="goodbox" wx:for='{{list}}' wx:key='{{index}}'>
+          <image src="{{item.pic}}" class="goodimg"></image>
+          <view class="goodname">{{item.title}}</view>
+          <view class="goodbottom">
+            <view class="bottoml">
+              <text class="goodprice">￥{{item.price}}</text>
+              <text class="goodpriceo"> ￥{{item.original_price}}</text>
+            </view>
+            <view class="bottomr">已售{{item[4]}}件</view>
           </view>
-          <view class="bottomr">已售{{item[4]}}件</view>
-        </view>
 
+        </view>
       </view>
-    </view>
+    </scroll-view>
   </van-tab>
   <van-tab title="店铺信息">
     <view class="box2">

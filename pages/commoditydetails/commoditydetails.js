@@ -73,7 +73,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    //console.log(options)
 
     var id = options.id
     this.geiproductinfo(id)
@@ -139,7 +139,7 @@ Page({
   geiproductinfo(id){
     var that = this
     https.request('/Goods/getGoodsDetail', { goods_id: id},'加载中...',function(res){
-      console.log(res)
+     // console.log(res)
       that.setData({
         shopname: res.data.goods_info.title,//商品名称
         money: res.data.goods_info.price,//商品售价
@@ -185,7 +185,7 @@ Page({
       })
 
       https.request('/user/usercollect', that.data.parameter, '加载中...', function (res) {
-        console.log(res)
+        //console.log(res)
       }, function (err) {
 
       })
@@ -225,7 +225,7 @@ Page({
   getgoodsattr(){
     var that = this
     https.request('/Goods/getGoodsAttr', { goods_id: this.data.goods_id},'',function(res){
-      console.log(res)
+      //console.log(res)
       that.setData({
         specifications: res.data.attrs_list
       })
@@ -315,8 +315,7 @@ Page({
   },
   // 点击确定
   getorder(){
-    if (this.data.shopinfo.length==0){//如果为空数组说明没值返回
-       
+    if (this.data.shopinfo.length==0){//如果为空数组说明没值返回 
       return;
    }else{
       wx.navigateTo({
@@ -337,7 +336,7 @@ Page({
     var addshopping = this.data.addshopping
     addshopping.num = this.data.value
     addshopping.attr_id = this.data.shopinfo.id
-    console.log(addshopping)
+   // console.log(addshopping)
     addshopping.goods_id = this.data.goods_id
     this.setData({
       addshopping: addshopping,

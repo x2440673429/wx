@@ -1,17 +1,17 @@
 <view class="box">
 
-  <view class="box1">
-    <view class="cell1">收货人： <text>韩韩</text></view>
-    <view class="cell1">联系电话： <text>13666666666</text></view>
-    <view class="cell1">收货地址： <text>福建 厦门 湖里 经度科技</text></view>
+  <view class="box1" wx:for='{{addresslist}}' wx:key='{{index}}'>
+    <view class="cell1">收货人： <text>{{item.receiver_name}}</text></view>
+    <view class="cell1">联系电话： <text>{{item.receiver_phone}}</text></view>
+    <view class="cell1">收货地址： <text>{{item.address_city}}{{item.address_county}}{{item.address_province}}{{item.detail_address}}</text></view>
     <view class="box2">
-     <view class="leftcell">
-      <image src="../../image/img/sheweimoren.png"></image>
-      <text>设为默认</text>
+     <view class="leftcell" catchtap="setdefault" data-is_default="{{item.is_default}}" data-id="{{item.id}}">
+      <image src="../../image/img/sheweimoren.png" wx:if='{{item.is_default==0}}'></image>
+      <text wx:if='{{item.is_default==0}}'>设为默认</text>
      </view>
      <view class="rightcell">
-        <view class="del">删除</view>
-        <view class="bianji">编辑</view>
+        <view class="del" catchtap="deladdress" data-id="{{item.id}}">删除</view>
+        <view class="bianji" catchtap="addaddress" data-type="2" data-id="{{item.id}}">编辑</view>
      </view>
   </view>
   </view>
@@ -20,6 +20,6 @@
   
 </view>
 
-<view class="btmbox" catchtap="addaddress">
+<view class="btmbox" catchtap="addaddress" data-type="1">
   <view class="btm">添加收货地址</view>
 </view>

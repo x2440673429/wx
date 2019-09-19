@@ -32,13 +32,19 @@ page{
   width: 669rpx;
   height: 160rpx;
 }
+.images{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
 .add{
   width: 134rpx;
   height: 134rpx;
-  position: relative;
   /* border: 2rpx dashed #808080; */
   box-sizing: border-box;
-  border-radius: 10rpx;
+  /* border-radius: 10rpx; */
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
 }
 .add image{
   width: 100%;

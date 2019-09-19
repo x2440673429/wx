@@ -6,25 +6,70 @@ Page({
    * 页面的初始数据
    */
   data: {
-    value:'樱桃',
+    value:'',
     active: 0,
     productinof:[],
     parameter:{
-      min_price:'0',
-      max_price:'99999',
+      min_price:'',
+      max_price:'',
       page:'1',
       pagesize:'10',
       is_new:'0',
-      sales_num_type:'2',
+      sales_num_type:'0',
       search_key:'',
+      price_type:'0'
     },
     total:0,
   },
   // 改变Tab标签页
   onChange(event) {
-
+    console.log(event)
+    var obj = this.data.parameter
+    if (event.detail.title =='销售'){
+      obj.sales_num_type = '2'
+      this.setData({
+        parameter: obj,
+        productinof: []
+      })
+    }  if (event.detail.title == '新品'){
+      obj.is_new = '1'
+      this.setData({
+        parameter: obj,
+        productinof: []
+      })
+    }  if (event.detail.title == '价格') {
+      obj.price_type = '1'
+      this.setData({
+        parameter: obj,
+        productinof: []
+      })
+    } 
+    if (event.detail.title == '综合') {
+      this.setData({
+        productinof: []
+      })
+    }
+    this.getsearchlist()
   },
+  // 搜索内容
+  getvalue(e){
+    console.log(e)
+    this.setData({
+      value: e.detail.value
+    })
+  },
+  // 搜索
+  search(){
+    var obj = this.data.parameter
+    obj.search_key = this.data.value
+    this.setData({
+      parameter:obj,
+      productinof:[]
+    })
 
+    this.getsearchlist()
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -107,8 +152,6 @@ Page({
     this.setData({
       parameter:obj
     })
-    console.log(this.data.productinof.length)
-    console.log(this.data.total)
     if (this.data.productinof.length == this.data.total){
       return
     }else{

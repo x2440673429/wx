@@ -21,7 +21,6 @@ Page({
     is_self:0,// 是否本人店铺
     parameter:{// 店铺详情页
       sid:'',
-      user_token:'',
     },
     parameterpage:{//店铺商品列表
       page:'1',
@@ -38,6 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    
     var obj = this.data.parameter
     obj.sid = options.sid
     var arr = this.data.onchangecollect
@@ -90,16 +90,7 @@ Page({
    */
   onReachBottom: function() {
     
-      if (this.data.list.length == this.data.total) {
-        return
-      } else {
-        var obj = this.data.parameterpage
-        obj.page++
-        this.setData({
-          parameterpage: obj
-        })
-        this.getshopinglist()
-      }
+     
   },
 
   /**
@@ -116,29 +107,29 @@ Page({
   },
   // 点击收藏
   collection(){
+    var obj = this.data.onchangecollect;
+    var bol = 0;
     if (this.data.collect==0){
-      var obj = this.data.onchangecollect
       obj.handle_type = '1'
-      this.setData({
-        collect:1,
-        onchangecollect:obj
-      })
-      https.request('/user/usercollect', this.data.onchangecollect, '加载中...', function (res) {
-        console.log(res)
-      }, function (err) {
-      })
+      bol = 1
     }else{
-      var obj = this.data.onchangecollect
       obj.handle_type = '0'
-      this.setData({
-        collect: 0,
-        onchangecollect: obj
-      })
-      https.request('/user/usercollect', this.data.onchangecollect, '加载中...', function (res) {
-        console.log(res)
-      }, function (err) {
-      })
+      
     }
+
+    this.setData({
+      collect: bol,
+      onchangecollect: obj
+    })
+    console.log(this.data.onchangecollect)
+
+    https.request('/user/usercollect', this.data.onchangecollect, '加载中...', function (res) {
+      console.log(res)
+    }, function (err) {
+    })
+
+
+
   },
   // 点击返回按钮
   onClickLeft() {
@@ -152,6 +143,7 @@ Page({
     var that = this
     console.log(this.data.parameter)
     https.request('/store/storeInfo', this.data.parameter,'加载中...',function(res){
+      console.log()
       console.log(res)
       that.setData({
         shopingname: res.data.info.name,//店铺名称
@@ -187,6 +179,19 @@ Page({
 
     }, 'GET')
   },
+  // 上拉触底加载更多
+  lower(){
+    console.log('到底了')
+    if (this.data.list.length == this.data.total) {
+      return
+    } else {
+      var obj = this.data.parameterpage
+      obj.page++
+      this.setData({
+        parameterpage: obj
+      })
+      this.getshopinglist()
 
-  
+    }
+  }
 })

@@ -1,6 +1,7 @@
 /* pages/shop/shop.wxss */
 page{
   background: #F2F3F8;
+  padding-bottom: 20rpx;
 }
 .topbox{
   width: 100%;
@@ -146,7 +147,7 @@ page{
 }
 
 .box2{
-  margin: 21rpx 24rpx;
+  margin: 21rpx 24rpx 0;
   background: #fff;
   padding: 36rpx;
   font-size: 34rpx;

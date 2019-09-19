@@ -1,18 +1,24 @@
 // pages/address/address.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    addresslist:[],
+    parameter:{
+      page:1,
+      pagesize: 10,
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   
+    
   },
 
   /**
@@ -26,7 +32,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getaddresslist()
+    // this.data.addresslist.map((val,key) => {
+    //   var is_default = val.is_default
+      
+    // })
+   
+    
   },
 
   /**
@@ -64,9 +76,63 @@ Page({
 
   },
   //添加收货地址
-  addaddress:function(){
+  addaddress:function(e){
+    var type = e.currentTarget.dataset.type
+    var id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/addaddress/addaddress',
+      url: '/pages/addaddress/addaddress?type='+ type + '&id=' + id,
     })
+  },
+  // 获取收获地址列表
+  getaddresslist(){
+    var that = this
+    https.request('/address/getaddresslist', this.data.parameter,'加载中',function(res){
+      console.log(res)
+     
+      that.setData({
+        addresslist: res.data.list
+      })
+      if (that.data.addresslist.length < 2) {
+        var obj = that.data.addresslist
+        obj[0].is_default = 1
+        that.setData({
+          addresslist: obj
+        })
+      }
+    },function(err){
+
+    }) 
+    },
+    // 设置默认
+  setdefault(e){
+    var obj = {
+      is_default: 1,
+      id: e.currentTarget.dataset.id,
+    }
+    var that = this
+    https.request('/address/setdefaultaddress',obj,'',function(res){
+      console.log(res)
+      that.onShow();//刷新页面
+    },function(err){
+
+    })
+  },
+  // 删除地址
+  deladdress(e){
+    wx.showModal({
+      title: '提示',
+      content: '确定删除',
+      success(res){
+        var id = Number(e.currentTarget.dataset.id)
+        console.log(id)
+        var that = this
+        https.request('/address/deladdress', { id: id }, '', function (res) {
+          console.log(res)  
+          
+        }, function (err) {
+        })
+      } 
+    })
+    this.onShow()//刷新页面
   }
 })

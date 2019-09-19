@@ -177,7 +177,7 @@ page{
 }
 .pay_box .left image{
   width: 37rpx;
-  height: 30rpx;
+  height:37rpx;
   margin-right: 19rpx;
 }
 .pay_box .left .pay{

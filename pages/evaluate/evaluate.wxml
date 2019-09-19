@@ -6,9 +6,14 @@
 </view>
 <view class="textarea">
   <textarea placeholder="宝贝满足你的期待吗？说说你的试用感受，分享给想买的小姐妹吧" value="{{text}}" maxlength='100'/>
-  <view class="add">
-    <image src="../../image/img/xiangji.png"></image>
-    <!-- <view>添加图片</view> -->
+  <view class="images">
+    <view class="add" wx:for='{{imgs}}' wx:key='{{index}}'>
+      <image src="{{item}}" > </image>
+    </view>
+    <view class="add" wx:if='{{imgs.length<9}}'>
+      <image src="../../image/img/xiangji.png" catchtap="getchooseImage" ></image>
+      <!-- <view>添加图片</view> -->
+    </view>
   </view>
 </view>
 <view class="btn" catchtap="evaluate">确认</view>

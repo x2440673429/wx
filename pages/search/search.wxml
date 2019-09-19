@@ -3,8 +3,8 @@
 
 <!-- 搜索框 -->
   <view class="searchinput">
-    <input value="{{value}}" ></input>
-    <text>搜素</text>
+    <input value="{{value}}" bindinput="getvalue"></input>
+    <text catchtap="search">搜素</text>
   </view>
   <!-- 标签页及内容 -->
   <view class="tabnav">

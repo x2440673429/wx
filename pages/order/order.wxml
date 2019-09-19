@@ -1,39 +1,42 @@
 <!--pages/order/order.wxml-->
 <!-- 头部联系人 -->
-<view class="top_box" catchtap="getaddress">
+<view class="top_box" catchtap="getaddress"  wx:if='{{shop.address_info.has_address==1}}'>
   <view class="user">
-    <view >收货人：{{username}}</view>
-    <view>{{phone}}</view>
+    <view >收货人：{{shop.address_info.address.name}}</view>
+    <view>{{shop.address_info.address.tel}}</view>
   </view>
   <view class="useraddress">
     <image src="../../image/img/dz.png" class="addressimg"></image>
-    <view>{{address}}</view>
+    <view>{{shop.address_info.address.address_detail}}</view>
     <image src="../../image/img/youjiantou.png" class="youjiantou"></image>
   </view>
 </view>
+<view wx:if='{{shop.address_info.has_address==0}}' class="addaddress_box" catchtap="getaddress">
+    <view class='addaddress'>添加收货地址 <image src="../../image/img/youjiantou.png" class="youjiantou"></image></view>
+</view>
 <!-- 店铺产品 -->
 <view class="shop">
-  <view class="shopname">{{shopname}}</view>
+  <view class="shopname">{{shop.store_name}}</view>
   <view class="productbox">
-    <image src="../../image/1首页/chanpin@2x.png"></image>
+    <image src="{{shop.grade_info.thumb}}"></image>
     <view class="productright">
-      <view class="productname">{{productname}}</view>
-      <view class="text">{{text}}</view>
+      <view class="productname">{{shop.grade_info.title}}</view>
+      <view class="text">{{shop.grade_info.title}}</view>
       <view class="bottom">
-        <view class="money">￥{{money}}</view>
-        <view class="number">x{{number}}</view>
+        <view class="money">￥{{shop.grade_info.price}}</view>
+        <view class="number">x{{shop.grade_info.num}}</view>
       </view>
     </view>
   </view>
   <view class="message">
     <view class="title">买家留言</view>
-    <input placeholder="填写买家留言信息" value="{{value}}" bindinput="txt"></input>
+    <input placeholder="填写买家留言信息" value="{{value}}" bindinput="txt" ></input>
   </view>
   <view class="message">
     <view  class="title">配送方式</view>
     <view  class="title">{{mode}}</view>
   </view>
-  <view class="money">合计:¥ {{allmoney}}</view>
+  <view class="money">合计:¥ {{shop.amount}}</view>
 </view>
 <!-- 协议 -->
 <view class="agreement">
@@ -56,25 +59,25 @@
   <view class="paymode">支付方式</view>
 </view>
 <!-- 支付方式 -->
-<view class="pay_box" catchtap="paymentmethod">
+<view class="pay_box" catchtap="paymentmethod" data-paytype="wx">
   <view class="left">
     <image src="../../image/img/weixinzhifu.png"></image>
     <view class="pay">微信支付</view>
   </view>
-  <image src="{{wxpayfor==1?'../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}} "class="border"></image> 
+  <image src="{{paytype=='wx'?'../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}} "class="border"></image> 
 </view>
-<view class="pay_box" catchtap="paymentmethod">
+<view class="pay_box" catchtap="paymentmethod" data-paytype="balance">
   <view class="left">
     <image src="../../image/img/yuezhifu.png"></image>
     <view class="pay">余额</view>
   </view>
-  <image src="{{balance==1?'../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}} "class="border"></image> 
+  <image src="{{paytype=='balance'?'../../image/img/xuanzhong.png':'../../image/img/weixuanzhong.png'}} "class="border"></image> 
 </view>
 <!-- 支付 -->
 <view class="payfor_btn">
   <view class="list">
-    <view class="num">共{{number}}件</view>
-    <view class="allmoney">合计:<text>￥{{allmoney}}</text></view>
+    <view class="num">共{{shop.goods_total}}件</view>
+    <view class="allmoney">合计:<text>￥{{shop.amount}}</text></view>
   </view>
-  <view class="pay_btn">付款</view>
+  <view class="pay_btn" catchtap="payment">付款</view>
 </view>

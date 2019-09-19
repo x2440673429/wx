@@ -15,7 +15,8 @@ Page({
       scores:'',
       type:'',
       log_id:'',
-    }
+    },
+    imgs:[]
   },
   onChange(event) {
     this.setData({
@@ -94,6 +95,26 @@ Page({
       console.log(res)
     },function(res){
 
+    })
+  },
+  // 拍照
+  getchooseImage(){
+    var that = this
+    wx.chooseImage({
+      count:9,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        console.log(res)
+        var img = that.data.imgs
+        img.push(tempFilePaths[0]) 
+        that.setData({
+          imgs: img
+        })
+        console.log(that.data.imgs)
+      }
     })
   }
 })

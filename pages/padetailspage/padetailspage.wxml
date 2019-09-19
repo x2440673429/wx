@@ -146,7 +146,7 @@
     <view class="middle">
       <view class="title">档位</view>
       <view class="specifications_box">
-        <view wx:for='{{goods_grade}}' wx:key='{{index}}' class="{{key==index?'bor':''}}" catchtap="getgrade" data-index="{{index}}">￥{{item.price}}</view>
+        <view wx:for='{{goods_grade}}' wx:key='{{index}}' class="{{key==index?'bor':''}}" catchtap="getgrade" data-index="{{index}}" data-grade_id="{{item.id}}">￥{{item.price}}</view>
       </view>
     </view>
     <view class="tottom">

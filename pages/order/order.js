@@ -1,4 +1,5 @@
 // pages/order/order.js
+const https = require('../../utils/https.js')
 Page({
 
   /**
@@ -8,23 +9,22 @@ Page({
     address: '收货地址：福建省思明区软件园二期观日路30号之六508B',
     username:'李思思',
     phone:'13646005163',
-    shopname:'原生态店铺',
-    productname:'山东烟台大樱桃车厘子新鲜水果',
-    text:'原生态无无污染蜂蜜',
-    money:'280.00',
-    number:'1',
-    mode:'免邮',
-    allmoney:'280.00',
+    value:'',
+    shop:{},
     read:0,// 协议 1未选中。0 选中
-    wxpayfor:0,// 微信付款 1选中 0 未选中
-    balance: 0,// 余额付款 1选中 0 未选中
+    paytype:'wx',
+    arrival:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    this.setData({
+      arrival: options
+    })
+    this.getorderinfo(options)
   },
 
   /**
@@ -88,32 +88,71 @@ Page({
     }
   },
   // 付款方式
-  paymentmethod(){
-    if (this.data.wxpayfor){
-      this.setData({
-        wxpayfor: 0,
-        balance: 1
-      })
-    }else{
-      this.setData({
-        wxpayfor: 1,
-        balance: 0
-      })
-    }
-    // if (this.data.balance){
-    //   this.setData({
-    //     balance: 0
-    //   })
-    // } else {
-    //   this.setData({
-    //     balance: 1
-    //   })
-    // }
+  paymentmethod(e){
+    this.setData({
+      paytype: e.currentTarget.dataset.paytype
+    })
+  
   },
   //选择收货地址
   getaddress(){
     wx.navigateTo({
       url: '/pages/address/address',
     })
+  },
+  // 获取订单详情
+  getorderinfo(parameter){
+    var that = this
+    https.request('/Crowd/checkOrderInfo', parameter,'加载中...',function(res){
+      console.log(res)
+      that.setData({
+        shop:res.data,
+      })
+    },function(err){
+
+    },'GET')
+  },
+  // 卖家留言
+  txt(e){
+    console.log(e)
+    this.setData({
+      value: e.detail.value
+    })
+  },
+  // 付款
+  payment(){
+    if (this.data.read==1){
+      wx.showToast({
+        title: '请阅读并同意《支持者协议》',
+        icon: 'none',
+        duration: 1000
+      })
+    } else if (this.data.shop.address_info.has_address==0){
+      wx.showToast({
+        title: '请添加收货地址',
+        icon: 'none',
+        duration: 1000
+      })
+    }else{
+      this.addOrder()
+    }
+
+    
+    
+  },
+  // 付款接口
+  addOrder(){
+    var that = this 
+    var obj = {
+      address_id: this.data.shop.address_info.address.id,
+      remark:this.data.value,
+    }
+    var params = Object.assign(obj, this.data.arrival);//合并对象
+    https.request('/crowd/addOrder', params,'加载中...',function(res){
+      console.log(res)
+    },function(err){
+
+    },'GET')
   }
+  
 })

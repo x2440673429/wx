@@ -79,8 +79,9 @@ Page({
   // 手机号验证
   //获取input输入框的值
   getPhoneValue: function (e) {
+    var phone = this.validateNumber(e.detail.value)
     this.setData({
-      phone: e.detail.value
+      phone: phone
     })
   },
   // getCode: function () {

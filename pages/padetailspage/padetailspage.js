@@ -25,8 +25,9 @@ Page({
     interval: 4000,//自动切换时间间隔
     duration: 800,//滑动动画时长
     banner: [],// 轮播图
-    goods_id:'',// 调接口传值商品id是不是冲上个页面传过来的嗯
-    value:0,
+    goods_id:'',// 商品id
+    value:'1',// 数量
+    grade_id: '',// 档位id
     key:0,
   },
   // 去支付按钮
@@ -53,6 +54,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      goods_id: options.id
+    })
     this.getpadetailspage(options.id)
   },
 
@@ -118,7 +122,8 @@ Page({
         details: res.data.goods_info.details,
         banner: res.data.goods_info.pics,
         grade_count: res.data.goods_info.grade_count,
-        goods_grade: res.data.goods_info.goods_grade
+        goods_grade: res.data.goods_info.goods_grade,
+        grade_id: res.data.goods_info.goods_grade[0].id
       })
     },function(err){
 
@@ -126,14 +131,19 @@ Page({
   },
   // 选择档位
   getgrade(e){
+
     this.setData({
-      key: e.currentTarget.dataset.index
+      key: e.currentTarget.dataset.index,
+      grade_id:e.currentTarget.dataset.grade_id
     })
   },
   // 点击去支持，获得订单
   getorder(){
     wx.navigateTo({
-      url: '/pages/order/order?number=' + this.data.value,
+      url: '/pages/order/order?num=' + this.data.value + '&goods_id=' + this.data.goods_id + '&grade_id=' + this.data.grade_id ,
+    })
+    this.setData({
+      show:false
     })
   },
   // 评论
