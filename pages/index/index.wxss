@@ -123,7 +123,7 @@ page{
   justify-content: space-between;
 }
 .storename .storename_box:nth-child(even){
-  margin-left: 19rpx;
+  margin-left: 0rpx;
 }
 .storename .storename_box .storetitle{
   font-size: 36rpx;

@@ -119,20 +119,31 @@ Page({
   },
   // 删除地址
   deladdress(e){
+    var that = this
     wx.showModal({
       title: '提示',
       content: '确定删除',
       success(res){
-        var id = Number(e.currentTarget.dataset.id)
-        console.log(id)
-        var that = this
-        https.request('/address/deladdress', { id: id }, '', function (res) {
-          console.log(res)  
-          
-        }, function (err) {
-        })
+        if (res.confirm) {//点击了确定
+          var id = Number(e.currentTarget.dataset.id)
+          console.log(id)
+          https.request('/address/deladdress', { id: id }, '', function (res) {
+            console.log(res)
+            if (res.code=='0000'){
+              that.getaddresslist()
+            }else{
+              wx.showToast({
+                title: res.msg,
+                icon: 'none',
+                duration: 2000
+              })
+            }  
+            
+          }, function (err) {
+          })
+        }
       } 
     })
-    this.onShow()//刷新页面
+
   }
 })

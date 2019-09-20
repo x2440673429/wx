@@ -75,10 +75,10 @@
 <van-tabs active="{{ id }}" color="#029a47" class='color' bind:change="onChange">
   <van-tab title="￥{{item.price}}" wx:for='{{goods_grade}}' wx:key='{{index}}'></van-tab>
   <view class="gearposition">
-  <image src="{{goods_grade[id].thumb}}"></image>
+  <image src="{{goods_grade[index].thumb}}"></image>
   <view class="right">
-    <view class="surplusnumber">剩余{{goods_grade[id].stock}}份</view>
-    <view class="txt">{{goods_grade[id].desc}}</view>
+    <view class="surplusnumber">剩余{{goods_grade[index].stock}}份</view>
+    <view class="txt">{{goods_grade[index].desc}}</view>
     <view class="gotosupport" catchtap="gotopay">去支持</view>
   </view>
 </view>

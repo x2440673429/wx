@@ -38,10 +38,10 @@
     <view  class="title">{{item.express}}</view>
   </view>
   <text class="money" decode="{{true}}" space="{{true}}">{{item.calculate_info}}</text>
-  <view class="message youhui" catchtap="choice"  data-key="{{index}}" data-sid="{{item.sid}}" data-id="{{items.id}}" data-money="{{item.calculate_info}}">
+  <view class="message youhui" catchtap="choice"   data-num="{{item.coupon_num}}" data-key="{{index}}" data-sid="{{item.sid}}" data-id="{{items.id}}" data-money="{{item.calculate_info}}">
     <view  class="title">优惠劵</view>
     <view  class="title title1">
-    有{{item.coupon_num}}个可用
+    {{item.name?item.name:'有'+item.coupon_num+'个可用'}}
     <image src="../../image/img/youjiantou.png"></image>
     </view>
   </view>

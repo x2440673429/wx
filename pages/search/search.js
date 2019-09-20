@@ -24,9 +24,24 @@ Page({
   // 改变Tab标签页
   onChange(event) {
     console.log(event)
-    var obj = this.data.parameter
+    var obj = {
+      min_price: '',
+      max_price: '',
+      page: '1',
+      pagesize: '10',
+      is_new: '0',
+      sales_num_type: '0',
+      search_key: this.data.parameter.search_key,
+      price_type: '0'
+    }
+
     if (event.detail.title =='销售'){
-      obj.sales_num_type = '2'
+      if (this.data.parameter.sales_num_type!='0'){
+          this.data.parameter.sales_num_type == '1' ? obj.sales_num_type = '2' : obj.sales_num_type = '1'//2正序1倒叙
+        }else{
+          obj.sales_num_type = '2';
+        }
+      
       this.setData({
         parameter: obj,
         productinof: []
@@ -38,7 +53,12 @@ Page({
         productinof: []
       })
     }  if (event.detail.title == '价格') {
-      obj.price_type = '1'
+      if (this.data.parameter.price_type != '0') {
+        this.data.parameter.price_type == '1' ? obj.price_type = '2' : obj.price_type = '1'//2正序1倒叙
+      } else {
+        obj.price_type = '2';
+      }
+  
       this.setData({
         parameter: obj,
         productinof: []
@@ -46,6 +66,7 @@ Page({
     } 
     if (event.detail.title == '综合') {
       this.setData({
+        parameter: obj,
         productinof: []
       })
     }

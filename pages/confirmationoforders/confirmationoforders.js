@@ -187,9 +187,18 @@ getnumber(){
     console.log(999,obj)
     https.request('/order/getCouponList', obj,'加载中...',function(res){
       console.log(res)
-      that.setData({
-        yhq:res.data.list
-      })
+      if (res.code == '0000') {
+        that.setData({
+          yhq: res.data.list
+        })
+      }else{
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000
+        })
+      }
+     
     },function(err){
 
     },'')
@@ -199,6 +208,10 @@ getnumber(){
     var sid = e.currentTarget.dataset.sid
     var money = e.currentTarget.dataset.money
     var key = e.currentTarget.dataset.key
+    var num = e.currentTarget.dataset.num;
+    if (num==0){//优惠券为0张则不展示弹框
+      return
+    }
     this.setData({
       show:true,
       shopindex: key
@@ -215,24 +228,29 @@ getnumber(){
   // 确认按钮
   confirm(){
     var  couponid =''
+    var name ='';
     if (this.data.yhq[this.data.choiceyhq]){
        couponid = this.data.yhq[this.data.choiceyhq].id;
+      name = this.data.yhq[this.data.choiceyhq].name
     }else{
       this.setData({
         show: false,
-   
       })
     }
    
     
       var arr = this.data.shop;
       arr[this.data.shopindex].coupon_id = couponid
+    arr[this.data.shopindex].name = name
       console.log(couponid)
       this.setData({
         show: false,
         shop: arr
       })
+      
       this.calculatedprice()
+      
+     
   
     
   },
